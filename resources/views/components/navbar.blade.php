@@ -17,29 +17,32 @@
         <div class="container-fluid ">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-evenly w-100 align-items-center">
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-blu scalebig dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Prodotti
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Prodotti in promo <i class="bi bi-piggy-bank-fill"></i></a></li>
-                      <li><a class="dropdown-item" href="#">Trend della settimana</a></li>
+                      <li><a class="dropdown-item " href="#">Prodotti in promo <i class="bi bi-piggy-bank"></i></a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a class="dropdown-item" href="#">Trend della settimana <i class="bi bi-calendar4-week"></i></a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Tutti i prodotti <i class="bi bi-list-task"></i></a></li>
                     </ul>
                   </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-blu scalebig dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Categorie
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        {{-- foreach di categorie --}}
+                        {{-- @foreach ($categories as $category)
+                        <li><a class="dropdown-item " href="#">Prodotti in promo <i class="bi bi-piggy-bank"></i></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        @endforeach --}}
+                      <li><a class="dropdown-item" href="#">Foreach di categorie</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-blu scalebig dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Area personale
                     </a>
                     <ul class="dropdown-menu">
@@ -50,7 +53,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-blu scalebig dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Assistenza
                     </a>
                     <ul class="dropdown-menu">
@@ -61,7 +64,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-blu scalebig dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Contatti
                     </a>
                     <ul class="dropdown-menu">
@@ -73,7 +76,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-blu scalebig " href="#" >
-                        <button class="btn btn-add text-blu">
+                        <button class="btn btn-add text-blu fs-5">
                             <span>Aggiungi un articolo <i class="bi bi-plus-lg"></i></span>
                         </button>
                     </a>

@@ -15,7 +15,6 @@ nav {
     background: whitesmoke;
     box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
     top: 0;
-    border-bottom: #003255 2px solid;
 }
 
 .secondary-navbar-sticky {
@@ -62,16 +61,16 @@ nav {
 
 /* #endregion */
 
+/* #region BUTTONS */
 .btn {
-    border: #003255 2px solid;
+    border: none
 }
+
 .btn-add {
     font-weight: 500;
 }
-.btn-add:hover{
-    border: #003255 2px solid;
-    background-color: #00c13d14;
-}
+
+/* #endregion */
 
 /* #region SCALE */
 .scalesmall:hover {
@@ -88,7 +87,12 @@ nav {
 
 /* #endregion */
 
-
+@media (max-width: 769px) {
+    .navbar{
+        position: sticky;
+        padding: ;
+    }
+}
 
 
 
