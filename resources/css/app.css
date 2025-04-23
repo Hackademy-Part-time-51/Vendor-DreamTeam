@@ -10,6 +10,15 @@ body {
     font-style: normal;
 }
 
+.nav-link{
+    margin-top: 0.5rem;
+}
+.nav-link:hover{
+    color: #00C13E;
+    transition: all 0.2s linear;
+    transform: scale(1.02);
+}
+
 /* #region NAVBAR */
 nav {
     background: whitesmoke;
