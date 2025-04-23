@@ -4,17 +4,27 @@
 
 body {
     background: whitesmoke;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
-nav{
+/* #region NAVBAR */
+nav {
     background: whitesmoke;
     box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
     top: 0;
+    border-bottom: #003255 2px solid;
 }
-.secondary-navbar-sticky{
+
+.secondary-navbar-sticky {
     position: sticky;
     top: 0;
+    color: #003255;
 }
+
+/* #endregion */
 
 /* #region COLORI */
 .text-verde {
@@ -41,11 +51,9 @@ nav{
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
 }
 
-.montserrat> {
+.montserrat {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -53,3 +61,59 @@ nav{
 }
 
 /* #endregion */
+
+.btn {
+    border: #003255 2px solid;
+}
+.btn-add {
+    font-weight: 500;
+}
+.btn-add:hover{
+    border: #003255 2px solid;
+    background-color: #00c13d14;
+}
+
+/* #region SCALE */
+.scalesmall:hover {
+    transition: transform 0.2s linear;
+    transform: scale(0.95);
+    color: #003255;
+}
+
+.scalebig:hover {
+    transition: transform 0.1s linear;
+    transform: scale(1.02);
+    color: #003255;
+}
+
+/* #endregion */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
