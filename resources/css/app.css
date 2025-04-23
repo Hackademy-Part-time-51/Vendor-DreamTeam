@@ -1,3 +1,55 @@
 @import 'bootstrap';
 @import 'animate.css';
 @import 'bootstrap-icons';
+
+body {
+    background: whitesmoke;
+}
+
+nav{
+    background: whitesmoke;
+    box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
+    top: 0;
+}
+.secondary-navbar-sticky{
+    position: sticky;
+    top: 0;
+}
+
+/* #region COLORI */
+.text-verde {
+    color: #00C13E;
+}
+
+.text-blu {
+    color: #003255;
+}
+
+.bg-verde {
+    background-color: #00C13E;
+}
+
+.bg-blu {
+    background-color: #003255;
+}
+
+/* #endregion */
+
+/* #region FONT */
+.noto-sans {
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.montserrat> {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* #endregion */
