@@ -41,6 +41,9 @@ nav {
 .bg-blu {
     background-color: #003255;
 }
+.bg-rosso{
+    background-color: #C62E2E;
+}
 
 /* #endregion */
 
@@ -68,6 +71,29 @@ nav {
 
 .btn-add {
     font-weight: 500;
+}
+.btn-base{
+    border: #003255 3px solid;
+    color: #003255;
+}
+.btn-base:hover{
+    border: #003255 3px solid;
+    color: #003255;
+    background-color: white;
+    transition: all 0.2s linear;
+    transform: scale(0.98);
+}
+.bg-rosso{
+    border: #003255 3px solid;
+    color: white;
+    background-color: #C62E2E;
+}
+.bg-rosso:hover{
+    border: #003255 3px solid;
+    color: white;
+    background-color: #C62E2E;
+    transition: all 0.2s linear;
+    transform: scale(0.98);
 }
 
 /* #endregion */

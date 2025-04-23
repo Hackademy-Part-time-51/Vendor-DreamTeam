@@ -102,22 +102,62 @@
       </div>
       <div class="offcanvas-footer">
         <a href="{{route('register')}}">
-          <button class="btn btn-register text-blu fs-1">Registrati <i class="bi bi-person-plus"></i></button>
+          <button class="btn btn-register text-blu fs-3">Registrati <i class="bi bi-person-plus"></i></button>
         </a>
+        <br>
         <a href="{{route('login')}}">
-          <button class="btn btn-register text-blu fs-1">Login <i class="bi bi-box-arrow-in-right"></i></button>
+          <button class="btn btn-register text-blu fs-3">Login <i class="bi bi-box-arrow-in-right"></i></button>
         </a>
       </div>
     </div>
     @endguest
     @auth
         <div class="offcanvas-header">
+          <h2 class="offcanvas-title text-blu" id="userOffCanvasLabel">Benvenuto <span class="text-verde">{{Auth::user()->name}}</span></h2>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center w-100 align-items-center h-75">
+            <li class="nav-item">
+              <a class="nav-link text-blu scalebig fs-3"  role="button" aria-expanded="false">
+                <i class="bi bi-person-lines-fill"></i>  Profilo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-blu scalebig fs-3" href="#" role="button" aria-expanded="false">
+                <i class="bi bi-cart"></i>  Ordini
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-blu scalebig fs-3" href="#" role="button" aria-expanded="false">
+                <i class="bi bi-heart"></i>  Preferiti
+              </a>
+            </li>
+            <button type="button" class="btn scalebig btn-register text-blu fs-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <i class="bi bi-box-arrow-left"></i> Esci 
+            </button>
+          </ul>
         </div>
-        <div class="offcanvas-footer">
+        <div class="offcanvas-footer text-blu">
+
         </div>
     </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-3 text-center" id="staticBackdropLabel">Vuoi uscire?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-base " data-bs-dismiss="modal">Torna indietro.</button>
+            <form action="{{route('logout')}}" method="POST">
+              @csrf
+              <button type="submit" class="btn btn-rosso bg-rosso text-white" data-bs-dismiss="modal">Si, esci.</button>
+            </form>
+          </div>
+        </div>
+      </div>
     @endauth
 
   </div>
