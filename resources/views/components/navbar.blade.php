@@ -88,13 +88,16 @@
 {{-- menu offcanvas menu --}}
 <div class="offcanvas offcanvas-start text-blu" tabindex="-1" id="menuOffCanvas" aria-labelledby="menuOffCanvasLabel">
     <div class="offcanvas-header">
+      <a href="/">
+        <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="50">
+      </a>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body text-blu">
       <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
           <h2 class="accordion-header text-blu">
-            <button class="accordion-button collapsed fs-3 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
               <i class="bi bi-box-seam me-2"></i> Prodotti
             </button>
           </h2>
@@ -102,7 +105,7 @@
             <div class="accordion-body">
               <ul class="list-unstyled fs-4">
                 <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-piggy-bank-fill me-2"></i> Prodotti in promo</a></li>
-                <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-calendar4-week-fill me-2"></i> Trend della settimana</a></li>
+                <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-award"></i> Trend della settimana</a></li>
                 <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-list-task me-2"></i> Tutti i prodotti</a></li>
               </ul>
             </div>
@@ -110,7 +113,7 @@
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed fs-3 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
               <i class="bi bi-tags-fill me-2"></i> Categorie
             </button>
           </h2>
@@ -124,7 +127,7 @@
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed fs-3 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
               <i class="bi bi-person-circle me-2"></i> Area personale
             </button>
           </h2>
@@ -141,7 +144,7 @@
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed fs-3 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
               <i class="bi bi-question-circle-fill me-2"></i> Assistenza
             </button>
           </h2>
@@ -158,7 +161,7 @@
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed fs-3 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
               <i class="bi bi-envelope-fill me-2"></i> Contatti
             </button>
           </h2>
@@ -206,11 +209,14 @@
     @endguest
     @auth
         <div class="offcanvas-header">
-          <h2 class="offcanvas-title text-blu" id="userOffCanvasLabel">Benvenuto <span class="text-verde">{{Auth::user()->name}}</span></h2>
+          <a href="/">
+            <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="50">
+          </a>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center w-100 align-items-center h-75">
+            <h2 class="offcanvas-title text-blu" id="userOffCanvasLabel">Benvenuto <span class="text-verde">{{Auth::user()->name}}</span></h2>
             <li class="nav-item">
               <a class="nav-link text-blu scalebig fs-3"  role="button" aria-expanded="false">
                 <i class="bi bi-person-lines-fill"></i>  Profilo
