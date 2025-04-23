@@ -20,4 +20,6 @@ Route::put('/products/{product}',[PageController::class,'update'] )->name('produ
 Route::delete('/products/{product}',[PageController::class,'destroy'] )->name('products.destroy')->middleware('auth');
 
 
+
+
 // Route::resource('products',PageController::class)->middleware('auth');
