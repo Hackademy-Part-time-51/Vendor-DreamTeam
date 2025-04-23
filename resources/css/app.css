@@ -90,7 +90,7 @@ nav {
 @media (max-width: 769px) {
     .navbar{
         position: sticky;
-        padding: ;
+        /* padding: ; */
     }
 }
 
