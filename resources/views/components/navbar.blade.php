@@ -86,15 +86,14 @@
       </nav>
 </div>
   
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuOffCanvas" aria-labelledby="menuOffCanvasLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="menuOffCanvas" aria-labelledby="menuOffCanvasLabel">
     <div class="offcanvas-header">
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
     </div>
-  </div>
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="userOffCanvas" aria-labelledby="userOffCanvasLabel">
-
+</div>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="userOffCanvas" aria-labelledby="userOffCanvasLabel">
     @guest
     <div class="offcanvas-header">
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -102,10 +101,15 @@
     <div class="offcanvas-body py-0 text-center">
       </div>
       <div class="offcanvas-footer">
+        <a href="{{route('register')}}">
+          <button class="btn btn-register text-blu fs-1">Registrati <i class="bi bi-person-plus"></i></button>
+        </a>
+        <a href="{{route('login')}}">
+          <button class="btn btn-register text-blu fs-1">Login <i class="bi bi-box-arrow-in-right"></i></button>
+        </a>
       </div>
     </div>
     @endguest
-
     @auth
         <div class="offcanvas-header">
         </div>
