@@ -36,7 +36,7 @@
               <ul class="list-unstyled fs-4">
                 <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-piggy-bank-fill me-2"></i> Prodotti in promo</a></li>
                 <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-award"></i> Trend della settimana</a></li>
-                <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-list-task me-2"></i> Tutti i prodotti</a></li>
+                <li><a class="dropdown-item text-blu nav-link" href="{{route('products.index')}}"><i class="bi bi-list-task me-2"></i> Tutti i prodotti</a></li>
               </ul>
             </div>
           </div>

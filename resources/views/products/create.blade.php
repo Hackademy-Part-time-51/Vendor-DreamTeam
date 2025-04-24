@@ -1,3 +1,3 @@
 <x-layout>
-    @livewire('products.create')
+    @livewire('products.create', compact('categories'))
 </x-layout>

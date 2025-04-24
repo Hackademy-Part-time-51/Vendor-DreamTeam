@@ -11,7 +11,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item " href="#"><i class="bi bi-piggy-bank"></i> Prodotti in promo </a></li>
                       <li><a class="dropdown-item" href="#"><i class="bi bi-calendar4-week"></i> Trend della settimana </a></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-list-task"></i> Tutti i prodotti </a></li>
+                      <li><a class="dropdown-item" href="{{route('products.index')}}"><i class="bi bi-list-task"></i> Tutti i prodotti </a></li>
                     </ul>
                 </li>
                 {{-- categorie --}}

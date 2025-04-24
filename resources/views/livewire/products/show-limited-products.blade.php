@@ -18,7 +18,6 @@
                                     <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}
                                 </p>
                             @endif
-
                         </div>
                     </div>
                 </div>

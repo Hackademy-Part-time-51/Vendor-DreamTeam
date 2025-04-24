@@ -7,11 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 
 class PageController extends Controller
-{public function __construct()
-    {
-        $this->authorizeResource(Product::class, 'product');
-    }
-
+{
     public function home() {
         return view('welcome');
     }
@@ -23,7 +19,8 @@ class PageController extends Controller
     }
 
     public function create() {
-        return view('products.create');
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
     }
 
     public function edit(Product $product) {

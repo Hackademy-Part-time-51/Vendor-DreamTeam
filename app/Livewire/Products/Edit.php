@@ -9,16 +9,21 @@ use Livewire\Attributes\Validate;
 class Edit extends Component
 {   
     public $product;
-    #[Validate(['required|string|max:50'])]
-    public $name;
-    #[Validate(['required|string|max:2048'])]
+    public $categories;
+
+    #[Validate('required|string')]
+    public $title;
+    #[Validate('required|string|max:2048')]
     public $description;
-    #[Validate(['required|numeric|float'])]
+    #[Validate('required|numeric|decimal:0,2|min:0')]
     public $price;
+    #[Validate('required|exists:categories,id')]
+    public $category_id;
+    public $user_id;
 
     public function mount(Product $product) {
         $this->product = $product;
-        $this->name = $product->name;
+        $this->title = $product->title;
         $this->description = $product->description;
         $this->price = $product->price;
     }
@@ -26,7 +31,7 @@ class Edit extends Component
     public function store() {
         $this->validate();
         $this->product->update([
-            'name' => $this->name,
+            'title' => $this->title,
             'description' => $this->description,
             'price' => $this->price
         ]);

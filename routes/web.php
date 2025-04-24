@@ -25,13 +25,13 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('auth');
 });
 
-// rotte autenticazione 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('products', PageController::class);
+// // rotte autenticazione 
+// Route::middleware(['auth'])->group(function () {
+//     Route::resource('products', PageController::class);
     
-    // Rotte per la gestione dei ruoli (solo manager)
-    Route::middleware(['role:manager'])->prefix('admin')->name('admin.')->group(function () {
-        Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
-        Route::put('/roles/{user}', [RoleController::class, 'update'])->name('roles.update');
-    });
-});
+//     // Rotte per la gestione dei ruoli (solo manager)
+//     Route::middleware(['role:manager'])->prefix('admin')->name('admin.')->group(function () {
+//         Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
+//         Route::put('/roles/{user}', [RoleController::class, 'update'])->name('roles.update');
+//     });
+// });
