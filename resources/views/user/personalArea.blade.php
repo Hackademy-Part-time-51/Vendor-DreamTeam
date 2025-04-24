@@ -31,9 +31,9 @@
                       </div>
                 </section>
             </div>
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-8 p-4 align-content-center">
                 <section class="card-user">
-            
+                  @livewire('products.create')
                 </section>
             </div>
         </div>

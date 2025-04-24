@@ -1,4 +1,4 @@
-<form wire:submit="create">
+<form wire:submit="create" class=" rounded p-3">
     <div class="mb-3">
         <label for="title" class="form-label">Titolo</label>
         <input type="text" class="form-control" id="title" wire:model="title" value="{{ old('title') }}">
@@ -9,7 +9,7 @@
     </div>
     <div class="mb-3">
         <label for="price" class="form-label">Prezzo</label>
-        <input type="email" class="form-control" id="price" wire:model="price" value="{{ old('price') }}">
+        <input type="number" class="form-control" id="price" wire:model="price" value="{{ old('price') }}">
     </div>
     <button>Crea</button>
 </form>
