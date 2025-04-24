@@ -21,5 +21,5 @@ Route::put('/products/{product}',[PageController::class,'update'] )->name('produ
 Route::delete('/products/{product}',[PageController::class,'destroy'] )->name('products.destroy')->middleware('auth');
 
 Route::controller(UserController::class)->group(function () {
-    Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea');
+    Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('auth');
 });

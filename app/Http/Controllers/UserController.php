@@ -9,6 +9,6 @@ class UserController extends Controller
 {
     public function personalArea (User $user,$id){
         $user = User::find($id); 
-        return view('personalArea', compact('user'));
+        return view('user.personalArea', compact('user'));
     }
 }
