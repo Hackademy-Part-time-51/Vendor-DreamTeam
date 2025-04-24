@@ -58,12 +58,12 @@
         <input wire:model="profile_photo" id="profile_photo" type="file" name="profile_photo"
             class="form-control @error('profile_photo') is-invalid @enderror" accept="image/*"
             onchange="previewImage(this)">
-        <div class="mt-2">
-            @if ($profile_photo)
+        @if ($profile_photo)
+            <div class="mt-2">
                 <img id="preview" src="{{ $profile_photo->temporaryUrl() }}" alt="Profile Preview"
-                    style="max-width: 150px; max-height: 150px; display: none;" class="img-thumbnail">
-            @endif
-        </div>
+                    style="max-width: 150px; max-height: 150px; " class="img-thumbnail">
+            </div>
+        @endif
         @error('profile_photo')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
