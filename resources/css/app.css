@@ -11,16 +11,18 @@ body {
     color: #003255;
 }
 
-.nav-link{
+.nav-link {
     margin-top: 0.5rem;
 }
-.nav-link:hover{
+
+.nav-link:hover {
     color: #00C13E;
     transition: all 0.2s linear;
     transform: scale(1.02);
 }
 
 /* #region NAVBAR */
+
 nav {
     background: whitesmoke;
     box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
@@ -37,28 +39,27 @@ nav {
 /* #endregion */
 
 /* #region COLORI */
+
 .text-verde {
     color: #00C13E;
 }
-
 .text-blu {
     color: #003255;
 }
-
 .bg-verde {
     background-color: #00C13E;
 }
-
 .bg-blu {
     background-color: #003255;
 }
-.bg-rosso{
+.bg-rosso {
     background-color: #C62E2E;
 }
 
 /* #endregion */
 
 /* #region FONT */
+
 .noto-sans {
     font-family: "Noto Sans", sans-serif;
     font-optical-sizing: auto;
@@ -76,6 +77,7 @@ nav {
 /* #endregion */
 
 /* #region BUTTONS */
+
 .btn {
     border: none
 }
@@ -83,23 +85,25 @@ nav {
 .btn-add {
     font-weight: 500;
 }
-.btn-base{
+
+.btn-base {
     border: #003255 3px solid;
     color: #003255;
 }
-.btn-base:hover{
+.btn-base:hover {
     border: #003255 3px solid;
     color: #003255;
     background-color: white;
     transition: all 0.2s linear;
     transform: scale(0.98);
 }
-.btn-rosso{
+
+.btn-rosso {
     border: #003255 3px solid;
     color: white;
     background-color: #C62E2E;
 }
-.btn-rosso:hover{
+.btn-rosso:hover {
     border: #003255 3px solid;
     color: white;
     background-color: #C62E2E;
@@ -110,12 +114,12 @@ nav {
 /* #endregion */
 
 /* #region SCALE */
+
 .scalesmall:hover {
     transition: transform 0.2s linear;
     transform: scale(0.95);
     color: #003255;
 }
-
 .scalebig:hover {
     transition: transform 0.1s linear;
     transform: scale(1.02);
@@ -124,10 +128,25 @@ nav {
 
 /* #endregion */
 
-.card-form{
+/* #region AREA PERSONALE */
+
+.card-form {
     z-index: 0;
 }
+.card-user {
+    animation: backInLeft 1s ease-in-out;
+}
+.card-user.card{
+    height: 50vh;
+}
+#foto-user-card{
+      max-width: 50%; 
+      max-height: 50%; 
+      object-fit: cover; 
+    
+}
 
+/* #endregion */
 
 
 
@@ -151,8 +170,11 @@ nav {
 
 
 @media (max-width: 769px) {
-    .navbar{
+    .navbar {
         position: sticky;
+    }
+    .card-user {
+        animation: zoomIn 0.8s ease-in-out;
     }
 }
 

@@ -2,11 +2,14 @@
     <div class="container-fluid">
         <div class="row mt-3">
             <div class="col-12 col-lg-4">
-                <section class="card-user">
-                    <div class="card z-1">
-                        <img src="" class="card-img-top" alt="Immagine utente">
+                <section class="card-user animated__backInLeft">
+                    <div class="card z-1 d-flex justify-content-center">
+                        <div class="p-1 d-flex justify-content-center">
+                            <img src="{{asset('storage/'.Auth::user()->profile_image) }}" class="card-img-top" id="foto-user-card">
+                        </div>
                         <div class="card-body d-flex flex-column justify-content-center text-center text-blu">
-                          <h3 class="card-title text-capitalize fw-bold">{{$user->name}}</h3>
+                          <h2 class="card-title text-capitalize fw-bold">{{$user->name}}</h2>
+                          <hr>
                           <p class="">Ruolo da aggiungere</p>
                           <p class="">{{$user->email}}</p>
                           <p class="">Genere da aggiungere</p>
