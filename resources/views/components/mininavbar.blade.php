@@ -9,11 +9,9 @@
                       <i class="bi bi-box-seam me-2"></i> Prodotti
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item " href="#">Prodotti in promo <i class="bi bi-piggy-bank"></i></a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Trend della settimana <i class="bi bi-calendar4-week"></i></a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Tutti i prodotti <i class="bi bi-list-task"></i></a></li>
+                      <li><a class="dropdown-item " href="#"><i class="bi bi-piggy-bank"></i> Prodotti in promo </a></li>
+                      <li><a class="dropdown-item" href="#"><i class="bi bi-calendar4-week"></i> Trend della settimana </a></li>
+                      <li><a class="dropdown-item" href="#"><i class="bi bi-list-task"></i> Tutti i prodotti </a></li>
                     </ul>
                 </li>
                 {{-- categorie --}}
@@ -35,6 +33,21 @@
                     <a class="nav-link text-blu scalebig  fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="bi bi-person-circle me-2"></i> Area personale
                     </a>
+                    
+                    @guest
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item text-blu" href="{{route('login')}}">
+                          <i class="bi bi-box-arrow-in-right"></i> Login
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-blu" href="{{route('register')}}"><i class="bi bi-person-plus"></i> Registrati 
+                        </a>
+                      </li>
+                    </ul>
+                    @endguest
+                    @auth
                     <ul class="dropdown-menu">
                       <li>
                         <a class="dropdown-item text-blu" href="#"><i class="bi bi-person-lines-fill"></i> Profilo</a>
@@ -49,6 +62,8 @@
                         <a class="dropdown-item text-blu" href="#"><i class="bi bi-box-arrow-left"></i> Esci</a>
                       </li>
                     </ul>
+                    @endauth
+                    
                 </li>
                 {{-- assistenza --}}
                 <li class="nav-item dropdown">
@@ -76,7 +91,7 @@
                 </li>
                 {{-- aggiungi articolo --}}
                 <li class="nav-item">
-                    <a class="nav-link text-blu scalebig " href="#" >
+                    <a class="nav-link text-blu scalebig " href="{{route('products.create')}}" >
                         <button class="btn btn-add text-blu fs-5">
                             <span>Aggiungi un articolo <i class="bi bi-plus-lg"></i></span>
                         </button>
