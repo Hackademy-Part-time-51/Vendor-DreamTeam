@@ -1,4 +1,4 @@
-
+{{-- navbar statica con apertura dei modal --}}
 <nav class="navbar py-0">
     <div class="container-fluid  fs-2 d-flex justify-content-between navbar">
         <button class="btn fs-1 text-blu border-0 scalesmall" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffCanvas" aria-controls="menuOffCanvas">
@@ -12,13 +12,15 @@
         </button>
     </div>
   </nav>
-<div class="secondary-navbar-sticky d-none d-lg-block ">
+  {{-- navbar fissa --}}
+<div class="secondary-navbar-sticky d-none d-lg-block z-3">
     <nav class="navbar navbar-expand-lg p-2">
         <div class="container-fluid ">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-evenly w-100 align-items-center">
+                {{-- prodotti --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link text-blu scalebig  fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Prodotti
+                      <i class="bi bi-box-seam me-2"></i> Prodotti
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item " href="#">Prodotti in promo <i class="bi bi-piggy-bank"></i></a></li>
@@ -27,10 +29,11 @@
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="#">Tutti i prodotti <i class="bi bi-list-task"></i></a></li>
                     </ul>
-                  </li>
+                </li>
+                {{-- categorie --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link text-blu scalebig  fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Categorie
+                      <i class="bi bi-tags-fill me-2"></i>  Categorie
                     </a>
                     <ul class="dropdown-menu">
                         {{-- foreach di categorie --}}
@@ -41,9 +44,10 @@
                       <li><a class="dropdown-item" href="#">Foreach di categorie</a></li>
                     </ul>
                 </li>
+                {{-- area personale --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link text-blu scalebig  fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Area personale
+                      <i class="bi bi-person-circle me-2"></i> Area personale
                     </a>
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item text-blu" href="#">Action</a></li>
@@ -52,9 +56,10 @@
                     <li><a class="dropdown-item text-blu" href="#">Something else here</a></li>
                     </ul>
                 </li>
+                {{-- assistenza --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link text-blu scalebig  fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Assistenza
+                    <i class="bi bi-question-circle-fill me-2"></i> Assistenza
                     </a>
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item text-blu" href="#">Action</a></li>
@@ -63,9 +68,10 @@
                     <li><a class="dropdown-item text-blu" href="#">Something else here</a></li>
                     </ul>
                 </li>
+                {{-- contatti --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link text-blu scalebig  fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Contatti
+                    <i class="bi bi-envelope-fill me-2"></i> Contatti
                     </a>
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item text-blu" href="#">Action</a></li>
@@ -74,6 +80,7 @@
                     <li><a class="dropdown-item text-blu" href="#">Something else here</a></li>
                     </ul>
                 </li>
+                {{-- aggiungi articolo --}}
                 <li class="nav-item">
                     <a class="nav-link text-blu scalebig " href="#" >
                         <button class="btn btn-add text-blu fs-5">
@@ -85,6 +92,7 @@
         </div>
       </nav>
 </div>
+
 {{-- menu offcanvas menu --}}
 <div class="offcanvas offcanvas-start text-blu" tabindex="-1" id="menuOffCanvas" aria-labelledby="menuOffCanvasLabel">
     <div class="offcanvas-header">
@@ -95,6 +103,7 @@
     </div>
     <div class="offcanvas-body text-blu">
       <div class="accordion accordion-flush" id="accordionFlushExample">
+        {{-- prodotti --}}
         <div class="accordion-item">
           <h2 class="accordion-header text-blu">
             <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -111,6 +120,7 @@
             </div>
           </div>
         </div>
+        {{-- categorie --}}
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -125,6 +135,7 @@
             </div>
           </div>
         </div>
+        {{-- area personale --}}
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
@@ -134,14 +145,23 @@
           <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <ul class="list-unstyled fs-4">
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-gear-fill me-2"></i> Action</a></li>
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-arrow-right-square-fill me-2"></i> Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-three-dots me-2"></i> Something else here</a></li>
+                <li>
+                  <a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-person-lines-fill"></i>  Profilo</a>
+                </li>
+                <li>
+                  <a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-cart"></i>  Ordini</a>
+                </li>
+                <li>
+                  <a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-heart"></i>  Preferiti</a>
+                </li>
+                <li>
+                  <a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-box-arrow-left"></i> Esci </a>
+                </li>
               </ul>
             </div>
           </div>
         </div>
+        {{-- assistenza --}}
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
@@ -159,10 +179,11 @@
             </div>
           </div>
         </div>
+        {{-- contatti --}}
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-              <i class="bi bi-envelope-fill me-2"></i> Contatti
+            <i class="bi bi-envelope-fill me-2"></i> Contatti
             </button>
           </h2>
           <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -254,7 +275,7 @@
             <button type="button" class="btn btn-base " data-bs-dismiss="modal">Torna indietro.</button>
             <form action="{{route('logout')}}" method="POST">
               @csrf
-              <button class="btn btn-rosso bg-rosso text-white" data-bs-dismiss="modal">Si, esci.</button>
+              <button class="btn btn-rosso text-white" data-bs-dismiss="modal">Si, esci.</button>
             </form>
           </div>
         </div>
