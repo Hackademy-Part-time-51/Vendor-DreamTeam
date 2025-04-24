@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/',[PageController::class,'home'] )->name('home');
 
@@ -19,7 +20,6 @@ Route::put('/products/{product}',[PageController::class,'update'] )->name('produ
 
 Route::delete('/products/{product}',[PageController::class,'destroy'] )->name('products.destroy')->middleware('auth');
 
-
-
-
-// Route::resource('products',PageController::class)->middleware('auth');
+Route::controller(UserController::class)->group(function () {
+    Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea');
+});

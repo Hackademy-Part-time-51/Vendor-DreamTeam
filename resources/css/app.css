@@ -8,6 +8,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    color: #003255;
 }
 
 .nav-link{
@@ -24,6 +25,7 @@ nav {
     background: whitesmoke;
     box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
     top: 0;
+    z-index: 999;
 }
 
 .secondary-navbar-sticky {
@@ -122,10 +124,35 @@ nav {
 
 /* #endregion */
 
+.card-form{
+    z-index: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 769px) {
     .navbar{
         position: sticky;
-        /* padding: ; */
     }
 }
 
