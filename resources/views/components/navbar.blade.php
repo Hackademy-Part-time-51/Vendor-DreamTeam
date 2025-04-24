@@ -254,7 +254,7 @@
             <button type="button" class="btn btn-base " data-bs-dismiss="modal">Torna indietro.</button>
             <form action="{{route('logout')}}" method="POST">
               @csrf
-              <button type="submit" class="btn btn-rosso bg-rosso text-white" data-bs-dismiss="modal">Si, esci.</button>
+              <button class="btn btn-rosso bg-rosso text-white" data-bs-dismiss="modal">Si, esci.</button>
             </form>
           </div>
         </div>
