@@ -18,6 +18,15 @@
         @enderror
     </div>
 
+    <div class="mb-3">
+        <label for="phone" class="form-label">Numero di Telefono</label>
+        <input wire:model="phone" id="phone" type="tel" name="phone" value="{{ old('phone') }}"
+            class="form-control @error('phone') is-invalid @enderror" placeholder="+39 123 456 7890">
+        @error('phone')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+
     <!-- Gender Field -->
     <div class="mb-3">
         <label class="form-label">Sesso</label>
