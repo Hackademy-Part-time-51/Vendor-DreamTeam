@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title', 20);
             $table->decimal('price', 8, 2);
-            $table->string('description');
+            $table->text('description');
             $table->foreignId('category_id');
+            $table->foreignId('user_id') ;
             $table->timestamps();
         });
     }
