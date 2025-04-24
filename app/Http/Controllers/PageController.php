@@ -4,16 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class PageController extends Controller
-{
+{public function __construct()
+    {
+        $this->authorizeResource(Product::class, 'product');
+    }
+
     public function home() {
         return view('welcome');
     }
 
     public function index() {
+        $categories = Category::all();
         $products = Product::all();
-        return view('products.index', compact('products'));
+        return view('products.index', compact('products', 'categories'));
     }
 
     public function create() {
@@ -21,7 +27,8 @@ class PageController extends Controller
     }
 
     public function edit(Product $product) {
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
     }
 
     public function show(Product $product) {
@@ -29,8 +36,15 @@ class PageController extends Controller
     }
 
     public function store(Request $request) {
-        $product = Product::create($request->all());
-        return redirect()->route('products.index', $product)->with('success', 'Prodotto creato con successo');
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            
+        ]);
+        $product = auth()->user()->products()->create($validated);
+        return redirect()->route('products.index', $product)
+            ->with('success', 'Prodotto creato con successo!');
     }
 
     public function destroy(Product $product) {
@@ -38,8 +52,18 @@ class PageController extends Controller
         return redirect()->route('products.index')->with('success', 'Prodotto eliminato con successo');
     }
 
-    public function update(Request $request, Product $product) {
-        $product->update($request->all());
-        return redirect()->route('products.index', $product)->with('success', 'Prodotto aggiornato con successo');
+    public function update(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            
+        ]);
+
+        $product->update($validated);
+
+        return redirect()->route('products.show', $product)
+            ->with('success', 'Prodotto aggiornato con successo!');
     }
 }
