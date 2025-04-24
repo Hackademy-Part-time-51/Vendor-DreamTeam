@@ -1,6 +1,9 @@
 <div>
     <button class="btn btn-base" wire:click="orderByDate">Ordina per data</button>
     <button class="btn btn-base" wire:click="orderByAZ">Ordina per alfabeto</button>
+    <div>
+        <input type="text" wire:model.live="search" class="form-control w-50 mt-1" placeholder="Cerca">
+    </div>
     <div class="row g-4 mt-1">
         @foreach ($products as $product)
             <div class="col-12 col-md-6 col-lg-4">
