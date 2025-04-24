@@ -13,12 +13,14 @@ class Create extends Component
     public $description;
     #[Validate(['required|numeric|float'])]
     public $price;
+    #[Validate(['required|exists:categories,id'])]
+    public $category_id;
 
     public function create() {
         $this->validate();
-        $this->only('name','description','price');
+        $this->only('name','description','price','category_id');
         Product::create(
-            $this->form->all() 
+            $this->only('name','description','price','category_id') 
         );
         session()->flash('status', 'Annuncio creato correttamente.');
 
@@ -27,8 +29,7 @@ class Create extends Component
     }
     public function render()
     {
-        $this->validate();
-        $this->only('name','description','price');
-        return view('livewire.products.create');
+        
+           return view('livewire.products.create');
     }
 }

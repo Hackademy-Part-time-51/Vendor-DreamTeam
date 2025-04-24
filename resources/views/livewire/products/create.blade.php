@@ -11,5 +11,12 @@
         <label for="price" class="form-label">Prezzo</label>
         <input type="email" class="form-control" id="price" wire:model="price" value="{{ old('price') }}">
     </div>
+    <div>
+        <select wire:model="category_id" id="">
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
+    </div>
     <button>Crea</button>
 </form>

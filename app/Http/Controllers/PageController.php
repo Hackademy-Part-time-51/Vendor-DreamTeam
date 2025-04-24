@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class PageController extends Controller
 {
@@ -12,8 +13,9 @@ class PageController extends Controller
     }
 
     public function index() {
+        $categories = Category::all();
         $products = Product::all();
-        return view('products.index', compact('products'));
+        return view('products.index', compact('products', 'categories'));
     }
 
     public function create() {
@@ -21,7 +23,8 @@ class PageController extends Controller
     }
 
     public function edit(Product $product) {
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
     }
 
     public function show(Product $product) {
