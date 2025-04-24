@@ -94,12 +94,12 @@ nav {
     transition: all 0.2s linear;
     transform: scale(0.98);
 }
-.bg-rosso{
+.btn-rosso{
     border: #003255 3px solid;
     color: white;
     background-color: #C62E2E;
 }
-.bg-rosso:hover{
+.btn-rosso:hover{
     border: #003255 3px solid;
     color: white;
     background-color: #C62E2E;
