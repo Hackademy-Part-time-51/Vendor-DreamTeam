@@ -1,3 +1,8 @@
 <div>
-    {{-- The whole world belongs to you. --}}
+    @foreach ($products as $product)
+    <p>
+
+        {{$product->title}}
+    </p>
+    @endforeach
 </div>

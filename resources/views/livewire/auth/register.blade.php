@@ -3,7 +3,7 @@
     <div class="mb-3">
         <label for="name" class="form-label">Nome</label>
         <input wire:model="name" id="name" type="text" name="name" value="{{ old('name') }}"
-            class="form-control @error('name') is-invalid @enderror" required autofocus placeholder="Mario rossi">
+            class="form-control @error('name') is-invalid @enderror" required autofocus placeholder="Mario rossi" >
         @error('name')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -89,7 +89,7 @@
             Sei gia registrato? Effettua il login <i class="bi bi-box-arrow-in-right"></i>
         </a>
         <button type="submit" class="btn btn-base">
-            Register
+            Registrati
         </button>
     </div>
 </form>

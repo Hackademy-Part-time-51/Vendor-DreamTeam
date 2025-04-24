@@ -30,7 +30,7 @@ class CreateNewUser implements CreatesNewUsers
             ],
             'gender' => ['nullable', 'string', 'in:male,female,other'],
             'phone' => ['nullable', 'string', 'max:20'],
-            'profile_photo' => ['nullable', 'file', 'image', 'max:1024'],
+            'profile_photo' => ['nullable', 'file', 'image'],
             'password' => $this->passwordRules(),
         ])->validate();
         

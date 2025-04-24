@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -9,7 +10,7 @@ class UserController extends Controller
 {
     public function personalArea (User $user,$id){
         $user = User::find($id); 
-        return view('user.personalArea', compact('user'));
-
+        $categories = Category::all();
+        return view('user.personalArea', compact('user', 'categories'));
     }
 }

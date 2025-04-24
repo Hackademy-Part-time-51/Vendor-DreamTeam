@@ -1,4 +1,4 @@
-<form wire:submit="create" class=" rounded p-3">
+<form wire:submit="create" class=" rounded p-3 d-flex flex-column ">
     <div class="mb-3">
         <label for="title" class="form-label">Titolo</label>
         <input type="text" class="form-control" id="title" wire:model="title" value="{{ old('title') }}">
@@ -11,5 +11,13 @@
         <label for="price" class="form-label">Prezzo</label>
         <input type="number" class="form-control" id="price" wire:model="price" value="{{ old('price') }}">
     </div>
-    <button>Crea</button>
+    <div>
+        <select wire:model="category_id" id="">
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    {{-- <input type="number" hidden wire:model="user_id" value="{{ Auth::user()->id }}" > --}}
+    <button class="btn btn-base w-50 mx-auto">Crea</button>
 </form>
