@@ -27,8 +27,6 @@ class Create extends Component
     }
     public function render()
     {
-        $this->validate();
-        $this->only('name','description','price');
         return view('livewire.products.create');
     }
 }
