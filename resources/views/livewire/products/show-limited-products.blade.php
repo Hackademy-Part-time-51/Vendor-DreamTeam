@@ -13,13 +13,11 @@
                             @if($product->description)
                                 <p class="card-text">{{ Str::limit($product->description, 100) }}</p>
                             @endif
-
                             @if($product->price)
                                 <p class="card-text mt-auto">
                                     <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}
                                 </p>
                             @endif
-
                         </div>
                     </div>
                 </div>

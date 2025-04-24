@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -23,3 +24,14 @@ Route::delete('/products/{product}',[PageController::class,'destroy'] )->name('p
 Route::controller(UserController::class)->group(function () {
     Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('auth');
 });
+
+// // rotte autenticazione 
+// Route::middleware(['auth'])->group(function () {
+//     Route::resource('products', PageController::class);
+    
+//     // Rotte per la gestione dei ruoli (solo manager)
+//     Route::middleware(['role:manager'])->prefix('admin')->name('admin.')->group(function () {
+//         Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
+//         Route::put('/roles/{user}', [RoleController::class, 'update'])->name('roles.update');
+//     });
+// });

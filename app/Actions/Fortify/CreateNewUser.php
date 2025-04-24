@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -30,7 +31,7 @@ class CreateNewUser implements CreatesNewUsers
             ],
             'gender' => ['nullable', 'string', 'in:male,female,other'],
             'phone' => ['nullable', 'string', 'max:20'],
-            'profile_photo' => ['nullable', 'file', 'image', 'max:1024'],
+            'profile_photo' => ['nullable', 'file', 'image'],
             'password' => $this->passwordRules(),
         ])->validate();
         
@@ -48,6 +49,12 @@ class CreateNewUser implements CreatesNewUsers
             'profile_image' => $profileImagePath,
             'password' => Hash::make($input['password']),
         ]);
+        
+        // Assegna il ruolo 'user' di default
+        $userRole = Role::where('name', 'user')->first();
+        $user->roles()->attach($userRole);
+
+        return $user;
     }
 }
 

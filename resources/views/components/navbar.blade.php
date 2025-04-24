@@ -36,7 +36,7 @@
               <ul class="list-unstyled fs-4">
                 <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-piggy-bank-fill me-2"></i> Prodotti in promo</a></li>
                 <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-award"></i> Trend della settimana</a></li>
-                <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-list-task me-2"></i> Tutti i prodotti</a></li>
+                <li><a class="dropdown-item text-blu nav-link" href="{{route('products.index')}}"><i class="bi bi-list-task me-2"></i> Tutti i prodotti</a></li>
               </ul>
             </div>
           </div>
@@ -162,7 +162,7 @@
         </div>
         <div class="offcanvas-body p-0">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center w-100 align-items-center h-75">
-            <h2 class="offcanvas-title text-blu" id="userOffCanvasLabel">Benvenuto <span class="text-verde">{{Auth::user()->name}}</span></h2>
+            <h2 class="px-3 offcanvas-title text-blu" id="userOffCanvasLabel">Benvenuto <span class="text-verde">{{Auth::user()->name}}</span></h2>
             <li class="nav-item">
               <a class="nav-link text-blu scalebig fs-3" href="{{route('personalArea', Auth::user()->id)}}"  role="button" aria-expanded="false">
                 <i class="bi bi-person-lines-fill"></i>  Profilo

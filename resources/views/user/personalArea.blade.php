@@ -8,12 +8,12 @@
                             <img src="{{asset('storage/'.Auth::user()->profile_image) }}" class="card-img-top" id="foto-user-card">
                         </div>
                         <div class="card-body d-flex flex-column justify-content-center text-center text-blu">
-                          <h2 class="card-title text-capitalize fw-bold">{{$user->name}}</h2>
+                          <h2 class="card-title text-capitalize fw-bold">{{Auth::user()->name}}</h2>
                           <hr>
-                          <p class="">Ruolo da aggiungere</p>
-                          <p class="">{{$user->email}}</p>
-                          <p class="">Genere da aggiungere</p>
-                          <p class="">Telefono da aggiungere</p>
+                          <p class="text-capitalize">Ruolo da aggiungere</p>
+                          <p class="">{{Auth::user()->email}}</p>
+                          <p class="text-capitalize">{{Auth::user()->gender}}</p>
+                          <p class="">{{Auth::user()->phone}}</p>
                           <div class="d-flex justify-content-center gap-2">
                             <button class="btn btn-base w-100" data-bs-toggle="modal" data-bs-target="#editInfo">
                                 <i class="bi bi-pencil-square"></i> Informazioni
@@ -33,9 +33,12 @@
             </div>
             <div class="col-12 col-lg-8 p-4 align-content-center">
                 <section class="card-user">
-                  @livewire('products.create')
+                  @livewire('products.create', compact('categories'))
                 </section>
             </div>
+        </div>
+        <div class="row">
+
         </div>
         {{-- modal modifica informazioni --}}
         <div class="modal fade" id="editInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editInfoLabel" aria-hidden="true">

@@ -1,4 +1,4 @@
-<form wire:submit="create" class=" rounded p-3">
+<form wire:submit="create" class=" rounded p-3 d-flex flex-column ">
     <div class="mb-3">
         <label for="title" class="form-label">Titolo</label>
         <input type="text" class="form-control" id="title" wire:model="title" value="{{ old('title') }}">
@@ -18,5 +18,6 @@
             @endforeach
         </select>
     </div>
-    <button>Crea</button>
+    {{-- <input type="number" hidden wire:model="user_id" value="{{ Auth::user()->id }}" > --}}
+    <button class="btn btn-base w-50 mx-auto">Crea</button>
 </form>
