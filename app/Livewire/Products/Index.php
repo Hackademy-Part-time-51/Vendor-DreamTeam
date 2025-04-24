@@ -10,6 +10,7 @@ class Index extends Component
     public $products;
     public $orderbydate = true;
     public $orderbyaz = true;
+    public $search = "";
 
     public function mount()
     {
@@ -17,6 +18,7 @@ class Index extends Component
             ->orderBy('created_at', 'desc')
             ->get();
     }
+
 
     public function orderByDate(){
         if($this->orderbydate){  
@@ -46,6 +48,12 @@ class Index extends Component
     }
     public function render()
     {
+        if($this->search){
+            $this->products = Product::where('title', 'LIKE', '%'.$this->search.'%')->get();
+        } else {
+            $this->products;
+        }
+
         return view('livewire.products.index');
     }
 }
