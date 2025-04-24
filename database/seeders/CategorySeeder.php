@@ -13,6 +13,9 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::factory()->count(10)->create();
-    }
+        $numberOfCategories = 10;
+        Category::factory()->count($numberOfCategories)->create();
+        $this->command->info("Tabella Categorie popolata con {$numberOfCategories} record usando la Factory!");
+
+     }
 }
