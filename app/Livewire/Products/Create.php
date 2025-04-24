@@ -7,7 +7,8 @@ use Livewire\Attributes\Validate;
 use App\Models\Product;
 
 class Create extends Component
-{   #[Validate(['required|string|max:50'])]
+{   public $categories;
+      #[Validate(['required|string|max:50'])]
     public $name;
     #[Validate(['required|string|max:2048'])]
     public $description;

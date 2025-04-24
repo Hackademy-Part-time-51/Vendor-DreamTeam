@@ -21,7 +21,7 @@ class Register extends Component
     public $gender='';
     #[Validate('required_with:password|same:password|min:6')]
     public $password_confirmation='';
-    #[Validate('required|image|mimes:jpeg,png,jpg,svg|max:2048')]
+    #[Validate('required|image|mimes:jpeg,png,jpg,svg')]
     public $profile_photo='';
   
     public function render()
