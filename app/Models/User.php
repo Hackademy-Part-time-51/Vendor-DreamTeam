@@ -50,6 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+<<<<<<< HEAD
     
     public function roles()
     {
@@ -76,6 +77,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasRole('manager');
     }
 
+=======
+>>>>>>> 9b2ebbcf53d4bce5273268b578d488209fe3f0e6
     public function products()
     {
         return $this->hasMany(Product::class);
