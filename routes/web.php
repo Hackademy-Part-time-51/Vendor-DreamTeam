@@ -26,12 +26,39 @@ Route::controller(UserController::class)->group(function () {
 });
 
 // // rotte autenticazione 
-// Route::middleware(['auth'])->group(function () {
-//     Route::resource('products', PageController::class);
+Route::middleware(['auth'])->group(function () {
+    // User dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    // Article routes for all authenticated users
+    Route::get('/articles', [PageController::class, 'index'])->name('articles.index');
+    Route::get('/articles/{article}', [PageController::class, 'show'])->name('articles.show');
+    Route::get('/articles/create', [PageController::class, 'create'])->name('articles.create');
+    Route::post('/articles', [PageController::class, 'store'])->name('articles.store');
     
-//     // Rotte per la gestione dei ruoli (solo manager)
-//     Route::middleware(['role:manager'])->prefix('admin')->name('admin.')->group(function () {
-//         Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
-//         Route::put('/roles/{user}', [RoleController::class, 'update'])->name('roles.update');
-//     });
-// });
+    // Routes that use policies to check permissions
+    Route::get('/articles/{article}/edit', [PageController::class, 'edit'])->name('articles.edit');
+    Route::put('/articles/{article}', [PageController::class, 'update'])->name('articles.update');
+    Route::delete('/articles/{article}', [PageController::class, 'destroy'])->name('articles.destroy');
+});
+
+// Routes for reviewers and managers
+Route::middleware(['auth', 'role:reviewer,manager'])->group(function () {
+    Route::get('/review', function () {
+        return view('review.dashboard');
+    })->name('review.dashboard');
+});
+
+// Routes for managers only
+Route::middleware(['auth', 'role:manager'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+    
+    // User management routes
+    Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
+    Route::get('/admin/users/{user}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
+    Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.users.update');
+});
