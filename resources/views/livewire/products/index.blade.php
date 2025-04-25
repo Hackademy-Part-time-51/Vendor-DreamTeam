@@ -28,6 +28,9 @@
                         <p class="card-text">
                             <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
                         </p>
+                        <p class="card-text">
+                            <strong>Creato da:</strong> {{ $product->user->name }}
+                        </p>
                         @if($product->price)
                             <p class="card-text">
                                 <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}

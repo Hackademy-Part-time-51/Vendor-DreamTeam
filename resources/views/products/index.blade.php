@@ -5,5 +5,8 @@
         {{ session('status') }}
     </div>
     @endif
-    @livewire('products.index', compact('products', 'categories'))
+    <div class="container-fluid">
+
+        @livewire('products.index', compact('products', 'categories'))
+    </div>
 </x-layout>

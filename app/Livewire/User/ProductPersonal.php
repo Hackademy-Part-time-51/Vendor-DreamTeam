@@ -13,11 +13,12 @@ class ProductPersonal extends Component
 {
     use WithPagination;
 
-    public $products;
     public $user;
+    public $perPage = 5;
     public function render()
     {   
-        $this->user=Auth::id();
-        return view('livewire.user.product-personal', ['products'=>Product::where('user_id', $this->user)->paginate(3)]);
+        $products = Product::where('user_id', Auth::user()->id)->paginate($this->perPage);
+
+        return view('livewire.user.product-personal', ['products'=>$products]);
     }
 }

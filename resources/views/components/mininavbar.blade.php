@@ -50,7 +50,7 @@
                     @auth
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item text-blu" href="#"><i class="bi bi-person-lines-fill"></i> Profilo</a>
+                        <a class="dropdown-item text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> Profilo</a>
                       </li>
                       <li>
                         <a class="dropdown-item text-blu" href="#"><i class="bi bi-cart"></i> Ordini</a>
