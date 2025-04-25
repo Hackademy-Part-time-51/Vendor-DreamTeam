@@ -67,7 +67,10 @@
             <div class="accordion-body">
               <ul class="list-unstyled fs-4">
                 <li>
-                  <a class="dropdown-item nav-link text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i>  Profilo</a>
+                  @auth
+                    
+                  <a class="dropdown-item nav-link text-blu" href="{{route('personalArea' , Auth::user()->id  )}}"><i class="bi bi-person-lines-fill"></i>  Profilo</a>
+                  @endauth
                 </li>
                 <li>
                   <a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-cart"></i>  Ordini</a>
