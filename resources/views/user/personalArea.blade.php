@@ -31,14 +31,14 @@
                       </div>
                 </section>
             </div>
-            <div class="col-12 col-lg-8 p-4 align-content-center">
-                <section class="card-user">
-                  @livewire('user.product-personal', compact('products'))
-                </section>
-            </div>
         </div>
+        <hr>
         <div class="row">
-
+          <div class="col-12 ">
+            <section class="card-user row">
+              @livewire('user.product-personal', compact('products'))
+            </section>
+        </div>
         </div>
         {{-- modal modifica informazioni --}}
         <div class="modal fade" id="editInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editInfoLabel" aria-hidden="true">

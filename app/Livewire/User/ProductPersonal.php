@@ -14,7 +14,7 @@ class ProductPersonal extends Component
     use WithPagination;
 
     public $user;
-    public $perPage = 5;
+    public $perPage = 12;
     public function render()
     {   
         $products = Product::where('user_id', Auth::user()->id)->paginate($this->perPage);
