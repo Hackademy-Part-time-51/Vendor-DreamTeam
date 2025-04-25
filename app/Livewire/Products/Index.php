@@ -8,9 +8,11 @@ use App\Models\Product;
 class Index extends Component
 {
     public $products;
+    public $categories;
     public $orderbydate = true;
     public $orderbyaz = true;
     public $search = "";
+    public $category;
 
     public function mount()
     {
@@ -33,6 +35,7 @@ class Index extends Component
         $this->orderbydate = !$this->orderbydate;
     }
     public function orderByAZ(){
+
         if($this->orderbyaz){
             $this->products = Product::query()
             ->orderBy('title', 'asc')
@@ -46,8 +49,17 @@ class Index extends Component
         }
         $this->orderbyaz = !$this->orderbyaz;
     }
+
+    
+
     public function render()
-    {
+    {   
+        if($this->category){
+            $this->products = Product::where('category_id', $this->category)->get();
+        }else {
+            $this->products;
+        }
+
         if($this->search){
             $this->products = Product::where('title', 'LIKE', '%'.$this->search.'%')->get();
         } else {

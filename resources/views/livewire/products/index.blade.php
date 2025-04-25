@@ -4,6 +4,14 @@
     <div>
         <input type="text" wire:model.live="search" class="form-control w-50 mt-1" placeholder="Cerca">
     </div>
+    <div>
+        <select wire:model.live="category" class="form-select w-50 mt-1">
+            <option value="">Tutte le categorie</option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
+    </div>
     <div class="row g-4 mt-1">
         @foreach ($products as $product)
             <div class="col-12 col-md-6 col-lg-4">
