@@ -8,7 +8,12 @@
             <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="50">
         </a>
         <button class="btn fs-1 text-blu border-0 scalesmall" type="button" data-bs-toggle="offcanvas" data-bs-target="#userOffCanvas" aria-controls="userOffCanvas">
-          <i class="bi bi-person-fill"></i>
+          @guest
+            <i class="bi bi-person-fill"></i>
+          @endguest
+          @auth
+            <img src="{{asset('storage/'.Auth::user()->profile_image) }}" alt="" class="rounded-circle" height="55" width="50">
+          @endauth
         </button>
     </div>
   </nav>
@@ -157,15 +162,13 @@
     </div>
     @endguest
     @auth
-        <div class="offcanvas-header">
-          <a href="/">
-            <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="50">
-          </a>
+        <div class="offcanvas-header ">
+            <h2 class=" offcanvas-title text-blu mt-2" id="userOffCanvasLabel">Benvenuto <span class="text-verde">{{Auth::user()->name}}</span></h2>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center w-100 align-items-center h-75">
-            <h2 class="px-3 offcanvas-title text-blu" id="userOffCanvasLabel">Benvenuto <span class="text-verde">{{Auth::user()->name}}</span></h2>
+
             <li class="nav-item">
               <a class="nav-link text-blu scalebig fs-3" href="{{route('personalArea', Auth::user()->id)}}"  role="button" aria-expanded="false">
                 <i class="bi bi-person-lines-fill"></i>  Profilo

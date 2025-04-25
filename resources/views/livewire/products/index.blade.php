@@ -1,6 +1,5 @@
 <div>
-    <button class="btn btn-base" wire:click="orderByDate">Ordina per data</button>
-    <button class="btn btn-base" wire:click="orderByAZ">Ordina per alfabeto</button>
+
     <div>
         <input type="text" wire:model.live="search" class="form-control w-50 mt-1" placeholder="Cerca">
     </div>
@@ -13,6 +12,24 @@
         </select>
     </div>
     <div class="row g-4 mt-1">
+        <h2>Tutti gli articoli</h2>
+        <div class="d-flex mt-1 ">
+            <button class="btn btn-base" wire:click="orderByDateFunction">
+                @if ($orderByDate)
+                <i class="bi bi-sort-down"></i> Dal piu recente
+                @else
+                <i class="bi bi-sort-up"></i> Dal piu vecchio
+                @endif
+                
+            </button>
+            <button class="btn btn-base" wire:click="orderByAZFunction">
+                @if ($orderByAZ)
+                <i class="bi bi-sort-alpha-down"></i> Da A-Z
+                @else
+                <i class="bi bi-sort-alpha-up"></i> Da Z-A
+                @endif
+            </button>
+        </div>
         @foreach ($products as $product)
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100">

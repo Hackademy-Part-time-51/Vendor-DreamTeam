@@ -22,7 +22,7 @@ class Index extends Component
     }
 
 
-    public function orderByDate(){
+    public function orderByDateFunction(){
         if($this->orderbydate){  
             $this->products = Product::query()
             ->orderBy('created_at', 'asc')
@@ -34,7 +34,7 @@ class Index extends Component
         }        
         $this->orderbydate = !$this->orderbydate;
     }
-    public function orderByAZ(){
+    public function orderByAZFunction(){
 
         if($this->orderbyaz){
             $this->products = Product::query()
@@ -54,6 +54,7 @@ class Index extends Component
 
     public function render()
     {   
+
         if($this->category){
             $this->products = Product::where('category_id', $this->category)->get();
         }else {
@@ -66,6 +67,6 @@ class Index extends Component
             $this->products=Product::all();
         }
 
-        return view('livewire.products.index');
+        return view('livewire.products.index', ['products'=>$this->products, 'orderByAZ'=>$this->orderbyaz, 'orderByDate'=>$this->orderbydate]);
     }
 }

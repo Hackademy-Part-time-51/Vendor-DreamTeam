@@ -6,7 +6,6 @@
     </div>
     @endif
     <div class="container-fluid">
-
         @livewire('products.index', compact('products', 'categories'))
     </div>
 </x-layout>
