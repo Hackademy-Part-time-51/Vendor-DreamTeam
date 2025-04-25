@@ -57,13 +57,13 @@ class Index extends Component
         if($this->category){
             $this->products = Product::where('category_id', $this->category)->get();
         }else {
-            $this->products;
+            $this->products=Product::all();
         }
 
         if($this->search){
             $this->products = Product::where('title', 'LIKE', '%'.$this->search.'%')->get();
         } else {
-            $this->products;
+            $this->products=Product::all();
         }
 
         return view('livewire.products.index');

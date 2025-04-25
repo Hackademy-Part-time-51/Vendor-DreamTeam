@@ -33,7 +33,7 @@
             </div>
             <div class="col-12 col-lg-8 p-4 align-content-center">
                 <section class="card-user">
-                  @livewire('products.create', compact('categories'))
+                  @livewire('user.product-personal', compact('products'))
                 </section>
             </div>
         </div>
