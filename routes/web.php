@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -31,17 +32,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
-    // Article routes for all authenticated users
-    Route::get('/articles', [PageController::class, 'index'])->name('articles.index');
-    Route::get('/articles/{article}', [PageController::class, 'show'])->name('articles.show');
-    Route::get('/articles/create', [PageController::class, 'create'])->name('articles.create');
-    Route::post('/articles', [PageController::class, 'store'])->name('articles.store');
-    
-    // Routes that use policies to check permissions
-    Route::get('/articles/{article}/edit', [PageController::class, 'edit'])->name('articles.edit');
-    Route::put('/articles/{article}', [PageController::class, 'update'])->name('articles.update');
-    Route::delete('/articles/{article}', [PageController::class, 'destroy'])->name('articles.destroy');
 });
 
 // Routes for reviewers and managers
