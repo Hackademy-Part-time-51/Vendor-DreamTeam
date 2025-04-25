@@ -16,17 +16,17 @@
         <div class="d-flex mt-1 ">
             <button class="btn btn-base" wire:click="orderByDateFunction">
                 @if ($orderByDate)
-                <i class="bi bi-sort-down"></i> Dal piu recente
+                    <i class="bi bi-sort-down"></i> Dal piu recente
                 @else
-                <i class="bi bi-sort-up"></i> Dal piu vecchio
+                    <i class="bi bi-sort-up"></i> Dal piu vecchio
                 @endif
-                
+
             </button>
             <button class="btn btn-base" wire:click="orderByAZFunction">
                 @if ($orderByAZ)
-                <i class="bi bi-sort-alpha-down"></i> Da A-Z
+                    <i class="bi bi-sort-alpha-down"></i> Da A-Z
                 @else
-                <i class="bi bi-sort-alpha-up"></i> Da Z-A
+                    <i class="bi bi-sort-alpha-up"></i> Da Z-A
                 @endif
             </button>
         </div>
@@ -36,7 +36,7 @@
 
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ $product->title }}</h5>
-                        @if($product->description)
+                        @if ($product->description)
                             <p class="card-text">{{ Str::limit($product->description, 100) }}</p>
                         @endif
                         @if ($product->category)
@@ -48,7 +48,7 @@
                         <p class="card-text">
                             <strong>Creato da:</strong> {{ $product->user->name }}
                         </p>
-                        @if($product->price)
+                        @if ($product->price)
                             <p class="card-text">
                                 <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}
                             </p>

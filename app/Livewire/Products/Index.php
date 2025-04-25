@@ -4,6 +4,7 @@ namespace App\Livewire\Products;
 
 use Livewire\Component;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
@@ -14,59 +15,63 @@ class Index extends Component
     public $search = "";
     public $category;
 
-    public function mount()
+    // public function mount()
+    // {
+    //     $this->products = Product::query()
+    //         ->orderBy('created_at', 'desc')
+    //         ->get();
+    // }
+
+
+    public function orderByDateFunction()
     {
-        $this->products = Product::query()
-            ->orderBy('created_at', 'desc')
-            ->get();
-    }
 
-
-    public function orderByDateFunction(){
-        if($this->orderbydate){  
-            $this->products = Product::query()
-            ->orderBy('created_at', 'asc')
-            ->get();
-        } else {
-            $this->products = Product::query()
-            ->orderBy('created_at', 'desc')
-            ->get();
-        }        
         $this->orderbydate = !$this->orderbydate;
     }
-    public function orderByAZFunction(){
+    public function orderByAZFunction()
+    {
 
-        if($this->orderbyaz){
-            $this->products = Product::query()
-            ->orderBy('title', 'asc')
-            ->get();
-            
-        } else {
-            $this->products = Product::query()
-            ->orderBy('title', 'desc')
-            ->get();
-            
-        }
+
         $this->orderbyaz = !$this->orderbyaz;
     }
 
-    
+
+
+
 
     public function render()
-    {   
+    {
+        
+        $this->products = Product::with('category')
+            ->when(!empty($this->search), function ($query) {
+                $query->where('title', 'like', '%' . $this->search . '%');
+            })
+            ->when(!empty($this->category), function ($query) {
+                $query->where('category_id', $this->category);
+            })
+            ->when($this->orderbydate, function ($query) {
+                $query->orderBy('created_at', 'desc');
+            },function ($query) {
+                $query->orderBy('created_at', 'asc');
+            })->when($this->orderbyaz, function ($query) {
+                $query->orderBy('title', 'desc');
+            },function ($query) {
+                $query->orderBy('title', 'asc');
+            })
+            
+            ->get();
 
-        if($this->category){
-            $this->products = Product::where('category_id', $this->category)->get();
-        }else {
-            $this->products=Product::all();
-        }
+        
 
-        if($this->search){
-            $this->products = Product::where('title', 'LIKE', '%'.$this->search.'%')->get();
-        } else {
-            $this->products=Product::all();
-        }
 
-        return view('livewire.products.index', ['products'=>$this->products, 'orderByAZ'=>$this->orderbyaz, 'orderByDate'=>$this->orderbydate]);
+
+
+        
+
+        return view('livewire.products.index', [
+
+            'orderByAZ' => $this->orderbyaz,
+            'orderByDate' => $this->orderbydate
+        ]);
     }
 }
