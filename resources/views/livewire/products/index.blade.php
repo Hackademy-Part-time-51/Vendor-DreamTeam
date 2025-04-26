@@ -45,6 +45,9 @@
                         @endif
                         @if ($product->category)
                             <p class="card-text"><strong>Categoria:</strong> {{ $product->category->name }}</p>
+                            <div class="d-inline-block" style="width: 40px; height: 40px;"> {{-- <--- IMPOSTA QUI LE DIMENSIONI --}}
+                                {!! $product->category->svg_icon !!}
+                            </div>
                         @endif
                         <p class="card-text">
                             <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
@@ -52,11 +55,20 @@
                         <p class="card-text">
                             <strong>Creato da:</strong> {{ $product->user->name }}
                         </p>
-                        @if ($product->price)
-                            <p class="card-text">
-                                <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}
-                            </p>
-                        @endif
+                        <div class="mt-auto d-flex justify-content-between align-items-center"> 
+                            @if ($product->price)
+                               <p class="card-text fw-bold fs-5 mb-0">
+                                   € {{ number_format($product->price, 2, ',', '.') }}
+                               </p>
+                           @else
+                               <span></span> 
+                           @endif
+
+                           <a href="{{ route('products.show', ['product' => $product->id]) }}"
+                              class="btn btn-outline-primary btn-sm">
+                                Vedi Dettagli
+                           </a>
+                       </div>
                     </div>
                 </div>
             </div>
