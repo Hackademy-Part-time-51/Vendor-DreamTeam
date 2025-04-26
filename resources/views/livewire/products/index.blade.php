@@ -22,7 +22,7 @@
                 @endif
                 
             </button>
-            <button class="btn btn-base" wire:click="orderByAZFunction">
+            <button class="btn btn-base mx-1" wire:click="orderByAZFunction">
                 @if ($orderByAZ)
                 <i class="bi bi-sort-alpha-down"></i> Da A-Z
                 @else

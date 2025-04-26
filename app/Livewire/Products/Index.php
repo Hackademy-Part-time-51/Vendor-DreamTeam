@@ -67,6 +67,6 @@ class Index extends Component
             $this->products=Product::all();
         }
 
-        return view('livewire.products.index', ['products'=>$this->products, 'orderByAZ'=>$this->orderbyaz, 'orderByDate'=>$this->orderbydate]);
+        return view('livewire.products.index', [ 'orderByAZ'=>$this->orderbyaz, 'orderByDate'=>$this->orderbydate]);
     }
 }
