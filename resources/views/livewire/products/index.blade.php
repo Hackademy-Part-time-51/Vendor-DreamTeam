@@ -41,6 +41,9 @@
                         @endif
                         @if ($product->category)
                             <p class="card-text"><strong>Categoria:</strong> {{ $product->category->name }}</p>
+                            <div class="d-inline-block" style="width: 40px; height: 40px;"> {{-- <--- IMPOSTA QUI LE DIMENSIONI --}}
+                                {!! $product->category->svg_icon !!}
+                            </div>
                         @endif
                         <p class="card-text">
                             <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
