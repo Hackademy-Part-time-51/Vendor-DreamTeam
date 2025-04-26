@@ -6,25 +6,37 @@
             @foreach ($products as $product)
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100">
-
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ $product->title }}</h5>
-
+                            <h5 class="card-title text-capitalize">{{ $product->title }}</h5>
                             @if ($product->description)
-                                <p class="card-text">{{ Str::limit($product->description, 100) }}</p>
-                            @endif
-                            @if ($product->price)
-                                <p class="card-text mt-auto">
-                                    <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}
-                                </p>
+                                <p class="card-text">{{ Str::limit($product->description, 20) }}</p>
                             @endif
                             @if ($product->category)
-                            <div class="d-inline-block" style="width: 40px; height: 40px;"> {{-- <--- IMPOSTA QUI LE DIMENSIONI --}}
-                                {!! $product->category->svg_icon !!}
-                            </div>
-                            {{-- You might want the name next to it --}}
-                            <span class="category-name">{{ $product->category->name }}</span>
+                                <p class="card-text"><strong>Categoria:</strong> {{ $product->category->name }}
+                                    <span class="d-inline-block align-middle" style="width: 1rem; height: 1rem;">
+                                        {!! $product->category->svg_icon !!}
+                                    </span>
+                                </p>
                             @endif
+                            <p class="card-text">
+                                <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
+                            </p>
+                            <p class="card-text">
+                                <strong>Creato da:</strong> {{ $product->user->name }}
+                            </p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                @if ($product->price)
+                                    <p class="card-text fw-bold fs-5 mb-0">
+                                        € {{ number_format($product->price, 2, ',', '.') }}
+                                    </p>
+                                @else
+                                    <span></span>
+                                @endif
+                                <a href="{{ route('products.show', ['product' => $product->id]) }}"
+                                   class="btn btn-base btn-sm">
+                                    Vedi Dettagli
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

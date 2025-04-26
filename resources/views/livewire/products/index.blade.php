@@ -6,9 +6,10 @@
         {{-- sezione filtri a sinistra lg/xl schermo intero sm/md --}}
         <section class="col-12 col-lg-3 ">
             <div class="container-fluid section-filter card p-4  d-flex flex-column">
+                <hr>
                     <input type="text" wire:model.live="search" class="form-control w-100 " placeholder="Cerca il tuo prodotto..">
-
-                <div class="col-12 my-4">
+                <hr>
+                <div class="col-12 ">
                     <select wire:model.live="category" class="form-select w-100 mt-1">
                         <option value="">Tutte le categorie</option>
                         @foreach ($categories as $category)
@@ -16,7 +17,8 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="d-flex mt-1 ">
+                <hr>
+                <div class="d-flex mt-0 ">
                     <button class="btn btn-base w-50" wire:click="orderByDateFunction">
                         @if ($orderByDate)
                             <i class="bi bi-sort-down"></i> <i class="bi bi-calendar-date-fill"></i>
@@ -33,7 +35,8 @@
                         @endif
                     </button>
                 </div>
-                <button wire:click="resetFilter" class="btn btn-base w-50 mt-3">Resetta filtri <i class="bi bi-x-lg"></i> </button>
+                <button wire:click="resetFilter" class="btn btn-base w-100 mt-1">Resetta filtri  </button>
+                <hr>
             </div>
         </section>
         {{-- sezione articoli --}}
@@ -41,8 +44,8 @@
             @for ($i=0; $i < $scroll; $i++)
                 <div class="col-12 col-md-6 col-lg-4 p-2">
                     <div class="card h-100">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ $products[$i]->title }}</h5>
+                        <div class="card-body d-flex  flex-column">
+                            <h5 class="card-title text-capitalize">{{ $products[$i]->title }}</h5>
                             @if ($products[$i]->description)
                                 <p class="card-text">{{ Str::limit($products[$i]->description, 20) }}</p>
                             @endif
