@@ -37,7 +37,6 @@
             @foreach ($products as $product)
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ $product->title }}</h5>
                         @if ($product->description)
@@ -45,9 +44,9 @@
                         @endif
                         @if ($product->category)
                             <p class="card-text"><strong>Categoria:</strong> {{ $product->category->name }}</p>
-                            <div class="d-inline-block" style="width: 40px; height: 40px;"> {{-- <--- IMPOSTA QUI LE DIMENSIONI --}}
+                            <span class="d-inline-block" style="width: 1rem; height: 1rem;"> {{-- <--- IMPOSTA QUI LE DIMENSIONI --}}
                                 {!! $product->category->svg_icon !!}
-                            </div>
+                            </span>
                         @endif
                         <p class="card-text">
                             <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
