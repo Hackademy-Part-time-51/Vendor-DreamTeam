@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Products;
 
+use App\Models\Category;
 use Livewire\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -22,6 +23,19 @@ class Index extends Component
     //         ->get();
     // }
 
+    public function mount()
+    {
+        $this->categories = Category::orderBy('name')->get();
+
+        if (request()->filled('category') && is_numeric(request()->query('category'))) {
+            $categoryId = request()->query('category');
+
+            if (Category::where('id', $categoryId)->exists()) {
+                $this->category = $categoryId;
+            }
+        }
+
+    }
 
     public function orderByDateFunction()
     {   if(empty($this->orderbydate)){
