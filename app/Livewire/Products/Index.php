@@ -14,7 +14,7 @@ class Index extends Component
     public $orderbyaz = '';
     public $search = "";
     public $category;
-    public $scroll=10;
+    public $scroll=18;
 
     // public function mount()
     // {
@@ -47,8 +47,8 @@ class Index extends Component
 
     public function scrollFunction()
     {   
-        if(($this->scroll+10)<count($this->products)){
-        $this->scroll += 10;
+        if(($this->scroll+18)<count($this->products)){
+        $this->scroll += 18;
     } else {
         $this->scroll = count($this->products)-1;
     }
