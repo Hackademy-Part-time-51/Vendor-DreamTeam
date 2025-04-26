@@ -14,7 +14,7 @@
     <div class="row g-4 mt-1">
         <h2>Tutti gli articoli</h2>
         <div class="d-flex mt-1 ">
-            <button class="btn btn-base" wire:click="orderByDateFunction">
+            <button class="btn btn-base mx-1" wire:click="orderByDateFunction">
                 @if ($orderByDate)
                     <i class="bi bi-sort-down"></i> Dal piu recente
                 @else
