@@ -14,6 +14,7 @@ class Index extends Component
     public $orderbyaz = '';
     public $search = "";
     public $category;
+    public $scroll=10;
 
     // public function mount()
     // {
@@ -42,13 +43,17 @@ class Index extends Component
             $this->orderbyaz = !$this->orderbyaz;
         }
         $this->orderbydate = '';
-
-
     }
 
-
-
-
+    public function scrollFunction()
+    {   
+        if(($this->scroll+10)<count($this->products)){
+        $this->scroll += 10;
+    } else {
+        $this->scroll = count($this->products)-1;
+    }
+        
+    }
 
     public function render()
     {
@@ -72,7 +77,7 @@ class Index extends Component
             ->get();
 
         return view('livewire.products.index', [
-
+            'scroll' => $this->scroll,
             'orderByAZ' => $this->orderbyaz,
             'orderByDate' => $this->orderbydate
         ]);

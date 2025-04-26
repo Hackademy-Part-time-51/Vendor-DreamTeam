@@ -34,37 +34,38 @@
             </div>
         </section>
         <div class="col-12 col-lg-8 d-flex flex-wrap">
-            @foreach ($products as $product)
+            @for ($i=0; $i < $scroll; $i++)
+                
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100">
 
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">{{ $product->title }}</h5>
-                        @if ($product->description)
-                            <p class="card-text">{{ Str::limit($product->description, 100) }}</p>
+                        <h5 class="card-title">{{ $products[$i]->title }}</h5>
+                        @if ($products[$i]->description)
+                            <p class="card-text">{{ Str::limit($products[$i]->description, 100) }}</p>
                         @endif
-                        @if ($product->category)
-                            <p class="card-text"><strong>Categoria:</strong> {{ $product->category->name }}</p>
+                        @if ($products[$i]->category)
+                            <p class="card-text"><strong>Categoria:</strong> {{ $products[$i]->category->name }}</p>
                             <div class="d-inline-block" style="width: 40px; height: 40px;"> {{-- <--- IMPOSTA QUI LE DIMENSIONI --}}
-                                {!! $product->category->svg_icon !!}
+                                {!! $products[$i]->category->svg_icon !!}
                             </div>
                         @endif
                         <p class="card-text">
-                            <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
+                            <strong>Data:</strong> {{ $products[$i]->created_at->format('d/m/Y') }}
                         </p>
                         <p class="card-text">
-                            <strong>Creato da:</strong> {{ $product->user->name }}
+                            <strong>Creato da:</strong> {{ $products[$i]->user->name }}
                         </p>
                         <div class="mt-auto d-flex justify-content-between align-items-center"> 
-                            @if ($product->price)
+                            @if ($products[$i]->price)
                                <p class="card-text fw-bold fs-5 mb-0">
-                                   € {{ number_format($product->price, 2, ',', '.') }}
+                                   € {{ number_format($products[$i]->price, 2, ',', '.') }}
                                </p>
                            @else
                                <span></span> 
                            @endif
 
-                           <a href="{{ route('products.show', ['product' => $product->id]) }}"
+                           <a href="{{ route('products.show', ['product' => $products[$i]->id]) }}"
                               class="btn btn-outline-primary btn-sm">
                                 Vedi Dettagli
                            </a>
@@ -72,7 +73,12 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+            @endfor
+            @if ($scroll < count($products)-1)
+                
+            <button wire:click="scrollFunction" class="btn btn-base w-100">Vedi altri...</button>
+            @endif
+        
         </div>
     </div>
 </div>
