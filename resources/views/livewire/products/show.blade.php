@@ -13,13 +13,13 @@
 
                         <div class="carousel-inner rounded"> 
                             <div class="carousel-item active">
-                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/300/300" class="d-block w-100" alt="Immagine casuale 1">
+                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/4320" class="d-block w-100" alt="Immagine casuale 1">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/300/300" class="d-block w-100" alt="Immagine casuale 2">
+                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/4320" class="d-block w-100" alt="Immagine casuale 2">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/300/300" class="d-block w-100" alt="Immagine casuale 3">
+                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/4320" class="d-block w-100" alt="Immagine casuale 3">
                             </div>
                         </div>
 
@@ -53,7 +53,8 @@
                     @if($product->description)
                         <div class="mb-3">
                             <h5 class="border-bottom pb-1 mb-2">Descrizione</h5>
-                            <p>{{($product->description)}}</p> 
+                            <p class="mb-0">{{($product->description)}}</p> 
+                            <button class="btn btn-base btn-sm mt-0 ">Traduci...</button>
                         </div>
                     @endif
 
