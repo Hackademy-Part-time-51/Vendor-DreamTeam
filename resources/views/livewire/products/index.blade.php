@@ -48,11 +48,20 @@
                         <p class="card-text">
                             <strong>Creato da:</strong> {{ $product->user->name }}
                         </p>
-                        @if ($product->price)
-                            <p class="card-text">
-                                <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}
-                            </p>
-                        @endif
+                        <div class="mt-auto d-flex justify-content-between align-items-center"> 
+                            @if ($product->price)
+                               <p class="card-text fw-bold fs-5 mb-0">
+                                   € {{ number_format($product->price, 2, ',', '.') }}
+                               </p>
+                           @else
+                               <span></span> 
+                           @endif
+
+                           <a href="{{ route('products.show', ['product' => $product->id]) }}"
+                              class="btn btn-outline-primary btn-sm">
+                                Vedi Dettagli
+                           </a>
+                       </div>
                     </div>
                 </div>
             </div>
