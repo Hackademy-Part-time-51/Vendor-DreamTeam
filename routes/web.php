@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -26,12 +27,28 @@ Route::controller(UserController::class)->group(function () {
 });
 
 // // rotte autenticazione 
-// Route::middleware(['auth'])->group(function () {
-//     Route::resource('products', PageController::class);
+Route::middleware(['auth'])->group(function () {
+    // User dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+// Routes for reviewers and managers
+Route::middleware(['auth', 'role:reviewer,manager'])->group(function () {
+    Route::get('/review', function () {
+        return view('review.dashboard');
+    })->name('review.dashboard');
+});
+
+// Routes for managers only
+Route::middleware(['auth', 'role:manager'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
     
-//     // Rotte per la gestione dei ruoli (solo manager)
-//     Route::middleware(['role:manager'])->prefix('admin')->name('admin.')->group(function () {
-//         Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
-//         Route::put('/roles/{user}', [RoleController::class, 'update'])->name('roles.update');
-//     });
-// });
+    // User management routes
+    Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
+    Route::get('/admin/users/{user}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
+    Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.users.update');
+});

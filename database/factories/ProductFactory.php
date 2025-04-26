@@ -18,15 +18,12 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        $categoryIds = Category::pluck('id')->toArray();
-        $userIds = User::pluck('id')->toArray();
-
         return [
-            'title' => substr(fake()->sentence(3), 0, 20),
-            'price' => fake()->randomFloat(2, 5, 1000),
-            'description' => fake()->paragraph(3),
-            'category_id' => fake()->randomElement($categoryIds),
-            'user_id' => fake()->randomElement($userIds), // <-- Assegna un user_id casuale
+            'title' => fake()->words(3, true),
+            'price' => fake()->randomFloat(2, 10, 1000),
+            'description' => fake()->paragraph(),
+            'category_id' => Category::inRandomOrder()->first()->id ?? Category::factory(),
+            'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
         ];
     }
 }

@@ -50,11 +50,11 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
         ]);
         
-        // Assegna il ruolo 'user' di default
-        $userRole = Role::where('name', 'user')->first();
+        $userRole = Role::where('slug', 'user')->first();
         $user->roles()->attach($userRole);
 
         return $user;
+        
     }
 }
 

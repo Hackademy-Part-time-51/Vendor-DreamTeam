@@ -2,53 +2,50 @@
 
 namespace App\Policies;
 
-use App\Models\Product;
+use App\Models\product;
 use App\Models\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProductPolicy
+class ArticlePolicy
 {
+    use HandlesAuthorization;
+
     public function viewAny(User $user): bool
     {
-        return true; // Tutti possono vedere l'elenco dei prodotti
+        return true;
     }
 
     public function view(User $user, Product $product): bool
     {
-        return true; // Tutti possono vedere i dettagli di un prodotto
+        return true;
     }
 
     public function create(User $user): bool
     {
-        return true; // Tutti gli utenti autenticati possono creare prodotti
+        return true; 
     }
 
     public function update(User $user, Product $product): bool
     {
-        // Gli utenti possono modificare solo i propri prodotti
-        // I revisori e i manager possono modificare qualsiasi prodotto
         return $user->id === $product->user_id || 
-               $user->isReviewer() || 
-               $user->isManager();
+               $user->hasAnyRole(['reviewer', 'manager']);
     }
 
     public function delete(User $user, Product $product): bool
     {
-        // Gli utenti possono eliminare solo i propri prodotti
-        // I revisori e i manager possono eliminare qualsiasi prodotto
+    
         return $user->id === $product->user_id || 
-               $user->isReviewer() || 
-               $user->isManager();
+               $user->hasAnyRole(['reviewer', 'manager']);
     }
 
+    
     public function restore(User $user, Product $product): bool
     {
-        // Solo i manager possono ripristinare i prodotti eliminati
-        return $user->isManager();
+        return $user->hasRole('manager');
     }
 
     public function forceDelete(User $user, Product $product): bool
     {
-        // Solo i manager possono eliminare definitivamente i prodotti
-        return $user->isManager();
+        return $user->hasRole('manager');
     }
 }
