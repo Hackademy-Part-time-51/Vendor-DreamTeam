@@ -1,36 +1,40 @@
 <div>
+    <h2 class="text-center">Tutti gli articoli</h2>
+    <hr>
+    <div class="row g-1 mt-3">
+        <section class="col-12 col-lg-4 ">
+            <div class="container-fluid section-filter card p-4  d-flex flex-column">
+                    <input type="text" wire:model.live="search" class="form-control w-100 " placeholder="Cerca il tuo prodotto..">
 
-    <div>
-        <input type="text" wire:model.live="search" class="form-control w-50 mt-1" placeholder="Cerca">
-    </div>
-    <div>
-        <select wire:model.live="category" class="form-select w-50 mt-1">
-            <option value="">Tutte le categorie</option>
-            @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="row g-4 mt-1">
-        <h2>Tutti gli articoli</h2>
-        <div class="d-flex mt-1 ">
-            <button class="btn btn-base" wire:click="orderByDateFunction">
-                @if ($orderByDate)
-                    <i class="bi bi-sort-down"></i> Dal piu recente
-                @else
-                    <i class="bi bi-sort-up"></i> Dal piu vecchio
-                @endif
-
-            </button>
-            <button class="btn btn-base mx-1" wire:click="orderByAZFunction">
-                @if ($orderByAZ)
-                    <i class="bi bi-sort-alpha-down"></i> Da A-Z
-                @else
-                    <i class="bi bi-sort-alpha-up"></i> Da Z-A
-                @endif
-            </button>
-        </div>
-        @foreach ($products as $product)
+                <div class="col-12 my-4">
+                    <select wire:model.live="category" class="form-select w-100 mt-1">
+                        <option value="">Tutte le categorie</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="d-flex mt-1 ">
+                    <button class="btn btn-base w-50" wire:click="orderByDateFunction">
+                        @if ($orderByDate)
+                            <i class="bi bi-sort-down"></i> Dal piu recente
+                        @else
+                            <i class="bi bi-sort-up"></i> Dal piu vecchio
+                        @endif
+        
+                    </button>
+                    <button class="btn btn-base mx-1 w-50" wire:click="orderByAZFunction">
+                        @if ($orderByAZ)
+                            <i class="bi bi-sort-alpha-down"></i> Da A-Z
+                        @else
+                            <i class="bi bi-sort-alpha-up"></i> Da Z-A
+                        @endif
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div class="col-12 col-lg-8 d-flex flex-wrap">
+            @foreach ($products as $product)
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100">
 
@@ -57,5 +61,6 @@
                 </div>
             </div>
         @endforeach
+        </div>
     </div>
 </div>

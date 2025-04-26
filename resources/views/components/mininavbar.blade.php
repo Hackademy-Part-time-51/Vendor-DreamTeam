@@ -1,4 +1,7 @@
   {{-- navbar fissa --}}
+  @php
+    use App\Models\Category;
+  @endphp
   <div class="secondary-navbar-sticky d-none d-lg-block z-3">
     <nav class="navbar navbar-expand-lg p-2">
         <div class="container-fluid ">
@@ -20,12 +23,15 @@
                       <i class="bi bi-tags-fill me-2"></i>  Categorie
                     </a>
                     <ul class="dropdown-menu">
+                      @foreach (Category::all() as $category )
+                      <li><a class="dropdown-item" href="#">{{$category->name}}</a></li>
+                      @endforeach
                         {{-- foreach di categorie --}}
                         {{-- @foreach ($categories as $category)
                         <li><a class="dropdown-item " href="#">Prodotti in promo <i class="bi bi-piggy-bank"></i></a></li>
                         <li><hr class="dropdown-divider"></li>
                         @endforeach --}}
-                      <li><a class="dropdown-item" href="#">Foreach di categorie</a></li>
+
                     </ul>
                 </li>
                 {{-- area personale --}}

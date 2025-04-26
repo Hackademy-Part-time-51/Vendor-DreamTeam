@@ -1,4 +1,7 @@
 {{-- navbar statica con apertura dei modal --}}
+@php
+    use App\Models\Category;
+@endphp
 <nav class="navbar py-0">
     <div class="container-fluid  fs-2 d-flex justify-content-between navbar">
         <button class="btn fs-1 text-blu border-0 scalesmall" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffCanvas" aria-controls="menuOffCanvas">
@@ -56,7 +59,9 @@
           <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <ul class="list-unstyled fs-4">
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-folder-fill me-2"></i> Foreach di categorie</a></li>
+                @foreach (Category::all() as $category)
+                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-folder-fill me-2"></i> {{$category->name}}</a></li>
+                @endforeach
               </ul>
             </div>
           </div>
