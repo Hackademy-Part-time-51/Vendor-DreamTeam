@@ -12,8 +12,11 @@
                 <div class="col-12 ">
                     <select wire:model.live="category" class="form-select w-100 mt-1">
                         <option value="">Tutte le categorie</option>
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @foreach ($categories as $cat)
+                           
+                            <option value="{{ $cat->id }}" @selected($cat->id == $category)>
+                                {{ $cat->name }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
