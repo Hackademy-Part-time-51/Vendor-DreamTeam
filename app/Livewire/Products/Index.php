@@ -44,6 +44,7 @@ class Index extends Component
         }
         $this->orderbydate = '';
     }
+    
 
     public function scrollFunction()
     {   
@@ -55,15 +56,26 @@ class Index extends Component
         
     }
 
+    public function resetFilter(){
+        $this->search = "";
+        $this->category = '';
+        $this->orderbydate = '';
+        $this->orderbyaz = '';
+        $this->scroll = 18;
+    }
+
     public function render()
     {
 
         $this->products = Product::with('category')
             ->when(!empty($this->search), function ($product) {
                 $product->where('title', 'like', '%' . $this->search . '%');
+                
             })
             ->when(!empty($this->category), function ($product) {
                 $product->where('category_id', $this->category);
+                
+
             })
             ->when(!empty($this->orderbydate), function ($product) {
                 $product->orderBy('created_at', 'asc');
@@ -75,6 +87,15 @@ class Index extends Component
                 $product->orderBy('title', 'desc');
             })
             ->get();
+
+            if ($this->scroll > count($this->products)-1) {
+                $this->scroll = count($this->products)-1;
+            }
+            if ($this->scroll <=0 && count($this->products) > 0) {  
+                $this->scroll = count($this->products)-1;
+            }
+
+
 
         return view('livewire.products.index', [
             'scroll' => $this->scroll,
