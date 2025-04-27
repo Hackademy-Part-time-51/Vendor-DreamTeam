@@ -1,5 +1,6 @@
 <x-layout>
     <x-mininavbar/>
+    <x-collegamento-profilo/>
     @if (session('status'))
     <div class="alert alert-success text-center">
         {{ session('status') }}
@@ -8,4 +9,5 @@
     <div class="container-fluid">
         @livewire('products.index', compact('products', 'categories'))
     </div>
+
 </x-layout>

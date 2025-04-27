@@ -44,6 +44,12 @@
         </section>
         {{-- sezione articoli --}}
         <section class="col-12 col-lg-9 d-flex flex-wrap justify-content-around gx-1 gy-1 pb-3">
+            @if (count($products) == 0)
+                <div class="alert alert-warning text-center w-100 d-flex justify-content-center align-items-center fs-3">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <strong>Non sono stati trovati articoli</strong>
+                </div>
+            @endif
             @for ($i=0; $i < $scroll; $i++)
                 <div class="col-12 col-md-6 col-lg-4 p-2">
                     <div class="card h-100">
@@ -91,7 +97,6 @@
                     <button class="btn-base btn"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-arrow-up"><i class="bi bi-chevron-up"></i></use></button>
                 </a>
             </div>
-
         </section>
     </div>
 </div>

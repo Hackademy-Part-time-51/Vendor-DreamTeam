@@ -24,7 +24,7 @@
           @endauth
         </button>
     </div>
-  </nav>
+</nav>
 
 
 {{-- menu offcanvas menu --}}

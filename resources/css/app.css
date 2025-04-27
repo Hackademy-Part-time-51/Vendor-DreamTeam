@@ -35,9 +35,11 @@ nav {
     top: 0;
     color: #003255;
 }
-.fs-mininav{
+
+.fs-mininav {
     font-size: calc(0.491rem + 1vw);
 }
+
 /* #endregion */
 
 /* #region COLORI */
@@ -171,24 +173,79 @@ nav {
     top: 30vh;
     box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
 }
-.torna-su{
+
+.torna-su {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
 }
-.torna-su button{
+
+.torna-su button {
     background-color: #003255;
     color: white;
 }
-    
+
 
 
 
 /* #endregion */
 
+/* #region COLLEGAMENTO PROFILO */
+.collegamento-profilo {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 9999;
+    background-color: whitesmoke;
+}
 
+.collegamento-profilo img:hover {
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.5);
+    object-fit: cover;
+}
 
+/* #endregion */
 
+/* #region FORM ADD PRODUCTS     */
+.upload_dropZone {
+    color: #0f3c4b;
+    background-color: var(--colorPrimaryPale, #c8dadf);
+    outline: 2px dashed var(--colorPrimaryHalf, #c1ddef);
+    outline-offset: -12px;
+    transition:
+        outline-offset 0.2s ease-out,
+        outline-color 0.3s ease-in-out,
+        background-color 0.2s ease-out;
+}
+
+.upload_dropZone.highlight {
+    outline-offset: -4px;
+    outline-color: var(--colorPrimaryNormal, #0576bd);
+    background-color: #00C13E;
+}
+
+.upload_svg {
+    fill: var(--colorPrimaryNormal, #0576bd);
+}
+
+.btn-upload {
+    color: #fff;
+    background-color: var(--colorPrimaryNormal);
+}
+
+.btn-upload:hover,
+.btn-upload:focus {
+    color: #fff;
+    background-color: var(--colorPrimaryGlare);
+}
+
+.upload_img {
+    width: calc(33.333% - (2rem / 3));
+    object-fit: contain;
+}
+
+/* #endregion */
 
 
 

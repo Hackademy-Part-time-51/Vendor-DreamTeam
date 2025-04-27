@@ -106,6 +106,7 @@
             </ul>
         </div>
       </nav>
+  </div>
           {{-- modal logout --}}
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -123,4 +124,4 @@
           </div>
         </div>
       </div>
-</div>
+  </div>
