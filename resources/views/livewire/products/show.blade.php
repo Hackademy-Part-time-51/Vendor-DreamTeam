@@ -49,14 +49,31 @@
                             <span class="">Venditore: {{ $product->user->name }}</span>
                         @endif
                     </div>
-                    
-                    @if($product->description)
-                        <div class="mb-3">
-                            <h5 class="border-bottom pb-1 mb-2">Descrizione</h5>
-                            <p class="mb-0">{{($product->description)}}</p> 
-                            <button wire:click="translate" class="btn btn-base btn-sm mt-0 ">Traduci...</button>
-                        </div>
+                    @if ($setTranslate)
+                    <div class="mb-3">
+                        <h5 class="border-bottom pb-1 mb-2">Descrizione</h5>
+                        <p class="mb-0">{{($descri)}}</p> 
+                        <button wire:click="translate" class="btn btn-base btn-sm mt-0 ">
+                            
+                                Ritorna all'originale
+                            
+                           
+                        </button>
+                    </div>
+                        
+                    @else
+                    <div class="mb-3">
+                        <h5 class="border-bottom pb-1 mb-2">Descrizione</h5>
+                        <p class="mb-0">{{($product->description)}}</p> 
+                        <button wire:click="translate" class="btn btn-base btn-sm mt-0 ">
+                            
+                            Traduci...
+                           
+                        </button>
+                    </div>
                     @endif
+                    
+                   
 
                      <p class="text-muted small">
                         Aggiunto il: {{ $product->created_at->translatedFormat('d F Y') }} 
