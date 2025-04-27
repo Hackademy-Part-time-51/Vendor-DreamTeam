@@ -7,7 +7,10 @@
                 <div class="col-12 col-md-6 col-lg-4 scalebig">
                     <div class="card h-100">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title text-capitalize">{{ $product->title }}</h5>
+                            <div class="d-flex mt-auto  justify-content-between align-items-center">
+                                <h5 class="card-title text-capitalize">{{ $product->title }}</h5>
+                                @livewire('products.favorite')
+                            </div>
                             @if ($product->description)
                                 <p class="card-text">{{ Str::limit($product->description, 20) }}</p>
                             @endif

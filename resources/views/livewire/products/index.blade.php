@@ -54,7 +54,16 @@
                 <div class="col-12 col-md-6 col-lg-4 p-2 scalebig">
                     <div class="card h-100">
                         <div class="card-body d-flex  flex-column">
-                            <h5 class="card-title text-capitalize">{{ $products[$i]->title }}</h5>
+                            <div class="d-flex mt-auto  justify-content-between align-items-center">
+                                <h5 class="card-title text-capitalize ">{{ $products[$i]->title }}</h5>
+                                <button class="btn btn-base" wire:click="toggleFavorite">
+                                    @if ($favorites)
+                                        <i class="bi bi-heart-fill"></i>
+                                    @else
+                                    <i class="bi bi-heart"></i>
+                                    @endif
+                                </button>
+                            </div>
                             @if ($products[$i]->description)
                                 <p class="card-text">{{ Str::limit($products[$i]->description, 20) }}</p>
                             @endif

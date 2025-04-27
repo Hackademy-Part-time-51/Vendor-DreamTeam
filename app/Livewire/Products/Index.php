@@ -11,6 +11,7 @@ class Index extends Component
 {
     public $products;
     public $categories;
+    public $favorites = '';
     public $orderbydate = '';
     public $orderbyaz = '';
     public $search = "";
@@ -78,6 +79,19 @@ class Index extends Component
         $this->scroll = 18;
     }
 
+    public function toggleFavorite()
+    {   
+        if(empty($this->favorites)){
+
+        $this->favorites = true;
+
+    }
+        else{
+        
+        $this->favorites = !$this->favorites;
+
+    }}   
+
     public function render()
     {
 
@@ -114,7 +128,8 @@ class Index extends Component
         return view('livewire.products.index', [
             'scroll' => $this->scroll,
             'orderByAZ' => $this->orderbyaz,
-            'orderByDate' => $this->orderbydate
+            'orderByDate' => $this->orderbydate,
+            'favorites'=>$this->favorites
         ]);
     }
 }

@@ -26,6 +26,10 @@ class Product extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function favoriteBy(){
+        return $this->belongsToMany(User::class);
+    }
+
     /**
      * Get the category that the product belongs to.
      */

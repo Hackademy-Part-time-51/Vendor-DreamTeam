@@ -30,6 +30,14 @@
                                             <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}
                                         </p>
                                     @endif
+                                    <div class="d-flex justify-content-between mt-auto">
+                                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base">Modifica</a>
+                                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo prodotto?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-rosso">Elimina</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
