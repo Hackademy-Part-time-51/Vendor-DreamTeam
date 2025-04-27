@@ -54,7 +54,7 @@
                         <div class="mb-3">
                             <h5 class="border-bottom pb-1 mb-2">Descrizione</h5>
                             <p class="mb-0">{{($product->description)}}</p> 
-                            <button class="btn btn-base btn-sm mt-0 ">Traduci...</button>
+                            <button wire:click="translate" class="btn btn-base btn-sm mt-0 ">Traduci...</button>
                         </div>
                     @endif
 
