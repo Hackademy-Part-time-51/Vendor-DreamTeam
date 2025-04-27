@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('gender')->nullable(); 
             $table->string('phone')->nullable();
             $table->string('profile_image')->nullable();
+            $table->string('role')->default('user'); // Aggiunto campo role con valore predefinito 'user'
             $table->rememberToken();
             $table->timestamps();
         });

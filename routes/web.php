@@ -42,10 +42,8 @@ Route::middleware(['auth', 'role:reviewer,manager'])->group(function () {
 });
 
 // Routes for managers only
-Route::middleware(['auth', 'role:manager'])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     
     // User management routes
     Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');

@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->authorizeResource(Product::class, 'product', [
+    //         'except' => ['index', 'show', 'home']
+    //     ]);
+    // }
+
     public function home() {
         return view('welcome');
     }
@@ -76,7 +83,7 @@ class PageController extends Controller
 
         $product->update($validated);
 
-        return redirect()->route('products.index', $product)
+        return redirect()->route('products.show', $product)
             ->with('success', 'Prodotto aggiornato con successo!');
     }
 
