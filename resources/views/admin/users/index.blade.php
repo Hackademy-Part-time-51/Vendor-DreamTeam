@@ -33,9 +33,13 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        @foreach ($user->roles as $role)
-                                            <span class="badge bg-primary rounded-pill">{{ $role->name }}</span>
-                                        @endforeach
+                                        @if($user->roles && $user->roles->count() > 0)
+                                            @foreach ($user->roles as $role)
+                                                <span class="badge bg-primary rounded-pill">{{ $role->name }}</span>
+                                            @endforeach
+                                        @else
+                                            <span class="badge bg-secondary">No roles assigned</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-primary">

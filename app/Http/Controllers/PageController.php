@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->authorizeResource(Product::class, 'product', [
+    //         'except' => ['index', 'show', 'home']
+    //     ]);
+    // }
+
     public function home() {
         return view('welcome');
     }
@@ -66,7 +73,17 @@ class PageController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'category_id' => 'required|exists:categories,id'
+        ]);
+
+        $product->update($validated);
+
+        return redirect()->route('products.show', $product)
+            ->with('success', 'Prodotto aggiornato con successo!');
     }
 
     /**

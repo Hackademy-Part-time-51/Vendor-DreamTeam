@@ -52,7 +52,10 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    public function roles(): BelongsToMany
+    /**
+     * The roles that belong to the user.
+     */
+    public function roles()
     {
         return $this->belongsToMany(Role::class);
     }
@@ -68,9 +71,19 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->roles()->where('slug', $role)->exists();
     }
 
-    public function hasAnyRole(array $roles): bool
+    /**
+     * Check if the user has any of the given roles.
+     *
+     * @param array|string $roles
+     * @return bool
+     */
+    public function hasAnyRole($roles)
     {
-        return $this->roles()->whereIn('slug', $roles)->exists();
+        if (is_string($roles)) {
+            return $this->roles->contains('name', $roles);
+        }
+        
+        return $this->roles->pluck('name')->intersect($roles)->isNotEmpty();
     }
 
     public function hasAllRoles(array $roles): bool
