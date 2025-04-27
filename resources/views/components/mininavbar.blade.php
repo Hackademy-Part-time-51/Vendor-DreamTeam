@@ -65,7 +65,7 @@
                         <a class="dropdown-item text-blu" href="#"><i class="bi bi-heart"></i> Preferiti</a>
                       </li>
                       <li>
-                        <a class="dropdown-item text-blu" href="#"><i class="bi bi-box-arrow-left"></i> Esci</a>
+                        <a class="dropdown-item text-blu" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> Esci</a>
                       </li>
                     </ul>
                     @endauth
@@ -106,4 +106,21 @@
             </ul>
         </div>
       </nav>
+          {{-- modal logout --}}
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-4 text-center" id="staticBackdropLabel">Vuoi uscire?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-footer justify-content-start">
+            <button type="button" class="btn btn-base " data-bs-dismiss="modal">Torna indietro.</button>
+            <form action="{{route('logout')}}" method="POST">
+              @csrf
+              <button class="btn btn-rosso text-white" data-bs-dismiss="modal">Si, esci.</button>
+            </form>
+          </div>
+        </div>
+      </div>
 </div>
