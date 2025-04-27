@@ -73,7 +73,6 @@ class PageController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-<<<<<<< HEAD
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
@@ -85,9 +84,6 @@ class PageController extends Controller
 
         return redirect()->route('products.show', $product)
             ->with('success', 'Prodotto aggiornato con successo!');
-=======
-        
->>>>>>> 853daf94d429765ab7503c8b0a1c59da52559f39
     }
 
     /**
