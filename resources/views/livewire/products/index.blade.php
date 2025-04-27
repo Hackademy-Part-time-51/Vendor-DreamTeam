@@ -5,7 +5,7 @@
     <div class="row g-1 mt-3">
         {{-- sezione filtri a sinistra lg/xl schermo intero sm/md --}}
         <section class="col-12 col-lg-3 ">
-            <div class="container-fluid section-filter card p-4  d-flex flex-column">
+            <div class="container-fluid section-filter card p-4 scalebig d-flex flex-column">
                 <hr>
                     <input type="text" wire:model.live="search" class="form-control w-100 " placeholder="Cerca il tuo prodotto..">
                 <hr>
@@ -51,7 +51,7 @@
                 </div>
             @endif
             @for ($i=0; $i < $scroll; $i++)
-                <div class="col-12 col-md-6 col-lg-4 p-2">
+                <div class="col-12 col-md-6 col-lg-4 p-2 scalebig">
                     <div class="card h-100">
                         <div class="card-body d-flex  flex-column">
                             <h5 class="card-title text-capitalize">{{ $products[$i]->title }}</h5>

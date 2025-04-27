@@ -4,7 +4,7 @@
     @if ($products->isNotEmpty())
         <div class="row g-4">
             @foreach ($products as $product)
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4 scalebig">
                     <div class="card h-100">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title text-capitalize">{{ $product->title }}</h5>
@@ -45,5 +45,7 @@
     @else
         <p class="alert alert-info">Nessun prodotto da mostrare al momento.</p>
     @endif
-
+    <div class="d-flex justify-content-center mt-4">
+        <a href="{{ route('products.index') }}" class="btn btn-base">Visualizza tutti i prodotti</a>
+    </div>
 </div>
