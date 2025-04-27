@@ -48,7 +48,7 @@ class PageController extends Controller
             'category_id' => 'required|exists:categories,id'
         ]);
 
-        $product = Auth::user()->products()->create($validated);
+        $product = Auth::user()->products->create($validated);
 
         return redirect()->route('products.show', $product)
             ->with('success', 'Prodotto creato con successo.');
@@ -65,8 +65,7 @@ class PageController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Product $product) {
-        $categories = Category::all();
-        return view('products.edit', compact('product', 'categories'));
+       
     }
 
     /**
@@ -74,6 +73,7 @@ class PageController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+<<<<<<< HEAD
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
@@ -85,13 +85,15 @@ class PageController extends Controller
 
         return redirect()->route('products.show', $product)
             ->with('success', 'Prodotto aggiornato con successo!');
+=======
+        
+>>>>>>> 853daf94d429765ab7503c8b0a1c59da52559f39
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Product $product) {
-        $product->delete();
-        return redirect()->route('products.index')->with('success', 'Prodotto eliminato con successo');
+        
     }
 }

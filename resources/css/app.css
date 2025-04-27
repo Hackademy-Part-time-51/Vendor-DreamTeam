@@ -35,7 +35,9 @@ nav {
     top: 0;
     color: #003255;
 }
-
+.fs-mininav{
+    font-size: calc(0.491rem + 1vw);
+}
 /* #endregion */
 
 /* #region COLORI */
@@ -168,6 +170,15 @@ nav {
     position: sticky;
     top: 30vh;
     box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
+}
+.torna-su{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+.torna-su button{
+    background-color: #003255;
+    color: white;
 }
     
 

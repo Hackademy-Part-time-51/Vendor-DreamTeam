@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Products;
 
+use App\Models\Category;
 use Livewire\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ class Index extends Component
     public $orderbyaz = '';
     public $search = "";
     public $category;
-    public $scroll=10;
+    public $scroll=18;
 
     // public function mount()
     // {
@@ -23,6 +24,19 @@ class Index extends Component
     //         ->get();
     // }
 
+    public function mount()
+    {
+        $this->categories = Category::orderBy('name')->get();
+
+        if (request()->filled('category') && is_numeric(request()->query('category'))) {
+            $categoryId = request()->query('category');
+
+            if (Category::where('id', $categoryId)->exists()) {
+                $this->category = $categoryId;
+            }
+        }
+
+    }
 
     public function orderByDateFunction()
     {   if(empty($this->orderbydate)){
@@ -44,15 +58,24 @@ class Index extends Component
         }
         $this->orderbydate = '';
     }
+    
 
     public function scrollFunction()
     {   
-        if(($this->scroll+10)<count($this->products)){
-        $this->scroll += 10;
+        if(($this->scroll+18)<count($this->products)){
+        $this->scroll += 18;
     } else {
         $this->scroll = count($this->products)-1;
     }
         
+    }
+
+    public function resetFilter(){
+        $this->search = "";
+        $this->category = '';
+        $this->orderbydate = '';
+        $this->orderbyaz = '';
+        $this->scroll = 18;
     }
 
     public function render()
@@ -61,9 +84,12 @@ class Index extends Component
         $this->products = Product::with('category')
             ->when(!empty($this->search), function ($product) {
                 $product->where('title', 'like', '%' . $this->search . '%');
+                
             })
             ->when(!empty($this->category), function ($product) {
                 $product->where('category_id', $this->category);
+                
+
             })
             ->when(!empty($this->orderbydate), function ($product) {
                 $product->orderBy('created_at', 'asc');
@@ -75,6 +101,15 @@ class Index extends Component
                 $product->orderBy('title', 'desc');
             })
             ->get();
+
+            if ($this->scroll > count($this->products)-1) {
+                $this->scroll = count($this->products)-1;
+            }
+            if ($this->scroll <=0 && count($this->products) > 0) {  
+                $this->scroll = count($this->products)-1;
+            }
+
+
 
         return view('livewire.products.index', [
             'scroll' => $this->scroll,

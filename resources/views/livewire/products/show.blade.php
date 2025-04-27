@@ -1,5 +1,5 @@
 <div>
-    
+    <hr>
     @if ($product)
         <div class="container mt-4">
             <div class="row">
@@ -13,13 +13,13 @@
 
                         <div class="carousel-inner rounded"> 
                             <div class="carousel-item active">
-                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/800/600" class="d-block w-100" alt="Immagine casuale 1">
+                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/4320" class="d-block w-100" alt="Immagine casuale 1">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/800/600" class="d-block w-100" alt="Immagine casuale 2">
+                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/4320" class="d-block w-100" alt="Immagine casuale 2">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/800/600" class="d-block w-100" alt="Immagine casuale 3">
+                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/4320" class="d-block w-100" alt="Immagine casuale 3">
                             </div>
                         </div>
 
@@ -34,28 +34,27 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <h1 class="mb-3">{{ $product->title }}</h1>
-
-                    @if(!is_null($product->price))
-                        <p class="fs-4 fw-bold text-primary mb-3">
-                            € {{ number_format($product->price, 2, ',', '.') }}
-                        </p>
-                    @endif
+                <div class="col-md-6 align-content-center">
+                    <h1 class="mb-3 text-capitalize">{{ $product->title }}</h1>
 
                     <div class="mb-3 text-muted">
                         @if ($product->category)
-                            <span>Categoria: {{ $product->category->name }}</span>
-                        @endif
+                        <span>Categoria: 
+                            <a href="{{ route('products.index', ['category' => $product->category->id]) }}" class="text-decoration-none text-primary">
+                                {{ $product->category->name }} 
+                            </a>
+                        </span>
+                    @endif
                         @if ($product->user)
-                            <span class="ms-3">Venditore: {{ $product->user->name }}</span>
+                            <span class="">Venditore: {{ $product->user->name }}</span>
                         @endif
                     </div>
-
+                    
                     @if($product->description)
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <h5 class="border-bottom pb-1 mb-2">Descrizione</h5>
-                            <p>{{($product->description)}}</p> 
+                            <p class="mb-0">{{($product->description)}}</p> 
+                            <button class="btn btn-base btn-sm mt-0 ">Traduci...</button>
                         </div>
                     @endif
 
@@ -63,11 +62,17 @@
                         Aggiunto il: {{ $product->created_at->translatedFormat('d F Y') }} 
                         ({{ $product->created_at->diffForHumans() }})
                      </p>
+                     @if(!is_null($product->price))
+                     <p class="fs-3 fw-bold mb-2">
+                         € {{ number_format($product->price, 2, ',', '.') }}
+                     </p>
+                 @endif
+                 <div class="d-flex gap-2 justify-content-center mt-3">  
+                    <a href="{{ route('products.index') ?? url('/') }}" class="btn btn-base">Contatta il venditore</a>   
+                    <a href="{{ route('products.index') ?? url('/') }}" class="btn btn-base">Torna ai Prodotti</a>
+                </div>
+                </div>
 
-                </div>
-                <div class="text-center">
-                    <a href="{{ route('products.index') ?? url('/') }}" class="btn btn-primary">Torna ai Prodotti</a>
-                </div>
             </div>
         </div>
 

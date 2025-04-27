@@ -3,7 +3,12 @@
     use App\Models\Category;
 @endphp
 <nav class="navbar py-0">
-    <div class="container-fluid  fs-2 d-flex justify-content-between navbar">
+    <div class="container-fluid  d-flex justify-content-center d-none d-lg-flex navbar">
+      <a href="/">
+        <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="80">
+    </a>
+    </div>
+    <div class="container-fluid  fs-2 d-flex justify-content-between navbar d-lg-none d-xl-none">
         <button class="btn fs-1 text-blu border-0 scalesmall" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffCanvas" aria-controls="menuOffCanvas">
             <i class="bi bi-list" ></i>
         </button>

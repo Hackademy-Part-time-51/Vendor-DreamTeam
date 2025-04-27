@@ -10,24 +10,24 @@ Route::get('/',[PageController::class,'home'] )->name('home');
 
 Route::get('/products/index',[PageController::class,'index'] )->name('products.index');
 
-Route::get('/products/create',[PageController::class,'create'] )->name('products.create')->middleware('auth');
+Route::get('/products/create',[PageController::class,'create'] )->name('products.create')->middleware('verified');
 
-Route::get('/products/{product}',[PageController::class,'show'] )->name('products.show')->middleware('auth');
+Route::get('/products/{product}',[PageController::class,'show'] )->name('products.show')->middleware('verified');
 
-Route::get('/products/{product}/edit',[PageController::class,'edit'] )->name('products.edit')->middleware('auth');
+Route::get('/products/{product}/edit',[PageController::class,'edit'] )->name('products.edit')->middleware('verified');
 
-Route::post('/products',[PageController::class,'store'] )->name('products.store')->middleware('auth');
+Route::post('/products',[PageController::class,'store'] )->name('products.store')->middleware('verified');
 
-Route::put('/products/{product}',[PageController::class,'update'] )->name('products.update')->middleware('auth');
+Route::put('/products/{product}',[PageController::class,'update'] )->name('products.update')->middleware('verified');
 
-Route::delete('/products/{product}',[PageController::class,'destroy'] )->name('products.destroy')->middleware('auth');
+Route::delete('/products/{product}',[PageController::class,'destroy'] )->name('products.destroy')->middleware('verified');
 
 Route::controller(UserController::class)->group(function () {
-    Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('auth');
+    Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('verified');
 });
 
 // // rotte autenticazione 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['verified'])->group(function () {
     // User dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -35,18 +35,26 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Routes for reviewers and managers
-Route::middleware(['auth', 'role:reviewer,manager'])->group(function () {
+Route::middleware(['verified', 'role:reviewer,manager'])->group(function () {
     Route::get('/review', function () {
         return view('review.dashboard');
     })->name('review.dashboard');
 });
 
 // Routes for managers only
+<<<<<<< HEAD
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+=======
+Route::middleware(['verified', 'role:manager'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+>>>>>>> 853daf94d429765ab7503c8b0a1c59da52559f39
     
     // User management routes
     Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
     Route::get('/admin/users/{user}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
     Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.users.update');
 });
+
