@@ -4,3 +4,4 @@
         <img src="{{asset('storage/'.Auth::user()->profile_image) }}" class="rounded-circle img-thumbnail" alt="" height="50" width="50">
     </a>
 </div>
+@endauth

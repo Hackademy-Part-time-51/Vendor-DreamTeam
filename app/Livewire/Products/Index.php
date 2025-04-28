@@ -13,7 +13,7 @@ class Index extends Component
     public $categories;
     public $orderbydate = '';
     public $orderbyaz = '';
-    public $search = "";
+    public $search = '';
     public $category;
     public $scroll = 18;
 
@@ -35,44 +35,42 @@ class Index extends Component
                 $this->category = $categoryId;
             }
         }
-
     }
 
     public function orderByDateFunction()
-    {   if(empty($this->orderbydate)){
-        $this->orderbydate = true;
-    }else{
-        
-        $this->orderbydate = !$this->orderbydate;
-    }
-    $this->orderbyaz = '';
+    {
+        if (empty($this->orderbydate)) {
+            $this->orderbydate = true;
+        } else {
 
+            $this->orderbydate = !$this->orderbydate;
+        }
+        $this->orderbyaz = '';
     }
     public function orderByAZFunction()
     {
-        if(empty($this->orderbyaz)){
+        if (empty($this->orderbyaz)) {
             $this->orderbyaz = true;
-        }else{
-            
+        } else {
+
             $this->orderbyaz = !$this->orderbyaz;
         }
         $this->orderbydate = '';
     }
-    
+
 
     public function scrollFunction()
-    {   
-        if(($this->scroll+18)<count($this->products)){
-        $this->scroll += 18;
-    } else {
-        $this->scroll = count($this->products)-1;
-    }
-        
+    {
+        if (($this->scroll + 18) < count($this->products)) {
+            $this->scroll += 18;
+        } else {
+            $this->scroll = count($this->products) - 1;
+        }
     }
 
     public function resetFilter()
     {
-        $this->search = "";
+        $this->search = '';
         $this->category = '';
         $this->orderbydate = '';
         $this->orderbyaz = '';
@@ -82,33 +80,42 @@ class Index extends Component
     public function render()
     {
 
-        $this->products = Product::with('category')
+        $query = Product::with('category')
             ->when(!empty($this->search), function ($product) {
                 $product->where('title', 'like', '%' . $this->search . '%');
-                
             })
             ->when(!empty($this->category), function ($product) {
                 $product->where('category_id', $this->category);
-                
+            });
 
-            })
-            ->when(!empty($this->orderbydate), function ($product) {
-                $product->orderBy('created_at', 'asc');
-            }, function ($product) {
-                $product->orderBy('created_at', 'desc');
-            })->when(!empty($this->orderbyaz), function ($product) {
-                $product->orderBy('title', 'asc');
-            }, function ($product) {
-                $product->orderBy('title', 'desc');
-            })
-            ->get();
+        // Ordine di creazione
+        if ($this->orderbydate !== '') {
+            if ($this->orderbydate) {
+                $query->orderBy('created_at', 'asc');
+            } else {
+                $query->orderBy('created_at', 'desc');
+            }
+        }
 
-            if ($this->scroll > count($this->products)-1) {
-                $this->scroll = count($this->products)-1;
+        // Ordine alfabetico solo se diverso da stringa vuota
+        if ($this->orderbyaz !== '') {
+            if ($this->orderbyaz) {
+                $query->orderBy('title', 'asc');
+            } else {
+                $query->orderBy('title', 'desc');
             }
-            if ($this->scroll <=0 && count($this->products) > 0) {  
-                $this->scroll = count($this->products)-1;
-            }
+        }
+        
+
+        $this->products = $query->get();
+
+
+        if ($this->scroll > count($this->products) - 1) {
+            $this->scroll = count($this->products) - 1;
+        }
+        if ($this->scroll <= 0 && count($this->products) > 0) {
+            $this->scroll = count($this->products) - 1;
+        }
 
 
 
