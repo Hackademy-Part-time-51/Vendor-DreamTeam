@@ -7,15 +7,10 @@
         <div class="container-fluid ">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-evenly w-100 align-items-center">
                 {{-- prodotti --}}
-                <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item">
+                    <a class="nav-link text-blu scalebig  fs-mininav" href="{{route('products.index')}}">
                       <i class="bi bi-box-seam me-2"></i> Prodotti
                     </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item " href="#"><i class="bi bi-piggy-bank"></i> Prodotti in promo </a></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-calendar4-week"></i> Trend della settimana </a></li>
-                      <li><a class="dropdown-item" href="{{route('products.index')}}"><i class="bi bi-list-task"></i> Tutti i prodotti </a></li>
-                    </ul>
                 </li>
                 {{-- categorie --}}
                 <li class="nav-item dropdown">
