@@ -26,6 +26,21 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('verified');
 });
 
+
+
+// rotta middleware per l edit e il delete
+Route::get('/products/{product}/edit', [PageController::class, 'edit'])
+    ->name('products.edit')
+    ->middleware(['verified', ]);
+
+Route::put('/products/{product}', [PageController::class, 'update'])
+    ->name('products.update')
+    ->middleware(['verified', ]);
+
+Route::delete('/products/{product}', [PageController::class, 'destroy'])
+    ->name('products.destroy')
+    ->middleware(['verified', ]);
+
 // // rotte autenticazione 
 Route::middleware(['verified'])->group(function () {
     // User dashboard

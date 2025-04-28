@@ -20,7 +20,17 @@
         @enderror
     </div>
 
-    <div class="flex items-center d-flex justify-content-center">
+    <div class="mb-4">
+        <label class="flex items-center">
+            <input type="checkbox" name="remember" class="mr-2">
+            <span>Ricordami</span>
+        </label>
+    </div>
+
+    <div class="flex items-center justify-between">
+        <a href="{{ route('register') }}" class="text-decoration-none">
+            Non hai un account? Registrati <i class="bi bi-box-arrow-in-right"></i>
+        </a>
         <button type="submit" class="btn btn-base">
             Login
         </button>
