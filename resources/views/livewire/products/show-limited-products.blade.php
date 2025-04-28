@@ -1,6 +1,7 @@
 <div>
-    <h2 class="mb-4">I nostri ultimi 6 prodotti</h2>
-
+    <hr>
+    <h2 class="mb-4 text-center">I nostri ultimi 6 prodotti</h2>
+    <hr>
     @if ($products->isNotEmpty())
         <div class="row g-4">
             @foreach ($products as $product)

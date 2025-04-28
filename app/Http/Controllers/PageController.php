@@ -65,7 +65,8 @@ class PageController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Product $product) {
-       return view('products.edit', compact('product'));
+        $categories = Category::all();
+       return view('products.edit', compact('product', 'categories'));
     }
 
     /**

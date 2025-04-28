@@ -2,16 +2,15 @@
 
 namespace App\Livewire\Products;
 
+use App\Models\Category;
 use Livewire\Component;
 use App\Models\Product;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 
-
 class Edit extends Component
 {   
     public $product;
-    public $categories;
 
     #[Validate('required|string')]
     public $title;
@@ -19,7 +18,7 @@ class Edit extends Component
     public $description;
     #[Validate('required|numeric|decimal:0,2|min:0')]
     public $price;
-    #[Validate('required|exists:categories,id')]
+    #[Validate('required')]
     public $category_id;
     public $user_id;
 
@@ -28,22 +27,24 @@ class Edit extends Component
         $this->title = $product->title;
         $this->description = $product->description;
         $this->price = $product->price;
+        $this->category_id = $product->category_id;
     }
 
-    public function store() {
+    public function update() {
         $this->validate();
         $this->product->update([
             'title' => $this->title,
             'description' => $this->description,
             'price' => $this->price,
-            'category_id' => $this->category_id,
-            'user_id' => Auth::id()
+            'category_id'=> $this->category_id,
+            'user_id' => Auth::id(),
         ]);
         session()->flash('status', 'Annuncio modificato correttamente.');
         return $this->redirect('/products/index');
     }
     public function render()
     {
-        return view('livewire.products.edit');
+        $categories = Category::all();
+        return view('livewire.products.edit', compact('categories'));
     }
 }

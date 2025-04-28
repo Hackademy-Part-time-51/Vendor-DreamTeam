@@ -1,7 +1,7 @@
 <div class="container">
     <hr>
-    <form wire:submit="store">
-        <div class="row mt-3" >
+    <form wire:submit="update">
+        <div class="row mt-3">
             <div class="col-md-6 mb-4 mb-md-0 ">
                 <div id="productImageCarousel" class="carousel slide shadow-sm " data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -32,38 +32,42 @@
                     </button>
                 </div>
             </div>
+
             <div class="col-md-6 align-content-center">
-                <h1 class="mb-3 text-capitalize">{{ $product->title }} <i class="bi bi-pencil-fill fs-6 btn "></i></h1>
-                <div class="mb-3 text-muted">
-                @if ($product->category)
-                    <span class="fs-5">Categoria: 
-                        <a href="{{ route('products.index', ['category' => $product->category->id]) }}" class="text-decoration-none text-primary">
-                            {{ $product->category->name }} 
-                        </a> <i class="bi bi-pencil-fill  btn  btn-sm"></i></h1>
-                    </span>
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>  
                 @endif
-                <br>
-                    @if ($product->user)
-                        <span class="fs-5">Venditore: {{ $product->user->name }}</span>
-                    @endif
+                <div id="editTitle text-center">
+                    <label for="title" class="form-label fs-4 text-center @error('title') d-none @enderror">Titolo</label>
+                    <input type="text" class="form-control mb-3 fs-4 bg-transparent" id="title"  placeholder="{{$product->title}}" wire:model="title" required>
                 </div>
-                
-                <div class="mb-3">
-                    <h5 class="border-bottom fs-3 pb-1 mb-2">Descrizione <i class="bi bi-pencil-fill fs-6 btn "></i></h1></h5>
-                    <p class="mb-0">{{($product->description)}}</p> 
+                <hr>
+                <div class="">
+                    <label for="category_id" class="form-label fs-4 text-center @error('category_id') d-none @enderror">Categoria</label>
+                    <select wire:model="category_id" id="category_id" class="form-select bg-transparent fs-5">
+                        @foreach ($categories as $category)
+                        <option @selected($product->category_id == $category->id) value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
-                
-                 <p class="text-muted small">
-                    Aggiunto il: {{ $product->created_at->translatedFormat('d F Y') }} 
-                    ({{ $product->created_at->diffForHumans() }})
-                 </p>
-                 @if(!is_null($product->price))
-                 <p class="fs-3 fw-bold mb-2">
-                     € {{ number_format($product->price, 2, ',', '.') }} <i class="bi bi-pencil-fill fs-6 btn "></i></h1>
-                 </p>
-             @endif
+                <hr>
+                <div class="">
+                    <label for="category_id" class="form-label fs-4 text-center @error('category_id') d-none @enderror">Descrizione</label>
+                    <textarea class="form-control fs-5 bg-transparent" id="descrizione" rows="3" wire:model="description"> {{ old('description') }}</textarea>
+                </div>
+                <hr>
+                <label for="category_id" class="form-label fs-4 text-center @error('price') d-none @enderror">Prezzo</label>
+                <input type="number" class="form-control bg-transparent fs-4" id="price" wire:model="price" value="{{ old('price') }}">
             </div>
+        <button class="btn btn-base my-3 " type="submit" id="btnSaveEdit">Salva modifiche</button>
         </div>
     </form>
+
 </div>
 
