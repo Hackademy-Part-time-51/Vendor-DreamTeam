@@ -7,13 +7,13 @@
         <section class="col-12 col-lg-3 ">
             <div class="container-fluid section-filter card p-4 scalebig d-flex flex-column">
                 <hr>
-                    <input type="text" wire:model.live="search" class="form-control w-100 " placeholder="Cerca il tuo prodotto..">
+                <input type="text" wire:model.live="search" class="form-control w-100 "
+                    placeholder="Cerca il tuo prodotto..">
                 <hr>
                 <div class="col-12 ">
                     <select wire:model.live="category" class="form-select w-100 mt-1">
                         <option value="">Tutte le categorie</option>
                         @foreach ($categories as $cat)
-                           
                             <option value="{{ $cat->id }}" @selected($cat->id == $category)>
                                 {{ $cat->name }}
                             </option>
@@ -28,7 +28,7 @@
                         @else
                             <i class="bi bi-sort-up"></i> <i class="bi bi-calendar-date"></i>
                         @endif
-        
+
                     </button>
                     <button class="btn btn-base mx-1 w-50" wire:click="orderByAZFunction">
                         @if ($orderByAZ)
@@ -38,30 +38,36 @@
                         @endif
                     </button>
                 </div>
-                <button wire:click="resetFilter" class="btn btn-base w-100 mt-1">Resetta filtri  </button>
+                <button wire:click="resetFilter" class="btn btn-base w-100 mt-1">Resetta filtri </button>
                 <hr>
             </div>
         </section>
         {{-- sezione articoli --}}
         <section class="col-12 col-lg-9 d-flex flex-wrap justify-content-around gx-1 gy-1 pb-3">
             @if (count($products) == 0)
-                <div class="alert alert-warning text-center w-100 d-flex justify-content-center align-items-center fs-3">
+                <div
+                    class="alert alert-warning text-center w-100 d-flex justify-content-center align-items-center fs-3">
                     <i class="bi bi-exclamation-triangle-fill me-2"></i>
                     <strong>Non sono stati trovati articoli</strong>
                 </div>
             @endif
-            @for ($i=0; $i < $scroll; $i++)
-                <div class="col-12 col-md-6 col-lg-4 p-2 scalebig">
-                    <x-card :product="$products[$i]"></x-card>
+            @for ($i = 0; $i < $scroll; $i++)
+            
+            <div class="col-12 col-md-6 col-lg-4 p-2 scalebig">
+                    <x-card :product="$products[$i]" :favorites="$favorites"></x-card>
+                   
                 </div>
             @endfor
 
-            @if ($scroll < count($products)-1)
+            @if ($scroll < count($products) - 1)
                 <button wire:click="scrollFunction" class="btn btn-base w-50 mt-3">Vedi altri...</button>
             @endif
             <div class="position-fixed torna-su">
                 <a href="#" aria-label="Torna su" data-bs-toggle="backtotop" class="back-to-top" id="example">
-                    <button class="btn-base btn"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-arrow-up"><i class="bi bi-chevron-up"></i></use></button>
+                    <button class="btn-base btn">
+                        <use href="/bootstrap-italia/dist/svg/sprites.svg#it-arrow-up"><i class="bi bi-chevron-up"></i>
+                        </use>
+                    </button>
                 </a>
             </div>
         </section>
