@@ -5,6 +5,8 @@ namespace App\Livewire\Products;
 use Livewire\Component;
 use App\Models\Product;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Auth;
+
 
 class Edit extends Component
 {   
@@ -33,7 +35,9 @@ class Edit extends Component
         $this->product->update([
             'title' => $this->title,
             'description' => $this->description,
-            'price' => $this->price
+            'price' => $this->price,
+            'category_id' => $this->category_id,
+            'user_id' => Auth::id()
         ]);
         session()->flash('status', 'Annuncio modificato correttamente.');
         return $this->redirect('/products/index');

@@ -19,12 +19,7 @@ class Index extends Component
     public $scroll = 18;
     
 
-    // public function mount()
-    // {
-    //     $this->products = Product::query()
-    //         ->orderBy('created_at', 'desc')
-    //         ->get();
-    // }
+  
 
     public function mount()
     {

@@ -8,6 +8,8 @@ use Livewire\Component;
 class ShowLimitedProducts extends Component
 {
     public $products = [];
+    
+
 
     public function mount()
     {
@@ -18,7 +20,7 @@ class ShowLimitedProducts extends Component
     }
 
     public function render()
-    {
+    {  
         return view('livewire.products.show-limited-products');
     }
 }
