@@ -51,67 +51,8 @@
                 </div>
             @endif
             @for ($i=0; $i < $scroll; $i++)
-            <x-card></x-card>
                 <div class="col-12 col-md-6 col-lg-4 p-2 scalebig">
-                    <div class="card p-1" >
-                        <div id="productImageCarousel{{$products[$i]->id}}" class="carousel slide shadow-sm " data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-            
-                            <div class="carousel-inner rounded"> 
-                                <div class="carousel-item active">
-                                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/720" class="d-block w-100" alt="Immagine casuale 1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/720" class="d-block w-100" alt="Immagine casuale 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/720" class="d-block w-100" alt="Immagine casuale 3">
-                                </div>
-                            </div>
-            
-                            <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Precedente</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Successivo</span>
-                            </button>
-                        </div>
-                        <div class="card-body text-center">
-                          <h5 class="card-title">{{Str::limit( $products[$i]->title, 21) }}</h5>
-                          <p class="card-text">{{ Str::limit($products[$i]->description, 20) }}</p>
-                        </div>
-                        <ul class="list-group list-group-flush text-center">
-                          <li class="list-group-item text-center">
-                            <span class="badge rounded-pill text-bg-warning "> <i class="bi bi-tags-fill me-2"></i>{{ $products[$i]->category->name }}</span>
-                        </li>
-                          <li class="list-group-item">
-                            <strong>Data:</strong> {{ $products[$i]->created_at->format('d/m/Y') }}
-                        </li>
-                          <li class="list-group-item">
-                            <strong>Creato da:</strong> <span class="text-blu">{{ $products[$i]->user->name }}</span>
-                          </li>
-                        </ul>
-                        <li class="list-group-item fw-bold text-center fs-6">
-                            € {{ number_format($products[$i]->price, 2, ',', '.') }}
-                          </li>
-                        <div class="card-body d-flex justify-content-evenly align-items-center">
-                            <a href="{{ route('products.show', ['product' => $products[$i]->id]) }}"
-                                class="btn btn-base ">
-                                <i class="bi bi-person-fill"></i>
-                             </a>
-                            <a href="{{ route('products.show', ['product' => $products[$i]->id]) }}"
-                                class="btn btn-base ">
-                                 Vedi Dettagli
-                             </a>
-                             {{-- @livewire('products.favorite') --}}
-                        </div>
-                      </div>
+                    <x-card :product="$products[$i]"></x-card>
                 </div>
             @endfor
 

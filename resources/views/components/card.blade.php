@@ -1,9 +1,9 @@
 <div class="card p-1" >
-  <div id="productImageCarousel" class="carousel slide shadow-sm " data-bs-ride="carousel">
+  <div id="productImageCarousel{{$product->id}}" class="carousel slide shadow-sm " data-bs-ride="carousel">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#productImageCarousel{{$product->id}}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#productImageCarousel{{$product->id}}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#productImageCarousel{{$product->id}}" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
 
     <div class="carousel-inner rounded"> 
