@@ -63,14 +63,15 @@
                             <span class="badge rounded-pill text-bg-warning "> <i class="bi bi-tags-fill me-2"></i>{{ $products[$i]->category->name }}</span>
                         </li>
                           <li class="list-group-item">
-                            <strong>Data:</strong> {{ $products[$i]->created_at->format('d/m/Y') }}</li>
-                          <li class="list-group-item fw-bold fs-5">
-                            € {{ number_format($products[$i]->price, 2, ',', '.') }}
-                          </li>
+                            <strong>Data:</strong> {{ $products[$i]->created_at->format('d/m/Y') }}
+                        </li>
                           <li class="list-group-item">
                             <strong>Creato da:</strong> <span class="text-blu">{{ $products[$i]->user->name }}</span>
                           </li>
                         </ul>
+                        <li class="list-group-item fw-bold text-center fs-6">
+                            € {{ number_format($products[$i]->price, 2, ',', '.') }}
+                          </li>
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <a href="{{ route('products.show', ['product' => $products[$i]->id]) }}"
                                 class="btn btn-base ">
