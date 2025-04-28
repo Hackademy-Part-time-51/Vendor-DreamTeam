@@ -1,4 +1,11 @@
 <x-layout>
+    @if($product->user_id !==Auth::id()) 
+       <p>non sei autorizzato </p>
+    @else
     
-    @livewire('products.edit', ['product' => $product])
+    @livewire('products.edit', ['product' => $product]) 
+
+    @endif
+    
+    
 </x-layout>
