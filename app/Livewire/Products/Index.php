@@ -15,7 +15,7 @@ class Index extends Component
     public $orderbyaz = '';
     public $search = "";
     public $category;
-    public $scroll=18;
+    public $scroll = 18;
 
     // public function mount()
     // {
@@ -70,7 +70,8 @@ class Index extends Component
         
     }
 
-    public function resetFilter(){
+    public function resetFilter()
+    {
         $this->search = "";
         $this->category = '';
         $this->orderbydate = '';
