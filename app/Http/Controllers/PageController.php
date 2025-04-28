@@ -89,7 +89,11 @@ class PageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product) {
+    public function destroy($product)
+    {
+        $product = Product::findOrFail($product);
+        $product->delete();
+        return back()->with('success', 'Prodotto eliminato con successo!');
         
     }
 }
