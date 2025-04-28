@@ -11,33 +11,32 @@
                 <div class="row g-3">
                     @foreach ($products as $product) 
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
-                            <div class="card card-personal-area-product h-100 w-100">
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">{{ $product->title }}</h5>
-                                    @if ($product->description) 
-                                        <p class="card-text">{{ Str::limit($product->description, 50) }}</p>
-                                    @endif
-                                    @if ($product->category) 
-                                        <p class="card-text">
-                                            <strong>Categoria:</strong> {{ $product->category->name }}
-                                        </p>
-                                    @endif
-                                    <p class="card-text">
-                                        <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
-                                    </p>
-                                    @if ($product->price)
-                                        <p class="card-text">
-                                            <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}
-                                        </p>
-                                    @endif
-                                    <div class="d-flex justify-content-between mt-auto">
-                                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base">Modifica</a>
-                                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo prodotto?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-rosso">Elimina</button>
-                                        </form>
-                                    </div>
+                            <div class="card p-1" >
+                                <img src="https://picsum.photos/id/{{ rand(1, 50) }}/1920/1080" class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                  <h5 class="card-title">{{Str::limit( $product->title, 21) }} </h5>
+                                  <p class="card-text">{{ Str::limit($product->description, 20) }}</p>
+                                </div>
+                                <ul class="list-group list-group-flush text-center">
+                                  <li class="list-group-item text-center">
+                                    <span class="badge rounded-pill text-bg-warning "> <i class="bi bi-tags-fill me-2"></i>{{ $product->category->name }}</span>
+                                </li>
+                                  <li class="list-group-item">
+                                    <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}</li>
+                                  <li class="list-group-item fw-bold fs-5">
+                                    € {{ number_format($product->price, 2, ',', '.') }}
+                                  </li>
+                                  <li class="list-group-item">
+                                    <strong>Creato da:</strong> <span class="text-blu">{{ $product->user->name }}</span>
+                                  </li>
+                                </ul>
+                                <div class="card-body d-flex justify-content-evenly align-items-center">
+                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base">Modifica</a>
+                                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo prodotto?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-rosso">Elimina</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -60,27 +59,7 @@
                   <div class="row g-3">
                       @foreach ($products as $product) 
                           <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
-                              <div class="card card-personal-area-product h-100 w-100">
-                                  <div class="card-body d-flex flex-column">
-                                      <h5 class="card-title">{{ $product->title }}</h5>
-                                      @if ($product->description) 
-                                          <p class="card-text">{{ Str::limit($product->description, 50) }}</p>
-                                      @endif
-                                      @if ($product->category) 
-                                          <p class="card-text">
-                                              <strong>Categoria:</strong> {{ $product->category->name }}
-                                          </p>
-                                      @endif
-                                      <p class="card-text">
-                                          <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
-                                      </p>
-                                      @if ($product->price)
-                                          <p class="card-text">
-                                              <strong>Prezzo:</strong> € {{ number_format($product->price, 2, ',', '.') }}
-                                          </p>
-                                      @endif
-                                  </div>
-                              </div>
+                              
                           </div>
                       @endforeach
                   </div>

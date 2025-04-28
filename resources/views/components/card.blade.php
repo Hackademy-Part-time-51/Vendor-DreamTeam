@@ -17,7 +17,7 @@
         <strong>Creato da:</strong> <span class="text-blu">{{ $product->user->name }}</span>
       </li>
     </ul>
-    <div class="card-body d-flex justify-content-between align-items-center">
+    <div class="card-body d-flex justify-content-evenly align-items-center">
         <a href="{{ route('products.show', ['product' => $product->id]) }}"
             class="btn btn-base ">
             <i class="bi bi-person-fill"></i>

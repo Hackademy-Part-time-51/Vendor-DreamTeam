@@ -72,7 +72,7 @@
                         <li class="list-group-item fw-bold text-center fs-6">
                             € {{ number_format($products[$i]->price, 2, ',', '.') }}
                           </li>
-                        <div class="card-body d-flex justify-content-between align-items-center">
+                        <div class="card-body d-flex justify-content-evenly align-items-center">
                             <a href="{{ route('products.show', ['product' => $products[$i]->id]) }}"
                                 class="btn btn-base ">
                                 <i class="bi bi-person-fill"></i>

@@ -3,7 +3,7 @@
     @if ($product)
         <div class="container mt-4">
             <div class="row">
-                <div class="row mt-3" >
+                <div class="row my-3" >
                     <div class="col-md-6 mb-4 mb-md-0 ">
                         <div id="productImageCarousel" class="carousel slide shadow-sm " data-bs-ride="carousel">
                             <div class="carousel-indicators">
