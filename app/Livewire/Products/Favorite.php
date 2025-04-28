@@ -9,24 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Favorite extends Component
 {
-    public $favorites = '';
-
-    public $user_id;
-
-
-
-    public function toggleFavorite()
-    {   
-        if(empty($this->favorites)){
-
-        $this->favorites = true;
-
-    }
-        else{
-        
-        $this->favorites = !$this->favorites;
-
-    }}   
+    
 
     public function render()
     {

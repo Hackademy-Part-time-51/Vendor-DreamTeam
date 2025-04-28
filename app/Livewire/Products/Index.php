@@ -17,6 +17,7 @@ class Index extends Component
     public $search = '';
     public $category;
     public $scroll = 18;
+    
 
     // public function mount()
     // {
