@@ -81,7 +81,7 @@
                                 class="btn btn-base ">
                                  Vedi Dettagli
                              </a>
-                             @livewire('products.favorite')
+                             {{-- @livewire('products.favorite') --}}
                         </div>
                       </div>
                 </div>
