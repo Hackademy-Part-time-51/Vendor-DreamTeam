@@ -19,7 +19,7 @@
     </div>
 </div>
     <div class="card-body text-center">
-        <h5 class="card-title">{{ Str::limit($product->title, 21) }} </h5>
+        <h5 class="card-title">{{ Str::limit($product->title, 20) }} </h5>
         <p class="card-text">{{ Str::limit($product->description, 20) }}</p>
     </div>
     <ul class="list-group list-group-flush text-center">
