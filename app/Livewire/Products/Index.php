@@ -72,7 +72,7 @@ class Index extends Component
     public function resetFilter()
     {
         $this->search = '';
-        $this->category='' ;
+        $this->category='';
         $this->orderbydate = '';
         $this->orderbyaz = '';
         $this->scroll = 18;
