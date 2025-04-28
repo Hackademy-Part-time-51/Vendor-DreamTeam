@@ -51,13 +51,14 @@
                 </div>
             @endif
             @for ($i=0; $i < $scroll; $i++)
+            <x-card></x-card>
                 <div class="col-12 col-md-6 col-lg-4 p-2 scalebig">
                     <div class="card p-1" >
-                        <div id="productImageCarousel" class="carousel slide shadow-sm " data-bs-ride="carousel">
+                        <div id="productImageCarousel{{$products[$i]->id}}" class="carousel slide shadow-sm " data-bs-ride="carousel">
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
             
                             <div class="carousel-inner rounded"> 
@@ -72,11 +73,11 @@
                                 </div>
                             </div>
             
-                            <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Precedente</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel{{$products[$i]->id}}" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Successivo</span>
                             </button>

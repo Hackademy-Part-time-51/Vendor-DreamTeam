@@ -17,15 +17,6 @@
             <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/720" class="d-block w-100" alt="Immagine casuale 3">
         </div>
     </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Precedente</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Successivo</span>
-    </button>
 </div>
     <div class="card-body text-center">
       <h5 class="card-title">{{Str::limit( $product->title, 21) }} </h5>

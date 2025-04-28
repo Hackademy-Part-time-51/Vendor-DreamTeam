@@ -1,7 +1,7 @@
 <div>
     <hr>
     @if ($product)
-        <div class="container mt-4">
+        <div class="container my-4">
             <div class="row">
                 <div class="col-md-6 mb-4 mb-md-0">
                     <div id="productImageCarousel" class="carousel slide shadow-sm" data-bs-ride="carousel">
