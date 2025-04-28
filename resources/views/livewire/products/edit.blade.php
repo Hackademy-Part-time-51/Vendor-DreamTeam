@@ -51,11 +51,10 @@
                 <div class="">
                     <label for="category_id" class="form-label fs-4 text-center @error('category_id') d-none @enderror">Categoria</label>
                     <select wire:model="category_id" id="category_id" class="form-select bg-transparent fs-5">
-                        <option  value="{{$product->category->id}}">{{$product->category ? $product->category->name : 'Scegli una categoria'}}</option>
                         @foreach ($categories as $category)
-                              <option @selected($product->category_id == $category->id) value="{{ $category->id }}">{{ $category->name }}</option>
-                          @endforeach
-                      </select>
+                        <option @selected($product->category_id == $category->id) value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <hr>
                 <div class="">

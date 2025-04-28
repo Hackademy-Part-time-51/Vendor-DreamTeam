@@ -18,7 +18,7 @@ class Edit extends Component
     public $description;
     #[Validate('required|numeric|decimal:0,2|min:0')]
     public $price;
-    #[Validate('required|exists:categories,id')]
+    #[Validate('required')]
     public $category_id;
     public $user_id;
 
@@ -27,6 +27,7 @@ class Edit extends Component
         $this->title = $product->title;
         $this->description = $product->description;
         $this->price = $product->price;
+        $this->category_id = $product->category_id;
     }
 
     public function update() {
