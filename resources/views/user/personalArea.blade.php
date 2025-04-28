@@ -1,4 +1,5 @@
 <x-layout>
+  <x-mininavbar></x-mininavbar>
   {{-- prima sezione --}}
     <div class="container-fluid">
         <div class="row mt-3">

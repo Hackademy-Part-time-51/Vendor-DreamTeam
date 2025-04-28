@@ -1,21 +1,36 @@
 <form wire:submit="create" class=" rounded p-3 d-flex flex-column ">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-content-center">
+            <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-content-center text-center">
                 <div class="mb-3">
-                    <label for="title" class="form-label">Titolo</label>
+
+                  <label for="title" class="form-label @error('title') d-none @enderror">Titolo</label>
+                  @error('title')
+                      <span class="error text-danger ">Titolo richiesto</span>
+                  @enderror
                     <input type="text" class="form-control" id="title" wire:model="title" value="{{ old('title') }}">
                 </div>
                 <div class="mb-3">
-                    <label for="descrizione" class="form-label">Descrizione</label>
+                  <label for="description" class="form-label @error('description') d-none @enderror">Descrizione</label>
+                  @error('description')
+                      <span class="error text-danger">Descrizione richiesta</span>
+                  @enderror
                     <textarea class="form-control" id="descrizione" rows="3" wire:model="description"> {{ old('description') }}</textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="price" class="form-label">Prezzo</label>
+                    <label for="price" class="form-label @error('price') d-none @enderror">Prezzo</label>
+                    @error('price')
+                    <span class="error text-danger">Prezzo richiesto</span>
+                    @enderror
                     <input type="number" class="form-control" id="price" wire:model="price" value="{{ old('price') }}">
                 </div>
                 <div>
+                  <label for="category_id" class="form-label @error('category_id') d-none @enderror">Categoria</label>
+                  @error('category_id')
+                  <span class="error text-danger">Categoria richiesta</span>
+                  @enderror
                     <select wire:model="category_id" id="" class="form-select mb-3">
+                      <option selected >Scegli una categoria</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -46,7 +61,7 @@
 
 
     {{-- <input type="number" hidden wire:model="user_id" value="{{ Auth::user()->id }}" > --}}
-    <button class="btn btn-base w-50 mx-auto">Crea</button>
+    <button class="btn btn-base w-50 mx-auto" type="submit">Crea</button>
 
     {{-- SCRIPT PER DRAG AND DROP IMAGE --}}
     <script>
