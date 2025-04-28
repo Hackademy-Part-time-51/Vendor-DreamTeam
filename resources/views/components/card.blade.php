@@ -19,7 +19,7 @@
     </div>
 </div>
     <div class="card-body text-center">
-        <h5 class="card-title">{{ Str::limit($product->title, 21) }} </h5>
+        <h5 class="card-title">{{ Str::limit($product->title, 20) }} </h5>
         <p class="card-text">{{ Str::limit($product->description, 20) }}</p>
     </div>
     <ul class="list-group list-group-flush text-center">
@@ -44,12 +44,12 @@
         <a href="{{ route('products.show', ['product' => $product->id]) }}" class="btn btn-base ">
             Vedi Dettagli
         </a>
-        <button class="btn btn-base" wire:click="toggleFavorite">
+        {{-- <button class="btn btn-base" wire:click="toggleFavorite">
             @if ($favorites)
                 <i class="bi bi-heart-fill"></i>
             @else
                 <i class="bi bi-heart"></i>
             @endif
-        </button>
+        </button> --}}
     </div>
 </div>
