@@ -10,6 +10,8 @@
                         </div>
                     @endif
                     @livewire('auth.login')
+                    <hr>
+                    <h5 class="mt-2">Non hai un account? <a href="{{ route('register') }}" class="text-decoration-none">Registrati</a></h5>
                 </div>
             </div>
         </div>
