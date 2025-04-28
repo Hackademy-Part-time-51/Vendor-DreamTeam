@@ -1,3 +1,8 @@
 <x-layout>
-    @livewire('products.edit', ['product' => $product], ['categories' => $categories])
+    @if($product->user_id !==Auth::id()) 
+       <p>non sei autorizzato </p>
+    @else
+    
+        @livewire('products.edit', ['product' => $product], ['categories' => $categories])
+    @endif
 </x-layout>
