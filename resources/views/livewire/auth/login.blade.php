@@ -20,14 +20,7 @@
         @enderror
     </div>
 
-    <div class="mb-4">
-        <label class="flex items-center">
-            <input type="checkbox" name="remember" class="mr-2">
-            <span>Ricordami</span>
-        </label>
-    </div>
-
-    <div class="flex items-center justify-between">
+    <div class="flex items-center d-flex justify-content-center">
         <button type="submit" class="btn btn-base">
             Login
         </button>
