@@ -28,6 +28,9 @@
     </div>
 
     <div class="flex items-center justify-between">
+        <a href="{{ route('register') }}" class="text-decoration-none">
+            Non hai un account? Registrati <i class="bi bi-box-arrow-in-right"></i>
+        </a>
         <button type="submit" class="btn btn-base">
             Login
         </button>
