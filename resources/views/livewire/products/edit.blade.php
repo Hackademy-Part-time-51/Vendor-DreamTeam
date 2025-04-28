@@ -1,8 +1,9 @@
 <div class="container">
+    <hr>
     <form wire:submit="store">
-        <div class="row">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <div id="productImageCarousel" class="carousel slide shadow-sm" data-bs-ride="carousel">
+        <div class="row mt-3" >
+            <div class="col-md-6 mb-4 mb-md-0 ">
+                <div id="productImageCarousel" class="carousel slide shadow-sm " data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -32,22 +33,23 @@
                 </div>
             </div>
             <div class="col-md-6 align-content-center">
-                <h1 class="mb-3 text-capitalize">{{ $product->title }}</h1>
+                <h1 class="mb-3 text-capitalize">{{ $product->title }} <i class="bi bi-pencil-fill fs-6 btn "></i></h1>
                 <div class="mb-3 text-muted">
-                    @if ($product->category)
-                    <span>Categoria: 
+                @if ($product->category)
+                    <span class="fs-5">Categoria: 
                         <a href="{{ route('products.index', ['category' => $product->category->id]) }}" class="text-decoration-none text-primary">
                             {{ $product->category->name }} 
-                        </a>
+                        </a> <i class="bi bi-pencil-fill  btn  btn-sm"></i></h1>
                     </span>
                 @endif
+                <br>
                     @if ($product->user)
-                        <span class="">Venditore: {{ $product->user->name }}</span>
+                        <span class="fs-5">Venditore: {{ $product->user->name }}</span>
                     @endif
                 </div>
                 
                 <div class="mb-3">
-                    <h5 class="border-bottom pb-1 mb-2">Descrizione</h5>
+                    <h5 class="border-bottom fs-3 pb-1 mb-2">Descrizione <i class="bi bi-pencil-fill fs-6 btn "></i></h1></h5>
                     <p class="mb-0">{{($product->description)}}</p> 
                 </div>
                 
@@ -57,7 +59,7 @@
                  </p>
                  @if(!is_null($product->price))
                  <p class="fs-3 fw-bold mb-2">
-                     € {{ number_format($product->price, 2, ',', '.') }}
+                     € {{ number_format($product->price, 2, ',', '.') }} <i class="bi bi-pencil-fill fs-6 btn "></i></h1>
                  </p>
              @endif
             </div>
