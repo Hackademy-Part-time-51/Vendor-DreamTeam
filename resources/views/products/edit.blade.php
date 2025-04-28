@@ -3,5 +3,6 @@
        <p>non sei autorizzato </p>
     @else
     
-    @livewire('products.edit', ['product' => $product], ['categories' => $categories])
+        @livewire('products.edit', ['product' => $product], ['categories' => $categories])
+    @endif
 </x-layout>
