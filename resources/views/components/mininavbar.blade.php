@@ -98,6 +98,16 @@
                         </button>
                     </a>
                 </li>
+
+                @auth
+                  @if (Auth::user()->is_revisor)
+                    <li>
+                      <a class="nav-link text-blu scalebig " href="{{route('revisor.index')}}">Area Revisore</a>
+                      <span>{{ \App\Models\Product::toBeRevisedCount() }}</span>
+                    </li>
+                    
+                  @endif
+                @endauth
             </ul>
         </div>
       </nav>
