@@ -14,4 +14,8 @@ class UserController extends Controller
         $products= Product::all();
         return view('user.personalArea', compact('user', 'products'));
     }
+
+    public function lavoraConNoi(){
+        return view('user.lavoraConNoi');
+    }
 }
