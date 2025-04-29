@@ -3,7 +3,7 @@
     use App\Models\Category;
   @endphp
   <div class="secondary-navbar-sticky d-none d-lg-block z-3">
-    <nav class="navbar navbar-expand-lg p-2">
+    <nav class="navbar navbar-expand-lg  p-2">
         <div class="container-fluid ">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-evenly w-100 align-items-center">
                 {{-- prodotti --}}
@@ -98,19 +98,9 @@
                         </button>
                     </a>
                 </li>
-
-                @auth
-                  @if (Auth::user()->is_revisor)
-                    <li>
-                      <a class="nav-link text-blu scalebig " href="{{route('revisor.index')}}">Area Revisore</a>
-                      <span>{{ \App\Models\Product::toBeRevisedCount() }}</span>
-                    </li>
-                    
-                  @endif
-                @endauth
             </ul>
         </div>
-      </nav>
+    </nav>
   </div>
           {{-- modal logout --}}
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

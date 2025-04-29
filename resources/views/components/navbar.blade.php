@@ -27,206 +27,258 @@
 </nav>
 
 
-{{-- menu offcanvas menu --}}
-<div class="offcanvas offcanvas-start text-blu" tabindex="-1" id="menuOffCanvas" aria-labelledby="menuOffCanvasLabel">
-    <div class="offcanvas-header">
-      <a href="/">
-        <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="50">
+<div class="offcanvas offcanvas-start w-100" tabindex="-1" id="menuOffCanvas">
+  <div class="offcanvas-header border-bottom py-4">
+      <a href="/" class="d-flex align-items-center text-decoration-none">
+          <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="Logo" height="60" class="me-2">
       </a>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body text-blu">
-      <div class="accordion accordion-flush" id="accordionFlushExample">
-        {{-- prodotti --}}
-        <div class="accordion-item">
-          <h2 class="accordion-header text-blu">
-            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-              <i class="bi bi-box-seam me-2"></i> Prodotti
-            </button>
-          </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <ul class="list-unstyled fs-4">
-                <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-piggy-bank-fill me-2"></i> Prodotti in promo</a></li>
-                <li><a class="dropdown-item text-blu nav-link" href="#"><i class="bi bi-award"></i> Trend della settimana</a></li>
-                <li><a class="dropdown-item text-blu nav-link" href="{{route('products.index')}}"><i class="bi bi-list-task me-2"></i> Tutti i prodotti</a>
-                </li>
-                {{-- aggiungi articolo --}}
-                <li class="nav-item">
-                  <a class="dropdown-item text-blu nav-link " href="{{route('products.create')}}" >
-                      <i class="bi bi-plus-lg"></i>  <span>Aggiungi un articolo </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        {{-- categorie --}}
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-              <i class="bi bi-tags-fill me-2"></i> Categorie
-            </button>
-          </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <ul class="list-unstyled fs-4">
-                @foreach (Category::all() as $category)
-                <li><a class="dropdown-item nav-link text-blu" href="{{ route('products.index', ['category' => $category->id]) }}"><i class="bi bi-folder-fill me-2"></i> {{$category->name}}</a></li>
-                @endforeach
-              </ul>
-            </div>
-          </div>
-        </div>
-        {{-- area personale --}}
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              <i class="bi bi-person-circle me-2"></i> Area personale
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <ul class="list-unstyled fs-4">
-                <li>
-                  @auth
-                    
-                  <a class="dropdown-item nav-link text-blu" href="{{route('personalArea' , Auth::user()->id  )}}"><i class="bi bi-person-lines-fill"></i>  Profilo</a>
-                  @endauth
-                </li>
-                <li>
-                  <a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-cart"></i>  Ordini</a>
-                </li>
-                <li>
-                  <a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-heart"></i>  Preferiti</a>
-                </li>
-                <li>
-                  <a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-box-arrow-left"></i> Esci </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        {{-- assistenza --}}
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-              <i class="bi bi-question-circle-fill me-2"></i> Assistenza
-            </button>
-          </h2>
-          <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <ul class="list-unstyled fs-4">
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-info-circle-fill me-2"></i> Action</a></li>
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-life-preserver me-2"></i> Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-wrench-adjustable-circle-fill me-2"></i> Something else here</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        {{-- contatti --}}
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed fs-4 text-blu" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-            <i class="bi bi-envelope-fill me-2"></i> Contatti
-            </button>
-          </h2>
-          <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <ul class="list-unstyled fs-4">
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-telephone-fill me-2"></i> Action</a></li>
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-chat-dots-fill me-2"></i> Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-geo-alt-fill me-2"></i> Something else here</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <div class="offcanvas-body d-flex flex-column justify-content-between p-0">
+      <div class="list-group list-group-flush flex-grow-1 d-flex flex-column justify-content-evenly">
+          <!-- Prodotti -->
+          <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
+                  data-bs-toggle="modal" data-bs-target="#productsModal">
+              <i class="bi bi-box-seam fs-2 me-3"></i>Prodotti
+          </button>
+
+          <!-- Categorie -->
+          <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
+                  data-bs-toggle="modal" data-bs-target="#categoriesModal">
+              <i class="bi bi-tags-fill fs-2 me-3"></i>Categorie
+          </button>
+
+          <!-- Assistenza -->
+          <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
+                  data-bs-toggle="modal" data-bs-target="#helpModal">
+              <i class="bi bi-question-circle-fill fs-2 me-3"></i>Assistenza
+          </button>
+
+          <!-- Contatti -->
+          <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
+                  data-bs-toggle="modal" data-bs-target="#contactModal">
+              <i class="bi bi-envelope-fill fs-2 me-3"></i>Contatti
+          </button>
       </div>
-    </div>
-    <div class="offcanvas-footer text-blu">
-      <p class="text-center">Vendor.it <br> Fare affari non è mai stato cosi facile.</p>
-    </div>
+
+      <div class="offcanvas-footer border-top p-4">
+          <div class="text-center">
+              <p class="fs-4 mb-0">Vendor.it<br>
+                  <span class="fs-5 text-muted">Fare affari non è mai stato così facile.</span>
+              </p>
+          </div>
+      </div>
+  </div>
 </div>
+
+<!-- Products Modal -->
+<div class="modal fade" id="productsModal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+          <div class="modal-header border-0">
+              <h5 class="modal-title fs-2 text-blu">
+                  <i class="bi bi-box-seam me-2"></i>Prodotti
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+              <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-piggy-bank-fill fs-2 me-3"></i>Prodotti in promo
+                  </a>
+                  <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-award fs-2 me-3"></i>Trend della settimana
+                  </a>
+                  <a href="{{route('products.index')}}" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-list-task fs-2 me-3"></i>Tutti i prodotti
+                  </a>
+                  <a href="{{route('products.create')}}" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-plus-lg fs-2 me-3"></i>Aggiungi un articolo
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Categories Modal -->
+<div class="modal fade" id="categoriesModal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+          <div class="modal-header border-0">
+              <h5 class="modal-title fs-2 text-blu">
+                  <i class="bi bi-tags-fill me-2"></i>Categorie
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+              <div class="list-group list-group-flush">
+                  @foreach (Category::all() as $category)
+                      <a href="{{ route('products.index', ['category' => $category->id]) }}"
+                         class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                          <i class="bi bi-folder-fill fs-2 me-3"></i>{{$category->name}}
+                      </a>
+                  @endforeach
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Help Modal -->
+<div class="modal fade" id="helpModal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+          <div class="modal-header border-0">
+              <h5 class="modal-title fs-2 text-blu">
+                  <i class="bi bi-question-circle-fill me-2"></i>Assistenza
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+              <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-info-circle-fill fs-2 me-3"></i>FAQ
+                  </a>
+                  <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-life-preserver fs-2 me-3"></i>Supporto
+                  </a>
+                  <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-wrench-adjustable-circle-fill fs-2 me-3"></i>Assistenza Tecnica
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+          <div class="modal-header border-0">
+              <h5 class="modal-title fs-2 text-blu">
+                  <i class="bi bi-envelope-fill me-2"></i>Contatti
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+              <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-telephone-fill fs-2 me-3"></i>Chiamaci
+                  </a>
+                  <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-chat-dots-fill fs-2 me-3"></i>Chat
+                  </a>
+                  <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
+                      <i class="bi bi-geo-alt-fill fs-2 me-3"></i>Dove Siamo
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 
 {{-- menu offcanvas utente --}}
-<div class="offcanvas offcanvas-end" tabindex="-1" id="userOffCanvas" aria-labelledby="userOffCanvasLabel">
-    @guest
-    <div class="offcanvas-header">
-      <a href="/">
-        <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="50">
+<div class="offcanvas offcanvas-end w-100" tabindex="-1" id="userOffCanvas">
+  @guest
+  <!-- Header Guest -->
+  <div class="offcanvas-header border-bottom py-4">
+      <a href="/" class="d-flex align-items-center text-decoration-none">
+          <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="Logo" height="60" class="me-2">
       </a>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body py-0 text-center">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center w-100 align-items-center h-75">
-        <li class="nav-item">
-          <a href="{{route('login')}}">
-            <button class="btn btn-register text-blu fs-3">Login <i class="bi bi-box-arrow-in-right"></i></button>
+      <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center p-4">
+      <div class="text-center mb-5">
+          <h2 class="fs-1 text-blu mb-4">Benvenuto su Vendor.it</h2>
+          <p class="fs-4 text-muted">Accedi o registrati per iniziare</p>
+      </div>
+      
+      <div class="d-flex flex-column gap-4 w-75">
+          <a href="{{route('login')}}" class="btn btn-baseblu btn-lg fs-3 py-3">
+              <i class="bi bi-box-arrow-in-right me-2"></i>Login
           </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{route('register')}}">
-            <button class="btn btn-register text-blu fs-3">Registrati <i class="bi bi-person-plus"></i></button>
+          <a href="{{route('register')}}" class="btn btn-base bg-white text-blu btn-lg fs-3 py-3">
+              <i class="bi bi-person-plus me-2"></i>Registrati
           </a>
-        </li>
-      </ul>
       </div>
-      <div class="offcanvas-footer">
-        <br>
-      </div>
-    </div>
-    @endguest
-    @auth
-        <div class="offcanvas-header ">
-            <h2 class=" offcanvas-title text-blu mt-2" id="userOffCanvasLabel">Benvenuto <span class="text-verde">{{Auth::user()->name}}</span></h2>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body p-0">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center w-100 align-items-center h-75">
+  </div>
 
-            <li class="nav-item">
-              <a class="nav-link text-blu scalebig fs-3" href="{{route('personalArea', Auth::user()->id)}}"  role="button" aria-expanded="false">
-                <i class="bi bi-person-lines-fill"></i>  Profilo
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-blu scalebig fs-3" href="#" role="button" aria-expanded="false">
-                <i class="bi bi-cart"></i>  Ordini
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-blu scalebig fs-3" href="#" role="button" aria-expanded="false">
-                <i class="bi bi-heart"></i>  Preferiti
-              </a>
-            </li>
-            <button type="button" class="btn scalebig btn-register text-blu fs-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              <i class="bi bi-box-arrow-left"></i> Esci 
-            </button>
-          </ul>
-        </div>
-        <div class="offcanvas-footer text-blu">
-          <p class="text-center">Vendor.it <br> Fare affari non è mai stato cosi facile.</p>
-        </div>
-    </div>
-
-    {{-- modal logout --}}
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-4 text-center" id="staticBackdropLabel">Vuoi uscire?</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  @endguest
+  @auth
+  <div class="offcanvas-header border-bottom py-4">
+      <div class="d-flex align-items-center">
+          <img src="{{asset('storage/'.Auth::user()->profile_image)}}" 
+               class="rounded-circle me-3" width="60" height="60" alt="Profile">
+          <div>
+              <h5 class="mb-0 fs-3">Benvenuto</h5>
+              <p class="mb-0 fs-2 text-primary">{{Auth::user()->name}}</p>
           </div>
-          <div class="modal-footer justify-content-start">
-            <button type="button" class="btn btn-base " data-bs-dismiss="modal">Torna indietro.</button>
-            <form action="{{route('logout')}}" method="POST">
-              @csrf
-              <button class="btn btn-rosso text-white" data-bs-dismiss="modal">Si, esci.</button>
-            </form>
-          </div>
-        </div>
       </div>
-    @endauth
+      <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column justify-content-between p-0">
+      <div class="list-group list-group-flush flex-grow-1" id="userMenu">
+          <a href="{{route('personalArea', Auth::user()->id)}}" 
+             class="list-group-item text-blu d-flex align-items-center py-4 fs-2">
+              <i class="bi bi-person-lines-fill fs-2 me-3"></i>Profilo
+          </a>
+          <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-2">
+              <i class="bi bi-cart fs-2 me-3"></i>Ordini
+          </a>
+          <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-2">
+              <i class="bi bi-heart fs-2 me-3"></i>Preferiti
+          </a>
+          <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-2">
+              <i class="bi bi-gear fs-2 me-3"></i>Impostazioni
+          </a>
+          <button type="button" 
+                  class="list-group-item text-danger d-flex align-items-center py-4 fs-2 border-0"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#logoutModal">
+              <i class="bi bi-box-arrow-left fs-2 me-3"></i>Esci
+          </button>
+      </div>
+      <div class="offcanvas-footer border-top p-4">
+          <div class="text-center">
+              <p class="fs-4 mb-0">Vendor.it<br>
+                  <span class="fs-5 text-muted">Fare affari non è mai stato così facile.</span>
+              </p>
+          </div>
+      </div>
+  </div>
+  @endauth
 </div>
+
+<!-- Logout Modal -->
+<div class="modal fade" id="logoutModal" data-bs-backdrop="static" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header border-0">
+              <h5 class="modal-title fs-2">Vuoi uscire?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body text-center pb-4">
+              <i class="bi bi-exclamation-circle text-warning display-1 mb-4"></i>
+              <p class="fs-4 text-muted">Sei sicuro di voler effettuare il logout?</p>
+          </div>
+          <div class="modal-footer border-0 justify-content-center gap-2">
+              <button type="button" class="btn btn-outline-secondary btn-lg px-4 fs-4" data-bs-dismiss="modal">
+                  Annulla
+              </button>
+              <form action="{{route('logout')}}" method="POST" class="d-inline">
+                  @csrf
+                  <button class="btn btn-danger btn-lg px-4 fs-4">
+                      Conferma Logout
+                  </button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+

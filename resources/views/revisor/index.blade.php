@@ -20,9 +20,9 @@
                 <div class="row justify-content-center pt-5">
                     <div class="col-md-8">
                         <div class="row justify-content-center">
-                            @for ($i = 0; $i < 6; $i++)
+                            @for ($i = 0; $i < 9; $i++)
                                 <div class="col-6 col-md-4 mb-4 text-center">
-                                    <img src="https://picsum.photos/300"
+                                    <img src="https://picsum.photos/1080/720?random={{ $i }}"
                                         class="img-fluid rounded shadow "
                                         alt="immagine segnaposto">
                                 </div>

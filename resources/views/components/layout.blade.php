@@ -12,6 +12,9 @@
 </head>
 <body>
     <x-navbar/>
+    <x-mininavbar/>
+    <x-adminRevisore/> 
+    <x-prova></x-prova>
     <div class="container-fluid px-0">
         {{ $slot }}
     </div>
