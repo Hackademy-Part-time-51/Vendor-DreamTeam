@@ -46,4 +46,8 @@
         </a>
        
     </div>
+@auth
+    
+@livewire('products.heart', ['product' => $product])
+@endauth
 </div>

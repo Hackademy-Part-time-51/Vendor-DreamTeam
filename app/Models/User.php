@@ -60,10 +60,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Role::class);
     }
 
-    public function products()
+    public function favorites()
     {
         return $this->belongsToMany(Product::class);
 
+    }
+
+    public function products(){
+        return $this->hasMany(Product::class);
     }
 
     
