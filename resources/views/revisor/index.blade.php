@@ -1,5 +1,5 @@
 <x-layout>
-    <!-- Alert Message -->
+    
     @if(session()->has('message'))
         <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
             <i class="bi bi-check-circle me-2"></i>{{session('message')}}
@@ -33,9 +33,8 @@
             <div class="col-12 col-lg-9">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
-                        <!-- Container principale con margini automatici -->
                         <div class="container-fluid py-3">
-                            <!-- Sezione Immagini -->
+                            
                             <div class="row justify-content-center mb-2">
                                 @for ($i = 0; $i < 3; $i++)
                                     <div class="col-12 col-sm-6 col-md-4 mb-4">
@@ -48,21 +47,17 @@
                                     </div>
                                 @endfor
                             </div>
-            
-                            <!-- Sezione Dettagli Prodotto -->
                             <div class="row justify-content-center">
                                 <div class="col-12">
-                                    <!-- Titolo -->
                                     <h2 class="display-6 text-blu mb-4">Titolo: <strong> {{ $product_to_check->title }}</strong></h2>
             
-                                    <!-- Info Autore -->
+                                    
                                     <div class="d-flex  align-items-center mb-4">
                                         <div class="text-center">
                                             <h3 class="mb-1 text-blu">{{ $product_to_check->user->name }}</h3>
                                         </div>
                                     </div>
             
-                                    <!-- Prezzo e Categoria -->
                                     <div class="mb-4">
                                         <h3 class="display-6 text-blu mb-3 ">{{ $product_to_check->price }}€</h3>
                                         <span class="badge rounded-pill bg-warning px-4 py-2">
@@ -71,12 +66,11 @@
                                         </span>
                                     </div>
             
-                                    <!-- Descrizione -->
                                     <div class="mb-2">
                                         <p class="lead text-muted">{{ $product_to_check->description }}</p>
                                     </div>
             
-                                    <!-- Bottoni Azione -->
+                                    
                                     <div class="row justify-content-center gx-4">
                                         <div class="col-12 col-sm-6 mb-3">
                                             <form action="{{ route('accept', ['product' => $product_to_check]) }}" method="POST">
