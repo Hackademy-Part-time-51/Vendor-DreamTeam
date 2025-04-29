@@ -38,6 +38,10 @@
                         @endif
                     </button>
                 </div>
+                <label for="minPrice" class="form-label">Min</label>
+                <input type="number" class="form-control" id="minPrice" wire:model.live="minPrice">
+                <label for="maxPrice" class="form-label">Max</label>
+                <input type="number" class="form-control" id="maxPrice" wire:model.live="maxPrice">
                 <button wire:click="resetFilter" class="btn btn-base w-100 mt-1">Resetta filtri </button>
                 <hr>
             </div>
@@ -53,7 +57,7 @@
             @endif
             @for ($i = 0; $i < $scroll; $i++)
                 <div class="col-12 col-md-6 col-lg-4 p-2 scalebig">
-                    <x-card :product="$products[$i]" :favorites="$favorites"></x-card>
+                    <x-card :product="$products[$i]" ></x-card>
 
                 </div>
             @endfor

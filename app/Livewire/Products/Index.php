@@ -17,9 +17,11 @@ class Index extends Component
     public $search = '';
     public $category;
     public $scroll = 18;
-    
+    public $minPrice ;
+    public $maxPrice ;
 
-  
+
+
 
     public function mount()
     {
@@ -68,24 +70,26 @@ class Index extends Component
     public function resetFilter()
     {
         $this->search = '';
-        $this->category='';
+        $this->category = '';
         $this->orderbydate = '';
         $this->orderbyaz = '';
+        $this->minPrice = '';
+        $this->maxPrice = '';
         $this->scroll = 18;
     }
 
-    public function toggleFavorite()
-    {   
-        if(empty($this->favorites)){
+    // public function toggleFavorite()
+    // {   
+    //     if(empty($this->favorites)){
 
-        $this->favorites = true;
+    //     $this->favorites = true;
 
-    }
-        else{
-        
-        $this->favorites = !$this->favorites;
+    // }
+    //     else{
 
-    }}   
+    //     $this->favorites = !$this->favorites;
+
+    // }}   
 
     public function render()
     {
@@ -96,6 +100,12 @@ class Index extends Component
             })
             ->when(!empty($this->category), function ($product) {
                 $product->where('category_id', $this->category);
+            })
+            ->when(!empty($this->minPrice), function ($product) {
+                $product->where('price', '>=', $this->minPrice);
+            })
+            ->when(!empty($this->maxPrice), function ($product) {
+                $product->where('price', '<=', $this->maxPrice);
             });
 
         // Ordine di creazione
@@ -115,7 +125,7 @@ class Index extends Component
                 $query->orderBy('title', 'desc');
             }
         }
-        
+
 
         $this->products = $query->get();
 
@@ -133,7 +143,7 @@ class Index extends Component
             'scroll' => $this->scroll,
             'orderByAZ' => $this->orderbyaz,
             'orderByDate' => $this->orderbydate,
-            'favorites'=>$this->favorites
+            // 'favorites'=>$this->favorites
         ]);
     }
 }

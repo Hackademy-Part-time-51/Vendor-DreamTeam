@@ -5,7 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Middleware\CheckProductOwnership;
+
 
 Route::get('/',[PageController::class,'home'] )->name('home');
 
