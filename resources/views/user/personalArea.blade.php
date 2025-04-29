@@ -67,20 +67,20 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-footer justify-content-start">
-                  <form action="{{route('user-profile-information.update')}}" method="POST">
+                  <form action="{{route('user-profile-information.update')}}" method="POST" class=" d-flex flex-column justify-items-center align-content-center w-100">
 
                     @csrf 
                     @method('PUT')
 
-                    <label for="name">Nome:</label>
-                    <input type="text" name="name" class="form-control mb-2" value="{{Auth::user()->name}}">
+                    <label class="fs-3 text-center mt-2" for="name">Nome:</label>
+                    <input type="text" name="name" class="form-control mb-2 fs-4" value="{{Auth::user()->name}}">
                     {{ $errors->updateProfileInformation->first('name') ?? '' }}
 
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" class="form-control mb-2" value="{{Auth::user()->email}}">
+                    <label class="fs-3 text-center mt-1" for="email">Email:</label>
+                    <input type="text" name="email" class="form-control mb-2 fs-4" value="{{Auth::user()->email}}">
                     {{ $errors->updateProfileInformation->first('email') ?? '' }}
 
-                    <button type="submit" class="btn btn-base">Aggiorna</button>
+                    <button type="submit" class="btn btn-base fs-3">Aggiorna</button>
 
                   </form>
                 </div>
@@ -96,7 +96,25 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-footer justify-content-start">
-                    
+                  <form action="{{route('user-profile-information.update')}}" method="POST" class=" d-flex flex-column justify-items-center align-content-center w-100">
+
+                    @csrf 
+                    @method('PUT')
+
+                    <label class="fs-3 text-center mt-2" for="current_password">Vecchia password:</label>
+                    <input type="password" name="current_password" class="form-control mb-2 fs-4" placeholder="Inserisci la tua password">
+                    {{ $errors->updatePassword->first('current_password') ?? '' }}
+
+                    <label class="fs-3 text-center mt-1" for="email">Nuova password:</label>
+                    <input type="password" name="password" class="form-control mb-2 fs-4" placeholder="Inserisci la tua nuova password">
+                    {{ $errors->updatePassword->first('password') ?? '' }}
+
+                    <label class="fs-3 text-center mt-1" for="email">Conferma nuova password:</label>
+                    <input type="password" name="password_confirmation" class="form-control mb-2 fs-4" placeholder="Conferma la tua nuova password">
+                    {{ $errors->updatePassword->first('password_confirmation') ?? '' }}
+                    <button type="submit" class="btn btn-base mt-1 fs-3">Aggiorna</button>
+
+                  </form>
                 </div>
               </div>
             </div>
