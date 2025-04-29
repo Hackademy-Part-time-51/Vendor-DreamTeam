@@ -44,10 +44,9 @@
         <a href="{{ route('products.show', ['product' => $product->id]) }}" class="btn btn-base ">
             Vedi Dettagli
         </a>
-       
+        @auth
+        @livewire('products.heart', ['product' => $product])
+        @endauth
     </div>
-@auth
-    
-@livewire('products.heart', ['product' => $product])
-@endauth
+
 </div>

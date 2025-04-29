@@ -37,12 +37,12 @@
                         @endif
                     </button>
                 </div>
-                <div class="d-flex justify-content-center align-items-center gap-1 my-2">
+                <div class="d-flex justify-content-center align-items-center gap-1 my-1">
                     <input type="number" class="form-control" id="minPrice" wire:model.live="minPrice" placeholder="$Min">
                     <input type="number" class="form-control" id="maxPrice" wire:model.live="maxPrice" placeholder='$Max'>
                 </div>
                 <hr>
-                <button wire:click="resetFilter" class="btn btn-base w-100 mt-1">Resetta filtri </button>
+                <button wire:click="resetFilter" class="btn btn-base w-100 ">Resetta filtri </button>
             </div>
         </section>
         {{-- sezione articoli --}}
