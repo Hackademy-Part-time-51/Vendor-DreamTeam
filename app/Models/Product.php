@@ -48,4 +48,9 @@ class Product extends Model
         $this->save();
         return true;
     }
+
+    public static  function toBeRevisedCount()  
+    {
+        return Product::where('is_accepted', null)->count();    
+    }
 }
