@@ -41,4 +41,11 @@ class Product extends Model
         return $this->belongsToMany(User::class);
 
     }
+
+    public function setAccepted($value)
+    {
+        $this->is_accepted=$value;
+        $this->save();
+        return true;
+    }
 }
