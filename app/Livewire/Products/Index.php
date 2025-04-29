@@ -95,6 +95,7 @@ class Index extends Component
     {
 
         $query = Product::with('category')
+            ->where('is_accepted', true)
             ->when(!empty($this->search), function ($product) {
                 $product->where('title', 'like', '%' . $this->search . '%');
             })

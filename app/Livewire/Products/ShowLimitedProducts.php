@@ -14,6 +14,7 @@ class ShowLimitedProducts extends Component
     public function mount()
     {
         $this->products = Product::query()
+            ->where('is_accepted', true)
             ->orderBy('created_at', 'desc')
             ->take(6) 
             ->get();

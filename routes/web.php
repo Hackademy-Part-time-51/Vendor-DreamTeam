@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RevisorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -21,3 +22,8 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('verified');
     Route::get('/lavoraConNoi', 'lavoraConNoi')->name('lavoraConNoi');
 });
+
+
+Route::get('/revisor/index', [RevisorController::class, 'index'])->name('revisor.index');
+Route::patch('/accept/{product}', [RevisorController::class, 'accept'])->name('accept');
+Route::patch('/reject/{product}', [RevisorController::class, 'reject'])->name('reject');
