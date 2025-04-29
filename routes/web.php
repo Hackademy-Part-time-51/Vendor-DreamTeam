@@ -23,6 +23,13 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/lavoraConNoi', 'lavoraConNoi')->name('lavoraConNoi');
 });
 
+<<<<<<< HEAD
 // invio mail del user per l admin per diventare revisore
 
 Route::get('/revisor/request', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('become.revisor');
+=======
+
+Route::get('/revisor/index', [RevisorController::class, 'index'])->name('revisor.index');
+Route::patch('/accept/{product}', [RevisorController::class, 'accept'])->name('accept');
+Route::patch('/reject/{product}', [RevisorController::class, 'reject'])->name('reject');
+>>>>>>> f31892cd0fc09927fc4664d89c48b53f478b34cd
