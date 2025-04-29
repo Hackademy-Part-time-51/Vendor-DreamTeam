@@ -8,25 +8,19 @@ use App\Http\Controllers\UserController;
 
 Route::get('/',[PageController::class,'home'] )->name('home');
 
-Route::get('/products/index',[PageController::class,'index'] )->name('products.index');
-
-Route::get('/products/create',[PageController::class,'create'] )->name('products.create')->middleware('verified');
-
-Route::get('/products/{product}',[PageController::class,'show'] )->name('products.show')->middleware('verified');
-
-Route::get('/products/{product}/edit', [PageController::class, 'edit'])
-    ->name('products.edit')
-    ->middleware(['verified']);
-
-
-Route::post('/products',[PageController::class,'store'] )->name('products.store')->middleware('verified');
-
-Route::put('/products/{product}',[PageController::class,'update'] )->name('products.update')->middleware('verified');
-
-Route::delete('/products/{product}',[PageController::class,'destroy'] )->name('products.destroy')->middleware('verified');
+Route::controller(PageController::class)->group(function () {
+    Route::get('/products/index','index')->name('products.index');
+    Route::get('/products/create','create')->name('products.create')->middleware('verified');
+    Route::get('/products/{product}','show')->name('products.show')->middleware('verified');
+    Route::get('/products/{product}/edit','edit')->name('products.edit')->middleware(['verified']);
+    Route::post('/products','store')->name('products.store')->middleware('verified');
+    Route::put('/products/{product}','update')->name('products.update')->middleware('verified');
+    Route::delete('/products/{product}','destroy')->name('products.destroy')->middleware('verified');
+});
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('verified');
+    Route::get('/lavoraConNoi', 'lavoraConNoi')->name('lavoraConNoi');
 });
 
 
