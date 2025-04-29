@@ -72,7 +72,7 @@
             <div class="accordion-body">
               <ul class="list-unstyled fs-4">
                 @foreach (Category::all() as $category)
-                <li><a class="dropdown-item nav-link text-blu" href="#"><i class="bi bi-folder-fill me-2"></i> {{$category->name}}</a></li>
+                <li><a class="dropdown-item nav-link text-blu" href="{{ route('products.index', ['category' => $category->id]) }}"><i class="bi bi-folder-fill me-2"></i> {{$category->name}}</a></li>
                 @endforeach
               </ul>
             </div>
