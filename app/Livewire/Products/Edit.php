@@ -40,7 +40,7 @@ class Edit extends Component
             'user_id' => Auth::id(),
         ]);
         session()->flash('status', 'Annuncio modificato correttamente.');
-        return $this->redirect('/products/index');
+        return redirect()->route('personalArea', Auth::id());
     }
     public function render()
     {

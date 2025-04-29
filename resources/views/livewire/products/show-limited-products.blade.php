@@ -6,7 +6,7 @@
         <div class="row g-4">
             @foreach ($products as $product)
                 <div class="col-12 col-md-6 col-lg-4 scalebig">
-                    <x-card :product="$product" :favorites="$favorites"></x-card>
+                    <x-card :product="$product" ></x-card>
                 </div>
             @endforeach
         </div>
