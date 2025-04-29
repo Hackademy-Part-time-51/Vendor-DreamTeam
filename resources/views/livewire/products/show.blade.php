@@ -11,10 +11,8 @@
             </div>
         </div>
         <div class="row g-2">
-            <!-- Left Column - Images -->
             <div class="col-12 col-lg-7">
                 <div class="card border-0 shadow-sm">
-                    <!-- Product Header - Desktop Only -->
                     <div class="card-header bg-transparent border-0 d-none d-lg-block">
                         <div class="text-center">
                             <h1 class="display-6 text-blu text-capitalize mb-3">{{ $product->title }}</h1>
@@ -25,8 +23,6 @@
                             @endif
                         </div>
                     </div>
-
-                    <!-- Carousel -->
                     <div class="card-body p-0">
                         <div id="productImageCarousel" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
@@ -57,8 +53,6 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Thumbnails - Optional -->
                     <div class="card-footer bg-transparent border-0 p-3 d-none d-md-block">
                         <div class="row g-2">
                             @for ($i = 0; $i < 3; $i++)
@@ -75,12 +69,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Right Column - Details -->
             <div class="col-12 col-lg-5">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body d-flex flex-column justify-content-center p-4">
-                        <!-- Price and Seller -->
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             @if (!is_null($product->price))
                                 <h2 class="display-5 text-blu mb-0">
@@ -94,8 +85,6 @@
                                 </div>
                             @endif
                         </div>
-
-                        <!-- Description Card -->
                         <div class="card bg-light border-0 mb-4">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -110,8 +99,6 @@
                                 </p>
                             </div>
                         </div>
-
-                        <!-- Publication Date -->
                         <div class="text-center mb-4">
                             <p class="text-muted small">
                                 <i class="bi bi-calendar-event me-2"></i>
@@ -120,8 +107,6 @@
                                 <small>({{ $product->created_at->diffForHumans() }})</small>
                             </p>
                         </div>
-
-                        <!-- Action Buttons -->
                         <div class="d-grid gap-2">
                             <button class="btn btn-base py-3 scalebig">
                                 <i class="bi bi-chat-dots me-2"></i>Contatta il venditore

@@ -9,7 +9,7 @@
       @endif
         <div class="row mt-3">
           {{-- card user --}}
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-5 p-1">
               {{-- card user --}}
                 <section class="card-user animated__backInLeft">
                     <div class="card z-1 d-flex justify-content-center">
@@ -40,12 +40,10 @@
                       </div>
                 </section>
             </div>
-            {{-- da definire --}}
-            <!-- Sezione Dashboard -->
-            <div class="col-12 col-lg-8">
+            {{-- dashboard --}}
+            <div class="col-12 col-lg-7">
               <div class="card shadow-sm">
                   <div class="card-body">
-                      <!-- Stats Row -->
                       <div class="row g-3 mb-4">
                           <div class="col-md-4">
                               <div class="card bg-primary bg-gradient text-white">
@@ -53,7 +51,7 @@
                                       <div class="d-flex justify-content-between align-items-center">
                                           <div>
                                               <h6 class="card-subtitle mb-1">Articoli</h6>
-                                              <h3 class="card-title mb-0">12</h3>
+                                              <h3 class="card-title mb-0"></h3>
                                           </div>
                                           <i class="bi bi-file-text fs-1"></i>
                                       </div>
@@ -66,7 +64,7 @@
                                       <div class="d-flex justify-content-between align-items-center">
                                           <div>
                                               <h6 class="card-subtitle mb-1">Commenti</h6>
-                                              <h3 class="card-title mb-0">48</h3>
+                                              <h3 class="card-title mb-0"></h3>
                                           </div>
                                           <i class="bi bi-chat-dots fs-1"></i>
                                       </div>
@@ -79,7 +77,7 @@
                                       <div class="d-flex justify-content-between align-items-center">
                                           <div>
                                               <h6 class="card-subtitle mb-1">Likes</h6>
-                                              <h3 class="card-title mb-0">156</h3>
+                                              <h3 class="card-title mb-0"></h3>
                                           </div>
                                           <i class="bi bi-heart fs-1"></i>
                                       </div>
@@ -87,58 +85,55 @@
                               </div>
                           </div>
                       </div>
-
-                      <!-- Recent Activity -->
                       <div class="card mb-4">
                           <div class="card-header bg-white">
                               <h5 class="card-title mb-0 text-center">Ultimi post</h5>
                           </div>
                           @livewire('user.product-personal', compact('products'))
                       </div>
-
-                      <!-- Quick Actions -->
-                      <div class="card">
-                          <div class="card-header bg-white">
-                              <h5 class="card-title mb-0">Azioni Rapide</h5>
-                          </div>
-                          <div class="card-body">
-                              <div class="row g-3">
-                                  <div class="col-md-6">
-                                      <div class="d-grid">
-                                          <button class="btn btn-primary">
-                                              <i class="bi bi-plus-circle me-2"></i>Nuovo Articolo
-                                          </button>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <div class="d-grid">
-                                          <button class="btn btn-success">
-                                              <i class="bi bi-pencil-square me-2"></i>Modifica Profilo
-                                          </button>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <div class="d-grid">
-                                          <button class="btn btn-info text-white">
-                                              <i class="bi bi-bookmark me-2"></i>Salvati
-                                          </button>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <div class="d-grid">
-                                          <button class="btn btn-warning text-white">
-                                              <i class="bi bi-gear me-2"></i>Impostazioni
-                                          </button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
                   </div>
               </div>
             </div>
         </div>
         <hr>
+        {{-- azioni rapide --}}
+        <div class="card">
+          <div class="card-header bg-white">
+              <h5 class="card-title mb-0 text-center">Azioni Rapide</h5>
+          </div>
+          <div class="card-body">
+              <div class="row g-3">
+                  <div class="col-md-6">
+                      <div class="d-grid">
+                          <button class="btn btn-primary">
+                              <i class="bi bi-plus-circle me-2"></i>Nuovo Articolo
+                          </button>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="d-grid">
+                          <button class="btn btn-success">
+                              <i class="bi bi-pencil-square me-2"></i>Modifica Profilo
+                          </button>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="d-grid">
+                          <button class="btn btn-info text-white">
+                              <i class="bi bi-bookmark me-2"></i>Salvati
+                          </button>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="d-grid">
+                          <button class="btn btn-warning text-white">
+                              <i class="bi bi-gear me-2"></i>Impostazioni
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
         {{-- articoli creati --}}
         <div class="row">
           <div class="col-12 py-2">

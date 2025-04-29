@@ -111,14 +111,12 @@
                 </div>
             </div>
             <hr>
-            <!-- Open Positions Section -->
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card bg-blu text-white border-0">
                         <div class="card-body">
                             <h2 class="card-title mb-4">Posizioni Aperte</h2>
                             <div class="accordion" id="openPositions">
-                                <!-- Position 1 -->
                                 <div class="accordion-item bg-blu text-white border-secondary">
                                     <h3 class="accordion-header">
                                         <button class="accordion-button bg-blu text-white" type="button" data-bs-toggle="collapse" data-bs-target="#position1">

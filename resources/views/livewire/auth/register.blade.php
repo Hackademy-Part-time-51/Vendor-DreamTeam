@@ -26,8 +26,6 @@
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
-
-    <!-- Gender Field -->
     <div class="mb-3">
         <label class="form-label">Sesso</label>
         <div class="d-flex gap-2">
@@ -52,7 +50,7 @@
         @enderror
     </div>
 
-    <!-- Profile Photo Field -->
+     Profile Photo Field -->
     <div class="mb-3">
         <label for="profile_photo" class="form-label">Foto profilo <span>(Non obbligatoria)</span></label>
         <input wire:model="profile_photo" id="profile_photo" type="file" name="profile_photo"

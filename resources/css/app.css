@@ -192,10 +192,10 @@ nav {
 
 /* #region INDEX PRODUCTS */
 
-.section-filter {
-    position: sticky;
-    top: 25vh;
-    box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
+#sezione-filtri {
+    position: sticky !important;
+    top: 16vh;
+    z-index: 0;
 }
 
 .torna-su {

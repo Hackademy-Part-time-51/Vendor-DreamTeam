@@ -169,7 +169,6 @@
 {{-- menu offcanvas utente --}}
 <div class="offcanvas offcanvas-end w-100" tabindex="-1" id="userOffCanvas">
   @guest
-  <!-- Header Guest -->
   <div class="offcanvas-header border-bottom py-4">
       <a href="/" class="d-flex align-items-center text-decoration-none">
           <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="Logo" height="60" class="me-2">
@@ -238,7 +237,7 @@
   @endauth
 </div>
 
-<!-- Logout Modal -->
+{{--  Logout Modal  --}}
 <div class="modal fade" id="logoutModal" data-bs-backdrop="static" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
