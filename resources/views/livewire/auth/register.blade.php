@@ -84,6 +84,12 @@
         <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" required>
     </div>
 
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-base">
+            Registrati
+        </button>
+    </div>
+
     <div class="d-flex justify-content-between align-items-center mt-4 fs-5">
         <p>
             <span class="text-muted">Hai già un account?</span>

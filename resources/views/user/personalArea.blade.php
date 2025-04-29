@@ -67,7 +67,22 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-footer justify-content-start">
-                    
+                  <form action="{{route('user-profile-information.update')}}" method="POST">
+
+                    @csrf 
+                    @method('PUT')
+
+                    <label for="name">Nome:</label>
+                    <input type="text" name="name" class="form-control mb-2" value="{{Auth::user()->name}}">
+                    {{ $errors->updateProfileInformation->first('name') ?? '' }}
+
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" class="form-control mb-2" value="{{Auth::user()->email}}">
+                    {{ $errors->updateProfileInformation->first('email') ?? '' }}
+
+                    <button type="submit" class="btn btn-base">Aggiorna</button>
+
+                  </form>
                 </div>
               </div>
             </div>

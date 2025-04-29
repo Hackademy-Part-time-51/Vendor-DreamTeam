@@ -63,28 +63,29 @@
             </div>
           </div>
         </div>
-      </div>
-        {{-- articoli preferiti --}}
-        <div class="accordion-item">
-            <h2 class="accordion-header ">
-              <button class="accordion-button collapsed fs-3 text-center mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#articolipreferiti" aria-expanded="true" aria-controls="articolipreferiti">
-                Articoli Preferiti
-              </button>
-            </h2>
-            <div id="articolipreferiti" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                  <div class="row g-3">
-                      @foreach ($products as $product) 
-                          <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
-                              
-                          </div>
-                      @endforeach
-                  </div>
-                  <div class="mt-3">
-                      {{$products->links()}}
-                  </div>
-              </div>
-            </div>
-        </div>
     </div>
+
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+              <h2 class="accordion-header ">
+                <button class="accordion-button collapsed fs-3 text-center mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#articolipreferiti" aria-expanded="true" aria-controls="articolipreferiti">
+                  Articoli Preferiti
+                </button>
+              </h2>
+              <div id="articolipreferiti" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="row g-3">
+                        @foreach ($products as $product) 
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+                                
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="mt-3">
+                        {{$products->links()}}
+                    </div>
+                </div>
+              </div>
+      </div>
+    </div>    
 </div>
