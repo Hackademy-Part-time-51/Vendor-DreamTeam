@@ -13,7 +13,7 @@
         <p>nome:{{$user->name}}</p>
         <p>email:{{$user->email}}</p>
         <p>se vuoi renderlo revisore, clicca qui:</p>
-        <a href="">richiedi revisore</a>
+        <a href="{{route('make.revisor', compact('user'))}}">rendi revisore</a>
     </div>
 </body>
 </html>
