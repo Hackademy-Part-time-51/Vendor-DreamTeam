@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RevisorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -21,3 +22,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('verified');
     Route::get('/lavoraConNoi', 'lavoraConNoi')->name('lavoraConNoi');
 });
+
+// invio mail del user per l admin per diventare revisore
+
+Route::get('/revisor/request', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('become.revisor');
