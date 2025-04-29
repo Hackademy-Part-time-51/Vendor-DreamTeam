@@ -53,4 +53,13 @@ class Product extends Model
     {
         return Product::where('is_accepted', null)->count();    
     }
+    public static  function acceptedCount()  
+    {
+        return Product::where('is_accepted', 1)->count();    
+    }
+    public static  function rejectedCount()  
+    {
+        return Product::where('is_accepted', 0)->count();    
+    }
+
 }

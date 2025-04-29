@@ -37,25 +37,18 @@
 
   <div class="offcanvas-body d-flex flex-column justify-content-between p-0">
       <div class="list-group list-group-flush flex-grow-1 d-flex flex-column justify-content-evenly">
-          <!-- Prodotti -->
           <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
                   data-bs-toggle="modal" data-bs-target="#productsModal">
               <i class="bi bi-box-seam fs-2 me-3"></i>Prodotti
           </button>
-
-          <!-- Categorie -->
           <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
                   data-bs-toggle="modal" data-bs-target="#categoriesModal">
               <i class="bi bi-tags-fill fs-2 me-3"></i>Categorie
           </button>
-
-          <!-- Assistenza -->
           <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
                   data-bs-toggle="modal" data-bs-target="#helpModal">
               <i class="bi bi-question-circle-fill fs-2 me-3"></i>Assistenza
           </button>
-
-          <!-- Contatti -->
           <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
                   data-bs-toggle="modal" data-bs-target="#contactModal">
               <i class="bi bi-envelope-fill fs-2 me-3"></i>Contatti
@@ -71,8 +64,6 @@
       </div>
   </div>
 </div>
-
-<!-- Products Modal -->
 <div class="modal fade" id="productsModal" tabindex="-1">
   <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
@@ -101,8 +92,6 @@
       </div>
   </div>
 </div>
-
-<!-- Categories Modal -->
 <div class="modal fade" id="categoriesModal" tabindex="-1">
   <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
@@ -125,8 +114,6 @@
       </div>
   </div>
 </div>
-
-<!-- Help Modal -->
 <div class="modal fade" id="helpModal" tabindex="-1">
   <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
@@ -152,8 +139,6 @@
       </div>
   </div>
 </div>
-
-<!-- Contact Modal -->
 <div class="modal fade" id="contactModal" tabindex="-1">
   <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">

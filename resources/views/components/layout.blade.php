@@ -18,6 +18,7 @@
     <div class="container-fluid px-0">
         {{ $slot }}
     </div>
-    <x-footer/>
+    {{-- footer da fare --}}
+    {{-- <x-footer/> --}}
 </body>
 </html>

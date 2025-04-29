@@ -1,5 +1,5 @@
-<div class="z-1 shadow-sm">
-    <nav class="navbar bg-blu py-2">
+<div class="">
+    <div class="navbar bg-blu py-2">
         <div class="container-fluid">
             <ul class="navbar-nav mx-auto gap-4 align-items-center">
                 @auth
@@ -21,5 +21,5 @@
                 @endauth
             </ul>
         </div>
-    </nav>
+    </div>
 </div>
