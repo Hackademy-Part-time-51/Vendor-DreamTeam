@@ -6,12 +6,11 @@
         {{-- sezione filtri a sinistra lg/xl schermo intero sm/md --}}
         <section class="col-12 col-lg-3 ">
             <div class="container-fluid section-filter card p-4 scalebig d-flex flex-column">
-                <hr>
                 <input type="text" wire:model.live="search" class="form-control w-100 "
                     placeholder="Cerca il tuo prodotto..">
                 <hr>
                 <div class="col-12 ">
-                    <select wire:model.live="category" class="form-select w-100 mt-1">
+                    <select wire:model.live="category" class="form-select w-100 ">
                         <option value="">Tutte le categorie</option>
                         @foreach ($categories as $cat)
                             <option value="{{ $cat->id }}" @selected($cat->id == $category)>
@@ -38,12 +37,12 @@
                         @endif
                     </button>
                 </div>
-                <label for="minPrice" class="form-label">Min</label>
-                <input type="number" class="form-control" id="minPrice" wire:model.live="minPrice">
-                <label for="maxPrice" class="form-label">Max</label>
-                <input type="number" class="form-control" id="maxPrice" wire:model.live="maxPrice">
-                <button wire:click="resetFilter" class="btn btn-base w-100 mt-1">Resetta filtri </button>
+                <div class="d-flex justify-content-center align-items-center gap-1 my-2">
+                    <input type="number" class="form-control" id="minPrice" wire:model.live="minPrice" placeholder="$Min">
+                    <input type="number" class="form-control" id="maxPrice" wire:model.live="maxPrice" placeholder='$Max'>
+                </div>
                 <hr>
+                <button wire:click="resetFilter" class="btn btn-base w-100 mt-1">Resetta filtri </button>
             </div>
         </section>
         {{-- sezione articoli --}}
