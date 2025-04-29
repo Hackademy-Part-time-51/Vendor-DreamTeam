@@ -29,7 +29,7 @@ Route::controller(UserController::class)->group(function () {
 Route::get('/revisor/request', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('become.revisor');
 
 
-Route::get('/revisor/index', [RevisorController::class, 'index'])->name('revisor.index');
+Route::get('/revisor/index', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
 Route::patch('/accept/{product}', [RevisorController::class, 'accept'])->name('accept');
 Route::patch('/reject/{product}', [RevisorController::class, 'reject'])->name('reject');
 
