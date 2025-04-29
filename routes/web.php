@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckProductOwnership;
 
 Route::get('/',[PageController::class,'home'] )->name('home');
 
@@ -14,7 +15,10 @@ Route::get('/products/create',[PageController::class,'create'] )->name('products
 
 Route::get('/products/{product}',[PageController::class,'show'] )->name('products.show')->middleware('verified');
 
-Route::get('/products/{product}/edit',[PageController::class,'edit'] )->name('products.edit')->middleware('verified');
+Route::get('/products/{product}/edit', [PageController::class, 'edit'])
+    ->name('products.edit')
+    ->middleware(['verified']);
+
 
 Route::post('/products',[PageController::class,'store'] )->name('products.store')->middleware('verified');
 

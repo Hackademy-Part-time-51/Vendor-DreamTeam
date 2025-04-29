@@ -14,14 +14,6 @@ class Kernel extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
-    protected $routeMiddleware = [
-       
-        'role' =>CheckRole::class,
-    ];
-
-
-    // protected $middlewareAliases = [
-        
-    //     'product.owner' => CheckProductOwnership::class,
-    // ];
+    
+    
 }
