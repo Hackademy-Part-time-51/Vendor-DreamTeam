@@ -26,7 +26,7 @@ Route::controller(UserController::class)->group(function () {
 
 Route::controller(RevisorController::class)->group(function(){
     Route::get('/revisor/index',  'index')->name('revisor.index');
-    Route::get('/revisor/request',  'becomeRevisor')->middleware('auth')->name('become.revisor');
+    Route::post('/revisor/request',  'becomeRevisor')->middleware('auth')->name('become.revisor');
     Route::get('/revisor/index',  'index')->middleware('isRevisor')->name('revisor.index');
     Route::patch('/accept/{product}',  'accept')->name('accept');
     Route::patch('/reject/{product}',  'reject')->name('reject');

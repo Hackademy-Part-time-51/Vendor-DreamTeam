@@ -208,10 +208,15 @@ nav {
     bottom: 1rem;
     right: 1rem;
 }
-
 .torna-su button {
     background-color: #003255;
     color: white;
+}
+.torna-su button:hover {
+    background-color: #003255;
+    color: white;
+    transition: all 0.2s linear;
+    transform: scale(1.02);
 }
 
 
