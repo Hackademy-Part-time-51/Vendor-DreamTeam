@@ -5,7 +5,7 @@
 <nav class="navbar py-0">
     <div class="container-fluid  d-flex justify-content-center d-none d-lg-flex navbar">
       <a href="/">
-        <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="80">
+        <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="100rem">
     </a>
     </div>
     <div class="container-fluid  fs-2 d-flex justify-content-between navbar d-lg-none d-xl-none">
@@ -36,7 +36,7 @@
   </div>
 
   <div class="offcanvas-body d-flex flex-column justify-content-between p-0">
-      <div class="list-group list-group-flush flex-grow-1 d-flex flex-column justify-content-evenly">
+      <div class="list-group list-group-flush flex-grow-1 d-flex flex-column ">
           <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
                   data-bs-toggle="modal" data-bs-target="#productsModal">
               <i class="bi bi-box-seam fs-2 me-3"></i>Prodotti

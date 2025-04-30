@@ -188,6 +188,11 @@ nav {
     width: max-content;
 }
 
+@media (min-width: 992px) {
+    .lg-height-100-vh{
+        min-height: 80vh;
+    }
+}
 /* #endregion */
 
 /* #region INDEX PRODUCTS */

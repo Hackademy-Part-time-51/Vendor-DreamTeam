@@ -1,67 +1,106 @@
-<form wire:submit="create" class=" rounded p-3 d-flex flex-column ">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-content-center text-center">
-                <div class="mb-3">
+<div class="container-fluid py-4">
+  <div class="text-center">
+    <h1 class="display-6 mb-3">Nuovo Prodotto</h1>
+</div>
+  <form wire:submit="create">
 
-                  <label for="title" class="form-label @error('title') d-none @enderror">Titolo</label>
-                  @error('title')
-                      <span class="error text-danger ">Titolo richiesto</span>
-                  @enderror
-                    <input type="text" class="form-control" id="title" wire:model="title" value="{{ old('title') }}">
-                </div>
-                <div class="mb-3">
-                  <label for="description" class="form-label @error('description') d-none @enderror">Descrizione</label>
-                  @error('description')
-                      <span class="error text-danger">Descrizione richiesta</span>
-                  @enderror
-                    <textarea class="form-control" id="descrizione" rows="3" wire:model="description"> {{ old('description') }}</textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label @error('price') d-none @enderror">Prezzo</label>
-                    @error('price')
-                    <span class="error text-danger">Prezzo richiesto</span>
-                    @enderror
-                    <input type="number" class="form-control" id="price" wire:model="price" value="{{ old('price') }}">
-                </div>
-                <div>
-                  <label for="category_id" class="form-label @error('category_id') d-none @enderror">Categoria</label>
-                  @error('category_id')
-                  <span class="error text-danger">Categoria richiesta</span>
-                  @enderror
-                    <select wire:model="category_id" id="" class="form-select mb-3">
-                      <option selected >Scegli una categoria</option>
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-content-center rounded-">
-                <fieldset class="upload_dropZone text-center my-3 p-4">
+      <div class="row ">
+          <div class="col-12 col-lg-5">
+              <div class="card border-0 shadow-sm">
+                  <div class="card-body p-5">
+                      <fieldset class="upload_dropZone text-center bg-light rounded-3 p-5">
+                          <i class="bi bi-cloud-upload display-1 text-primary mb-4"></i>
+                          <p class="display-6 mb-3">Carica le immagini del prodotto</p>
+                          <p class="text-muted mb-4">Trascina le immagini qui o clicca per selezionarle</p>                          
+                          <input id="upload_image_background" 
+                                 type="file" 
+                                 multiple 
+                                 class="position-absolute invisible"
+                                 accept="image/jpeg, image/png, image/svg+xml"
+                                 data-post-name="image_background"
+                                 data-post-url="/upload">                
+                          <label class="btn btn-outline-primary btn-lg mb-3" 
+                                 for="upload_image_background">
+                              <i class="bi bi-image me-2"></i>Seleziona Immagini
+                          </label>
+                          <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
+                            {{-- anteprila delle foto --}}
+                          </div>
+                      </fieldset>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-lg-7">
+              <div class="card border-0 shadow-sm h-100">
+                  <div class="card-body p-4">
+                      @if ($errors->any())
+                          <div class="alert alert-danger alert-dismissible fade show mb-4">
+                              <ul class="list-unstyled mb-0">
+                                  @foreach ($errors->all() as $error)
+                                      <li><i class="bi bi-exclamation-circle me-2"></i>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                          </div>
+                      @endif
+                      <div class="mb-4">
+                          <label class="form-label h4">Titolo</label>
+                          <input type="text"
+                                 class="form-control form-control-lg"
+                                 wire:model="title"
+                                 placeholder="Inserisci il titolo del prodotto">
+                      </div>
+                      <div class="mb-4">
+                          <label class="form-label h4">Categoria</label>
+                          <select wire:model="category_id" class="form-select form-select-lg">
+                              <option value="">Seleziona una categoria</option>
+                              @foreach ($categories as $category)
+                                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+                              @endforeach
+                          </select>
+                      </div>
+                      <div class="mb-4">
+                          <label class="form-label h4">Descrizione</label>
+                          <textarea wire:model="description"
+                                    class="form-control form-control-lg"
+                                    rows="4"
+                                    placeholder="Descrivi il tuo prodotto"></textarea>
+                      </div>
+                      <div class="mb-4">
+                          <label class="form-label h4">Prezzo</label>
+                          <div class="input-group input-group-lg">
+                              <span class="input-group-text">€</span>
+                              <input type="number" wire:model="price" class="form-control" placeholder="0.00">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row mt-3">
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-baseblu btn-lg py-3">
+              <i class="bi bi-plus-lg me-2"></i>Crea Prodotto
+          </button>
+          <a href="{{ route('products.index') }}"
+             class="btn btn-rosso btn-lg py-3">
+              <i class="bi bi-x-lg me-2"></i>Annulla
+          </a>
+      </div>
+      </div>
+  </form>
+</div>
 
-                    <legend class="visually-hidden">Image uploader</legend>
-                
-                    <svg class="upload_svg" width="60" height="60" aria-hidden="true">
-                      <use href="#icon-imageUpload"></use>
-                    </svg>
-                
-                    <p class="fs-4 my-2">Trascina qua la/e foto del prodotto per aggiungerle all'annuncio.</p>
-                
-                    <input id="upload_image_background" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
-                
-                    <label class="btn  btn-base mb-3" for="upload_image_background">Scegli la/e foto</label>
-                
-                    <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
-                
-                </fieldset>
-            </div>
-        </div>
-    </div>
 
 
-    {{-- <input type="number" hidden wire:model="user_id" value="{{ Auth::user()->id }}" > --}}
-    <button class="btn btn-base w-50 mx-auto" type="submit">Crea</button>
+
+
+@push('scripts')
+<script>
+  // Your existing JavaScript for drag and drop functionality
+  // ... (keep your existing script here)
+</script>
+@endpush
 
     {{-- SCRIPT PER DRAG AND DROP IMAGE --}}
     <script>

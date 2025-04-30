@@ -1,7 +1,7 @@
 <div class="col-12">
   <div class="row g-3">
       @foreach ($products as $product)
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6 d-flex border-0">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex border-0">
               <div class="card p-3 ">
                   <img src="https://picsum.photos/id/{{ rand(1, 50) }}/1920/1080" class="card-img-top" alt="...">
                   
@@ -10,7 +10,7 @@
                       <p class="card-text">{{Str::limit($product->description, 20)}}</p>
                   </div>
 
-                  <div class="card-body d-flex justify-content-evenly align-items-center">
+                  <div class="card-body d-flex justify-content-center gap-1 align-items-center">
                       <a href="{{route('products.edit', $product->id)}}" class="btn btn-base">Modifica</a>
                       <button type="button" data-bs-toggle="modal" data-bs-target="#modalDeleteProduct" class="btn btn-rosso">
                           Elimina
