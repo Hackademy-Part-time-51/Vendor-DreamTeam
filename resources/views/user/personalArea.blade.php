@@ -85,9 +85,9 @@
                           <div class="card-header bg-white">
                               <h5 class="card-title mb-0 text-center">Ultimi post</h5>
                           </div>
-                          <?php 
-                          Product::
-                          @livewire('user.product-personal', ['products' => Product::where('user_id', $user->id)->get()])
+                         
+                          
+                          @livewire('user.product-personal', ['user' => $user->id])
                       </div>
                   </div>
               </div>
