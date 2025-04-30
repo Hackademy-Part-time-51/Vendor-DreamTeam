@@ -23,10 +23,10 @@
     
                     @if (Auth::id() == $product->user_id || Auth::user()->is_revisor == 1)
                         <div class="card-body d-flex justify-content-center gap-1 align-items-center">
-                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base">Modifica</a>
+                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base"><i class="bi bi-pen"></i></a>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modalDeleteProduct"
                                 class="btn btn-rosso">
-                                Elimina
+                                <i class="bi bi-trash"></i>
                             </button>
     
                             <div class="modal fade" id="modalDeleteProduct" data-bs-backdrop="static"

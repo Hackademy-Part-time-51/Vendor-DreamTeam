@@ -39,7 +39,7 @@
             {{-- dashboard --}}
             <div class="col-12 col-lg-7 ">
               <div class="card shadow-sm ">
-                  <div class="card-body">
+                  <div class="card-body p-3">
                       <div class="row g-3 mb-4">
                           <div class="col-md-4">
                               <div class="card bg-primary bg-gradient text-white">
@@ -81,7 +81,7 @@
                               </div>
                           </div>
                       </div>
-                        @livewire('user.product-personal', ['user' => $user->id])
+                    @livewire('user.product-personal', ['user' => $user->id])
                   </div>
               </div>
             </div>
