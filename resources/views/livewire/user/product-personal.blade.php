@@ -3,12 +3,14 @@
         @foreach ($products as $product)
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex border-0">
                 <div class="card p-3 ">
+
                     <img src="https://picsum.photos/id/{{ rand(1, 50) }}/1920/1080" class="card-img-top" alt="...">
 
                     <div class="card-body text-center">
-                        <h5 class="card-title">{{ Str::limit($product->title, 21) }}</h5>
+                        <h5 class="card-title"><a href="{{ route('products.show', $product->id) }}" class="text-decoration-none">{{ Str::limit($product->title, 21) }}</a></h5>
                         <p class="card-text">{{ Str::limit($product->description, 20) }}</p>
                     </div>
+
                     @if (Auth::id() == $product->user_id || Auth::user()->is_revisor == 1)
                         <div class="card-body d-flex justify-content-center gap-1 align-items-center">
                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base">Modifica</a>

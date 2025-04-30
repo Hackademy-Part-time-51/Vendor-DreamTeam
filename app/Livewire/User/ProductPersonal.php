@@ -16,6 +16,9 @@ class ProductPersonal extends Component
     public $user;
     public $perPage = 12;
 
+
+    
+
     
     public function render()
     {   
