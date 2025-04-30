@@ -14,20 +14,24 @@
               <section class="card-user animated__backInLeft ">
                     <div class="card z-1 d-flex justify-content-center ">
                         <div class="p-1 d-flex justify-content-center">
-                            <img src="{{asset('storage/'.Auth::user()->profile_image) }}" class="card-img-top" id="foto-user-card">
+                            @if ($user->profile_image == null)
+                              <img src="/IMAGES/LOGO-SENZA-SFONDO.png" class="card-img-top" id="foto-user-card">
+                            @else
+                            <img src="{{asset('storage/'.$user->profile_image) }}" class="card-img-top" id="foto-user-card">
+                            @endif
                         </div>
                         <div class="card-body d-flex flex-column justify-content-center text-center text-blu">
-                          <h2 class="card-title text-capitalize fw-bold">{{Auth::user()->name}}</h2>
+                          <h2 class="card-title text-capitalize fw-bold">{{$user->name}}</h2>
                           <hr>
                           <p class="text-capitalize">
-                            @if (Auth::user()->is_revisor == 1)
+                            @if ($user->is_revisor == 1)
                               <span class="badge bg-success">Revisore</span>
                             @else
-                              <span class="badge bg-danger">Utente n°{{Auth::user()->id}}</span>
+                              <span class="badge bg-danger">Utente n°{{$user->id}}</span>
                             @endif
                           </p>
-                          <p class="">{{Auth::user()->email}}</p>
-                          <p class="">{{Auth::user()->phone}}</p>
+                          <p class="">{{$user->email}}</p>
+                          <p class="">{{$user->phone}}</p>
                         </div>
                       </div>
               </section>
@@ -81,7 +85,9 @@
                           <div class="card-header bg-white">
                               <h5 class="card-title mb-0 text-center">Ultimi post</h5>
                           </div>
-                          @livewire('user.product-personal', compact('products'))
+                          <?php 
+                          Product::
+                          @livewire('user.product-personal', ['products' => Product::where('user_id', $user->id)->get()])
                       </div>
                   </div>
               </div>
@@ -181,7 +187,7 @@
                                       <input type="text" 
                                              name="name" 
                                              class="form-control form-control-lg" 
-                                             value="{{Auth::user()->name}}">
+                                             value="{{$user->name}}">
                                       @error('name', 'updateProfileInformation')
                                           <div class="text-danger mt-1">{{ $message }}</div>
                                       @enderror
@@ -191,7 +197,7 @@
                                       <input type="email" 
                                              name="email" 
                                              class="form-control form-control-lg" 
-                                             value="{{Auth::user()->email}}">
+                                             value="{{$user->email}}">
                                       @error('email', 'updateProfileInformation')
                                           <div class="text-danger mt-1">{{ $message }}</div>
                                       @enderror

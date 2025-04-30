@@ -17,8 +17,8 @@ class ProductPersonal extends Component
     public $perPage = 12;
     public function render()
     {   
-        $products = Product::where('user_id', Auth::user()->id)->paginate($this->perPage);
-
+        // $products = Product::where('user_id', Auth::user()->id)->paginate($this->perPage);
+        $products = Product::all();
         return view('livewire.user.product-personal', ['products'=>$products]);
     }
 }

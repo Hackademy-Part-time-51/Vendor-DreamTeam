@@ -6,6 +6,8 @@ use App\Models\Category;
 use Livewire\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\On; 
+
 
 class Index extends Component
 {
@@ -56,8 +58,6 @@ class Index extends Component
         }
         $this->orderbydate = '';
     }
-
-
     public function scrollFunction()
     {
         if (($this->scroll + 18) < count($this->products)) {
@@ -90,12 +90,11 @@ class Index extends Component
     //     $this->favorites = !$this->favorites;
 
     // }}   
-
-    public function render()
-    {
+    #[On('refresh')]
+    public function render(){
 
         $query = Product::with('category')
-            ->where('is_accepted', true)
+        ->where('is_accepted', 1)
             ->when(!empty($this->search), function ($product) {
                 $product->where('title', 'like', '%' . $this->search . '%');
             })
@@ -145,6 +144,6 @@ class Index extends Component
             'orderByAZ' => $this->orderbyaz,
             'orderByDate' => $this->orderbydate,
             // 'favorites'=>$this->favorites
-        ]);
+]);
     }
-}
+}   

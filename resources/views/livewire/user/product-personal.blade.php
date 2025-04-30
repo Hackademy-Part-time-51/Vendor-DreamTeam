@@ -44,9 +44,9 @@
           </div>
       @endforeach
   </div>
-  <div class="mt-3">
+  {{-- <div class="mt-3">
       {{$products->links()}}
-  </div>
+  </div> --}}
 </div>
 
 

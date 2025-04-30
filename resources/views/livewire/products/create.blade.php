@@ -95,12 +95,7 @@
 
 
 
-@push('scripts')
-<script>
-  // Your existing JavaScript for drag and drop functionality
-  // ... (keep your existing script here)
-</script>
-@endpush
+
 
     {{-- SCRIPT PER DRAG AND DROP IMAGE --}}
     <script>

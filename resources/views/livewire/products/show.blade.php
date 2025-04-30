@@ -80,7 +80,9 @@
                             @endif
                             @if ($product->user)
                                 <div class="text-end">
-                                    <p class="fs-5 text-blu mb-1">{{ $product->user->name }}</p>
+                                    <p class="fs-5 text-blu mb-1">
+                                        <a href="{{ route('personalArea', $product->user->id) }}"> {{ $product->user->name }}</a>
+                                    </p>
                                     <span class="badge bg-secondary">Venditore</span>
                                 </div>
                             @endif
