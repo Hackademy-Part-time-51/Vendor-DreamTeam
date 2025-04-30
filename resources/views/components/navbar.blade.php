@@ -151,7 +151,7 @@
           <div class="modal-body">
               <div class="list-group list-group-flush">
                   <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
-                      <i class="bi bi-telephone-fill fs-2 me-3"></i>Chiamaci
+                    <i class="bi bi-laptop fs-3 me-3 "></i>Lavora con noi
                   </a>
                   <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
                       <i class="bi bi-chat-dots-fill fs-2 me-3"></i>Chat

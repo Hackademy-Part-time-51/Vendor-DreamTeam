@@ -37,10 +37,10 @@ class RevisorController extends Controller
     }
 
     public function reject(Product $product) 
-{
-    $product->setAccepted(false); 
-    return redirect()
-        ->back()
-        ->with('message', "Hai rifiutato l'articolo {$product->name}"); 
-}
+    {
+        $product->setAccepted(false); 
+        return redirect()
+            ->back()
+            ->with('message', "Hai rifiutato l'articolo {$product->name}"); 
+    }
 }

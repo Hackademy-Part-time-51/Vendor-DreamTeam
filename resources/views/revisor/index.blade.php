@@ -24,7 +24,7 @@
                             <span class="badge bg-verde rounded-pill">{{ \App\Models\Product::acceptedCount() }}</span>
                         </div>
                         <div class="list-group-item d-flex justify-content-between align-items-center">
-                            <span class="text-blu">Rifiutati oggi</span>
+                            <span class="text-blu">Rifiutati</span>
                             <span class="badge bg-rosso rounded-pill">{{ \App\Models\Product::rejectedCount() }}</span>
                         </div>
                     </div>
