@@ -75,14 +75,14 @@
               <div id="articolipreferiti" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <div class="row g-3">
-                        @foreach ($products as $product) 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
-                                
+                        @foreach ($favorites as $product) 
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" wire:key="{{ $product->id }}" >
+                                <x-card :product="$product"></x-card>
                             </div>
                         @endforeach
                     </div>
                     <div class="mt-3">
-                        {{$products->links()}}
+                        {{-- {{$favorites->links()}} --}}
                     </div>
                 </div>
               </div>

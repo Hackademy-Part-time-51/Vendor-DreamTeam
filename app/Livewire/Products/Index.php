@@ -6,6 +6,8 @@ use App\Models\Category;
 use Livewire\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\On;
+
 
 class Index extends Component
 {
@@ -17,8 +19,8 @@ class Index extends Component
     public $search = '';
     public $category;
     public $scroll = 18;
-    public $minPrice ;
-    public $maxPrice ;
+    public $minPrice;
+    public $maxPrice;
 
 
 

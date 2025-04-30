@@ -38,8 +38,10 @@
                     </button>
                 </div>
                 <div class="d-flex justify-content-center align-items-center gap-1 my-2">
-                    <input type="number" class="form-control" id="minPrice" wire:model.live="minPrice" placeholder="$Min">
-                    <input type="number" class="form-control" id="maxPrice" wire:model.live="maxPrice" placeholder='$Max'>
+                    <input type="number" class="form-control" id="minPrice" wire:model.live="minPrice"
+                        placeholder="$Min">
+                    <input type="number" class="form-control" id="maxPrice" wire:model.live="maxPrice"
+                        placeholder='$Max'>
                 </div>
                 <hr>
                 <button wire:click="resetFilter" class="btn btn-base w-100 mt-1">Resetta filtri </button>
@@ -56,7 +58,7 @@
             @endif
             @for ($i = 0; $i < $scroll; $i++)
                 <div class="col-12 col-md-6 col-lg-4 p-2 scalebig" wire:key="{{ $products[$i]->id }}">
-                    <x-card :product="$products[$i]" ></x-card>
+                    <x-card :product="$products[$i]"></x-card>
 
                 </div>
             @endfor
