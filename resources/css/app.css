@@ -29,15 +29,28 @@ nav {
     top: 0;
     z-index: 999;
 }
-
 .secondary-navbar-sticky {
     position: sticky;
     top: 0;
     color: #003255;
 }
-
 .fs-mininav {
     font-size: calc(0.491rem + 1vw);
+}
+
+#userMenu .list-group-item:hover {
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    transform: translateX(10px);
+}
+#userMenu .list-group-item {
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
+}
+#logoutModal{
+    
+    border: none;
+    border-radius: 1rem;
 }
 
 /* #endregion */
@@ -98,11 +111,22 @@ nav {
     border: #003255 3px solid;
     color: #003255;
 }
+.btn-baseblu {
+    border: #003255 3px solid;
+    color: white;
+    background-color: #003255;
+}
+.btn-baseblu:hover {
+    border: #003255 3px solid;
+    color: white;
+    background-color: #003255;
+    transition: all 0.2s linear;
+    transform: scale(0.98);
+}
 
 .btn-base:hover {
     border: #003255 3px solid;
     color: #003255;
-    background-color: white;
     transition: all 0.2s linear;
     transform: scale(0.98);
 }
@@ -164,14 +188,19 @@ nav {
     width: max-content;
 }
 
+@media (min-width: 992px) {
+    .lg-height-100-vh{
+        min-height: 80vh;
+    }
+}
 /* #endregion */
 
 /* #region INDEX PRODUCTS */
 
-.section-filter {
-    position: sticky;
-    top: 25vh;
-    box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
+#sezione-filtri {
+    position: sticky !important;
+    top: 16vh;
+    z-index: 0;
 }
 
 .torna-su {

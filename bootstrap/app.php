@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Middleware\ProductOwner;
-use App\Models\Product;
+use App\Http\Middleware\IsRevisor;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -13,7 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias(['productOwner'=>App\Http\Middleware\ProductOwner::class]);
+        $middleware->alias([
+            'isRevisor'=>IsRevisor::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

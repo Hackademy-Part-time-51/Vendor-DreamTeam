@@ -3,7 +3,7 @@
     use App\Models\Category;
   @endphp
   <div class="secondary-navbar-sticky d-none d-lg-block z-3">
-    <nav class="navbar navbar-expand-lg p-2">
+    <nav class="navbar navbar-expand-lg  p-2">
         <div class="container-fluid ">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-evenly w-100 align-items-center">
                 {{-- prodotti --}}
@@ -19,7 +19,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       @foreach (Category::all() as $category )
-                      <li><a class="dropdown-item" href="#">{{$category->name}}</a></li>
+                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{$category->name}}</a></li>
                       @endforeach
                         {{-- foreach di categorie --}}
                         {{-- @foreach ($categories as $category)
@@ -84,7 +84,7 @@
                     <i class="bi bi-envelope-fill me-2"></i> Contatti
                     </a>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item text-blu" href="#">Action</a></li>
+                    <li><a class="dropdown-item text-blu" href="{{route('lavoraConNoi')}}">Lavora con noi</a></li>
                     <li><a class="dropdown-item text-blu" href="#">Another action</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item text-blu" href="#">Something else here</a></li>
@@ -100,7 +100,7 @@
                 </li>
             </ul>
         </div>
-      </nav>
+    </nav>
   </div>
           {{-- modal logout --}}
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

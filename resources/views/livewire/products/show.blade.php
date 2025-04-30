@@ -1,103 +1,143 @@
-<div>
-    <hr>
+<div class="container-fluid py-4">
     @if ($product)
-        <div class="container my-4">
-            <div class="row">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <div id="productImageCarousel" class="carousel slide shadow-sm" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
+        <div class="d-block d-lg-none mb-4">
+            <div class="text-center">
+                <h1 class="display-6 text-blu text-capitalize mb-3">{{ $product->title }}</h1>
+                @if ($product->category)
+                    <span class="badge bg-warning px-3 py-2 rounded-pill">
+                        <i class="bi bi-tag-fill me-2"></i>{{ $product->category->name }}
+                    </span>
+                @endif
+            </div>
+        </div>
+        <div class="row g-2">
+            <div class="col-12 col-lg-7">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-transparent border-0 d-none d-lg-block">
+                        <div class="text-center">
+                            <h1 class="display-6 text-blu text-capitalize mb-3">{{ $product->title }}</h1>
+                            @if ($product->category)
+                                <span class="badge bg-warning px-3 py-2 rounded-pill">
+                                    <i class="bi bi-tag-fill me-2"></i>{{ $product->category->name }}
+                                </span>
+                            @endif
                         </div>
-
-                        <div class="carousel-inner rounded">
-                            <div class="carousel-item active">
-                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/4320" class="d-block w-100"
-                                    alt="Immagine casuale 1">
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="productImageCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                @for ($i = 0; $i < 3; $i++)
+                                    <button type="button" data-bs-target="#productImageCarousel" 
+                                            data-bs-slide-to="{{ $i }}" 
+                                            @if($i == 0) class="active" aria-current="true" @endif>
+                                    </button>
+                                @endfor
                             </div>
-                            <div class="carousel-item">
-                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/4320" class="d-block w-100"
-                                    alt="Immagine casuale 2">
+                            <div class="carousel-inner rounded-3">
+                                @for ($i = 0; $i < 3; $i++)
+                                    <div class="carousel-item @if($i == 0) active @endif">
+                                        <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/2160"
+                                             class="d-block w-100"
+                                             style="aspect-ratio: 16/9; object-fit: cover;"
+                                             alt="Immagine prodotto {{ $i + 1 }}">
+                                    </div>
+                                @endfor
                             </div>
-                            <div class="carousel-item">
-                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/4320" class="d-block w-100"
-                                    alt="Immagine casuale 3">
-                            </div>
+                            <button class="carousel-control-prev" type="button" 
+                                    data-bs-target="#productImageCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" 
+                                    data-bs-target="#productImageCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Precedente</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Successivo</span>
-                        </button>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 p-3 d-none d-md-block">
+                        <div class="row g-2">
+                            @for ($i = 0; $i < 3; $i++)
+                                <div class="col-4">
+                                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/2160"
+                                         class="img-fluid rounded cursor-pointer"
+                                         style="aspect-ratio: 16/9; object-fit: cover;"
+                                         data-bs-target="#productImageCarousel"
+                                         data-bs-slide-to="{{ $i }}"
+                                         alt="Thumbnail {{ $i + 1 }}">
+                                </div>
+                            @endfor
+                        </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 align-content-center">
-                    <h1 class="mb-3 text-capitalize">{{ $product->title }}</h1>
-
-                    <div class="mb-3 text-muted">
-                        @if ($product->category)
-                            <span>Categoria:
-                                <a href="{{ route('products.index', ['category' => $product->category->id]) }}"
-                                    class="text-decoration-none text-primary">
-                                    {{ $product->category->name }}
-                                </a>
-                            </span>
-                        @endif
-                        @if ($product->user)
-                            <span class="">Venditore: {{ $product->user->name }}</span>
-                        @endif
-                    </div>
-                    @if ($setTranslate)
-                        <div class="mb-3">
-                            <h5 class="border-bottom pb-1 mb-2">Descrizione</h5>
-                            <p class="mb-0">{{ $descri }}</p>
-                            <button wire:click="translate" class="btn btn-base btn-sm mt-0 ">
-                                Ritorna all'originale
-                            </button>
+            </div>
+            <div class="col-12 col-lg-5">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body d-flex flex-column justify-content-center p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            @if (!is_null($product->price))
+                                <h2 class="display-5 text-blu mb-0">
+                                    € {{ number_format($product->price, 2, ',', '.') }}
+                                </h2>
+                            @endif
+                            @if ($product->user)
+                                <div class="text-end">
+                                    <p class="fs-5 text-blu mb-1">
+                                        <a href="{{ route('personalArea', $product->user->id) }}"> {{ $product->user->name }}</a>
+                                    </p>
+                                    <span class="badge bg-secondary">Venditore</span>
+                                </div>
+                            @endif
                         </div>
-                    @else
-                        <div class="mb-3">
-                            <h5 class="border-bottom pb-1 mb-2">Descrizione</h5>
-                            <p class="mb-0">{{ $product->description }}</p>
-                            <button wire:click="translate" class="btn btn-base btn-sm mt-0 ">
-                                Traduci...
-                            </button>
+                        <div class="card bg-light border-0 mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title text-blu mb-0">Descrizione</h5>
+                                    <button wire:click="translate" class="btn btn-base btn-sm">
+                                        <i class="bi bi-translate me-2"></i>
+                                        {{ $setTranslate ? 'Originale' : 'Traduci' }}
+                                    </button>
+                                </div>
+                                <p class="card-text">
+                                    {{ $setTranslate ? $descri : $product->description }}
+                                </p>
+                            </div>
                         </div>
-                    @endif
-                    <p class="text-muted small">
-                        Aggiunto il: {{ $product->created_at->translatedFormat('d F Y') }}
-                        ({{ $product->created_at->diffForHumans() }})
-                    </p>
-                    @if (!is_null($product->price))
-                        <p class="fs-3 fw-bold mb-2">
-                            € {{ number_format($product->price, 2, ',', '.') }}
-                        </p>
-                    @endif
-                    <div class="d-flex gap-2 justify-content-center mt-3">
-                        <a href="{{ route('products.index') ?? url('/') }}" class="btn btn-base">Contatta il
-                            venditore</a>
-                        <a href="{{ route('products.index') ?? url('/') }}" class="btn btn-base">Torna ai Prodotti</a>
+                        <div class="text-center mb-4">
+                            <p class="text-muted small">
+                                <i class="bi bi-calendar-event me-2"></i>
+                                Pubblicato il {{ $product->created_at->translatedFormat('d F Y') }}
+                                <br>
+                                <small>({{ $product->created_at->diffForHumans() }})</small>
+                            </p>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-base py-3 scalebig">
+                                <i class="bi bi-chat-dots me-2"></i>Contatta il venditore
+                            </button>
+                            <a href="{{ route('products.index') }}" 
+                               class="btn btn-base py-3 scalebig">
+                                <i class="bi bi-arrow-left me-2"></i>Torna ai Prodotti
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     @else
-        <div class="container mt-5">
-            <div class="alert alert-warning text-center" role="alert">
-                Il prodotto richiesto non è al momento disponibile.
-            </div>
-            <div class="text-center">
-                <a href="{{ route('products.index') ?? url('/') }}" class="btn btn-primary">Torna ai Prodotti</a>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm text-center p-5">
+                    <div class="card-body">
+                        <i class="bi bi-exclamation-circle text-warning display-1 mb-4"></i>
+                        <h2 class="text-blu mb-4">Prodotto non disponibile</h2>
+                        <p class="text-muted mb-4">
+                            Il prodotto che stai cercando non è al momento disponibile.
+                        </p>
+                        <a href="{{ route('products.index') }}" 
+                           class="btn btn-base py-3 px-4 scalebig">
+                            <i class="bi bi-arrow-left me-2"></i>Torna ai Prodotti
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     @endif

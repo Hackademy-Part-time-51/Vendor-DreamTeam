@@ -19,11 +19,8 @@ class ProductPersonal extends Component
     
     public function render()
     {   
-        $products = Product::where('user_id', Auth::user()->id)->paginate($this->perPage);
-        
-        $favorites=Auth::user()->favorites;
-        // dd($favorites);
-
-        return view('livewire.user.product-personal', ['products'=>$products,'favorites'=>$favorites]);
+        // $products = Product::where('user_id', Auth::user()->id)->paginate($this->perPage);
+        $products = Product::all();
+        return view('livewire.user.product-personal', ['products'=>$products]);
     }
 }

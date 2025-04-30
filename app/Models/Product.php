@@ -41,4 +41,25 @@ class Product extends Model
         return $this->belongsToMany(User::class);
 
     }
+
+    public function setAccepted($value)
+    {
+        $this->is_accepted=$value;
+        $this->save();
+        return true;
+    }
+
+    public static  function toBeRevisedCount()  
+    {
+        return Product::where('is_accepted', null)->count();    
+    }
+    public static  function acceptedCount()  
+    {
+        return Product::where('is_accepted', 1)->count();    
+    }
+    public static  function rejectedCount()  
+    {
+        return Product::where('is_accepted', 0)->count();    
+    }
+
 }
