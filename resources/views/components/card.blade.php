@@ -37,7 +37,7 @@
           <li class="list-group-item fw-bold fs-5">
               € {{ number_format($product->price, 2, ',', '.') }}
           </li>
-  
+
       </ul>
       <div class="card-body d-flex justify-content-center gap-1 align-items-center">
           <a href="{{ route('personalArea', $product->user->id) }}" class="btn btn-base ">

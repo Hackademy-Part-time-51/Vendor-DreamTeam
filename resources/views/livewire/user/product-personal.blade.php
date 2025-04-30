@@ -20,7 +20,22 @@
                         <h5 class="card-title"><a href="{{ route('products.show', $product->id) }}" class="text-decoration-none">{{ Str::limit($product->title, 21) }}</a></h5>
                         <p class="card-text">{{ Str::limit($product->description, 20) }}</p>
                     </div>
-    
+                    @if ($product->is_accepted === 1)
+                    <li class="list-group-item text-center">
+                        <span class="badge rounded-pill text-bg-success"> <i
+                                class="bi bi-check-circle-fill me-2"></i>Accettato</span>
+                    </li>
+                    @elseif($product->is_accepted === 0)
+                    <li class="list-group-item text-center">
+                        <span class="badge rounded-pill text-bg-danger"> <i
+                                class="bi bi-x-circle-fill me-2"></i>Non accettato</span>
+                    </li>
+                    @elseif ($product->is_accepted === null)
+                    <li class="list-group-item text-center">
+                        <span class="badge rounded-pill text-bg-warning"> <i
+                                class="bi bi-x-circle-fill me-2"></i>In corso</span>
+                    </li>
+                    @endif
                     @if (Auth::id() == $product->user_id || Auth::user()->is_revisor == 1)
                         <div class="card-body d-flex justify-content-center gap-1 align-items-center">
                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base"><i class="bi bi-pen"></i></a>
@@ -28,7 +43,6 @@
                                 class="btn btn-rosso">
                                 <i class="bi bi-trash"></i>
                             </button>
-    
                             <div class="modal fade" id="modalDeleteProduct" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDeleteProductLabel"
                                 aria-hidden="true">
