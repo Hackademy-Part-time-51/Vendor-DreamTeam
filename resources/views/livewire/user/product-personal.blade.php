@@ -20,6 +20,7 @@
                         <h5 class="card-title"><a href="{{ route('products.show', $product->id) }}" class="text-decoration-none">{{ Str::limit($product->title, 21) }}</a></h5>
                         <p class="card-text">{{ Str::limit($product->description, 20) }}</p>
                     </div>
+                    @if (Auth::id() == $product->user_id || Auth::user()->is_revisor == 1)
                     @if ($product->is_accepted === 1)
                     <li class="list-group-item text-center">
                         <span class="badge rounded-pill text-bg-success"> <i
@@ -36,7 +37,6 @@
                                 class="bi bi-x-circle-fill me-2"></i>In corso</span>
                     </li>
                     @endif
-                    @if (Auth::id() == $product->user_id || Auth::user()->is_revisor == 1)
                         <div class="card-body d-flex justify-content-center gap-1 align-items-center">
                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base"><i class="bi bi-pen"></i></a>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modalDeleteProduct"
@@ -122,6 +122,10 @@
             </div>
             @endif
             @endforeach
+            @if ($showAll)
+            {{$products->links()}}
+                
+            @endif
             <div class="d-flex justify-content-center pb-3">
                 @if ($showAll)
                 <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">Mostra gli ultimi tre</button> 
