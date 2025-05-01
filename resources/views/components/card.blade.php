@@ -43,10 +43,18 @@
           <a href="{{ route('products.show', ['product' => $product->id]) }}" class="btn btn-base ">
               <i class="bi bi-eye"></i>
           </a>
-          {{-- @auth
+          <div wire:key="heart-{{ $product->id }}">
+          @auth
   
-          @livewire('products.heart', ['product' => $product])
-          @endauth --}}
+          <button class="btn btn-base" wire:click="toggleFavorite({{ $product->id }})">
+            @if (Auth::user()->favorites->contains($product->id))
+                <i class="bi bi-heart-fill"></i>
+            @else
+                <i class="bi bi-heart"></i>
+            @endif
+        </button>
+          @endauth
+        </div>
       </div>
   
 </div>

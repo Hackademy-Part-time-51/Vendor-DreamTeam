@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\On; 
+use Illuminate\Support\Facades\Auth;
 
 
 class Index extends Component
@@ -78,6 +79,15 @@ class Index extends Component
         $this->scroll = 18;
     }
 
+    public function toggleFavorite($id) {
+        if(Auth::user()->favorites->contains($id)) {
+            Auth::user()->favorites()->detach($id);
+        } else {
+            Auth::user()->favorites()->attach($id);
+        }
+        $this->dispatch('fresh');
+    }
+
     // public function toggleFavorite()
     // {   
     //     if(empty($this->favorites)){
@@ -90,7 +100,7 @@ class Index extends Component
     //     $this->favorites = !$this->favorites;
 
     // }}   
-    #[On('refresh')]
+    #[On('fresh')]
     public function render(){
 
         $query = Product::with('category')
@@ -137,13 +147,22 @@ class Index extends Component
             $this->scroll = count($this->products) - 1;
         }
 
+        // if(!Auth::guest()) {
+        //     if(Auth::user()->favorites->contains($this->products->id)) {
+        //         $favorites = true;
+        //     }else {
+        //         $favorites = false;
+        //     }
+    
+        // }
+
 
 
         return view('livewire.products.index', [
             'scroll' => $this->scroll,
             'orderByAZ' => $this->orderbyaz,
             'orderByDate' => $this->orderbydate,
-            // 'favorites'=>$this->favorites
+            // 'favorites'=>$favorites
 ]);
     }
 }   
