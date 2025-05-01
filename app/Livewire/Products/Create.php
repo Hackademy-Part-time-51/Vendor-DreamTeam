@@ -32,7 +32,7 @@ class Create extends Component
         Product::create(
             $this->only('title', 'description', 'price', 'category_id', 'user_id')
         );
-        session()->flash('status', 'Annuncio creato correttamente.');
+        session()->flash('status', 'Annuncio creato correttamente, in attesa di approvazione');
         return $this->redirect('/products/index');
     }
     public function render()
