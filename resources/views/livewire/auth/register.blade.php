@@ -3,7 +3,7 @@
     <div class="mb-3">
         <label for="name" class="form-label">Nome</label>
         <input wire:model="name" id="name" type="text" name="name" value="{{ old('name') }}"
-            class="form-control @error('name') is-invalid @enderror" required autofocus placeholder="Mario rossi" >
+            class="form-control "  autofocus placeholder="Mario rossi" >
         @error('name')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -12,7 +12,7 @@
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input wire:model="email" id="email" type="email" name="email" value="{{ old('email') }}"
-            class="form-control @error('email') is-invalid @enderror" required placeholder="mariorossi@example.com">
+            class="form-control "  placeholder="mariorossi@example.com">
         @error('email')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -21,7 +21,7 @@
     <div class="mb-3">
         <label for="phone" class="form-label">Numero di Telefono</label>
         <input wire:model="phone" id="phone" type="tel" name="phone" value="{{ old('phone') }}"
-            class="form-control @error('phone') is-invalid @enderror" placeholder="+39 123 456 7890">
+            class="form-control " placeholder="+39 123 456 7890">
         @error('phone')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -31,7 +31,7 @@
         <div class="d-flex gap-2">
             <div class="form-check">
                 <input wire:model="gender" class="form-check-input" type="radio" name="gender" id="male"
-                    value="male" {{ old('gender') == 'male' ? 'checked' : '' }} required>
+                    value="male" {{ old('gender') == 'male' ? 'checked' : '' }} >
                 <label class="form-check-label" for="male">Maschio</label>
             </div>
             <div class="form-check">
@@ -52,7 +52,7 @@
     <div class="mb-3">
         <label for="profile_photo" class="form-label">Foto profilo <span>(Non obbligatoria)</span></label>
         <input wire:model="profile_photo" id="profile_photo" type="file" name="profile_photo"
-            class="form-control @error('profile_photo') is-invalid @enderror" accept="image/*"
+            class="form-control " accept="image/*"
             onchange="previewImage(this)">
         @if ($profile_photo)
             <div class="mt-2">
@@ -68,7 +68,7 @@
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input wire:model="password" id="password" type="password" name="password"
-            class="form-control @error('password') is-invalid @enderror" required>
+            class="form-control " >
         @error('password')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -77,7 +77,7 @@
     <div class="mb-3">
         <label wire:model="password_confirmation" for="password_confirmation" class="form-label">Conferma
             Password</label>
-        <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" required>
+        <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" >
     </div>
 
     <div class="d-flex justify-content-center">
