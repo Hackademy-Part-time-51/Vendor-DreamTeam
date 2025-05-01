@@ -70,8 +70,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control " id="surname" name="surname" placeholder="Cognome" required>
-                                            <label for="surname" class="">Cognome</label>
+                                            <input type="text" class="form-control " id="surname" name="surname" placeholder="Cognome (facoltativo)">
+                                            <label for="surname" class="">Cognome (facoltativo)</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -100,10 +100,10 @@
                                             <label for="experience" class="text-blu fs-6">Raccontaci di te...</label>
                                         </div>
                                     </div>
-                                    <div class="col-12 mb-3">
-                                        <label class="form-label text-white">CV (PDF)</label>
-                                        <input type="file" class="form-control " id="cv" name="cv" accept=".pdf" required>
-                                    </div>
+                                    {{-- <div class="col-12 mb-3">
+                                        <label class="form-label text-white">CV (PDF) <br> *Facoltativo</label>
+                                        <input type="file" class="form-control " id="cv" name="cv" accept=".pdf">
+                                    </div> --}}
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-add text-white border scalebig btn-lg w-100">
                                             Invia Candidatura

@@ -52,7 +52,7 @@ class FortifyServiceProvider extends ServiceProvider
         });
         
         Fortify::verifyEmailView(function () {
-            return view('auth.verify-email')->with('status', 'Profile updated!');;
+            return view('auth.verify-email')->with('VerifiedEmail', 'La tua email è stata verificata con successo');;
         });
     }
 }
