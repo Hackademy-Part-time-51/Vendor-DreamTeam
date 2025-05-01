@@ -64,7 +64,7 @@
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control " id="name" name="name" placeholder="Nome" required>
+                                            <input type="text" class="form-control " id="name" name="name" placeholder="Nome" required value="{{Auth::user()->name}}">
                                             <label for="name" class="">Nome</label>
                                         </div>
                                     </div>
@@ -76,13 +76,13 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required value="{{Auth::user()->email}}">
                                             <label for="email" class="">Email</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
-                                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Telefono">
+                                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Telefono" value="{{Auth::user()->phone}}">
                                             <label for="phone" class="">Telefono</label>
                                         </div>
                                     </div>

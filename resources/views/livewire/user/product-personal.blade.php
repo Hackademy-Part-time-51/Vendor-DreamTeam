@@ -10,7 +10,7 @@
     <div class="col-12">
         <div class="row g-3">
             @foreach ($products as $product)
-            @if ($product->is_accepted == 1 || Auth::id() == $product->user_id || Auth::user()->is_revisor )
+            @if ($product->is_accepted == 1 || Auth::id() == $product->user_id || Auth::user()->is_revisor==1 )
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex border-0">
                 <div class="card p-3 ">
     

@@ -48,14 +48,15 @@
                           <input type="text"
                                  class="form-control form-control-lg"
                                  wire:model="title"
-                                 placeholder="Inserisci il titolo del prodotto">
+                                 placeholder="Inserisci il titolo del prodotto"
+                                 value="{{ old('title') }}">
                       </div>
                       <div class="mb-4">
                           <label class="form-label h4">Categoria</label>
                           <select wire:model="category_id" class="form-select form-select-lg">
-                              <option value="">Seleziona una categoria</option>
+                              <option value="" >Seleziona una categoria</option>
                               @foreach ($categories as $category)
-                                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                  <option value="{{ $category->id }}" @selected($category->id == old('category_id'))>{{ $category->name }}</option>
                               @endforeach
                           </select>
                       </div>
@@ -64,13 +65,13 @@
                           <textarea wire:model="description"
                                     class="form-control form-control-lg"
                                     rows="4"
-                                    placeholder="Descrivi il tuo prodotto"></textarea>
+                                    placeholder="Descrivi il tuo prodotto">{{ old('description') }}</textarea>
                       </div>
                       <div class="mb-4">
                           <label class="form-label h4">Prezzo</label>
                           <div class="input-group input-group-lg">
                               <span class="input-group-text">€</span>
-                              <input type="number" wire:model="price" class="form-control" placeholder="0.00">
+                              <input type="number" wire:model="price" class="form-control" placeholder="0.00" value="{{ old('price') }}">
                           </div>
                       </div>
                   </div>

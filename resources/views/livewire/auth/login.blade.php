@@ -4,7 +4,7 @@
         <label for="email" class="block mb-2 font-medium">Email</label>
         <input id="email" type="email" name="email" value="{{ old('email') }}" 
                class="w-100 px-3 py-2 border rounded @error('email') @enderror" 
-               required autofocus>
+               required autofocus value="{{ old('email') }}">
         @error('email')
             <p class=" text-sm mt-1">{{ $message }}</p>
         @enderror
@@ -14,7 +14,7 @@
         <label for="password" class="block mb-2 font-medium">Password</label>
         <input id="password" type="password" name="password" 
                class="w-100 px-3 py-2 border rounded @error('password') @enderror" 
-               required>
+               required value="{{ old('password') }}">
         @error('password')
             <p class=" text-sm mt-1">{{ $message }}</p>
         @enderror
