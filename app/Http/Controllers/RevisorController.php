@@ -26,7 +26,10 @@ class RevisorController extends Controller
 
     public function index(){
         $product_to_check=Product::where('is_accepted', null)->first();
-        return view('revisor.index', compact('product_to_check'));
+        $allProductsToCheck=Product::where('is_accepted', null)->get(); 
+        $refusedProducts=Product::where('is_accepted', 0)->get();
+        $acceptedProducts=Product::where('is_accepted', 1)->get();
+        return view('revisor.index', compact('product_to_check', 'allProductsToCheck', 'refusedProducts', 'acceptedProducts'));
     }
 
     public function accept(Product $product) 

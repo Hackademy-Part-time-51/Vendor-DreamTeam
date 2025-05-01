@@ -24,7 +24,7 @@ class ProductFactory extends Factory
             'description' => fake()->paragraph(),
             'category_id' => Category::inRandomOrder()->first()->id ?? Category::factory(),
             'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
-            'is_accepted' => 1,
+            'is_accepted' => fake()->randomElement([1, 0, null]),
         ];
     }
 }

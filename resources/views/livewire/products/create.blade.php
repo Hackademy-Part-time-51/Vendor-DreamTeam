@@ -2,94 +2,154 @@
   <div class="text-center">
     <h1 class="display-6 mb-3">Nuovo Prodotto</h1>
 </div>
-  <form wire:submit="create">
+<form wire:submit="create">
+  @if ($errors->any())
+      <div class="alert alert-danger alert-dismissible fade show mb-4">
+          <div class="d-flex align-items-center">
+              <i class="bi bi-exclamation-triangle-fill fs-4 me-2"></i>
+              <h5 class="mb-0">Ci sono alcuni errori nel form</h5>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+  @endif
 
-      <div class="row ">
-          <div class="col-12 col-lg-5">
-              <div class="card border-0 shadow-sm">
-                  <div class="card-body p-5">
-                      <fieldset class="upload_dropZone text-center bg-light rounded-3 p-5">
-                          <i class="bi bi-cloud-upload display-1 text-primary mb-4"></i>
-                          <p class="display-6 mb-3">Carica le immagini del prodotto</p>
-                          <p class="text-muted mb-4">Trascina le immagini qui o clicca per selezionarle</p>                          
-                          <input id="upload_image_background" 
-                                 type="file" 
-                                 multiple 
-                                 class="position-absolute invisible"
-                                 accept="image/jpeg, image/png, image/svg+xml"
-                                 data-post-name="image_background"
-                                 data-post-url="/upload">                
-                          <label class="btn btn-outline-primary btn-lg mb-3" 
-                                 for="upload_image_background">
-                              <i class="bi bi-image me-2"></i>Seleziona Immagini
-                          </label>
-                          <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
-                            {{-- anteprila delle foto --}}
+  <div class="row g-4">
+      <div class="col-12 col-lg-5">
+          <div class="card border-0 shadow-sm">
+              <div class="card-body p-5">
+                  <fieldset class="upload_dropZone text-center bg-light rounded-3 p-5 @error('images') border border-danger @enderror">
+                      <i class="bi bi-cloud-upload display-1 @error('images') text-danger @else text-primary @enderror mb-4"></i>
+                      <p class="display-6 mb-3">Carica le immagini del prodotto</p>
+                      <p class="text-muted mb-4">Trascina le immagini qui o clicca per selezionarle</p>
+                      
+                      <input id="upload_image_background"
+                             type="file"
+                             multiple
+                             class="position-absolute invisible"
+                             accept="image/jpeg, image/png, image/svg+xml"
+                             data-post-name="image_background"
+                             data-post-url="/upload"
+                             wire:model="images">
+                      
+                      <label class="btn btn-outline-primary btn-lg mb-3"
+                             for="upload_image_background">
+                          <i class="bi bi-image me-2"></i>Seleziona Immagini
+                      </label>
+
+                      <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
+                          {{-- anteprima delle foto --}}
+                      </div>
+
+                      @error('images')
+                          <div class="text-danger mt-2">
+                              <small><i class="bi bi-exclamation-circle me-1"></i>{{ $message }}</small>
                           </div>
-                      </fieldset>
-                  </div>
+                      @enderror
+                  </fieldset>
               </div>
           </div>
-          <div class="col-12 col-lg-7">
-              <div class="card border-0 shadow-sm h-100">
-                  <div class="card-body p-4">
-                      @if ($errors->any())
-                          <div class="alert alert-danger alert-dismissible fade show mb-4">
-                              <ul class="list-unstyled mb-0">
-                                  @foreach ($errors->all() as $error)
-                                      <li><i class="bi bi-exclamation-circle me-2"></i>{{ $error }}</li>
-                                  @endforeach
-                              </ul>
-                              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                          </div>
-                      @endif
-                      <div class="mb-4">
-                          <label class="form-label h4">Titolo</label>
+      </div>
+      <div class="col-12 col-lg-7">
+          <div class="card border-0 shadow-sm h-100">
+              <div class="card-body p-4">
+                  <div class="mb-4">
+                      <label class="form-label h4 d-flex justify-content-between">
+                          Titolo
+                          @error('title')
+                              <span class="text-danger small">
+                                  <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
+                              </span>
+                          @enderror
+                      </label>
+                      <div class="input-group input-group-lg has-validation">
                           <input type="text"
-                                 class="form-control form-control-lg"
+                                 class="form-control @error('title') is-invalid @enderror"
                                  wire:model="title"
                                  placeholder="Inserisci il titolo del prodotto"
                                  value="{{ old('title') }}">
                       </div>
-                      <div class="mb-4">
-                          <label class="form-label h4">Categoria</label>
-                          <select wire:model="category_id" class="form-select form-select-lg">
-                              <option value="" >Seleziona una categoria</option>
-                              @foreach ($categories as $category)
-                                  <option value="{{ $category->id }}" @selected($category->id == old('category_id'))>{{ $category->name }}</option>
-                              @endforeach
-                          </select>
-                      </div>
-                      <div class="mb-4">
-                          <label class="form-label h4">Descrizione</label>
-                          <textarea wire:model="description"
-                                    class="form-control form-control-lg"
-                                    rows="4"
-                                    placeholder="Descrivi il tuo prodotto">{{ old('description') }}</textarea>
-                      </div>
-                      <div class="mb-4">
-                          <label class="form-label h4">Prezzo</label>
-                          <div class="input-group input-group-lg">
-                              <span class="input-group-text">€</span>
-                              <input type="number" wire:model="price" class="form-control" placeholder="0.00" value="{{ old('price') }}">
-                          </div>
+                  </div>
+                  <div class="mb-4">
+                      <label class="form-label h4 d-flex justify-content-between">
+                          Categoria
+                          @error('category_id')
+                              <span class="text-danger small">
+                                  <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
+                              </span>
+                          @enderror
+                      </label>
+                      <select wire:model="category_id" 
+                              class="form-select form-select-lg @error('category_id') is-invalid @enderror">
+                          <option value="">Seleziona una categoria</option>
+                          @foreach ($categories as $category)
+                              <option value="{{ $category->id }}" 
+                                      @selected($category->id == old('category_id'))>
+                                  {{ $category->name }}
+                              </option>
+                          @endforeach
+                      </select>
+                  </div>
+                  <div class="mb-4">
+                      <label class="form-label h4 d-flex justify-content-between">
+                          Descrizione
+                          @error('description')
+                              <span class="text-danger small">
+                                  <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
+                              </span>
+                          @enderror
+                      </label>
+                      <textarea wire:model="description"
+                                class="form-control form-control-lg @error('description') is-invalid @enderror"
+                                rows="4"
+                                placeholder="Descrivi il tuo prodotto">{{ old('description') }}</textarea>
+                  </div>
+                  <div class="mb-4">
+                      <label class="form-label h4 d-flex justify-content-between">
+                          Prezzo
+                          @error('price')
+                              <span class="text-danger small">
+                                  <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
+                              </span>
+                          @enderror
+                      </label>
+                      <div class="input-group input-group-lg">
+                          <span class="input-group-text">€</span>
+                          <input type="number" 
+                                 wire:model="price" 
+                                 step="0.01" 
+                                 class="form-control @error('price') is-invalid @enderror" 
+                                 placeholder="0.00" 
+                                 value="{{ old('price') }}">
                       </div>
                   </div>
               </div>
           </div>
       </div>
-      <div class="row mt-3">
-        <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-baseblu btn-lg py-3">
-              <i class="bi bi-plus-lg me-2"></i>Crea Prodotto
-          </button>
-          <a href="{{ route('products.index') }}"
-             class="btn btn-rosso btn-lg py-3">
-              <i class="bi bi-x-lg me-2"></i>Annulla
-          </a>
+  </div>
+  <div class="row mt-4">
+      <div class="col-12">
+          <div class="d-grid gap-3">
+              <button type="submit" 
+                      class="btn btn-baseblu btn-lg py-3"
+                      wire:loading.class="disabled"
+                      wire:target="create">
+                  <span wire:loading.remove wire:target="create">
+                      <i class="bi bi-plus-lg me-2"></i>Crea Prodotto
+                  </span>
+                  <span wire:loading wire:target="create">
+                      <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                      Creazione in corso...
+                  </span>
+              </button>
+              
+              <a href="{{ route('products.index') }}"
+                 class="btn btn-rosso btn-lg py-3">
+                  <i class="bi bi-x-lg me-2"></i>Annulla
+              </a>
+          </div>
       </div>
-      </div>
-  </form>
+  </div>
+</form>
 </div>
 
 

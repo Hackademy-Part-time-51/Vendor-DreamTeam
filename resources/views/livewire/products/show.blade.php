@@ -101,6 +101,71 @@
                                 </p>
                             </div>
                         </div>
+                        @if (Auth::user()->is_revisor === 1 )
+                        <div class="row g-2">
+                            @if ($product->is_accepted === 1)
+                                <div class="col-12 mb-2">
+                                    <span class="badge bg-success w-100 fs-3 text-center">Accettato</span>
+                                </div>
+                            @elseif ($product->is_accepted === 0)
+                                <div class="col-12 mb-2">
+                                    <span class="badge bg-danger fs-3 w-100 text-center">Rifiutato</span>
+                                </div>
+                            @else
+                                <div class="col-12 mb-2">
+                                    <span class="badge bg-warning w-100 fs-3 text-center">In attesa di revisione</span>
+                                </div>                        
+                            @endif
+                            @if ($product->is_accepted === null)
+                            <div class="col-6">
+                                <form action="{{ route('accept', $product) }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-check-lg me-2"></i>
+                                        <span class="d-none d-sm-inline">Accetta</span>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="col-6">
+                                <form action="{{ route('reject', $product) }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button class="btn btn-rosso w-100 d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-x-lg me-2"></i>
+                                        <span class="d-none d-sm-inline">Rifiuta</span>
+                                    </button>
+                                </form>
+                            </div>
+                            @elseif ($product->is_accepted === 0)
+                            <form action="{{ route('accept', $product) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-check-lg me-2"></i>
+                                    <span class="d-none d-sm-inline">Accetta</span>
+                                </button>
+                            </form>
+                            @elseif ($product->is_accepted === 1)
+                            <form action="{{ route('reject', $product) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button class="btn btn-rosso w-100 d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-x-lg me-2"></i>
+                                    <span class="d-none d-sm-inline">Rifiuta</span>
+                                </button>
+                            </form>
+                            @else
+                            @endif
+                            <a href="{{route('revisor.index')}}" class="text-decoration-none">
+                                <button class="btn btn-baseblu  w-100  d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-grid-3x3-gap  me-2"></i>
+                                    <span class="fs-5">Torna alla gestione articoli</span>
+                                </button>
+                            </a>
+                        </div>
+                        @endif
+                        @if (Auth::user()->is_revisor === 0 )
                         <div class="text-center mb-4">
                             <p class="text-muted small">
                                 <i class="bi bi-calendar-event me-2"></i>
@@ -117,7 +182,9 @@
                                class="btn btn-base py-3 scalebig">
                                 <i class="bi bi-arrow-left me-2"></i>Torna ai Prodotti
                             </a>
-                        </div>
+                        </div> 
+                        @endif
+
                     </div>
                 </div>
             </div>
