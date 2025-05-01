@@ -9,20 +9,24 @@ use Livewire\WithFileUploads;
 class Register extends Component
 {   
     use WithFileUploads;
-    #[Validate('required|max:255')]
+    #[Validate('required|max:255', message: 'Il nome è obbligatorio')]
     public $name='';
-    #[Validate('required|email|max:255')]
+    #[Validate('required|email|min:2',message: 'Email non valida')]
     public $email='';
-    #[Validate('required|min:6')]
+    #[Validate('required|min:6',message: 'Password non valida')]
     public $password='';
-    #[Validate('required|max:20')]
+    #[Validate('required|max:20',message: 'Telefono non valido')]
     public $phone='';
-    #[Validate('required|in:male,female')]
+    #[Validate('required|in:male,female',message: 'Sesso obbligatorio')]
     public $gender='';
-    #[Validate('required_with:password|same:password|min:6')]
+    #[Validate('required_with:password|same:password|min:6',message: 'Conferma password non valida')]
     public $password_confirmation='';
-    #[Validate('required|image|mimes:jpeg,png,jpg,svg')]
+    #[Validate('required|image|mimes:jpeg,png,jpg,svg',message: 'Immagine non valida')]
     public $profile_photo='';
+
+    public function validazione(){
+        $this->validate();
+    }
   
     public function render()
     {        
