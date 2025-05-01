@@ -20,8 +20,8 @@
       </div>
   </div>
       <div class="card-body text-center">
-          <h5 class="card-title">{{ Str::limit($product->title, 20) }} </h5>
-          <p class="card-text">{{ Str::limit($product->description, 20) }}</p>
+          <h5 class="card-title">{{ Str::limit($product->title, 13) }} </h5>
+          <p class="card-text">{{ Str::limit($product->description, 17) }}</p>
       </div>
       <ul class="list-group list-group-flush text-center">
           <li class="list-group-item text-center">
@@ -29,10 +29,7 @@
                       class="bi bi-tags-fill me-2"></i>{{ $product->category->name }}</span>
           </li>
           <li class="list-group-item">
-              <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
-          </li>
-          <li class="list-group-item">
-              <strong>Creato da:</strong> <a class="text-decoration-none" href="{{ route('personalArea', $product->user->id) }}">{{ $product->user->name }}</a>
+              <strong>Creato da:</strong> <a class="text-decoration-none" href="{{ route('personalArea', $product->user->id) }}">{{ Str::limit($product->user->name, 7) }}</a>
           </li>
           <li class="list-group-item fw-bold fs-5">
               € {{ number_format($product->price, 2, ',', '.') }}

@@ -11,16 +11,6 @@ body {
     color: #003255;
 }
 
-.nav-link {
-    margin-top: 0.5rem;
-}
-
-.nav-link:hover {
-    color: #00C13E;
-    transition: all 0.2s linear;
-    transform: scale(1.02);
-}
-
 /* #region NAVBAR */
 
 nav {
@@ -29,11 +19,21 @@ nav {
     top: 0;
     z-index: 999;
 }
+.nav-link {
+    margin-top: 0.5rem;
+}
+.nav-link:hover {
+    color: #00C13E;
+    transition: all 0.2s linear;
+    transform: scale(1.02);
+}
+
 .secondary-navbar-sticky {
     position: sticky;
     top: 0;
     color: #003255;
 }
+
 .fs-mininav {
     font-size: calc(0.491rem + 1vw);
 }
@@ -42,13 +42,15 @@ nav {
     background-color: rgba(var(--bs-primary-rgb), 0.1);
     transform: translateX(10px);
 }
+
 #userMenu .list-group-item {
     background: transparent;
     border: none;
     transition: all 0.3s ease;
 }
-#logoutModal{
-    
+
+#logoutModal {
+
     border: none;
     border-radius: 1rem;
 }
@@ -111,11 +113,13 @@ nav {
     border: #003255 3px solid;
     color: #003255;
 }
+
 .btn-baseblu {
     border: #003255 3px solid;
     color: white;
     background-color: #003255;
 }
+
 .btn-baseblu:hover {
     border: #003255 3px solid;
     color: white;
@@ -189,10 +193,11 @@ nav {
 }
 
 @media (min-width: 992px) {
-    .lg-height-100-vh{
+    .lg-height-100-vh {
         min-height: 80vh;
     }
 }
+
 /* #endregion */
 
 /* #region INDEX PRODUCTS */
@@ -208,10 +213,12 @@ nav {
     bottom: 1rem;
     right: 1rem;
 }
+
 .torna-su button {
     background-color: #003255;
     color: white;
 }
+
 .torna-su button:hover {
     background-color: #003255;
     color: white;
@@ -219,12 +226,10 @@ nav {
     transform: scale(1.02);
 }
 
-
-
-
 /* #endregion */
 
 /* #region COLLEGAMENTO PROFILO */
+
 .collegamento-profilo {
     position: fixed;
     bottom: 1rem;
@@ -235,13 +240,15 @@ nav {
 
 .collegamento-profilo img:hover {
     transition: all 0.2s ease-in-out;
-    transform: scale(1.5);
+    transform: scale(1.1);
     object-fit: cover;
 }
 
 /* #endregion */
 
 /* #region FORM ADD PRODUCTS     */
+
+/* #region UPLOAD */
 .upload_dropZone {
     color: #0f3c4b;
     background-color: var(--colorPrimaryPale, #c8dadf);
@@ -263,6 +270,15 @@ nav {
     fill: var(--colorPrimaryNormal, #0576bd);
 }
 
+.upload_img {
+    width: calc(33.333% - (2rem / 3));
+    object-fit: contain;
+}
+
+/* #endregion */
+
+/* #region BUTTON UPLOAD */
+
 .btn-upload {
     color: #fff;
     background-color: var(--colorPrimaryNormal);
@@ -274,25 +290,9 @@ nav {
     background-color: var(--colorPrimaryGlare);
 }
 
-.upload_img {
-    width: calc(33.333% - (2rem / 3));
-    object-fit: contain;
-}
-
 /* #endregion */
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* #endregion */
 
 @media (max-width: 769px) {
     .navbar {
