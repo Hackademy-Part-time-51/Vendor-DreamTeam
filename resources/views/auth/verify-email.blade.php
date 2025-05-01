@@ -57,7 +57,7 @@
                                     <div class="badge bg-blu rounded-circle p-2 me-2">3</div>
                                     <span>Clicca sul link di verifica</span>
                                 </div>
-                            </div>$
+                            </div>
                             <div class="d-grid gap-2">
                                 <form method="POST" action="{{ route('verification.send') }}">
                                     @csrf

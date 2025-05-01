@@ -8,7 +8,6 @@
                     </div>
                     <div class="card-body">
                         @livewire('auth.register')
-                        
                     </div>
                 </div>
             </div>
