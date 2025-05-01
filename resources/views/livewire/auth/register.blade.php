@@ -1,59 +1,7 @@
-<form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-    @csrf
-    <div class="mb-3">
-        <label for="name" class="form-label">Nome</label>
-        <input wire:model="name" id="name" type="text" name="name" value="{{ old('name') }}"
-            class="form-control @error('name') is-invalid @enderror" required autofocus placeholder="Mario rossi" >
-        @error('name')
-            <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-    </div>
-
-    <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input wire:model="email" id="email" type="email" name="email" value="{{ old('email') }}"
-            class="form-control @error('email') is-invalid @enderror" required placeholder="mariorossi@example.com">
-        @error('email')
-            <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-    </div>
-
-    <div class="mb-3">
-        <label for="phone" class="form-label">Numero di Telefono</label>
-        <input wire:model="phone" id="phone" type="tel" name="phone" value="{{ old('phone') }}"
-            class="form-control @error('phone') is-invalid @enderror" placeholder="+39 123 456 7890">
-        @error('phone')
-            <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Sesso</label>
-        <div class="d-flex gap-2">
-            <div class="form-check">
-                <input wire:model="gender" class="form-check-input" type="radio" name="gender" id="male"
-                    value="male" {{ old('gender') == 'male' ? 'checked' : '' }} required>
-                <label class="form-check-label" for="male">Maschio</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" id="female" value="female"
-                    {{ old('gender') == 'female' ? 'checked' : '' }}>
-                <label class="form-check-label" for="female">Femmina</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" id="other" value="other"
-                    {{ old('gender') == 'other' ? 'checked' : '' }}>
-                <label class="form-check-label" for="other">Altro</label>
-            </div>
-        </div>
-        @error('gender')
-            <div class="text-danger small">{{ $message }}</div>
-        @enderror
-    </div>
     <div class="mb-3">
         <label for="profile_photo" class="form-label">Foto profilo <span>(Non obbligatoria)</span></label>
-        <input wire:model="profile_photo" id="profile_photo" type="file" name="profile_photo"
-            class="form-control @error('profile_photo') is-invalid @enderror" accept="image/*"
-            onchange="previewImage(this)">
+        <input wire:model.live="profile_photo" id="profile_photo" type="file" name="profile_photo" class="form-control "
+            accept="image/*" onchange="previewImage(this)">
         @if ($profile_photo)
             <div class="mt-2">
                 <img id="preview" src="{{ $profile_photo->temporaryUrl() }}" alt="Profile Preview"
@@ -64,34 +12,3 @@
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
-
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input wire:model="password" id="password" type="password" name="password"
-            class="form-control @error('password') is-invalid @enderror" required>
-        @error('password')
-            <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-    </div>
-
-    <div class="mb-3">
-        <label wire:model="password_confirmation" for="password_confirmation" class="form-label">Conferma
-            Password</label>
-        <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" required>
-    </div>
-
-    <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-base">
-            Registrati
-        </button>
-    </div>
-
-    <div class="d-flex justify-content-between align-items-center mt-4 fs-5">
-        <p>
-            <span class="text-muted">Hai già un account?</span>
-            <a href="{{ route('login') }}" class="text-decoration-none">
-                <span class="text-base">Accedi</span>
-            </a>
-        </p>
-    </div>
-</form>

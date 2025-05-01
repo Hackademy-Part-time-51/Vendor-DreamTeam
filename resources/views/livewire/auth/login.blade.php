@@ -19,6 +19,10 @@
             <p class=" text-sm mt-1">{{ $message }}</p>
         @enderror
     </div>
+    <div>
+        <label for="remember">Ricordami</label>
+        <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+    </div>
     <div class="d-flex justify-content-center">
         <button type="submit" class="btn btn-base">
             Login
