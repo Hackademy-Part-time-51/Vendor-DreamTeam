@@ -39,7 +39,7 @@
             {{-- dashboard --}}
             <div class="col-12 col-lg-7 ">
               <div class="card shadow-sm ">
-                  <div class="card-body">
+                  <div class="card-body p-3">
                       <div class="row g-3 mb-4">
                           <div class="col-md-4">
                               <div class="card bg-primary bg-gradient text-white">
@@ -81,70 +81,56 @@
                               </div>
                           </div>
                       </div>
-                      <div class="card mb-4">
-                          <div class="card-header bg-white">
-                              <h5 class="card-title mb-0 text-center">Ultimi post</h5>
-                          </div>
-                         
-                          
-                          @livewire('user.product-personal', ['user' => $user->id])
-                      </div>
+                    @livewire('user.product-personal', ['user' => $user->id])
                   </div>
               </div>
             </div>
         </div>
         <hr>
         {{-- azioni rapide --}}
+        @if (Auth::id() == $user->id )
         <div class="card">
-          <div class="card-header bg-white">
-              <h5 class="card-title mb-0 text-center">Azioni Rapide</h5>
-          </div>
-          <div class="card-body">
-              <div class="row g-3">
-                  <div class="col-md-6">
-                      <div class="d-grid">
-                          <button class="btn btn-base">
-                              <a href="{{route('products.create')}}" class="text-blu text-decoration-none">
-                                <i class="bi bi-plus-circle me-2"></i>Nuovo Articolo
+            <div class="card-header bg-white">
+                <h5 class="card-title mb-0 text-center">Azioni Rapide</h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="d-grid">
+                            <button class="btn btn-base">
+                                <a href="{{route('products.create')}}" class="text-blu text-decoration-none">
+                                  <i class="bi bi-plus-circle me-2"></i>Nuovo Articolo
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-grid"> 
+                            <button class="btn btn-baseblu" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                <i class="bi bi-pencil-square me-2"></i>Modifica Profilo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-grid">
+                              <a href="{{route('lavoraConNoi')}}" class=" btn btn-baseblu text-decoration-none">
+                                <i class="bi bi-briefcase me-2"></i>Lavora con noi
                               </a>
-                          </button>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="d-grid"> 
-                          <button class="btn btn-baseblu" data-bs-toggle="modal" data-bs-target="#editProfile">
-                              <i class="bi bi-pencil-square me-2"></i>Modifica Profilo
-                          </button>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="d-grid">
-                            <a href="{{route('lavoraConNoi')}}" class=" btn btn-baseblu text-decoration-none">
-                              <i class="bi bi-briefcase me-2"></i>Lavora con noi
-                            </a>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="d-grid">
-                          <button class="btn btn-base ">
-                              <a href="{{route('products.index')}}" class="text-blu text-decoration-none">
-                                <i class="bi bi-list-ul me-2"></i>Lista articoli
-                              </a>
-                          </button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-        {{-- articoli creati --}}
-        <div class="row">
-          <div class="col-12 py-2">
-            <section class="card-user row">
-              <h2 class="text-center mb-3">I tuoi articoli</h2>
-              @livewire('user.product-personal', compact('products'))
-            </section>
-          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-grid">
+                            <button class="btn btn-base ">
+                                <a href="{{route('products.index')}}" class="text-blu text-decoration-none">
+                                  <i class="bi bi-list-ul me-2"></i>Lista articoli
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        @endif
         <hr>
         {{-- modal modifica info --}}
       <div class="modal fade" id="editProfile" data-bs-backdrop="static" tabindex="-1">

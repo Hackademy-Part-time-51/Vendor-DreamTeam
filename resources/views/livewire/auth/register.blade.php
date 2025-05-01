@@ -49,8 +49,6 @@
             <div class="text-danger small">{{ $message }}</div>
         @enderror
     </div>
-
-     Profile Photo Field -->
     <div class="mb-3">
         <label for="profile_photo" class="form-label">Foto profilo <span>(Non obbligatoria)</span></label>
         <input wire:model="profile_photo" id="profile_photo" type="file" name="profile_photo"

@@ -32,15 +32,15 @@
               <strong>Data:</strong> {{ $product->created_at->format('d/m/Y') }}
           </li>
           <li class="list-group-item">
-              <strong>Creato da:</strong> <span class="text-blu">{{ $product->user->name }}</span>
+              <strong>Creato da:</strong> <a class="text-decoration-none" href="{{ route('personalArea', $product->user->id) }}">{{ $product->user->name }}</a>
           </li>
           <li class="list-group-item fw-bold fs-5">
               € {{ number_format($product->price, 2, ',', '.') }}
           </li>
-  
+
       </ul>
       <div class="card-body d-flex justify-content-center gap-1 align-items-center">
-          <a href="{{ route('products.show', ['product' => $product->id]) }}" class="btn btn-base ">
+          <a href="{{ route('personalArea', $product->user->id) }}" class="btn btn-base ">
               <i class="bi bi-person-fill"></i>
           </a>
           <a href="{{ route('products.show', ['product' => $product->id]) }}" class="btn btn-base ">

@@ -84,7 +84,11 @@
                     <i class="bi bi-envelope-fill me-2"></i> Contatti
                     </a>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item text-blu" href="{{route('lavoraConNoi')}}">Lavora con noi</a></li>
+                    <li>
+                      <a class="dropdown-item text-blu" href="{{route('lavoraConNoi')}}">
+                        Lavora con noi
+                      </a>
+                    </li>
                     <li><a class="dropdown-item text-blu" href="#">Another action</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item text-blu" href="#">Something else here</a></li>

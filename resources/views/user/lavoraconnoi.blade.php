@@ -1,4 +1,10 @@
 <x-layout>
+    @if (session('message'))
+        <div class="alert alert-success alert-dismissible fade show text-center display-6" role="alert">
+            {{ session('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
         <div class="container text-blu mb-3">
             <hr>
             {{-- sezione benefici --}}
@@ -53,37 +59,36 @@
                     <div class="card bg-blu text-white border-0">
                         <div class="card-body">
                             <h2 class="card-title text-center mb-4">Candidati</h2>
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('become.revisor')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control bg-blu text-white" id="name" name="name" placeholder="Nome" required>
-                                            <label for="name" class="text-white">Nome</label>
+                                            <input type="text" class="form-control " id="name" name="name" placeholder="Nome" required>
+                                            <label for="name" class="">Nome</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control bg-blu text-white" id="surname" name="surname" placeholder="Cognome" required>
-                                            <label for="surname" class="text-white">Cognome</label>
+                                            <input type="text" class="form-control " id="surname" name="surname" placeholder="Cognome" required>
+                                            <label for="surname" class="">Cognome</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
-                                            <input type="email" class="form-control bg-blu text-white" id="email" name="email" placeholder="Email" required>
-                                            <label for="email" class="text-white">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                            <label for="email" class="">Email</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
-                                            <input type="tel" class="form-control bg-blu text-white" id="phone" name="phone" placeholder="Telefono">
-                                            <label for="phone" class="text-white">Telefono</label>
+                                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Telefono">
+                                            <label for="phone" class="">Telefono</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
                                             <select class="form-select bg-blu text-white" id="position" name="position" required>
-                                                <option value=""></option>
                                                 <option value="developer">Revisore</option>
                                             </select>
                                             <label for="position" class="text-white">Posizione di interesse</label>
@@ -97,7 +102,7 @@
                                     </div>
                                     <div class="col-12 mb-3">
                                         <label class="form-label text-white">CV (PDF)</label>
-                                        <input type="file" class="form-control bg-blu text-white" id="cv" name="cv" accept=".pdf" required>
+                                        <input type="file" class="form-control " id="cv" name="cv" accept=".pdf" required>
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-add text-white border scalebig btn-lg w-100">

@@ -111,10 +111,7 @@
                             <label class="form-label h4">Prezzo</label>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-text">€</span>
-                                <input type="number" 
-                                       wire:model="price" 
-                                       class="form-control" 
-                                       value="{{ old('price') }}">
+                                <input type="number" wire:model="price" class="form-control" step="0.01" value="{{ old('price') }}">
                             </div>
                         </div>
                         <div class="d-grid gap-2">
