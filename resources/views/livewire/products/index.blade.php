@@ -6,7 +6,7 @@
         {{-- sezione filtri a sinistra lg/xl schermo intero sm/md --}}
         <section class="col-12 col-lg-3">
             <div class="" id="sezione-filtri">
-                <div class="card border-0 "  >
+                <div class="card border-0 ">
                     <div class="card-body">
                         <div class="mb-4">
                             <label class="form-label small text-muted">Cerca prodotto</label>
@@ -14,10 +14,8 @@
                                 <span class="input-group-text bg-transparent border-end-0">
                                     <i class="bi bi-search"></i>
                                 </span>
-                                <input type="text" 
-                                       wire:model.live="search" 
-                                       class="form-control border-start-0 ps-0" 
-                                       placeholder="Cerca il tuo prodotto...">
+                                <input type="text" wire:model.live="search" class="form-control border-start-0 ps-0"
+                                    placeholder="Cerca il tuo prodotto...">
                             </div>
                         </div>
                         <div class="mb-4">
@@ -31,11 +29,18 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div>
+                            <label for="myInput">Scegli città e raggio di ricerca</label>
+                            <input id="myInput" type="text"   placeholder="Città">
+                            <input type="number" name="myRadius"  wire:model.blur="myRadius">
+                            <input type="hidden" wire:model.live="myCity" id="idCity" >
+                        </div>
                         <div class="mb-4">
                             <label class="form-label small text-muted">Ordina per</label>
                             <div class="d-flex gap-2">
-                                <button class="btn btn-base flex-grow-1 d-flex align-items-center justify-content-center" 
-                                        wire:click="orderByDateFunction">
+                                <button
+                                    class="btn btn-base flex-grow-1 d-flex align-items-center justify-content-center"
+                                    wire:click="orderByDateFunction">
                                     @if ($orderByDate)
                                         <i class="bi bi-sort-down me-2"></i>
                                         <i class="bi bi-calendar-date-fill"></i>
@@ -44,8 +49,9 @@
                                         <i class="bi bi-calendar-date"></i>
                                     @endif
                                 </button>
-                                <button class="btn btn-base flex-grow-1 d-flex align-items-center justify-content-center" 
-                                        wire:click="orderByAZFunction">
+                                <button
+                                    class="btn btn-base flex-grow-1 d-flex align-items-center justify-content-center"
+                                    wire:click="orderByAZFunction">
                                     @if ($orderByAZ)
                                         <i class="bi bi-sort-alpha-down me-2"></i>
                                         <strong>A-Z</strong>
@@ -62,25 +68,21 @@
                                 <div class="col-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">€</span>
-                                        <input type="number" 
-                                               class="form-control" 
-                                               wire:model.live="minPrice" 
-                                               placeholder="Min">
+                                        <input type="number" class="form-control" wire:model.live="minPrice"
+                                            placeholder="Min">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">€</span>
-                                        <input type="number" 
-                                               class="form-control" 
-                                               wire:model.live="maxPrice" 
-                                               placeholder="Max">
+                                        <input type="number" class="form-control" wire:model.live="maxPrice"
+                                            placeholder="Max">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button wire:click="resetFilter" 
-                                class="btn btn-base w-100 d-flex align-items-center justify-content-center">
+                        <button wire:click="resetFilter"
+                            class="btn btn-base w-100 d-flex align-items-center justify-content-center">
                             <i class="bi bi-arrow-counterclockwise me-2"></i>
                             Resetta filtri
                         </button>
@@ -88,7 +90,7 @@
                 </div>
             </div>
         </section>
-        
+
         {{-- sezione articoli --}}
         <section class="col-12 col-lg-9 d-flex flex-wrap justify-content-around gx-1 gy-1 pb-3">
             @if (count($products) == 0)

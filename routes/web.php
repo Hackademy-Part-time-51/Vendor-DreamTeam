@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\ProductOwner;
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/',[PageController::class,'home'] )->name('home');
 
@@ -32,6 +33,16 @@ Route::controller(RevisorController::class)->group(function(){
     Route::patch('/reject/{product}',  'reject')->name('reject');
     Route::get('/revisor/request',  'becomeRevisor')->middleware('auth')->name('become.revisor');  
     Route::get('/make/revisor/{user}',  'makeRevisor')->name('make.revisor');
+});
+
+
+Route::get('/comuni-json', function () {
+    $json = Storage::disk('public')->get('comuni.json');
+
+    $comuni=json_decode($json);
+
+  
+    return $json;
 });
 
 

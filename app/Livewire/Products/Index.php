@@ -6,8 +6,9 @@ use App\Models\Category;
 use Livewire\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
-use Livewire\Attributes\On; 
+use Livewire\Attributes\On;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class Index extends Component
@@ -23,13 +24,19 @@ class Index extends Component
     public $minPrice;
     public $maxPrice;
 
+    public $myCity='';
+    public $myRadius='';
 
 
+    public $json;
+    public $comuni;
 
     public function mount()
     {
         $this->categories = Category::orderBy('name')->get();
-
+        $this->json = Storage::disk('public')->get('comuni.json');
+        $this->comuni = json_decode($this->json);
+        // dd($this->comuni);
         if (request()->filled('category') && is_numeric(request()->query('category'))) {
             $categoryId = request()->query('category');
 
@@ -67,7 +74,7 @@ class Index extends Component
             $this->scroll = count($this->products) - 1;
         }
     }
-
+    
     public function resetFilter()
     {
         $this->search = '';
@@ -79,8 +86,9 @@ class Index extends Component
         $this->scroll = 18;
     }
 
-    public function toggleFavorite($id) {
-        if(Auth::user()->favorites->contains($id)) {
+    public function toggleFavorite($id)
+    {
+        if (Auth::user()->favorites->contains($id)) {
             Auth::user()->favorites()->detach($id);
         } else {
             Auth::user()->favorites()->attach($id);
@@ -101,10 +109,11 @@ class Index extends Component
 
     // }}   
     #[On('fresh')]
-    public function render(){
+    public function render()
+    {
 
         $query = Product::with('category')
-        ->where('is_accepted', 1)
+            ->where('is_accepted', 1)
             ->when(!empty($this->search), function ($product) {
                 $product->where('title', 'like', '%' . $this->search . '%');
             })
@@ -116,6 +125,21 @@ class Index extends Component
             })
             ->when(!empty($this->maxPrice), function ($product) {
                 $product->where('price', '<=', $this->maxPrice);
+            })
+            ->when(!empty($this->myCity) && !empty($this->myRadius), function ($product) {
+                $lat = $this->comuni[$this->myCity]->lat;
+                $lon = $this->comuni[$this->myCity]->lon;
+                $radius = $this->myRadius;
+        
+                $product->whereRaw("
+                    (6371 * acos(
+                        cos(radians(?)) *
+                        cos(radians(latitudine)) *
+                        cos(radians(longitudine) - radians(?)) +
+                        sin(radians(?)) *
+                        sin(radians(latitudine))
+                    )) < ?
+                ", [$lat, $lon, $lat, $radius]);
             });
 
         // Ordine di creazione
@@ -153,7 +177,7 @@ class Index extends Component
         //     }else {
         //         $favorites = false;
         //     }
-    
+
         // }
 
 
@@ -163,6 +187,6 @@ class Index extends Component
             'orderByAZ' => $this->orderbyaz,
             'orderByDate' => $this->orderbydate,
             // 'favorites'=>$favorites
-]);
+        ]);
     }
-}   
+}
