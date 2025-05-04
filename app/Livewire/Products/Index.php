@@ -25,7 +25,7 @@ class Index extends Component
     public $maxPrice;
 
     public $myCity='';
-    public $myRadius='';
+    public $myRadius=50;
 
 
     public $json;
@@ -84,6 +84,8 @@ class Index extends Component
         $this->minPrice = '';
         $this->maxPrice = '';
         $this->scroll = 18;
+        $this->myCity = '';
+        $this->myRadius = 50;
     }
 
     public function toggleFavorite($id)
