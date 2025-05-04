@@ -105,13 +105,23 @@
                             <label class="form-label h4">Descrizione</label>
                             <textarea wire:model="description" 
                                       class="form-control form-control-lg" 
-                                      rows="4">{{ old('description') }}</textarea>
+                                      rows="4">{{ $product->description }}</textarea>
                         </div>
                         <div class="mb-4">
                             <label class="form-label h4">Prezzo</label>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-text">€</span>
-                                <input type="number" wire:model="price" class="form-control" step="0.01" value="{{ old('price') }}">
+                                <input type="number" wire:model="price" class="form-control" step="0.01" value="{{$product->price}}">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="myInput" class="form-label h4 d-flex justify-content-between">Scegli città
+                            </label>
+                            <div class="input-group input-group-lg">
+                                <input id="myInput" type="text" placeholder="Città"
+                                    value="{{ $product->city }}">
+
+                                <input type="hidden" wire:model="myCity" id="idCity">
                             </div>
                         </div>
                         <div class="d-grid gap-2">
