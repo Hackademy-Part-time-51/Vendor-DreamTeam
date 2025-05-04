@@ -21,7 +21,7 @@ Route::controller(PageController::class)->group(function () {
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('verified');
-    Route::get('/lavoraConNoi', 'lavoraConNoi')->name('lavoraConNoi');
+    Route::get('/lavoraConNoi', 'lavoraConNoi')->name('lavoraConNoi')->middleware('auth');
 });
 
 Route::controller(RevisorController::class)->group(function(){

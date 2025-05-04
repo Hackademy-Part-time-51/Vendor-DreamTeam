@@ -15,10 +15,10 @@
     <x-mininavbar/>
     <x-adminRevisore/> 
     <x-prova></x-prova>
-    <div class="container-fluid px-0">
+    <div class="container-fluid px-0 py-3">
         {{ $slot }}
     </div>
     {{-- footer da fare --}}
-    {{-- <x-footer/> --}}
+    <x-footer/> 
 </body>
 </html>
