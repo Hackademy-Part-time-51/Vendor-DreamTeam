@@ -12,7 +12,9 @@ class UserController extends Controller
     public function personalArea (User $user,$id){
         $user = User::find($id); 
         $products= Product::all();
-        return view('user.personalArea', compact('user', 'products'));
+        $favoriteProducts = $user->favorites()->paginate(12);
+        // dd($favoriteProducts);
+        return view('user.personalArea', compact('user', 'products', 'favoriteProducts'));
     }
 
     public function lavoraConNoi(){
