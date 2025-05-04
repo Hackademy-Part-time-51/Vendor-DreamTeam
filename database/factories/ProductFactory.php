@@ -22,6 +22,7 @@ class ProductFactory extends Factory
         $json = Storage::disk('public')->get('comuni.json');
 
         $comuni=json_decode($json);
+        $i=fake()->numberBetween(0,count($comuni)-1);
         return [
             'title' => fake()->words(3, true),
             'price' => fake()->randomFloat(2, 10, 1000),
@@ -29,9 +30,9 @@ class ProductFactory extends Factory
             'category_id' => Category::inRandomOrder()->first()->id ?? Category::factory(),
             'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
             'is_accepted' => fake()->randomElement([1, 0, null]),
-            'city' => $comuni[fake()->randomElement(array_keys($comuni))]->denominazione_ita,
-            'latitudine' => $comuni[fake()->randomElement(array_keys($comuni))]->lat,
-            'longitudine' => $comuni[fake()->randomElement(array_keys($comuni))]->lon
+            'city' => $comuni[$i]->denominazione_ita,
+            'latitudine' => $comuni[$i]->lat,
+            'longitudine' => $comuni[$i]->lon
         ];
     }
 }
