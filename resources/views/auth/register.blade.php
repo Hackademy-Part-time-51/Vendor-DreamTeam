@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <div class="p-4 shadow border-0 rounded-3 card-form">
                     <div class="card-header text-blu">
-                        <h2 class="text-center mb-0">Registrati</h2>
+                        <h2 class="text-center mb-0">{{__('auth.register')}}</h2>
                     </div>
                     <div class="card-body">
                         @if ($errors->any())
@@ -19,7 +19,7 @@
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label for="name" class="form-label">Nome</label>
+                                <label for="name" class="form-label">{{__('auth.name')}}</label>
                                 <input id="name" type="text" name="name" value="{{ old('name') }}"
                                     class="form-control "  autofocus placeholder="Mario rossi">
 
@@ -33,28 +33,28 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Numero di Telefono</label>
+                                <label for="phone" class="form-label">{{__('auth.telephoneNumber')}}</label>
                                 <input id="phone" type="tel" name="phone" value="{{ old('phone') }}"
                                     class="form-control " placeholder="+39 123 456 7890">
 
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Sesso</label>
+                                <label class="form-label">{{__('auth.sex')}}</label>
                                 <div class="d-flex gap-2">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="gender" id="male"
                                             value="male" {{ old('gender') == 'male' ? 'checked' : '' }} >
-                                        <label class="form-check-label" for="male">Maschio</label>
+                                        <label class="form-check-label" for="male">{{__('auth.male')}}</label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="gender" id="female"
                                             value="female" {{ old('gender') == 'female' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="female">Femmina</label>
+                                        <label class="form-check-label" for="female">{{__('auth.woman')}}</label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="gender" id="other"
                                             value="other" {{ old('gender') == 'other' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="other">Altro</label>
+                                        <label class="form-check-label" for="other">{{__('auth.other')}}</label>
                                     </div>
                                 </div>
 
@@ -73,8 +73,7 @@
 
                             </div>
 
-                            <label for="password_confirmation" class="form-label">Conferma
-                                Password</label>
+                            <label for="password_confirmation" class="form-label">{{__('auth.confirmPassword')}}</label>
                             <div class="mb-3 d-flex">
                                 <input type="password" name="password_confirmation" class="form-control" placeholder="Conferma la nuova password">
                                 <button class="btn" type="button" onclick="togglePassword(this)">
@@ -98,15 +97,15 @@
 
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-base">
-                                    Registrati
+                                    {{__('auth.register')}}
                                 </button>
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center mt-4 fs-5">
                                 <p>
-                                    <span class="text-muted">Hai già un account?</span>
+                                    <span class="text-muted">{{__('auth.dontHaveAccount')}}</span>
                                     <a href="{{ route('login') }}" class="text-decoration-none">
-                                        <span class="text-base">Accedi</span>
+                                        <span class="text-base">{{__('auth.login')}}</span>
                                     </a>
                                 </p>
                             </div>

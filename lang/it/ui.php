@@ -1,6 +1,28 @@
 <?php
 return[
- 'hello'=> 'Ciao',
- 'allArticles'=> 'Tutti gli articoli',
+    'welcome'=>'Benvenuto',
+    'hello'=> 'Ciao',
+    'allArticles'=> 'Tutti gli Articoli',
+    'searchProduct' =>'cerca Prodotto',
+    'category'=>'Categoria',
+    'allCategory'=> 'Tutte le Categorie',
+    'searchLocation'=> 'Cerca per Localita ',
+    'city'=>'città',
+    'searchRadiusAll'=> 'Raggio di Ricerca: Tutta italia',
+    'searchRadius'=> 'raggio di Ricerca',
+    'searchProgress'=> 'Ricerca in Corso',
+    'sortBy'=> 'Ordina per',
+    'priceRange'=>'Intervallo di Prezzo',
+    'resetFilter'=> 'Resetta Filtri',
+    'noArticleFound'=> 'Non sono stati trovati articoli',
+    'seeOthers'=> 'Vedi Altri',
+    'to'=> 'su',
+    'browseItems'=>'Sfoglia migliaia di articoli, nuovi e usati',
+    'popularSellers'=>'Scopri i venditori più gettonati',
+    'addTofavourites'=> 'Aggiungi ai preferiti',
+    'orCart'=> 'O nell carrello',
+    'shopClick'=>'E comprali con un click',
+    'workWithUs'=> 'Vuoi lavorare con noi?',
+    'clickContact'=> 'clicca qui per contattarci'
 
 ];

@@ -5,7 +5,7 @@
             <div class="col-12">
                 <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="Logo" height="80" class="mb-3">
                 <p class="fs-4 text-muted mb-0">Vendor.it</p>
-                <p class="fs-5 text-muted">Fare affari non è mai stato così facile.</p>
+                <p class="fs-5 text-muted">{{__('navbar.footer')}}</p>
             </div>
         </div>
         <div class="row mt-2">

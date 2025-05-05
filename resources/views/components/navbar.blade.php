@@ -39,26 +39,26 @@
       <div class="list-group list-group-flush flex-grow-1 d-flex flex-column ">
           <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
                   data-bs-toggle="modal" data-bs-target="#productsModal">
-              <i class="bi bi-box-seam fs-2 me-3"></i>Prodotti
+              <i class="bi bi-box-seam fs-2 me-3"></i>{{__('navbar.product')}}
           </button>
           <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
                   data-bs-toggle="modal" data-bs-target="#categoriesModal">
-              <i class="bi bi-tags-fill fs-2 me-3"></i>Categorie
+              <i class="bi bi-tags-fill fs-2 me-3"></i>{{__('navbar.categories')}}
           </button>
           <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
                   data-bs-toggle="modal" data-bs-target="#helpModal">
-              <i class="bi bi-question-circle-fill fs-2 me-3"></i>Assistenza
+              <i class="bi bi-question-circle-fill fs-2 me-3"></i>{{__('navbar.assistance')}}
           </button>
           <button class="list-group-item text-blu d-flex align-items-center py-4 fs-2 border-0" 
                   data-bs-toggle="modal" data-bs-target="#contactModal">
-              <i class="bi bi-envelope-fill fs-2 me-3"></i>Contatti
+              <i class="bi bi-envelope-fill fs-2 me-3"></i>{{__('navbar.contacts')}}
           </button>
       </div>
 
       <div class="offcanvas-footer border-top p-4">
           <div class="text-center">
               <p class="fs-4 mb-0">Vendor.it<br>
-                  <span class="fs-5 text-muted">Fare affari non è mai stato così facile.</span>
+                  <span class="fs-5 text-muted">{{__('navbar.footer')}}</span>
               </p>
           </div>
       </div>
@@ -69,23 +69,23 @@
       <div class="modal-content">
           <div class="modal-header border-0">
               <h5 class="modal-title fs-2 text-blu">
-                  <i class="bi bi-box-seam me-2"></i>Prodotti
+                  <i class="bi bi-box-seam me-2"></i>{{__('navbar.product')}}
               </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
               <div class="list-group list-group-flush">
                   <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
-                      <i class="bi bi-piggy-bank-fill fs-2 me-3"></i>Prodotti in promo
+                      <i class="bi bi-piggy-bank-fill fs-2 me-3"></i>{{__('navbar.featuredProducts')}}
                   </a>
                   <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
-                      <i class="bi bi-award fs-2 me-3"></i>Trend della settimana
+                      <i class="bi bi-award fs-2 me-3"></i>{{__('navbar.trendWeek')}}
                   </a>
                   <a href="{{route('products.index')}}" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
-                      <i class="bi bi-list-task fs-2 me-3"></i>Tutti i prodotti
+                      <i class="bi bi-list-task fs-2 me-3"></i>{{__('navbar.allProducts')}}
                   </a>
                   <a href="{{route('products.create')}}" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
-                      <i class="bi bi-plus-lg fs-2 me-3"></i>Aggiungi un articolo
+                      <i class="bi bi-plus-lg fs-2 me-3"></i>{{__('navbar.addArticle')}}
                   </a>
               </div>
           </div>
@@ -97,7 +97,7 @@
       <div class="modal-content">
           <div class="modal-header border-0">
               <h5 class="modal-title fs-2 text-blu">
-                  <i class="bi bi-tags-fill me-2"></i>Categorie
+                  <i class="bi bi-tags-fill me-2"></i>{{__('navbar.categories')}}
               </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
@@ -119,7 +119,7 @@
       <div class="modal-content">
           <div class="modal-header border-0">
               <h5 class="modal-title fs-2 text-blu">
-                  <i class="bi bi-question-circle-fill me-2"></i>Assistenza
+                  <i class="bi bi-question-circle-fill me-2"></i>{{__('navbar.assistance')}}
               </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
@@ -129,10 +129,10 @@
                       <i class="bi bi-info-circle-fill fs-2 me-3"></i>FAQ
                   </a>
                   <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
-                      <i class="bi bi-life-preserver fs-2 me-3"></i>Supporto
+                      <i class="bi bi-life-preserver fs-2 me-3"></i>{{__('navbar.support')}}
                   </a>
                   <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
-                      <i class="bi bi-wrench-adjustable-circle-fill fs-2 me-3"></i>Assistenza Tecnica
+                      <i class="bi bi-wrench-adjustable-circle-fill fs-2 me-3"></i>{{__('navbar.technicalAssistance')}}
                   </a>
               </div>
           </div>
@@ -144,20 +144,20 @@
       <div class="modal-content">
           <div class="modal-header border-0">
               <h5 class="modal-title fs-2 text-blu">
-                  <i class="bi bi-envelope-fill me-2"></i>Contatti
+                  <i class="bi bi-envelope-fill me-2"></i>{{__('navbar.contacts')}}
               </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
               <div class="list-group list-group-flush">
                   <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
-                    <i class="bi bi-laptop fs-3 me-3 "></i>Lavora con noi
+                    <i class="bi bi-laptop fs-3 me-3 "></i>{{__('navbar.workWithUs')}}
                   </a>
                   <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
                       <i class="bi bi-chat-dots-fill fs-2 me-3"></i>Chat
                   </a>
                   <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-3">
-                      <i class="bi bi-geo-alt-fill fs-2 me-3"></i>Dove Siamo
+                      <i class="bi bi-geo-alt-fill fs-2 me-3"></i>{{__('navbar.whereWeAre')}}
                   </a>
               </div>
           </div>
@@ -177,8 +177,8 @@
   </div>
   <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center p-4">
       <div class="text-center mb-5">
-          <h2 class="fs-1 text-blu mb-4">Benvenuto su Vendor.it</h2>
-          <p class="fs-4 text-muted">Accedi o registrati per iniziare</p>
+          <h2 class="fs-1 text-blu mb-4">{{__('auth.welcomeTO')}} Vendor.it</h2>
+          <p class="fs-4 text-muted">{{__('auth.loginOrRegister')}}</p>
       </div>
       
       <div class="d-flex flex-column gap-4 w-75">
@@ -186,7 +186,7 @@
               <i class="bi bi-box-arrow-in-right me-2"></i>Login
           </a>
           <a href="{{route('register')}}" class="btn btn-base bg-white text-blu btn-lg fs-3 py-3">
-              <i class="bi bi-person-plus me-2"></i>Registrati
+              <i class="bi bi-person-plus me-2"></i>{{__('auth.register')}}
           </a>
       </div>
   </div>
@@ -198,7 +198,7 @@
           <img src="{{asset('storage/'.Auth::user()->profile_image)}}" 
                class="rounded-circle me-3" width="60" height="60" alt="Profile">
           <div>
-              <h5 class="mb-0 fs-3">Benvenuto</h5>
+              <h5 class="mb-0 fs-3">{{__('ui.welcome')}}</h5>
               <p class="mb-0 fs-2 text-primary">{{Auth::user()->name}}</p>
           </div>
       </div>
@@ -208,28 +208,28 @@
       <div class="list-group list-group-flush flex-grow-1" id="userMenu">
           <a href="{{route('personalArea', Auth::user()->id)}}" 
              class="list-group-item text-blu d-flex align-items-center py-4 fs-2">
-              <i class="bi bi-person-lines-fill fs-2 me-3"></i>Profilo
+              <i class="bi bi-person-lines-fill fs-2 me-3"></i>{{__('navbar.profile')}}
           </a>
           <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-2">
-              <i class="bi bi-cart fs-2 me-3"></i>Ordini
+              <i class="bi bi-cart fs-2 me-3"></i>{{__('navbar.orders')}}
           </a>
           <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-2">
-              <i class="bi bi-heart fs-2 me-3"></i>Preferiti
+              <i class="bi bi-heart fs-2 me-3"></i>{{__('navbar.favorites')}}
           </a>
           <a href="#" class="list-group-item text-blu d-flex align-items-center py-4 fs-2">
-              <i class="bi bi-gear fs-2 me-3"></i>Impostazioni
+              <i class="bi bi-gear fs-2 me-3"></i>{{__('navbar.settings')}}
           </a>
           <button type="button" 
                   class="list-group-item text-danger d-flex align-items-center py-4 fs-2 border-0"
                   data-bs-toggle="modal" 
                   data-bs-target="#logoutModal">
-              <i class="bi bi-box-arrow-left fs-2 me-3"></i>Esci
+              <i class="bi bi-box-arrow-left fs-2 me-3"></i>{{__('navbar.logout')}}
           </button>
       </div>
       <div class="offcanvas-footer border-top p-4">
           <div class="text-center">
               <p class="fs-4 mb-0">Vendor.it<br>
-                  <span class="fs-5 text-muted">Fare affari non è mai stato così facile.</span>
+                  <span class="fs-5 text-muted">{{__('navbar.footer')}}</span>
               </p>
           </div>
       </div>
@@ -242,21 +242,21 @@
   <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
           <div class="modal-header border-0">
-              <h5 class="modal-title fs-2">Vuoi uscire?</h5>
+              <h5 class="modal-title fs-2">{{__('navbar.goOut')}}</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body text-center pb-4">
               <i class="bi bi-exclamation-circle text-warning display-1 mb-4"></i>
-              <p class="fs-4 text-muted">Sei sicuro di voler effettuare il logout?</p>
+              <p class="fs-4 text-muted">{{__('navbar.wantLogout')}}</p>
           </div>
           <div class="modal-footer border-0 justify-content-center gap-2">
               <button type="button" class="btn btn-outline-secondary btn-lg px-4 fs-4" data-bs-dismiss="modal">
-                  Annulla
+                  {{__('navbar.cancel')}}
               </button>
               <form action="{{route('logout')}}" method="POST" class="d-inline">
                   @csrf
                   <button class="btn btn-danger btn-lg px-4 fs-4">
-                      Conferma Logout
+                      {{__('navbar.confirmLogout')}}
                   </button>
               </form>
           </div>

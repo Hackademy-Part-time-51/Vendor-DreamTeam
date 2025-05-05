@@ -11,7 +11,7 @@
                     @endif
                     @livewire('auth.login')
                     <hr>
-                    <h5 class="mt-2">Non hai un account? <a href="{{ route('register') }}" class="text-decoration-none">Registrati</a></h5>
+                    <h5 class="mt-2">{{__('auth.dontHaveAccount')}}<a href="{{ route('register') }}" class="text-decoration-none">{{__('auth.register')}}</a></h5>
                 </div>
             </div>
         </div>
