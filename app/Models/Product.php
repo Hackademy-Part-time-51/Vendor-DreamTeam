@@ -18,6 +18,9 @@ class Product extends Model
         'description',
         'category_id',
         'user_id',
+        'city',
+        'latitudine',
+        'longitudine'
     ];
 
     /**

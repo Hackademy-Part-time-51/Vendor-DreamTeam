@@ -203,6 +203,7 @@ class Index extends Component
         if ($this->scroll <= 0 && count($this->products) > 0) {
             $this->scroll = count($this->products) - 1;
         }
+        
 
 
 
@@ -212,7 +213,7 @@ class Index extends Component
             'orderByDate' => $this->orderbydate,
             'myCity' => $this->myCity,
             'myRadius' => $this->myRadius,
-            // 'favorites'=>$favorites
+          
         ]);
     }
 }
