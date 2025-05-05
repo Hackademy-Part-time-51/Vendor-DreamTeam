@@ -18,7 +18,7 @@
                             <h1 class="display-6 text-blu text-capitalize mb-3">{{ $product->title }}</h1>
                             @if ($product->category)
                                 <span class="badge bg-warning px-3 py-2 rounded-pill">
-                                   <a href="{{ route('products.index', ['category' => $product->category->id]) }}"> <i class="bi bi-tag-fill me-2"></i>{{ $product->category->name }}</a>
+                                   <a href="{{ route('products.index', ['category' => $product->category->id]) }}" class="text-decoration-none text-blu"> <i class="bi bi-tag-fill me-2"></i>{{ $product->category->name }}</a>
                                 </span>
                             @endif
                         </div>
@@ -81,7 +81,7 @@
                             @if ($product->user)
                                 <div class="text-end">
                                     <p class="fs-5 text-blu mb-1">
-                                        <a href="{{ route('personalArea', $product->user->id) }}"> {{ $product->user->name }}</a>
+                                        <a href="{{ route('personalArea', $product->user->id) }}" class="text-decoration-none"> {{ $product->user->name }}</a>
                                     </p>
                                     <span class="badge bg-secondary">Venditore</span>
                                 </div>
