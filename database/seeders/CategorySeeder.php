@@ -17,5 +17,5 @@ class CategorySeeder extends Seeder
         Category::factory()->count($numberOfCategories)->create();
         $this->command->info("Tabella Categorie popolata con {$numberOfCategories} record usando la Factory!");
 
-     }
+    }
 }
