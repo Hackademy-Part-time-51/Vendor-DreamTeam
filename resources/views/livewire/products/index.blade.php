@@ -33,8 +33,8 @@
                             <label for="myInput">Cerca per località</label>
                             <input id="myInput" type="text" class="form-control mb-2"  placeholder="Città">
                             <label for="raggioLocale" class="form-label">Raggio (km)</label>
-                            <input type="range" name="myRadius"  wire:model.blur="myRadius" class="form-range" min="0" max="250" step="25" id="raggioLocale">
-                            <input type="number" class="form-control" name="myRadius"  wire:model.blur="myRadius">
+                            <input type="range" name="myRadius"  wire:model.live="myRadius" class="form-range" min="25" max="250" step="25" id="raggioLocale">
+                            <input type="number" class="form-control" name="myRadius"  wire:model.live="myRadius">
                             <input type="hidden"  wire:model.live="myCity" id="idCity" >
                         </div>
                         <div class="mb-4">
