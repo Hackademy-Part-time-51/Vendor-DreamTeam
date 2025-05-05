@@ -34,9 +34,30 @@
                             <input id="myInput" type="text" class="form-control mb-2" id="myInput" placeholder="Città">
 
                             @if ($myCity)
-                            <label for="raggioLocale" class="form-label" id="labelRaggio">Raggio di ricerca: {{$myRadius}}</label>
-                            <input type="range" name="myRadius" id="raggioLocale"  wire:model.live="myRadius" class="form-range" min="25" max="250" step="25" >
-                            <input type="hidden"  wire:model.live="myCity" id="idCity" >
+                            <label for="raggioLocale" class="form-label" id="labelRaggio">
+                                <span wire:loading.remove wire:target="myRadius">
+                                    Raggio di ricerca: {{$myRadius}}km
+                                </span>                                
+                                <span wire:loading wire:target="myRadius">
+                                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                    Ricerca in corso...
+                                </span>
+                            </label>
+                            
+                            <input type="range" 
+                                   name="myRadius" 
+                                   id="raggioLocale"  
+                                   wire:model.live="myRadius" 
+                                   class="form-range" 
+                                   min="25" 
+                                   max="250" 
+                                   step="25"
+                                   wire:loading.attr="disabled" 
+                                   wire:loading.class="opacity-50"> 
+                        
+                            <input type="hidden" 
+                                   wire:model.live="myCity" 
+                                   id="idCity">
                             @else
 
                             <label for="raggioLocale" class="form-label">Raggio di ricerca: Tutta italia</label>
