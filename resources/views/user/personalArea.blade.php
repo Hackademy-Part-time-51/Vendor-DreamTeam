@@ -270,7 +270,7 @@
                         icon.classList.replace('bi-eye-slash', 'bi-eye');
                     }
                 }
-                </script>
+            </script>
         </div>
     </div>
 </x-layout>

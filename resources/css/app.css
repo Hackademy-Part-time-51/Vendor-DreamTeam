@@ -97,6 +97,12 @@ nav {
     font-style: normal;
 }
 
+.handlee-regular {
+    font-family: "Handlee", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 /* #endregion */
 
 /* #region BUTTONS */
@@ -202,11 +208,11 @@ nav {
 
 /* #region INDEX PRODUCTS */
 
-#sezione-filtri {
+/* #sezione-filtri {
     position: sticky !important;
     top: 16vh;
     z-index: 0;
-}
+} */
 
 .torna-su {
     position: fixed;

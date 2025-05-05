@@ -12,9 +12,28 @@
 
     <div class="mb-4">
         <label for="password" class="block mb-2 font-medium">Password</label>
-        <input id="password" type="password" name="password" 
-               class="w-100 px-3 py-2 border rounded @error('password') @enderror" 
-               required value="{{ old('password') }}">
+        <div class="d-flex">
+            <input id="password" type="password" name="password" 
+                class="w-100 px-3 py-2 border rounded @error('password') @enderror" 
+                required value="{{ old('password') }}">
+            <button class="btn" type="button" onclick="togglePassword(this)">
+                <i class="bi bi-eye-slash"></i>
+            </button>
+            <script>
+                function togglePassword(button) {
+                    const input = button.previousElementSibling;
+                    const icon = button.querySelector('i');
+                    
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.classList.replace('bi-eye', 'bi-eye-slash');
+                    } else {
+                        input.type = 'password';
+                        icon.classList.replace('bi-eye-slash', 'bi-eye');
+                    }
+                }
+            </script>
+        </div>
         @error('password')
             <p class=" text-sm mt-1">{{ $message }}</p>
         @enderror

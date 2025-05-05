@@ -94,7 +94,7 @@
                             <textarea wire:model="description" class="form-control form-control-lg @error('description') is-invalid @enderror"
                                 rows="4" placeholder="Descrivi il tuo prodotto">{{ old('description') }}</textarea>
                         </div>
-                        <div class="mb-4">
+                        <div class="">
                             <label class="form-label h4 d-flex justify-content-between">
                                 Prezzo
                                 @error('price')
@@ -102,24 +102,18 @@
                                         <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
                                     </span>
                                 @enderror
+                            </label>
                         </div>
-                        <div class="mb-4">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text">€</span>
+                            <input type="number" wire:model="price" step="0.01" class="form-control @error('price') is-invalid @enderror" placeholder="0.00" value="{{ old('price') }}">
+                        </div>
+                        <div class="my-4">
+                            <label for="myInput" class="form-label h4 d-flex justify-content-between">Scegli città
                             </label>
                             <div class="input-group input-group-lg">
-                                <span class="input-group-text">€</span>
-                                <input type="number" wire:model="price" step="0.01"
-                                    class="form-control @error('price') is-invalid @enderror" placeholder="0.00"
-                                    value="{{ old('price') }}">
-                            </div>
-                            <div class="mb-4">
-                                <label for="myInput" class="form-label h4 d-flex justify-content-between">Scegli città
-                                </label>
-                                <div class="input-group input-group-lg">
-                                    <input id="myInput" type="text" placeholder="Città"
-                                        value="{{ old('city') }}">
-
-                                    <input type="hidden" wire:model="myCity" id="idCity">
-                                </div>
+                                <input id="myInput" type="text" class="form-control @error('city') is-invalid @enderror" placeholder="Città" value="{{ old('city') }}">
+                                <input type="hidden" wire:model="myCity" id="idCity">
                             </div>
                         </div>
                     </div>

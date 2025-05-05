@@ -30,10 +30,12 @@
                             </select>
                         </div>
                         <div>
-                            <label for="myInput">Scegli città e raggio di ricerca</label>
-                            <input id="myInput" type="text"   placeholder="Città">
-                            <input type="number" name="myRadius"  wire:model.blur="myRadius">
-                            <input type="hidden" wire:model.live="myCity" id="idCity" >
+                            <label for="myInput">Cerca per località</label>
+                            <input id="myInput" type="text" class="form-control mb-2"  placeholder="Città">
+                            <label for="raggioLocale" class="form-label">Raggio (km)</label>
+                            <input type="range" name="myRadius"  wire:model.blur="myRadius" class="form-range" min="0" max="250" step="25" id="raggioLocale">
+                            <input type="number" class="form-control" name="myRadius"  wire:model.blur="myRadius">
+                            <input type="hidden"  wire:model.live="myCity" id="idCity" >
                         </div>
                         <div class="mb-4">
                             <label class="form-label small text-muted">Ordina per</label>

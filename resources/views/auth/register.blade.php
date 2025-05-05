@@ -61,20 +61,40 @@
                             </div>
 
                             @livewire('auth.register')
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label">Password</label>
+                            <div class="mb-3 d-flex">
                                 <input id="password" type="password" name="password" class="form-control " >
-                                <div class="invalid-feedback">
+                                <button class="btn" type="button" onclick="togglePassword(this)">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                
+                            </div>
+                            <div class="invalid-feedback">
 
-                                </div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="password_confirmation" class="form-label">Conferma
-                                    Password</label>
-                                <input id="password_confirmation" type="password" name="password_confirmation"
-                                    class="form-control" >
+                            <label for="password_confirmation" class="form-label">Conferma
+                                Password</label>
+                            <div class="mb-3 d-flex">
+                                <input type="password" name="password_confirmation" class="form-control" placeholder="Conferma la nuova password">
+                                <button class="btn" type="button" onclick="togglePassword(this)">
+                                    <i class="bi bi-eye"></i>
+                                </button>
                             </div>
+                            <script>
+                                function togglePassword(button) {
+                                    const input = button.previousElementSibling;
+                                    const icon = button.querySelector('i');
+                                    
+                                    if (input.type === 'password') {
+                                        input.type = 'text';
+                                        icon.classList.replace('bi-eye', 'bi-eye-slash');
+                                    } else {
+                                        input.type = 'password';
+                                        icon.classList.replace('bi-eye-slash', 'bi-eye');
+                                    }
+                                }
+                            </script>
 
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-base">

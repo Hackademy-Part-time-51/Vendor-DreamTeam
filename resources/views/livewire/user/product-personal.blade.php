@@ -5,10 +5,16 @@
       @else
       <h5 class="card-title mb-0 text-center">Ultimi 3 post</h5>
       @endif
-
     </div>
     <div class="col-12">
         <div class="row g-3">
+            @if ($products->isEmpty())
+            <div class="col-12 ">
+                <p class="alert alert-info w-100 text-center my-3">Nessun prodotto da mostrare al momento. <br> 
+                Clicca <a href="{{ route('products.create') }}" class="text-decoration-none">qui</a> per aggiungere un nuovo prodotto.
+                </p>
+            </div>
+            @else
             @foreach ($products as $product)
             @if ($product->is_accepted == 1 || Auth::id() == $product->user_id || Auth::user()->is_revisor==1 )
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex border-0">
@@ -133,6 +139,8 @@
                 <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">Mostra tutti</button>
                 @endif
             </div>
+            @endif
+
         </div>
         {{-- <div class="mt-3">
           {{$products->links()}}
