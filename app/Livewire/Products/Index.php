@@ -23,11 +23,8 @@ class Index extends Component
     public $scroll = 18;
     public $minPrice;
     public $maxPrice;
-
     public $myCity='';
-    public $myRadius=50;
-
-
+    public $myRadius=0;
     public $json;
     public $comuni;
 
@@ -85,7 +82,7 @@ class Index extends Component
         $this->maxPrice = '';
         $this->scroll = 18;
         $this->myCity = '';
-        $this->myRadius = 50;
+        $this->myRadius;
     }
 
     public function toggleFavorite($id)
@@ -113,59 +110,93 @@ class Index extends Component
     #[On('fresh')]
     public function render()
     {
-
-        $query = Product::with('category')
-            ->where('is_accepted', 1)
-            ->when(!empty($this->search), function ($product) {
-                $product->where('title', 'like', '%' . $this->search . '%');
-            })
-            ->when(!empty($this->category), function ($product) {
-                $product->where('category_id', $this->category);
-            })
-            ->when(!empty($this->minPrice), function ($product) {
-                $product->where('price', '>=', $this->minPrice);
-            })
-            ->when(!empty($this->maxPrice), function ($product) {
-                $product->where('price', '<=', $this->maxPrice);
-            })
-            ->when(!empty($this->myCity) && !empty($this->myRadius), function ($product) {
-                $lat = $this->comuni[$this->myCity]->lat;
-                $lon = $this->comuni[$this->myCity]->lon;
-                $radius = $this->myRadius;
         
-                $product->whereRaw("
-                    (6371 * acos(
-                        cos(radians(?)) *
-                        cos(radians(latitudine)) *
-                        cos(radians(longitudine) - radians(?)) +
-                        sin(radians(?)) *
-                        sin(radians(latitudine))
-                    )) < ?
-                ", [$lat, $lon, $lat, $radius]);
+        if (!empty($this->search)) {
+            // Scout search
+            $products = Product::search($this->search)->get();
+        
+            // Filtri aggiuntivi in PHP
+            $products = $products->filter(function ($product) {
+                if ($product->is_accepted != 1) return false;
+        
+                if (!empty($this->category) && $product->category_id != $this->category) return false;
+        
+                if (!empty($this->minPrice) && $product->price < $this->minPrice) return false;
+        
+                if (!empty($this->maxPrice) && $product->price > $this->maxPrice) return false;
+        
+                if (!empty($this->myCity) && !empty($this->myRadius)) {
+                    $lat1 = deg2rad($this->comuni[$this->myCity]->lat);
+                    $lon1 = deg2rad($this->comuni[$this->myCity]->lon);
+                    $lat2 = deg2rad($product->latitudine);
+                    $lon2 = deg2rad($product->longitudine);
+        
+                    $distance = 6371 * acos(
+                        cos($lat1) * cos($lat2) * cos($lon2 - $lon1) +
+                        sin($lat1) * sin($lat2)
+                    );
+        
+                    if ($distance >= $this->myRadius) return false;
+                }
+        
+                return true;
             });
-
-        // Ordine di creazione
-        if ($this->orderbydate !== '') {
-            if ($this->orderbydate) {
-                $query->orderBy('created_at', 'asc');
-            } else {
-                $query->orderBy('created_at', 'desc');
+        
+            // Eager load relazioni dopo la ricerca
+            $products->load('category');
+        
+            // Ordinamento
+            if ($this->orderbydate !== '') {
+                $products = $products->sortBy('created_at', SORT_REGULAR, !$this->orderbydate);
             }
-        }
-
-        // Ordine alfabetico solo se diverso da stringa vuota
-        if ($this->orderbyaz !== '') {
-            if ($this->orderbyaz) {
-                $query->orderBy('title', 'asc');
-            } else {
-                $query->orderBy('title', 'desc');
+        
+            if ($this->orderbyaz !== '') {
+                $products = $products->sortBy('title', SORT_REGULAR, !$this->orderbyaz);
             }
+        
+            // Riassegna a proprietà
+            $this->products = $products->values();
+        } else {
+            // Eloquent fallback
+            $query = Product::with('category')
+                ->where('is_accepted', 1)
+                ->when(!empty($this->category), function ($product) {
+                    $product->where('category_id', $this->category);
+                })
+                ->when(!empty($this->minPrice), function ($product) {
+                    $product->where('price', '>=', $this->minPrice);
+                })
+                ->when(!empty($this->maxPrice), function ($product) {
+                    $product->where('price', '<=', $this->maxPrice);
+                })
+                ->when(!empty($this->myCity) && !empty($this->myRadius), function ($product) {
+                    $lat = $this->comuni[$this->myCity]->lat;
+                    $lon = $this->comuni[$this->myCity]->lon;
+                    $radius = $this->myRadius;
+        
+                    $product->whereRaw("
+                        (6371 * acos(
+                            cos(radians(?)) *
+                            cos(radians(latitudine)) *
+                            cos(radians(longitudine) - radians(?)) +
+                            sin(radians(?)) *
+                            sin(radians(latitudine))
+                        )) < ?
+                    ", [$lat, $lon, $lat, $radius]);
+                });
+        
+            if ($this->orderbydate !== '') {
+                $query->orderBy('created_at', $this->orderbydate ? 'asc' : 'desc');
+            }
+        
+            if ($this->orderbyaz !== '') {
+                $query->orderBy('title', $this->orderbyaz ? 'asc' : 'desc');
+            }
+        
+            $this->products = $query->get();
         }
-
-
-        $this->products = $query->get();
-
-
+        
+        // Gestione scroll
         if ($this->scroll > count($this->products) - 1) {
             $this->scroll = count($this->products) - 1;
         }
@@ -173,21 +204,14 @@ class Index extends Component
             $this->scroll = count($this->products) - 1;
         }
 
-        // if(!Auth::guest()) {
-        //     if(Auth::user()->favorites->contains($this->products->id)) {
-        //         $favorites = true;
-        //     }else {
-        //         $favorites = false;
-        //     }
-
-        // }
-
 
 
         return view('livewire.products.index', [
             'scroll' => $this->scroll,
             'orderByAZ' => $this->orderbyaz,
             'orderByDate' => $this->orderbydate,
+            'myCity' => $this->myCity,
+            'myRadius' => $this->myRadius,
             // 'favorites'=>$favorites
         ]);
     }

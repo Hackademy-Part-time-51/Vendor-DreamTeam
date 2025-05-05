@@ -31,11 +31,19 @@
                         </div>
                         <div>
                             <label for="myInput">Cerca per località</label>
-                            <input id="myInput" type="text" class="form-control mb-2"  placeholder="Città">
-                            <label for="raggioLocale" class="form-label">Raggio (km)</label>
-                            <input type="range" name="myRadius"  wire:model.live="myRadius" class="form-range" min="25" max="250" step="25" id="raggioLocale">
-                            <input type="number" class="form-control" name="myRadius"  wire:model.live="myRadius">
+                            <input id="myInput" type="text" class="form-control mb-2" id="myInput" placeholder="Città">
+
+                            @if ($myCity)
+                            <label for="raggioLocale" class="form-label" id="labelRaggio">Raggio di ricerca: {{$myRadius}}</label>
+                            <input type="range" name="myRadius" id="raggioLocale"  wire:model.live="myRadius" class="form-range" min="25" max="250" step="25" >
                             <input type="hidden"  wire:model.live="myCity" id="idCity" >
+                            @else
+
+                            <label for="raggioLocale" class="form-label">Raggio di ricerca: Tutta italia</label>
+                            <input type="range" name="myRadius" id="raggioLocale"  wire:model.live="myRadius" class="form-range" min="25" max="250" step="25" id="raggioLocale" disabled>
+                            <input type="hidden"  wire:model.live="myCity" id="idCity" > 
+                            @endif
+
                         </div>
                         <div class="mb-4">
                             <label class="form-label small text-muted">Ordina per</label>
