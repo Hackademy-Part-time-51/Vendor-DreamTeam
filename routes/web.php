@@ -45,4 +45,8 @@ Route::get('/comuni-json', function () {
     return $json;
 });
 
+// rotta per cambio lingua
+
+Route::post('/lingua/{lang}',[PageController::class, 'setLanguage'])->name('setLocale');
+
 

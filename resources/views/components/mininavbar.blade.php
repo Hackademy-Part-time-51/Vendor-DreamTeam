@@ -2,6 +2,12 @@
   @php
     use App\Models\Category;
   @endphp
+  {{-- bandierine --}}
+  <x-_locale lang="it"/>
+  <x-_locale lang="en"/>
+  <x-_locale lang="fr"/>
+
+
   <div class="secondary-navbar-sticky d-none d-lg-block z-3">
     <nav class="navbar navbar-expand-lg  p-2">
         <div class="container-fluid ">
