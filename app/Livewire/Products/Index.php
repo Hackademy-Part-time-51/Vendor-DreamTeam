@@ -23,11 +23,8 @@ class Index extends Component
     public $scroll = 18;
     public $minPrice;
     public $maxPrice;
-
     public $myCity='';
-    public $myRadius=50;
-
-
+    public $myRadius=0;
     public $json;
     public $comuni;
 
@@ -85,7 +82,7 @@ class Index extends Component
         $this->maxPrice = '';
         $this->scroll = 18;
         $this->myCity = '';
-        $this->myRadius = 50;
+        $this->myRadius;
     }
 
     public function toggleFavorite($id)
@@ -213,6 +210,8 @@ class Index extends Component
             'scroll' => $this->scroll,
             'orderByAZ' => $this->orderbyaz,
             'orderByDate' => $this->orderbydate,
+            'myCity' => $this->myCity,
+            'myRadius' => $this->myRadius,
             // 'favorites'=>$favorites
         ]);
     }
