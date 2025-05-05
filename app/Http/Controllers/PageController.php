@@ -97,4 +97,12 @@ class PageController extends Controller
         return back()->with('success', 'Prodotto eliminato con successo!');
         
     }
+
+
+    // lingua sito
+
+    public function setLanguage($lang){
+        session()->put('locale',$lang);
+        return redirect()->back();
+    }
 }
