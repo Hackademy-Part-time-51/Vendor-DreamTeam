@@ -118,7 +118,7 @@
                             <label for="myInput" class="form-label h4 d-flex justify-content-between">Scegli città
                             </label>
                             <div class="input-group input-group-lg">
-                                <input id="myInput" type="text" placeholder="Città"
+                                <input id="myInput" type="text" class="form-control" placeholder="Città"
                                     value="{{ $product->city }}">
 
                                 <input type="hidden" wire:model="myCity" id="idCity">

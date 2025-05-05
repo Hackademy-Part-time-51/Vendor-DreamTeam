@@ -75,7 +75,7 @@
                             strings: [
                                 '<h1 class="display-1 text-blu montserrat mb-0">Benvenuto</h1><h1 class="display-1 text-blu noto-sans mb-0">su</h1><h1 class="display-1 fw-bold handlee-regular">Vendor</h1>'
                                 ],
-                            typeSpeed: 40
+                            typeSpeed: 30
                             }
                     );
                     observer.unobserve(element);
@@ -93,7 +93,7 @@
                             strings: [
                                 '<h2 class="display-2 noto-sans text-blu mb-4">Fare affari non è mai stato così facile. <br><i class="bi bi-cash-coin text-success ms-3 display-1"></i><i class="bi bi-cash-coin text-success ms-3 display-1"></i><i class="bi bi-cash-coin text-success ms-3 display-1"></i></h2>'
                                 ],
-                            typeSpeed: 40
+                            typeSpeed: 30
                             }
                     );
                     observer.unobserve(element);
@@ -111,7 +111,7 @@
                             strings: [
                                 '<h2 class="display-3 montserrat text-blu mb-4">Sfoglia migliaia di articoli, nuovi e usati<br><i class="bi bi-box-seam text-success ms-3 display-1"></i></h2>'
                                 ],
-                            typeSpeed: 40
+                            typeSpeed: 30
                             }
                     );
                     observer.unobserve(element);
@@ -129,7 +129,7 @@
                             strings: [
                                 '<h2 class="display-3 montserrat text-blu mb-4">Scopri i venditori più gettonati<br><i class="bi bi-star-fill text-warning ms-3 display-1"></i></h2>'
                                 ],
-                            typeSpeed: 40
+                            typeSpeed: 30
                             }
                     );
                     observer.unobserve(element);
@@ -147,7 +147,7 @@
                             strings: [
                                 '<h2 class="display-1 noto-sans text-blu mb-0">Aggiungi ai preferiti <br><i class="bi bi-heart-fill text-danger ms-3 display-1"></i><br>Oppure al carrello<br><i class="bi bi-cart-fill text-success ms-3 display-1"></i><br>E comprali con un click<br><i class="bi bi-check-circle-fill text-success ms-3 display-1"></i><br></h2>'
                                 ],
-                            typeSpeed: 40
+                            typeSpeed: 30
                             }
                     );
                     observer.unobserve(element);
@@ -165,7 +165,7 @@
                             strings: [
                                 '<h2 class="display-1 montserrat text-blu mb-0">Vuoi lavorare con noi?<br><a href="{{route("lavoraConNoi")}}" class="btn display-1 btn-baseblu"><span class="display-4">Clicca qui per contattarci</span></a><br></h2>'
                                 ],
-                            typeSpeed: 40
+                            typeSpeed: 30
                             }
                     );
                     observer.unobserve(element);

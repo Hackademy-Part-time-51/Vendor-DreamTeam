@@ -16,11 +16,19 @@
                     <div class="card-header bg-transparent border-0 d-none d-lg-block">
                         <div class="text-center">
                             <h1 class="display-6 text-blu text-capitalize mb-3">{{ $product->title }}</h1>
-                            @if ($product->category)
+                            <div class="d-flex justify-content-center gap-2">
+                                @if ($product->category)
                                 <span class="badge bg-warning px-3 py-2 rounded-pill">
                                    <a href="{{ route('products.index', ['category' => $product->category->id]) }}" class="text-decoration-none text-blu"> <i class="bi bi-tag-fill me-2"></i>{{ $product->category->name }}</a>
                                 </span>
                             @endif
+                            @if ($product->city)
+                                <p class="text-muted mb-0">
+                                    <i class="bi bi-geo-alt me-2"></i>{{ $product->city }}
+                                </p>
+                            @endif
+                            </div>
+
                         </div>
                     </div>
                     <div class="card-body p-0">
