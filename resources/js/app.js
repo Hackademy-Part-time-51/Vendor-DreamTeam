@@ -15,6 +15,13 @@ comuniJson.forEach(element => {
 });
 let idCity = document.getElementById("idCity");
 
+    if (idCity.value!='') {
+        document.getElementById("myInput").value = comuni[idCity.value];
+        console.log(comuni[idCity.value]);
+        console.log(idCity.value);
+        
+    }
+
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
@@ -52,7 +59,7 @@ function autocomplete(inp, arr) {
                     inp.value = this.getElementsByTagName("input")[0].value;
                     idCity.setAttribute("value",this.getElementsByTagName("input")[0].getAttribute("data-id")); 
 
-                    console.log(idCity.value);
+                    
                     idCity.dispatchEvent(new Event('input', { bubbles: true }));
                     
                     /*close the list of autocompleted values,

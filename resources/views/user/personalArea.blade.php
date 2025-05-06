@@ -134,7 +134,10 @@
         <hr>
         {{-- articoli preferiti --}}
         @livewire('user.favoritesProducts')
-        
+        {{-- ricerche salvate --}}
+        Ricerche Salvate
+        @livewire('user.savedSearches')
+       
 
 
             {{-- modal modifica info --}}
