@@ -117,6 +117,9 @@
                             <i class="bi bi-arrow-counterclockwise me-2"></i>
                             {{__('ui.resetFilter')}}
                         </button>
+                        @auth
+                        <button wire:click="saveFilter" class="btn btn-base w-100 d-flex align-items-center justify-content-center">{{__('ui.saveFilter')}}</button>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -148,6 +151,11 @@
                         <use href="/bootstrap-italia/dist/svg/sprites.svg#it-arrow-up"><i class="bi bi-chevron-up"></i>
                         </use>
                     </button>
+                    @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
                 </a>
             </div>
         </section>

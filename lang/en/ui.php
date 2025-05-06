@@ -23,6 +23,7 @@ return[
     'orCart'=> 'Or to the cart',
     'shopClick'=>'And buy them with one click',
     'workWithUs'=>'Do you want to work with us?',
-    'clickContact'=> 'click here to contact us'
+    'clickContact'=> 'click here to contact us',
+    'saveFilter'=> 'Save search',
 
 ];
