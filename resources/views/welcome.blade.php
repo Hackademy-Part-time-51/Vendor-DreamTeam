@@ -1,183 +1,69 @@
 <x-layout>
     @if (session()->has('message'))
-    <div class="alert alert-success text-center shadow rounded w-50">
-        {{session('message')}}
-    </div>
-    
+        <div class="alert alert-success text-center shadow rounded w-50 mx-auto my-3">
+            {{ session('message') }}
+        </div>
     @endif
     @if (session()->has('errorMessage'))
-        <div class="alert alert-danger text-center shadow rounded w-50">
-            {{session('errorMessage')}}
+        <div class="alert alert-danger text-center shadow rounded w-50 mx-auto my-3">
+            {{ session('errorMessage') }}
         </div>
     @endif
 
     <div class="container-fluid p-0">
-        
-        <section class="min-vh-100 d-flex align-items-center justify-content-start bg-white px-3">
-            <div class="text-start " id="titoloWelcome">
+        <section class="hero-section bg-blu d-flex align-items-center justify-content-center text-center min-vh-100">
+            <div class="container">
+                <h1 class="display-1 fw-bold  text-white">
+                    {{ __('ui.welcome') }} {{ __('ui.to') }} <span class="fw-bold">Vendor</span>
+                </h1>
+                <p class="lead text-white-50">{{ __('navbar.footer') }}</p>
             </div>
         </section>
-
-        <section class="min-vh-100 d-flex align-items-center justify-content-end bg-light px-3">
-            <div class="text-end " id="sloganWelcome">
+        <section class="info-section d-flex align-items-center justify-content-center text-center bg-white min-vh-100">
+            <div class="container">
+                <h2 class="display-2 text-blu fw-semibold">
+                    {{ __('ui.browseItems') }}
+                </h2>
+                <p class="lead text-muted">
+                    Esplora la nostra vasta gamma di articoli e trova ciò che cerchi.
+                </p>
             </div>
         </section>
-
-        <section class="min-vh-100 d-flex align-items-center justify-content-start bg-white px-3 ">
-                <div class="text-start " id="prodottoWelcome">
-                </div>
-        </section>
-
-        <section class="min-vh-100 d-flex align-items-center justify-content-end bg-light px-3">
-            <div class="text-end " id="venditoriWelcome">
+        <section class="sellers-section d-flex align-items-center justify-content-center text-center bg-light min-vh-100">
+            <div class="container">
+                <h2 class="display-2 text-blu fw-semibold">
+                    {{ __('ui.popularSellers') }}
+                </h2>
+                <p class="lead text-muted">
+                    Scopri i venditori più affidabili e apprezzati della nostra community.
+                </p>
             </div>
         </section>
-
-        <!-- Quinta Sezione - Preferiti -->
-        <section class="min-vh-100 d-flex align-items-center justify-content-start bg-white px-3">
-            <div class="text-start " id="preferitiWelcome">
-
+        <section class="favorites-section d-flex align-items-center justify-content-center text-center bg-white min-vh-100">
+            <div class="container">
+                <h2 class="display-2 text-blu fw-semibold">
+                    {{ __('ui.addTofavourites') }}
+                </h2>
+                <p class="lead text-muted">
+                    Salva i tuoi articoli preferiti o aggiungili al carrello con un click.
+                </p>
             </div>
         </section>
-
-        <!-- Sesta Sezione - Contatti -->
-        <section class="min-vh-100 d-flex align-items-center justify-content-end bg-light px-3">
-            <div class="text-end " id="contattiWelcome">
-
+        <section class="contacts-section d-flex align-items-center justify-content-center text-center bg-light min-vh-100">
+            <div class="container">
+                <h2 class="display-2 text-blu fw-semibold">
+                    {{ __('ui.workWithUs') }}
+                </h2>
+                <a href="{{ route('lavoraConNoi') }}" class="btn btn-lg btn-baseblu mt-4">
+                    {{ __('ui.clickContact') }}
+                </a>
             </div>
         </section>
     </div>
 
-
-    <div class=" p-3">
+    <div class="p-3">
         @livewire('products.show-limited-products')
     </div>
 
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-
-        let titoloWelcome = document.getElementById('titoloWelcome');
-        let sloganWelcome = document.getElementById('sloganWelcome');
-        let prodottoWelcome = document.getElementById('prodottoWelcome');
-        let venditoriWelcome = document.getElementById('venditoriWelcome');
-        let preferitiWelcome = document.getElementById('preferitiWelcome');
-        let contattiWelcome = document.getElementById('contattiWelcome');
-
-        function TitoloWelcome(element) {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        var titoloAcomparsa = new Typed(element, {
-                            strings: [
-                                '<h1 class="display-1  text-blu montserrat mb-0">{{__('ui.welcome')}} {{__('ui.to')}}<h1 class="display-1 fw-bold handlee-regular">Vendor</h1>'
-                                ],
-                            typeSpeed: 20
-                            }
-                    );
-                    observer.unobserve(element);
-                    }
-                });
-            });
-            
-            observer.observe(element);
-        }
-        function SloganWelcome(element) {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        var titoloAcomparsa = new Typed(element, {
-                            strings: [
-                                '<h1 class="display-1 montserrat text-blu mb-4">{{__('navbar.footer')}}</h2>'
-                                ],
-                            typeSpeed: 20
-                            }
-                    );
-                    observer.unobserve(element);
-                    }
-                });
-            });
-            
-            observer.observe(element);
-        }
-        function ProdottoWelcome(element) {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        var titoloAcomparsa = new Typed(element, {
-                            strings: [
-                                '<h1 class="display-1 montserrat text-blu mb-4">{{__('ui.browseItems')}}</h2>'
-                                ],
-                            typeSpeed: 20
-                            }
-                    );
-                    observer.unobserve(element);
-                    }
-                });
-            });
-            
-            observer.observe(element);
-        }
-        function VenditoriWelcome(element) {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        var titoloAcomparsa = new Typed(element, {
-                            strings: [
-                                '<h2 class="display-1 montserrat text-blu mb-4">{{__('ui.popularSellers')}}</h2>'
-                                ],
-                            typeSpeed: 20
-                            }
-                    );
-                    observer.unobserve(element);
-                    }
-                });
-            });
-            
-            observer.observe(element);
-        }
-        function PreferitiWelcome(element) {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        var titoloAcomparsa = new Typed(element, {
-                            strings: [
-                                '<h2 class="display-1 montserrat text-blu mb-0">{{__('ui.addTofavourites')}}<br>{{__('ui.orCart')}}<br>{{__('ui.shopClick')}}<br></h2>'
-                                ],
-                            typeSpeed: 20
-                            }
-                    );
-                    observer.unobserve(element);
-                    }
-                });
-            });
-            
-            observer.observe(element);
-        }
-        function ContattiWelcome(element) {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        var titoloAcomparsa = new Typed(element, {
-                            strings: [
-                                '<h2 class="display-1 montserrat text-blu mb-0">{{__('ui.workWithUs')}}<br><a href="{{route("lavoraConNoi")}}" class="btn display-1 btn-baseblu"><span class="display-4">{{__('ui.clickContact')}}</span></a><br></h2>'
-                                ],
-                            typeSpeed: 20
-                            }
-                    );
-                    observer.unobserve(element);
-                    }
-                });
-            });
-            
-            observer.observe(element);
-        }
-
-        TitoloWelcome(titoloWelcome);
-        SloganWelcome(sloganWelcome);
-        ProdottoWelcome(prodottoWelcome);
-        VenditoriWelcome(venditoriWelcome);
-        PreferitiWelcome(preferitiWelcome);
-        ContattiWelcome(contattiWelcome);
-
-    </script>
+    
 </x-layout>

@@ -15,7 +15,7 @@
     <x-navbar/>
     <x-mininavbar/>
     <x-adminRevisore/> 
-    <div class="container-fluid px-0 py-3">
+    <div class="container-fluid px-0 pt-1 pb-3">
         {{ $slot }}
     </div>
     {{-- footer da fare --}}
