@@ -1,6 +1,6 @@
 <div>
     <hr>
-    <h2 class="mb-4 text-center">I nostri ultimi 6 prodotti</h2>
+    <h2 class="mb-4 text-center">{{__('product.latestProduct')}}</h2>
     <hr>
     @if ($products->isNotEmpty())
         <div class="row g-4">
@@ -11,9 +11,9 @@
             @endforeach
         </div>
     @else
-        <p class="alert alert-info">Nessun prodotto da mostrare al momento.</p>
+        <p class="alert alert-info">{{__('product.noProductDisplay')}}</p>
     @endif
     <div class="d-flex justify-content-center mt-4">
-        <a href="{{ route('products.index') }}" class="btn btn-base">Visualizza tutti i prodotti</a>
+        <a href="{{ route('products.index') }}" class="btn btn-base">{{__('product.viewAllProducts')}}</a>
     </div>
 </div>

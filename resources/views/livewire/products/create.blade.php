@@ -1,13 +1,13 @@
 <div class="container-fluid py-4">
     <div class="text-center">
-        <h1 class="display-6 mb-3">Nuovo Prodotto</h1>
+        <h1 class="display-6 mb-3">{{__('product.newProduct')}}</h1>
     </div>
     <form wire:submit="create">
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show mb-4">
                 <div class="d-flex align-items-center">
                     <i class="bi bi-exclamation-triangle-fill fs-4 me-2"></i>
-                    <h5 class="mb-0">Ci sono alcuni errori nel form</h5>
+                    <h5 class="mb-0">{{__('product.someErrorsForm')}}</h5>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
@@ -21,15 +21,15 @@
                             class="upload_dropZone text-center bg-light rounded-3 p-5 @error('images') border border-danger @enderror">
                             <i
                                 class="bi bi-cloud-upload display-1 @error('images') text-danger @else text-primary @enderror mb-4"></i>
-                            <p class="display-6 mb-3">Carica le immagini del prodotto</p>
-                            <p class="text-muted mb-4">Trascina le immagini qui o clicca per selezionarle</p>
+                            <p class="display-6 mb-3">{{__('product.uploadProductImages')}}</p>
+                            <p class="text-muted mb-4">{{__('product.dragImages')}}</p>
 
                             <input id="upload_image_background" type="file" multiple
                                 class="position-absolute invisible" accept="image/jpeg, image/png, image/svg+xml"
                                 data-post-name="image_background" data-post-url="/upload" wire:model="images">
 
                             <label class="btn btn-outline-primary btn-lg mb-3" for="upload_image_background">
-                                <i class="bi bi-image me-2"></i>Seleziona Immagini
+                                <i class="bi bi-image me-2"></i>{{__('product.selectImages')}}
                             </label>
 
                             <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
@@ -50,7 +50,7 @@
                     <div class="card-body p-4">
                         <div class="mb-4">
                             <label class="form-label h4 d-flex justify-content-between">
-                                Titolo
+                                {{__('product.title')}}
                                 @error('title')
                                     <span class="text-danger small">
                                         <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
@@ -59,13 +59,13 @@
                             </label>
                             <div class="input-group input-group-lg has-validation">
                                 <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                    wire:model="title" placeholder="Inserisci il titolo del prodotto"
+                                    wire:model="title" placeholder="{{__('product.enterProductTitle')}}"
                                     value="{{ old('title') }}">
                             </div>
                         </div>
                         <div class="mb-4">
                             <label class="form-label h4 d-flex justify-content-between">
-                                Categoria
+                                {{__('product.category')}}
                                 @error('category_id')
                                     <span class="text-danger small">
                                         <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
@@ -74,7 +74,7 @@
                             </label>
                             <select wire:model="category_id"
                                 class="form-select form-select-lg @error('category_id') is-invalid @enderror">
-                                <option value="">Seleziona una categoria</option>
+                                <option value="">{{__('product.selectCategory')}}</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" @selected($category->id == old('category_id'))>
                                         {{ $category->name }}
@@ -84,7 +84,7 @@
                         </div>
                         <div class="mb-4">
                             <label class="form-label h4 d-flex justify-content-between">
-                                Descrizione
+                                {{__('product.description')}}
                                 @error('description')
                                     <span class="text-danger small">
                                         <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
@@ -92,11 +92,11 @@
                                 @enderror
                             </label>
                             <textarea wire:model="description" class="form-control form-control-lg @error('description') is-invalid @enderror"
-                                rows="4" placeholder="Descrivi il tuo prodotto">{{ old('description') }}</textarea>
+                                rows="4" placeholder="{{__('product.describeProduct')}}">{{ old('description') }}</textarea>
                         </div>
                         <div class="">
                             <label class="form-label h4 d-flex justify-content-between">
-                                Prezzo
+                                {{__('product.price')}}
                                 @error('price')
                                     <span class="text-danger small">
                                         <i class="bi bi-exclamation-circle me-1"></i>{{ $message }}
@@ -109,10 +109,10 @@
                             <input type="number" wire:model="price" step="0.01" class="form-control @error('price') is-invalid @enderror" placeholder="0.00" value="{{ old('price') }}">
                         </div>
                         <div class="my-4">
-                            <label for="myInput" class="form-label h4 d-flex justify-content-between">Scegli città
+                            <label for="myInput" class="form-label h4 d-flex justify-content-between">{{__('product.chooseCity')}}
                             </label>
                             <div class="input-group input-group-lg">
-                                <input id="myInput" type="text" class="form-control @error('city') is-invalid @enderror" placeholder="Città" value="{{ old('city') }}">
+                                <input id="myInput" type="text" class="form-control @error('city') is-invalid @enderror" placeholder="{{__('ui.city')}}" value="{{ old('city') }}">
                                 <input type="hidden" wire:model="myCity" id="idCity">
                             </div>
                         </div>
@@ -126,16 +126,16 @@
                     <button type="submit" class="btn btn-baseblu btn-lg py-3" wire:loading.class="disabled"
                         wire:target="create">
                         <span wire:loading.remove wire:target="create">
-                            <i class="bi bi-plus-lg me-2"></i>Crea Prodotto
+                            <i class="bi bi-plus-lg me-2"></i>{{__('product.createProduct')}}
                         </span>
                         <span wire:loading wire:target="create">
                             <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-                            Creazione in corso...
+                            {{__('product.creationProgress')}}...
                         </span>
                     </button>
 
                     <a href="{{ route('products.index') }}" class="btn btn-rosso btn-lg py-3">
-                        <i class="bi bi-x-lg me-2"></i>Annulla
+                        <i class="bi bi-x-lg me-2"></i>{{__('navbar.cancel')}}
                     </a>
                 </div>
             </div>

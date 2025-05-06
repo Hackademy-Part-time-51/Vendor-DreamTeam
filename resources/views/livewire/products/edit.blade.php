@@ -2,10 +2,10 @@
     <form wire:submit="update">
         <div class="d-block d-lg-none mb-4">
             <div class="text-center">
-                <h1 class="display-6 mb-3">Modifica Prodotto</h1>
+                <h1 class="display-6 mb-3">{{__('product.editProduct')}}</h1>
                 @if ($product->category)
                     <span class="badge bg-warning px-3 py-2 rounded-pill">
-                        <i class="bi bi-pencil-fill me-2"></i>In Modifica
+                        <i class="bi bi-pencil-fill me-2"></i>{{__('product.underModification')}}
                     </span>
                 @endif
             </div>
@@ -16,9 +16,9 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-header bg-transparent border-0 d-none d-lg-block">
                         <div class="text-center">
-                            <h1 class="display-6 mb-3">Modifica Prodotto</h1>
+                            <h1 class="display-6 mb-3">{{__('product.editProduct')}}</h1>
                             <span class="badge bg-warning px-3 py-2 rounded-pill">
-                                <i class="bi bi-pencil-fill me-2"></i>In Modifica
+                                <i class="bi bi-pencil-fill me-2"></i>{{__('product.underModification')}}
                             </span>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             </div>
                         @endif
                         <div class="mb-4">
-                            <label class="form-label h4">Titolo</label>
+                            <label class="form-label h4">{{__('product.title')}}</label>
                             <input type="text" 
                                    class="form-control form-control-lg" 
                                    wire:model="title"
@@ -91,7 +91,7 @@
                                    required>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label h4">Categoria</label>
+                            <label class="form-label h4">{{__('product.category')}}</label>
                             <select wire:model="category_id" class="form-select form-select-lg">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" 
@@ -102,20 +102,20 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label h4">Descrizione</label>
+                            <label class="form-label h4">{{__('product.description')}}</label>
                             <textarea wire:model="description" 
                                       class="form-control form-control-lg" 
                                       rows="4">{{ $product->description }}</textarea>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label h4">Prezzo</label>
+                            <label class="form-label h4">{{__('product.price')}}</label>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-text">€</span>
                                 <input type="number" wire:model="price" class="form-control" step="0.01" value="{{$product->price}}">
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label for="myInput" class="form-label h4 d-flex justify-content-between">Scegli città
+                            <label for="myInput" class="form-label h4 d-flex justify-content-between">{{__('product.chooseCity')}}
                             </label>
                             <div class="input-group input-group-lg">
                                 <input id="myInput" type="text" class="form-control" placeholder="Città"
@@ -126,11 +126,11 @@
                         </div>
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-baseblu btn-lg py-3">
-                                <i class="bi bi-check-lg me-2"></i>Salva Modifiche
+                                <i class="bi bi-check-lg me-2"></i>{{__('product.saveModification')}}
                             </button>
                             <a href="{{ route('products.show', $product) }}" 
                                class="btn btn-rosso btn-lg py-3">
-                                <i class="bi bi-x-lg me-2"></i>Annulla
+                                <i class="bi bi-x-lg me-2"></i>{{__('navbar.cancel')}}
                             </a>
                         </div>
                     </div>
