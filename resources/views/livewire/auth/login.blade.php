@@ -39,7 +39,7 @@
         @enderror
     </div>
     <div>
-        <label for="remember">Ricordami</label>
+        <label for="remember">{{__('auth.rememberMe')}}</label>
         <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
     </div>
     <div class="d-flex justify-content-center">

@@ -1,6 +1,6 @@
 <div>
     <hr>
-    <h2 class="text-center">Tutti gli articoli</h2>
+    <h2 class="text-center">{{__('ui.allArticles')}}</h2>
     <hr>
     <div class="row g-1 mt-3">
         {{-- sezione filtri a sinistra lg/xl schermo intero sm/md --}}
@@ -9,19 +9,19 @@
                 <div class="card border-0 ">
                     <div class="card-body">
                         <div class="mb-4">
-                            <label class="form-label small text-muted">Cerca prodotto</label>
+                            <label class="form-label small text-muted">{{__('ui.searchProduct')}}</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-transparent border-end-0">
                                     <i class="bi bi-search"></i>
                                 </span>
                                 <input type="text" wire:model.live="search" class="form-control border-start-0 ps-0"
-                                    placeholder="Cerca il tuo prodotto...">
+                                    placeholder="{{__('ui.allArticles')}}">
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label small text-muted">Categoria</label>
+                            <label class="form-label small text-muted">{{__('ui.category')}}</label>
                             <select wire:model.live="category" class="form-select">
-                                <option value="">Tutte le categorie</option>
+                                <option value="">{{__('ui.allCategory')}}</option>
                                 @foreach ($categories as $cat)
                                     <option value="{{ $cat->id }}" @selected($cat->id == $category)>
                                         {{ $cat->name }}
@@ -30,17 +30,17 @@
                             </select>
                         </div>
                         <div>
-                            <label for="myInput">Cerca per località</label>
-                            <input id="myInput" type="text" class="form-control mb-2" id="myInput" placeholder="Città">
+                            <label for="myInput">{{__('ui.searchLocation')}}</label>
+                            <input id="myInput" type="text" class="form-control mb-2" id="myInput" placeholder="{{__('ui.city')}}">
 
                             @if ($myCity)
                             <label for="raggioLocale" class="form-label" id="labelRaggio">
                                 <span wire:loading.remove wire:target="myRadius">
-                                    Raggio di ricerca: {{$myRadius}}km
+                                    {{__('ui.searchLocation')}}:{{$myRadius}}km
                                 </span>                                
                                 <span wire:loading wire:target="myRadius">
                                     <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-                                    Ricerca in corso...
+                                    {{__('ui.searchProgress')}}...
                                 </span>
                             </label>
                             
@@ -60,14 +60,14 @@
                                    id="idCity">
                             @else
 
-                            <label for="raggioLocale" class="form-label">Raggio di ricerca: Tutta italia</label>
+                            <label for="raggioLocale" class="form-label">{{__('ui.searchRadiusAll')}}</label>
                             <input type="range" name="myRadius" id="raggioLocale"  wire:model.live="myRadius" class="form-range" min="25" max="250" step="25" id="raggioLocale" disabled>
                             <input type="hidden"  wire:model.live="myCity" id="idCity" > 
                             @endif
 
                         </div>
                         <div class="mb-4">
-                            <label class="form-label small text-muted">Ordina per</label>
+                            <label class="form-label small text-muted">{{__('ui.sortBy')}}</label>
                             <div class="d-flex gap-2">
                                 <button
                                     class="btn btn-base flex-grow-1 d-flex align-items-center justify-content-center"
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label small text-muted">Intervallo di prezzo</label>
+                            <label class="form-label small text-muted">{{__('ui.priceRange')}}</label>
                             <div class="row g-2">
                                 <div class="col-6">
                                     <div class="input-group">
@@ -115,7 +115,7 @@
                         <button wire:click="resetFilter"
                             class="btn btn-base w-100 d-flex align-items-center justify-content-center">
                             <i class="bi bi-arrow-counterclockwise me-2"></i>
-                            Resetta filtri
+                            {{__('ui.resetFilter')}}
                         </button>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                 <div
                     class="alert alert-warning text-center w-100 d-flex justify-content-center align-items-center fs-3">
                     <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                    <strong>Non sono stati trovati articoli</strong>
+                    <strong>{{__('ui.noArticleFound')}}</strong>
                 </div>
             @endif
             
@@ -140,7 +140,7 @@
             @endfor
 
             @if ($scroll < count($products) - 1)
-                <button wire:click="scrollFunction" class="btn btn-base w-50 mt-3">Vedi altri...</button>
+                <button wire:click="scrollFunction" class="btn btn-base w-50 mt-3">{{__('ui.seeOthers')}}...</button>
             @endif
             <div class="position-fixed torna-su">
                 <a href="#" aria-label="Torna su" data-bs-toggle="backtotop" class="back-to-top" id="example">
