@@ -131,7 +131,8 @@
                     <strong>{{__('ui.noArticleFound')}}</strong>
                 </div>
             @endif
-            @for ($i = 0; $i < $scroll; $i++)
+            
+            @for ($i = 0; $i <= $scroll; $i++)
                 <div class="col-12 col-md-6 col-lg-4 p-2 scalebig" wire:key="{{ $products[$i]->id }}">
                     <x-card :product="$products[$i]"></x-card>
 
