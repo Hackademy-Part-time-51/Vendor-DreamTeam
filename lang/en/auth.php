@@ -31,7 +31,19 @@ return [
     'other'=>'Other',
     'profilePhoto'=>'Profile photo (Not mandatory)',
     'confirmPassword'=>'Confirm Password',
-    'login'=> 'Login'
+    'login'=> 'Login',
+    'verifyEmail'=> 'Verify your email',
+    'completeRegister'=> 'One last step to complete your registration',
+    'verifyEmailAddress'=>'We have sent a new verification link to your email address!',
+    'checkEmail'=> 'Check your email inbox',
+    'sentVerification'=> 'We have sent a verification email to:',
+    'openEmail'=>'Open your email box',
+    'searchEmail'=>'Search for email from Vendor.it',
+    'clickLink'=>'Click on the verification link',
+    'sendLink'=>'Send new link',
+    'problemsVerification'=>'Problems with verification?',
+    'contactSupport'=>'Contact support',
+
 
 
 ];

@@ -1,5 +1,5 @@
     <div class="mb-3">
-        <label for="profile_photo" class="form-label">Foto profilo <span>(Non obbligatoria)</span></label>
+        <label for="profile_photo" class="form-label">{{__('auth.profilePhoto')}}</label>
         <input wire:model.live="profile_photo" id="profile_photo" type="file" name="profile_photo" class="form-control "
             accept="image/*" onchange="previewImage(this)">
         @if ($profile_photo)

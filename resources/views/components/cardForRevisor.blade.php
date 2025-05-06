@@ -58,21 +58,21 @@
                 <div class="d-grid mb-2">
                     <a href="{{ route('products.show', $product) }}"
                     class="btn btn-baseblu">
-                        <i class="bi bi-eye me-2"></i>Dettagli
+                        <i class="bi bi-eye me-2"></i>{{__('revisor.details')}}
                     </a>
                 </div>
                 <div class="row g-2">
                     @if ($product->is_accepted === 1)
                         <div class="col-12 mb-2">
-                            <span class="badge bg-success w-100 text-center">Accettato</span>
+                            <span class="badge bg-success w-100 text-center">{{__('revisor.accepted')}}</span>
                         </div>
                     @elseif ($product->is_accepted === 0)
                         <div class="col-12 mb-2">
-                            <span class="badge bg-danger w-100 text-center">Rifiutato</span>
+                            <span class="badge bg-danger w-100 text-center">{{__('revisor.refused')}}</span>
                         </div>
                     @else
                         <div class="col-12 mb-2">
-                            <span class="badge bg-warning w-100 text-center">In attesa di revisione</span>
+                            <span class="badge bg-warning w-100 text-center">{{__('revisor.awaitingReview')}}</span>
                         </div>                        
                     @endif
                     @if ($product->is_accepted === null)
@@ -82,7 +82,7 @@
                             @method('PATCH')
                             <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-check-lg me-2"></i>
-                                <span class="d-none d-sm-inline">Accetta</span>
+                                <span class="d-none d-sm-inline">{{__('revisor.accept')}}</span>
                             </button>
                         </form>
                     </div>
@@ -92,7 +92,7 @@
                             @method('PATCH')
                             <button class="btn btn-rosso w-100 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-x-lg me-2"></i>
-                                <span class="d-none d-sm-inline">Rifiuta</span>
+                                <span class="d-none d-sm-inline">{{__('revisor.refuse')}}</span>
                             </button>
                         </form>
                     </div>
@@ -102,7 +102,7 @@
                         @method('PATCH')
                         <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
                             <i class="bi bi-check-lg me-2"></i>
-                            <span class="d-none d-sm-inline">Accetta</span>
+                            <span class="d-none d-sm-inline">{{__('revisor.accept')}}</span>
                         </button>
                     </form>
                     @elseif ($product->is_accepted === 1)
@@ -111,7 +111,7 @@
                         @method('PATCH')
                         <button class="btn btn-rosso w-100 d-flex align-items-center justify-content-center">
                             <i class="bi bi-x-lg me-2"></i>
-                            <span class="d-none d-sm-inline">Rifiuta</span>
+                            <span class="d-none d-sm-inline">{{__('revisor.refuse')}}</span>
                         </button>
                     </form>
                     @endif

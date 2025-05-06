@@ -13,5 +13,17 @@ return[
     'other'=>'altro',
     'profilePhoto'=>'Foto profilo (Non obbligatoria)',
     'confirmPassword'=>'Conferma Password',
-    'login'=>'accedi'
+    'login'=>'accedi',
+    'verifyEmail'=> 'Verifica la tua Email',
+    'completeRegister'=> 'Un ultimo passo per completare la registrazione',
+    'verifyEmailAddress'=>'Abbiamo inviato un nuovo link di verifica al tuo indirizzo email!',
+    'checkEmail'=> ' Controlla la tua casella email',
+    'sentVerification'=> "Abbiamo inviato un'email di verifica a:",
+    'openEmail'=>'Apri la tua casella email',
+    'searchEmail'=>"Cerca l'email da Vendor.it",
+    'clickLink'=>'Clicca sul link di verifica',
+    'sendLink'=>'Invia nuovo link',
+    'problemsVerification'=>'Problemi con la verifica?',
+    'contactSupport'=>'Contatta il supporto',
+    
 ];
