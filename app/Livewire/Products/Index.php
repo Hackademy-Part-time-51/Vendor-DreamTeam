@@ -22,7 +22,7 @@ class Index extends Component
     public $category;
     public $scroll = 18;
     public $minPrice;
-    public $maxPrice;
+    public $maxPrice=50;
     public $myCity='';
     public $myRadius=0;
     public $json;
