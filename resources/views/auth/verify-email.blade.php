@@ -7,8 +7,8 @@
                         <div class="position-relative bg-blu text-white py-4 px-3">
                             <div class="text-center position-relative" style="z-index: 2;">
                                 <i class="bi bi-shield-check display-4 mb-2"></i>
-                                <h2 class="fw-bold mb-0">Verifica la tua Email</h2>
-                                <p class="mb-0 text-white-50">Un ultimo passo per completare la registrazione</p>
+                                <h2 class="fw-bold mb-0">{{__('auth.verifyEmail')}}</h2>
+                                <p class="mb-0 text-white-50">{{__('auth.completeRegister')}}</p>
                             </div>
                             <div class="position-absolute bottom-0 start-0 w-100" style="transform: translateY(49%)">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -22,7 +22,7 @@
                                 <div class="alert alert-success alert-dismissible fade show d-flex align-items-center mb-4" role="alert">
                                     <i class="bi bi-check-circle-fill me-2 fs-4"></i>
                                     <div>
-                                        Abbiamo inviato un nuovo link di verifica al tuo indirizzo email!
+                                       {{__('auth.verifyEmailAddress')}}
                                     </div>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
@@ -36,10 +36,10 @@
                             <div class="bg-light rounded-4 p-4 mb-4 text-center">
                                 <h5 class="fw-bold mb-3">
                                     <i class="bi bi-info-circle me-2 text-blu"></i>
-                                    Controlla la tua casella email
+                                    {{__('auth.checkEmail')}}
                                 </h5>
                                 <p class="mb-0 text-muted">
-                                    Abbiamo inviato un'email di verifica a:
+                                    {{__('auth.sentVerification')}}
                                     <br>
                                     <span class="fw-bold text-blu">{{ Auth::user()->email }}</span>
                                 </p>
@@ -47,15 +47,15 @@
                             <div class="mb-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="badge bg-blu rounded-circle p-2 me-2">1</div>
-                                    <span>Apri la tua casella email</span>
+                                    <span>{{__('auth.openEmail')}}</span>
                                 </div>
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="badge bg-blu rounded-circle p-2 me-2">2</div>
-                                    <span>Cerca l'email da Vendor.it</span>
+                                    <span>{{__('auth.searchEmail')}}</span>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="badge bg-blu rounded-circle p-2 me-2">3</div>
-                                    <span>Clicca sul link di verifica</span>
+                                    <span>{{__('auth.sendLink')}}</span>
                                 </div>
                             </div>
                             <div class="d-grid gap-2">
@@ -63,7 +63,7 @@
                                     @csrf
                                     <button type="submit" class="btn btn-baseblu btn-lg w-100">
                                         <i class="bi bi-envelope-paper me-2"></i>
-                                        Invia nuovo link
+                                        {{__('auth.sendLink')}}
                                     </button>
                                 </form>
 
@@ -71,7 +71,7 @@
                                     @csrf
                                     <button type="submit" class="btn btn-rosso btn-lg w-100">
                                         <i class="bi bi-box-arrow-right me-2"></i>
-                                        Logout
+                                        {{__('navbar.logout')}}
                                     </button>
                                 </form>
                             </div>
@@ -79,8 +79,8 @@
                     </div>
                     <div class="text-center mt-4">
                         <p class="text-muted mb-0">
-                            Problemi con la verifica?
-                            <a href="#" class="text-decoration-none">Contatta il supporto</a>
+                            {{__('auth.problemsVerification')}}
+                            <a href="#" class="text-decoration-none">{{__('auth.contactSupport')}}</a>
                         </p>
                     </div>
                 </div>
