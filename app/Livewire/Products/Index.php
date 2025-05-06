@@ -164,7 +164,7 @@ class Index extends Component
                     $product->where('category_id', $this->category);
                 })
                 ->when(!empty($this->minPrice), function ($product) {
-                    $product->where('price', '>=', $this->minPrice);
+                    $product->where('price', '>', $this->minPrice);
                 })
                 ->when(!empty($this->maxPrice), function ($product) {
                     $product->where('price', '<=', $this->maxPrice);
@@ -213,7 +213,7 @@ class Index extends Component
             'orderByDate' => $this->orderbydate,
             'myCity' => $this->myCity,
             'myRadius' => $this->myRadius,
-          
+            // 'favorites'=>$favorites
         ]);
     }
 }
