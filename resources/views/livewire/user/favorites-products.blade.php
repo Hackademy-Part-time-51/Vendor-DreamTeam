@@ -21,12 +21,6 @@
             </div>
             @endforeach
         </div>
-            @if($favoriteProducts->hasPages())
-                <div class="d-flex justify-content-center mt-4">
-                    {{ $favoriteProducts->links() }}
-                </div>
-            @endif
-
         @else
             <div class="text-center py-5">
                 <i class="bi bi-heart display-1 text-muted mb-4"></i>

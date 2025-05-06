@@ -157,10 +157,11 @@ nav {
     transform: scale(0.98);
 }
 
-.btn-lang{
+.btn-lang {
     width: min-content;
 }
-.btn-lang:hover{
+
+.btn-lang:hover {
     transition: all 0.2s linear;
     transform: scale(1.1);
 }

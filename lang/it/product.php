@@ -14,7 +14,7 @@ return[
     'describeProduct'=>'Descrivi il prodotto',
     'price'=>'Prezzo',
     'chooseCity'=>'Scegli la città',
-    'createProduct'=>'crea Prodotto',
+    'createProduct'=>'Crea Prodotto',
     'creationProgress'=>'Creazione in corso',
 
     'editProduct'=>'Modifica Prodotto',
