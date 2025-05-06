@@ -23,6 +23,8 @@ return[
     'orCart'=> 'O nell carrello',
     'shopClick'=>'E comprali con un click',
     'workWithUs'=> 'Vuoi lavorare con noi?',
-    'clickContact'=> 'Clicca qui per contattarci'
+    'clickContact'=> 'Clicca qui per contattarci',
+    'saveFilter'=> 'Salva ricerca',
+
 
 ];

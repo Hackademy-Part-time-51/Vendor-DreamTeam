@@ -30,7 +30,7 @@
             <div class="col-12 text-center">
                 <hr class="mb-4">
                 <p class="text-muted mb-0">
-                    © {{ date('Y') }} Vendor.it - Tutti i diritti riservati
+                    © {{ date('Y') }} Vendor.it - {{__('navbar.otherFooter')}}
                 </p>
             </div>
         </div>

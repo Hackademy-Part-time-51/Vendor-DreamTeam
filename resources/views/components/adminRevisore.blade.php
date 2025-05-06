@@ -8,11 +8,11 @@
                     <a class="nav-link text-white d-flex align-items-center gap-2 position-relative" 
                         href="{{route('revisor.index')}}">
                         <i class="bi bi-shield-check fs-5"></i>
-                        <span class="fw-semibold">Area Revisore</span>
+                        <span class="fw-semibold">{{__('revisor.reviewerArea')}}</span>
                         @if(\App\Models\Product::toBeRevisedCount() > 0)
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {{ \App\Models\Product::toBeRevisedCount() }}
-                        <span class="visually-hidden">articoli da revisionare</span>
+                        <span class="visually-hidden">{{__('revisor.articlesReview')}}</span>
                         </span>
                         @endif
                     </a>

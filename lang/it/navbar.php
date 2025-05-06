@@ -35,6 +35,7 @@ return[
 
     'settings'=>'Impostazioni',
     'footer'=> 'Fare affari non è mai stato così facile.',
+    'otherFooter'=>'Tutti i diritti riservati',
 
     'goOut'=> 'Vuoi Uscire?',
     'wantLogout'=>'Sei sicuro di voler effettuare il logout?',

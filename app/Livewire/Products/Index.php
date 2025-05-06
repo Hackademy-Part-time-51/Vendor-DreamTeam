@@ -5,6 +5,7 @@ namespace App\Livewire\Products;
 use App\Models\Category;
 use Livewire\Component;
 use App\Models\Product;
+use App\Models\Search;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\On;
 use Illuminate\Support\Facades\Auth;
@@ -23,13 +24,14 @@ class Index extends Component
     public $scroll = 18;
     public $minPrice;
     public $maxPrice;
-    public $myCity='';
+    public $myCity;
     public $myRadius=0;
     public $json;
     public $comuni;
 
     public function mount()
     {
+        // dd(request()->query());
         $this->categories = Category::orderBy('name')->get();
         $this->json = Storage::disk('public')->get('comuni.json');
         $this->comuni = json_decode($this->json);
@@ -40,6 +42,25 @@ class Index extends Component
             if (Category::where('id', $categoryId)->exists()) {
                 $this->category = $categoryId;
             }
+        }
+
+        if (request()->filled('search')) {
+            $this->search = request()->query('search');
+        }
+
+        if (request()->filled('minPrice')) {
+            $this->minPrice = request()->query('minPrice');
+        }
+
+        if (request()->filled('maxPrice')) {
+            $this->maxPrice = request()->query('maxPrice');
+        }
+
+        if (request()->filled('myCity')) {
+            $this->myCity = request()->query('myCity');
+        }
+        if (request()->filled('myRadius')) {
+            $this->myRadius = request()->query('myRadius');
         }
     }
 
@@ -83,6 +104,28 @@ class Index extends Component
         $this->scroll = 18;
         $this->myCity = '';
         $this->myRadius;
+    }
+
+    public function saveFilter()
+    {
+        Search::create([
+            'user_id' => Auth::id(),
+            'search' => $this->search,
+            'category_id' => $this->category,
+            'min_price' => $this->minPrice,
+            'max_price' => $this->maxPrice,
+            'city' => $this->myCity,
+            'range' => $this->myRadius
+        ]);
+        session()->flash('status', 'Ricerca salvata correttamente');
+        return redirect()->route('products.index', [
+            'search'=> $this->search,
+            'minPrice'=> $this->minPrice,
+            'maxPrice'=> $this->maxPrice,
+            'myCity'=> $this->myCity,
+            'myRadius'=> $this->myRadius,
+            'category'=> $this->category
+        ]);
     }
 
     public function toggleFavorite($id)
@@ -164,7 +207,7 @@ class Index extends Component
                     $product->where('category_id', $this->category);
                 })
                 ->when(!empty($this->minPrice), function ($product) {
-                    $product->where('price', '>=', $this->minPrice);
+                    $product->where('price', '>', $this->minPrice);
                 })
                 ->when(!empty($this->maxPrice), function ($product) {
                     $product->where('price', '<=', $this->maxPrice);
@@ -213,7 +256,7 @@ class Index extends Component
             'orderByDate' => $this->orderbydate,
             'myCity' => $this->myCity,
             'myRadius' => $this->myRadius,
-          
+            // 'favorites'=>$favorites
         ]);
     }
 }

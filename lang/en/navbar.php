@@ -34,6 +34,7 @@ return[
 
     'settings'=>'Settings',
     'footer'=>'Doing business has never been easier.',
+    'otherFooter'=>'All rights reserved',
 
     'goOut'=> 'Do you want to go out?',
     'wantLogout'=>'Are you sure you want to log out?',
