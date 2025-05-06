@@ -19,9 +19,11 @@ nav {
     top: 0;
     z-index: 999;
 }
+
 .nav-link {
     margin-top: 0.5rem;
 }
+
 .nav-link:hover {
     color: #00C13E;
     transition: all 0.2s linear;
@@ -101,7 +103,7 @@ nav {
     font-family: "Handlee", cursive;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
 /* #endregion */
 
@@ -153,6 +155,14 @@ nav {
     background-color: #C62E2E;
     transition: all 0.2s linear;
     transform: scale(0.98);
+}
+
+.btn-lang{
+    width: min-content;
+}
+.btn-lang:hover{
+    transition: all 0.2s linear;
+    transform: scale(1.1);
 }
 
 /* #endregion */
@@ -208,11 +218,6 @@ nav {
 
 /* #region INDEX PRODUCTS */
 
-/* #sezione-filtri {
-    position: sticky !important;
-    top: 16vh;
-    z-index: 0;
-} */
 
 .torna-su {
     position: fixed;
@@ -238,8 +243,8 @@ nav {
 
 .collegamento-profilo {
     position: fixed;
-    bottom: 1rem;
-    left: 1rem;
+    bottom: 4rem;
+    left: 0.5rem;
     z-index: 9999;
     background-color: whitesmoke;
 }
@@ -310,8 +315,41 @@ nav {
     }
 }
 
+/* #region menu lingue */
+.menu-container {
+    position: relative;
+    display: inline-block;
+    z-index: 999;
+}
+
+.menu-button {
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu-items {
+    z-index: 999;
+    position: absolute;
+    border-radius: 5%;
+    display: flex;
+    gap: 1rem;
+    top: 50%;
+    left: 55px;
+    transform: translateY(-70%);
+    display: none;
+}
 
 
+/* #endregion */
 
 
 

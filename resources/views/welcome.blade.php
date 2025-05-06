@@ -12,41 +12,37 @@
     @endif
 
     <div class="container-fluid p-0">
-
-        <section class="min-vh-100 d-flex align-items-center justify-content-center bg-white">
-            <div class="text-center" id="titoloWelcome">
+        
+        <section class="min-vh-100 d-flex align-items-center justify-content-start bg-white px-3">
+            <div class="text-start " id="titoloWelcome">
             </div>
         </section>
 
-        <section class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
-            <div class="text-center px-4" id="sloganWelcome">
+        <section class="min-vh-100 d-flex align-items-center justify-content-end bg-light px-3">
+            <div class="text-end " id="sloganWelcome">
             </div>
         </section>
 
-        <section class="min-vh-100 d-flex align-items-center justify-content-center bg-white">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="text-center" id="prodottoWelcome">
-                    </div>
+        <section class="min-vh-100 d-flex align-items-center justify-content-start bg-white px-3 ">
+                <div class="text-start " id="prodottoWelcome">
                 </div>
-            </div>
         </section>
 
-        <section class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
-            <div class="text-center px-2" id="venditoriWelcome">
+        <section class="min-vh-100 d-flex align-items-center justify-content-end bg-light px-3">
+            <div class="text-end " id="venditoriWelcome">
             </div>
         </section>
 
         <!-- Quinta Sezione - Preferiti -->
-        <section class="min-vh-100 d-flex align-items-center justify-content-center bg-white">
-            <div class="text-center p-4" id="preferitiWelcome">
+        <section class="min-vh-100 d-flex align-items-center justify-content-start bg-white px-3">
+            <div class="text-start " id="preferitiWelcome">
 
             </div>
         </section>
 
         <!-- Sesta Sezione - Contatti -->
-        <section class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
-            <div class="text-center px-4" id="contattiWelcome">
+        <section class="min-vh-100 d-flex align-items-center justify-content-end bg-light px-3">
+            <div class="text-end " id="contattiWelcome">
 
             </div>
         </section>
@@ -73,9 +69,9 @@
                     if (entry.isIntersecting) {
                         var titoloAcomparsa = new Typed(element, {
                             strings: [
-                                '<h1 class="display-1 text-blu montserrat mb-0">{{__('ui.welcome')}}</h1><h1 class="display-1 text-blu noto-sans mb-0">{{__('ui.to')}}</h1><h1 class="display-1 fw-bold handlee-regular">Vendor</h1>'
+                                '<h1 class="display-1  text-blu montserrat mb-0">{{__('ui.welcome')}} {{__('ui.to')}}<h1 class="display-1 fw-bold handlee-regular">Vendor</h1>'
                                 ],
-                            typeSpeed: 30
+                            typeSpeed: 20
                             }
                     );
                     observer.unobserve(element);
@@ -91,9 +87,9 @@
                     if (entry.isIntersecting) {
                         var titoloAcomparsa = new Typed(element, {
                             strings: [
-                                '<h2 class="display-2 noto-sans text-blu mb-4">{{__('navbar.footer')}} <br><i class="bi bi-cash-coin text-success ms-3 display-1"></i><i class="bi bi-cash-coin text-success ms-3 display-1"></i><i class="bi bi-cash-coin text-success ms-3 display-1"></i></h2>'
+                                '<h1 class="display-1 montserrat text-blu mb-4">{{__('navbar.footer')}}</h2>'
                                 ],
-                            typeSpeed: 30
+                            typeSpeed: 20
                             }
                     );
                     observer.unobserve(element);
@@ -109,9 +105,9 @@
                     if (entry.isIntersecting) {
                         var titoloAcomparsa = new Typed(element, {
                             strings: [
-                                '<h2 class="display-3 montserrat text-blu mb-4">{{__('ui.browseItems')}}<br><i class="bi bi-box-seam text-success ms-3 display-1"></i></h2>'
+                                '<h1 class="display-1 montserrat text-blu mb-4">{{__('ui.browseItems')}}</h2>'
                                 ],
-                            typeSpeed: 30
+                            typeSpeed: 20
                             }
                     );
                     observer.unobserve(element);
@@ -127,9 +123,9 @@
                     if (entry.isIntersecting) {
                         var titoloAcomparsa = new Typed(element, {
                             strings: [
-                                '<h2 class="display-3 montserrat text-blu mb-4">{{__('ui.popularSellers')}}<br><i class="bi bi-star-fill text-warning ms-3 display-1"></i></h2>'
+                                '<h2 class="display-1 montserrat text-blu mb-4">{{__('ui.popularSellers')}}</h2>'
                                 ],
-                            typeSpeed: 30
+                            typeSpeed: 20
                             }
                     );
                     observer.unobserve(element);
@@ -145,9 +141,9 @@
                     if (entry.isIntersecting) {
                         var titoloAcomparsa = new Typed(element, {
                             strings: [
-                                '<h2 class="display-1 noto-sans text-blu mb-0">{{__('ui.addTofavourites')}} <br><i class="bi bi-heart-fill text-danger ms-3 display-1"></i><br>{{__('ui.orCart')}}<br><i class="bi bi-cart-fill text-success ms-3 display-1"></i><br>{{__('ui.shopClick')}}<br><i class="bi bi-check-circle-fill text-success ms-3 display-1"></i><br></h2>'
+                                '<h2 class="display-1 montserrat text-blu mb-0">{{__('ui.addTofavourites')}}<br>{{__('ui.orCart')}}<br>{{__('ui.shopClick')}}<br></h2>'
                                 ],
-                            typeSpeed: 30
+                            typeSpeed: 20
                             }
                     );
                     observer.unobserve(element);
@@ -165,7 +161,7 @@
                             strings: [
                                 '<h2 class="display-1 montserrat text-blu mb-0">{{__('ui.workWithUs')}}<br><a href="{{route("lavoraConNoi")}}" class="btn display-1 btn-baseblu"><span class="display-4">{{__('ui.clickContact')}}</span></a><br></h2>'
                                 ],
-                            typeSpeed: 30
+                            typeSpeed: 20
                             }
                     );
                     observer.unobserve(element);
