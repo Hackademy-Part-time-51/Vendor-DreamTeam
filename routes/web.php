@@ -42,7 +42,7 @@ Route::get('/comuni-json', function () {
     $comuni=json_decode($json);
 
   
-    return $json;
+    return $comuni;
 });
 
 // rotta per cambio lingua

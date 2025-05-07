@@ -3,10 +3,11 @@ import 'bootstrap';
 
 const NAVBAR = document.querySelector(".navbar");
 
-const url = '/comuni-json';
+const url ='/comuni-json';
 
 let fecth = await fetch(url)
 let comuniJson = await fecth.json();
+// console.log(comuniJson);
 
 
 let comuni = [];
@@ -14,13 +15,15 @@ comuniJson.forEach(element => {
     comuni.push(element.denominazione_ita + ", " + element.sigla_provincia);
 });
 let idCity = document.getElementById("idCity");
-
-    if (idCity.value!='') {
+setTimeout(() => {
+    if (idCity.value!=='') {
         document.getElementById("myInput").value = comuni[idCity.value];
         console.log(comuni[idCity.value]);
         console.log(idCity.value);
         
     }
+}, 100);
+    
 
 
 function autocomplete(inp, arr) {

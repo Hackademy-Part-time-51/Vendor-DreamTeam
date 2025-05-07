@@ -116,25 +116,25 @@
         {{-- sezione articoli --}}
         <section class="col-12 col-lg-9 d-flex flex-wrap justify-content-around gx-1 gy-1 pb-3">
             @if (count($products) == 0)
-            <div class="d-flex justify-content-center align-items-center vh-100">
-                <div class="card border-0 shadow-lg text-center p-5">
-                    <i class="bi bi-search text-danger" style="font-size: 4rem;"></i>
-                    <h2 class="mt-3">{{__('ui.noArticleFound')}}</h2>
+                <div
+                    class="alert alert-warning text-center w-100 d-flex justify-content-center align-items-center fs-3">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <strong>{{__('ui.noArticleFound')}}</strong>
                 </div>
-            </div>
-        @endif
-        
-        
+            @endif
             
-            @for ($i = 0; $i <= $scroll; $i++)
-                <div class="col-12 col-md-6 col-lg-4 p-2 scalebig" wire:key="{{ $products[$i]->id }}">
-                    <x-card :product="$products[$i]"></x-card>
+            @foreach ($products as $product )
+                
+            
+                <div class="col-12 col-md-6 col-lg-4 p-2 scalebig" wire:key="{{ $product->id }}">
+                    <x-card :product="$product"></x-card>
 
                 </div>
-            @endfor
+                
+                @endforeach
 
-            @if ($scroll < count($products) - 1)
-                <button wire:click="scrollFunction" class="btn btn-base w-75 mt-3">{{__('ui.seeOthers')}}...</button>
+            @if ($scroll < $count - 1)
+                <button wire:click="scrollFunction" class="btn btn-base w-50 mt-3">{{__('ui.seeOthers')}}...</button>
             @endif
             <div class="position-fixed torna-su">
                 <a href="#" aria-label="Torna su" data-bs-toggle="backtotop" class="back-to-top" id="example">
