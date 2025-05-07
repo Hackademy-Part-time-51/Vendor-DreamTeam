@@ -135,14 +135,17 @@
                 </div>
             @endif
             
-            @for ($i = 0; $i <= $scroll; $i++)
-                <div class="col-12 col-md-6 col-lg-4 p-2 scalebig" wire:key="{{ $products[$i]->id }}">
-                    <x-card :product="$products[$i]"></x-card>
+            @foreach ($products as $product )
+                
+            
+                <div class="col-12 col-md-6 col-lg-4 p-2 scalebig" wire:key="{{ $product->id }}">
+                    <x-card :product="$product"></x-card>
 
                 </div>
-            @endfor
+                
+                @endforeach
 
-            @if ($scroll < count($products) - 1)
+            @if ($scroll < $count - 1)
                 <button wire:click="scrollFunction" class="btn btn-base w-50 mt-3">{{__('ui.seeOthers')}}...</button>
             @endif
             <div class="position-fixed torna-su">
