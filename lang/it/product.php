@@ -20,6 +20,7 @@ return[
     'editProduct'=>'Modifica Prodotto',
     'underModification'=>'In Modifica',
     'saveModification'=>'Salva Modifiche',
+    'edit'=>'Modifica',
 
     'salesperson'=>'Venditore',
     'returnArticle'=>'Torna alla gestione articoli',
@@ -32,6 +33,8 @@ return[
     'latestProduct'=>'I nostri ultimi 6 prodotti',
     'noProductDisplay'=>'Nessun prodotto da mostrare al momento.',
     'viewAllProducts'=>'Visualizza tutti i prodotti',
+
+    'search'=>'Ricerca'
 
 
 ];

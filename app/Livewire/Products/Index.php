@@ -16,18 +16,18 @@ class Index extends Component
 {
     public $products;
     public $categories;
-    public $favorites = '';
+    protected $favorites = '';
     public $orderbydate = '';
     public $orderbyaz = '';
     public $search = '';
     public $category;
-    public $scroll = 18;
+    protected $scroll = 18;
     public $minPrice;
     public $maxPrice;
     public $myCity;
     public $myRadius=0;
-    public $json;
-    public $comuni;
+    protected $json;
+    protected $comuni;
 
     public function mount()
     {
