@@ -7,5 +7,8 @@ return[
     'refused'=>'Refused',
     'awaitingReview'=>'Awaiting review',
     'accept'=>'Accept',
-    'refuse'=>'Refuse'
+    'refuse'=>'Refuse',
+    'notAccepted'=>'Not Accepted',
+    'inProgress'=>'In progress',
+    'delete'=>'Delete',
 ];

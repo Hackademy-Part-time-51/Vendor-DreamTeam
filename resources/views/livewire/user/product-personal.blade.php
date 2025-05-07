@@ -1,17 +1,17 @@
 <div class="card mb-4">
     <div class="card-header bg-white">
       @if ($showAll)
-      <h5 class="card-title mb-0 text-center">Tutti i post</h5>
+      <h5 class="card-title mb-0 text-center">{{__('user.allPost')}}</h5>
       @else
-      <h5 class="card-title mb-0 text-center">Ultimi 3 post</h5>
+      <h5 class="card-title mb-0 text-center">{{__('user.lastPost')}}</h5>
       @endif
     </div>
     <div class="col-12">
         <div class="row g-3">
             @if ($products->isEmpty())
             <div class="col-12 ">
-                <p class="alert alert-info w-100 text-center my-3">Nessun prodotto da mostrare al momento. <br> 
-                Clicca <a href="{{ route('products.create') }}" class="text-decoration-none">qui</a> per aggiungere un nuovo prodotto.
+                <p class="alert alert-info w-100 text-center my-3">{{__('user.noProduct')}} <br> 
+                {{__('user.click')}} <a href="{{ route('products.create') }}" class="text-decoration-none">{{__('user.here')}}</a> {{__('user.addProduct')}}
                 </p>
             </div>
             @else
@@ -30,17 +30,17 @@
                     @if ($product->is_accepted === 1)
                     <li class="list-group-item text-center">
                         <span class="badge rounded-pill text-bg-success"> <i
-                                class="bi bi-check-circle-fill me-2"></i>Accettato</span>
+                                class="bi bi-check-circle-fill me-2"></i>{{__('revisor.accepted')}}</span>
                     </li>
                     @elseif($product->is_accepted === 0)
                     <li class="list-group-item text-center">
                         <span class="badge rounded-pill text-bg-danger"> <i
-                                class="bi bi-x-circle-fill me-2"></i>Non accettato</span>
+                                class="bi bi-x-circle-fill me-2"></i>{{__('revisor.notAccepted')}}</span>
                     </li>
                     @elseif ($product->is_accepted === null)
                     <li class="list-group-item text-center">
                         <span class="badge rounded-pill text-bg-warning"> <i
-                                class="bi bi-x-circle-fill me-2"></i>In corso</span>
+                                class="bi bi-x-circle-fill me-2"></i>{{__('revisor.inProgress')}}</span>
                     </li>
                     @endif
                         <div class="card-body d-flex justify-content-center gap-1 align-items-center">
@@ -56,19 +56,19 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-4 text-center" id="modalDeleteProductLabel">
-                                                Vuoi eliminare l'articolo?
+                                                {{__('user.deleteArticle')}}
                                             </h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-footer justify-content-start">
                                             <button type="button" class="btn btn-base" data-bs-dismiss="modal">
-                                                Torna indietro
+                                                {{__('user.goBack')}}
                                             </button>
                                             <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-rosso">Elimina</button>
+                                                <button type="submit" class="btn btn-rosso">{{__('revisor.delete')}}</button>
                                             </form>
                                         </div>
                                     </div>
@@ -91,10 +91,10 @@
     
                     @if (Auth::id() == $product->user_id || Auth::user()->is_revisor == 1)
                         <div class="card-body d-flex justify-content-center gap-1 align-items-center">
-                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base">Modifica</a>
+                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base">{{__('edit')}}</a>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modalDeleteProduct"
                                 class="btn btn-rosso">
-                                Elimina
+                                {{__('revisor.delete')}}
                             </button>
     
                             <div class="modal fade" id="modalDeleteProduct" data-bs-backdrop="static"
@@ -104,19 +104,19 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-4 text-center" id="modalDeleteProductLabel">
-                                                Vuoi eliminare l'articolo?
+                                                {{__('user.deleteArticle')}}
                                             </h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-footer justify-content-start">
                                             <button type="button" class="btn btn-base" data-bs-dismiss="modal">
-                                                Torna indietro
+                                                {{__('user.goBack')}}
                                             </button>
                                             <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-rosso">Elimina</button>
+                                                <button type="submit" class="btn btn-rosso">{{__('revisor.delete')}}</button>
                                             </form>
                                         </div>
                                     </div>
@@ -134,9 +134,9 @@
             @endif
             <div class="d-flex justify-content-center pb-3">
                 @if ($showAll)
-                <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">Mostra gli ultimi tre</button> 
+                <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">{{__('user.lastThree')}}</button> 
                 @else
-                <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">Mostra tutti</button>
+                <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">{{__('user.showAll')}}</button>
                 @endif
             </div>
             @endif

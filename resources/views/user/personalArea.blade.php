@@ -40,47 +40,7 @@
             <div class="col-12 col-lg-7 ">
               <div class="card shadow-sm ">
                   <div class="card-body p-3">
-                      <div class="row g-3 mb-4">
-                          <div class="col-md-4">
-                              <div class="card bg-primary bg-gradient text-white">
-                                  <div class="card-body">
-                                      <div class="d-flex justify-content-between align-items-center">
-                                          <div>
-                                              <h6 class="card-subtitle mb-1">Articoli</h6>
-                                              <h3 class="card-title mb-0"></h3>
-                                          </div>
-                                          <i class="bi bi-file-text fs-1"></i>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
-                              <div class="card bg-success bg-gradient text-white">
-                                  <div class="card-body">
-                                      <div class="d-flex justify-content-between align-items-center">
-                                          <div>
-                                              <h6 class="card-subtitle mb-1">Commenti</h6>
-                                              <h3 class="card-title mb-0"></h3>
-                                          </div>
-                                          <i class="bi bi-chat-dots fs-1"></i>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
-                              <div class="card bg-info bg-gradient text-white">
-                                  <div class="card-body">
-                                      <div class="d-flex justify-content-between align-items-center">
-                                          <div>
-                                              <h6 class="card-subtitle mb-1">Likes</h6>
-                                              <h3 class="card-title mb-0"></h3>
-                                          </div>
-                                          <i class="bi bi-heart fs-1"></i>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+
                     @livewire('user.product-personal', ['user' => $user->id])
                   </div>
               </div>
@@ -135,7 +95,6 @@
         {{-- articoli preferiti --}}
         @livewire('user.favoritesProducts')
         {{-- ricerche salvate --}}
-        Ricerche Salvate
         @livewire('user.savedSearches')
        
 

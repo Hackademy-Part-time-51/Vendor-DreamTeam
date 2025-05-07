@@ -2,10 +2,6 @@
   @php
     use App\Models\Category;
   @endphp
-  {{-- bandierine --}}
-  <x-_locale lang="it"/>
-  <x-_locale lang="en"/>
-  <x-_locale lang="fr"/>
 
 
   <div class="secondary-navbar-sticky d-none d-lg-block z-3">
@@ -57,7 +53,7 @@
                     @auth
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i>{{__('navbar.profile')}}</a>
+                        <a class="dropdown-item text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
                       </li>
                       <li>
                         <a class="dropdown-item text-blu" href="#"><i class="bi bi-cart"></i> {{__('navbar.orders')}}</a>

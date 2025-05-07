@@ -1,5 +1,4 @@
 <x-layout>
-    <x-collegamento-profilo/>
     @if (session('status'))
     <div class="alert alert-success text-center">
         {{ session('status') }}
