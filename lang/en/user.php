@@ -19,6 +19,30 @@ return[
     'savedSearches'=>'Saved Searches',
     'noSaved'=>'You have no saved searches yet',
     'searchEasly'=>'Start a search and save it to find it easily in the future',
-    'startSearch'=>'Start a search'
+    'startSearch'=>'Start a search',
+    'articles'=>'Articles',
+    'articleManagement'=>'Article Management',
+
+    'whyworkWithUs'=>'Why work with us?',
+    'remoteWorking'=>'Work flexibility and remote working options',
+    'professionalGrowth'=>'Professional Growth',
+    'continuousTraining'=>'Continuous training and career opportunities',
+    'dynamicTeam'=>'Dynamic Team',
+    'youngStimulating '=>'Young and stimulating environment',
+    'workWithUs'=>'Work with us',
+    'joinOurTeam'=>'Join our team and help us contribute to our project.',
+    'candidates'=>'Candidates',
+
+    'user'=>'User',
+    'quickActions'=>'Quick Actions',
+    'editProfile'=>'Edit Profile',
+    'articleList'=>'Article list',
+    'info'=>'Information',
+    'updateInfo'=>'Update Info'
+    
+
+
+
+
     
 ];

@@ -34,7 +34,8 @@ return[
     'noProductDisplay'=>'Nessun prodotto da mostrare al momento.',
     'viewAllProducts'=>'Visualizza tutti i prodotti',
 
-    'search'=>'Ricerca'
+    'search'=>'Ricerca',
+    'newArticle'=>'Nuovo Articolo'
 
 
 ];

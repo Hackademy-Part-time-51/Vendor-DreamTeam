@@ -25,9 +25,9 @@
                           <hr>
                           <p class="text-capitalize">
                             @if ($user->is_revisor == 1)
-                              <span class="badge bg-success">Revisore</span>
+                              <span class="badge bg-success">{{__('auth.reviewer')}}</span>
                             @else
-                              <span class="badge bg-danger">Utente n°{{$user->id}}</span>
+                              <span class="badge bg-danger">{{__('user.user')}} n°{{$user->id}}</span>
                             @endif
                           </p>
                           <p class="">{{$user->email}}</p>
@@ -51,7 +51,7 @@
         @if (Auth::id() == $user->id )
         <div class="card">
             <div class="card-header bg-white">
-                <h5 class="card-title mb-0 text-center">Azioni Rapide</h5>
+                <h5 class="card-title mb-0 text-center">{{__('user.quickActions')}}</h5>
             </div>
             <div class="card-body">
                 <div class="row g-3">
@@ -59,7 +59,7 @@
                         <div class="d-grid">
                             <button class="btn btn-base">
                                 <a href="{{route('products.create')}}" class="text-blu text-decoration-none">
-                                  <i class="bi bi-plus-circle me-2"></i>Nuovo Articolo
+                                  <i class="bi bi-plus-circle me-2"></i>{{__('product.newArticle')}}
                                 </a>
                             </button>
                         </div>
@@ -67,14 +67,14 @@
                     <div class="col-md-6">
                         <div class="d-grid"> 
                             <button class="btn btn-baseblu" data-bs-toggle="modal" data-bs-target="#editProfile">
-                                <i class="bi bi-pencil-square me-2"></i>Modifica Profilo
+                                <i class="bi bi-pencil-square me-2"></i>{{__('user.editProfile')}}
                             </button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="d-grid">
                               <a href="{{route('lavoraConNoi')}}" class=" btn btn-baseblu text-decoration-none">
-                                <i class="bi bi-briefcase me-2"></i>Lavora con noi
+                                <i class="bi bi-briefcase me-2"></i>{{__('user.workWithUs')}}
                               </a>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                         <div class="d-grid">
                             <button class="btn btn-base ">
                                 <a href="{{route('products.index')}}" class="text-blu text-decoration-none">
-                                  <i class="bi bi-list-ul me-2"></i>Lista articoli
+                                  <i class="bi bi-list-ul me-2"></i>{{__('user.articleList')}}
                                 </a>
                             </button>
                         </div>
@@ -105,7 +105,7 @@
                 <div class="modal-content">
                     <div class="modal-header border-bottom">
                         <h1 class="modal-title fs-2" id="editProfileLabel">
-                            Modifica Profilo
+                            {{__('user.editProfile')}}
                         </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>    
@@ -117,7 +117,7 @@
                                         data-bs-target="#info-tab" 
                                         type="button" 
                                         role="tab">
-                                    <i class="bi bi-person me-2"></i>Informazioni
+                                    <i class="bi bi-person me-2"></i>{{__('user.info')}}
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
@@ -136,7 +136,7 @@
                                     @csrf
                                     @method('PUT')
                                     <div class="mb-4">
-                                        <label class="form-label fs-3" for="name">Nome</label>
+                                        <label class="form-label fs-3" for="name">{{__('auth.name')}}</label>
                                         <input type="text" 
                                                 name="name" 
                                                 class="form-control form-control-lg" 
@@ -157,7 +157,7 @@
                                     </div>     
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-base fs-3 py-2">
-                                            <i class="bi bi-check-lg me-2"></i>Aggiorna Informazioni
+                                            <i class="bi bi-check-lg me-2"></i>{{__('user.updateInfo')}}
                                         </button>
                                     </div>
                                 </form>
@@ -167,12 +167,12 @@
                                     @csrf
                                     @method('PUT')     
                                     <div class="mb-4">
-                                        <label class="form-label fs-3" for="current_password">Password attuale</label>
+                                        <label class="form-label fs-3" for="current_password">{{__('auth.currentPassword')}}</label>
                                         <div class="input-group input-group-lg">
                                             <input type="password" 
                                                     name="current_password" 
                                                     class="form-control" 
-                                                    placeholder="Inserisci la password attuale">
+                                                    placeholder="{{__('auth.enterCurrentPassword')}}">
                                             <button class="btn btn-outline-secondary" type="button" onclick="togglePassword(this)">
                                                 <i class="bi bi-eye"></i>
                                             </button>
@@ -182,12 +182,12 @@
                                         @enderror
                                     </div>     
                                     <div class="mb-4">
-                                        <label class="form-label fs-3" for="password">Nuova password</label>
+                                        <label class="form-label fs-3" for="password">{{__('auth.newPassword')}}</label>
                                         <div class="input-group input-group-lg">
                                             <input type="password" 
                                                     name="password" 
                                                     class="form-control" 
-                                                    placeholder="Inserisci la nuova password">
+                                                    placeholder="{{__('auth.enterNewPassword')}}">
                                             <button class="btn btn-outline-secondary" type="button" onclick="togglePassword(this)">
                                                 <i class="bi bi-eye"></i>
                                             </button>
@@ -197,12 +197,12 @@
                                         @enderror
                                     </div>
                                     <div class="mb-4">
-                                        <label class="form-label fs-3" for="password_confirmation">Conferma password</label>
+                                        <label class="form-label fs-3" for="password_confirmation">{{__('auth.confirmPassword')}}</label>
                                         <div class="input-group input-group-lg">
                                             <input type="password" 
                                                     name="password_confirmation" 
                                                     class="form-control" 
-                                                    placeholder="Conferma la nuova password">
+                                                    placeholder="{{__('auth.confirmNewPassword')}}">
                                             <button class="btn btn-outline-secondary" type="button" onclick="togglePassword(this)">
                                                 <i class="bi bi-eye"></i>
                                             </button>
@@ -210,7 +210,7 @@
                                     </div>
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-base fs-3 py-2">
-                                            <i class="bi bi-check-lg me-2"></i>Aggiorna Password
+                                            <i class="bi bi-check-lg me-2"></i>{{__('auth.updatePassword')}}
                                         </button>
                                     </div>
                                 </form>

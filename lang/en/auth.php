@@ -43,6 +43,24 @@ return [
     'sendLink'=>'Send new link',
     'problemsVerification'=>'Problems with verification?',
     'contactSupport'=>'Contact support',
+    
+    'surname'=>'Surname (optional)',
+    'reviewer'=>'Reviewer',
+    'positionInterest'=>'Position of interest',
+    'tellUs'=>'Tell us about yourself',
+    'sendApplication'=>'Send Application',
+    'openPositions'=>'Open Positions',
+    'editAndDelete'=>'Edit and delete articles',
+    'reviewingPosts'=>'Reviewing posts and accepting posts on the site',
+
+    'currentPassword'=>'Current password',
+    'enterCurrentPassword'=>'Enter your current password',
+    'newPassword'=>'New password',
+    'enterNewPassword'=>'Enter your new password',
+    'confirmPassword'=>'Confirm password',
+    'confirmNewPassword'=>'Confirm the new password',
+    'updatePassword'=>'Update Password'
+
 
 
 
