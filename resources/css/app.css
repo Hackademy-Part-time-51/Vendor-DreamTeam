@@ -237,6 +237,12 @@ nav {
     transition: all 0.2s linear;
     transform: scale(1.02);
 }
+.torna-su button:active {
+    background-color: #003255;
+    color: white;
+    transition: all 0.2s linear;
+    transform: scale(1.02);
+}
 
 /* #endregion */
 
