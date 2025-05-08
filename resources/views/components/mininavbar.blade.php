@@ -53,10 +53,10 @@
                     @auth
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item text-white" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
+                        <a class="dropdown-item text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
                       </li>
                       <li>
-                        <a class="dropdown-item text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> {{__('navbar.logout')}}</a>
+                        <a class="dropdown-item text-blu" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> {{__('navbar.logout')}}</a>
                       </li>
                     </ul>
                     @endauth

@@ -21,7 +21,7 @@
                             @endif
                         </div>
                         <div class="card-body d-flex flex-column justify-content-center text-center text-blu">
-                          <h2 class="card-title text-capitalize fw-bold">{{$user->name}}</h2>
+                          <h2 class="card-title text-capitalize fw-bold">{{$user->name}}</h2>                          
                           <hr>
                           <p class="text-capitalize">
                             @if ($user->is_revisor == 1)
@@ -32,6 +32,15 @@
                           </p>
                           <p class="">{{$user->email}}</p>
                           <p class="">{{$user->phone}}</p>
+                          @if (Auth::id() == $user->id)
+                          <h6 class="card-title mb-0">
+                            <i class="bi bi-chat"></i> Messaggi <a href="{{route('messaggi', $user->id)}}" class="badge text-decoration-none bg-danger rounded-pill px-3 py-2">
+                                {{ Auth::user()->messages->count() }}
+                            </a>
+                            </h6>
+                          @else
+                          {{-- <i class="bi bi-chat"></i> Invia un messaggio //todo// --}}
+                          @endif
                         </div>
                       </div>
               </section>
@@ -96,7 +105,7 @@
         @livewire('user.favoritesProducts')
         {{-- ricerche salvate --}}
         @livewire('user.savedSearches')
-       
+
 
 
             {{-- modal modifica info --}}
