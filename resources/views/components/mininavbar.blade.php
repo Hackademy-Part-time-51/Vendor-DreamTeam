@@ -4,19 +4,19 @@
   @endphp
 
 
-  <div class="secondary-navbar-sticky d-none d-lg-block z-3">
+  <div class="secondary-navbar-sticky d-none bg-blu text-white d-lg-block z-3">
     <nav class="navbar navbar-expand-lg  p-2">
         <div class="container-fluid ">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-evenly w-100 align-items-center">
                 {{-- prodotti --}}
                 <li class="nav-item">
-                    <a class="nav-link text-blu scalebig  fs-mininav" href="{{route('products.index')}}">
+                    <a class="nav-link text-white scalebig  fs-mininav" href="{{route('products.index')}}">
                       <i class="bi bi-box-seam me-2"></i>{{__('navbar.product')}}
                     </a>
                 </li>
                 {{-- categorie --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-white scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="bi bi-tags-fill me-2"></i>{{__('navbar.categories')}}
                     </a>
                     <ul class="dropdown-menu">
@@ -33,19 +33,19 @@
                 </li>
                 {{-- area personale --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-white scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="bi bi-person-circle me-2"></i> {{__('navbar.personalArea')}}
                     </a>
                     
                     @guest
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item text-blu" href="{{route('login')}}">
+                        <a class="dropdown-item " href="{{route('login')}}">
                           <i class="bi bi-box-arrow-in-right"></i> Login
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item text-blu" href="{{route('register')}}"><i class="bi bi-person-plus"></i> {{__('auth.register')}}
+                        <a class="dropdown-item " href="{{route('register')}}"><i class="bi bi-person-plus"></i> {{__('auth.register')}}
                         </a>
                       </li>
                     </ul>
@@ -53,16 +53,10 @@
                     @auth
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
+                        <a class="dropdown-item text-white" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
                       </li>
                       <li>
-                        <a class="dropdown-item text-blu" href="#"><i class="bi bi-cart"></i> {{__('navbar.orders')}}</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item text-blu" href="#"><i class="bi bi-heart"></i> {{__('navbar.favorites')}}</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item text-blu" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i>{{__('navbar.logout')}}</a>
+                        <a class="dropdown-item text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> {{__('navbar.logout')}}</a>
                       </li>
                     </ul>
                     @endauth
@@ -70,35 +64,35 @@
                 </li>
                 {{-- assistenza --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-white scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-question-circle-fill me-2"></i> {{__('navbar.assistance')}}
                     </a>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item text-blu" href="{{route('faq')}}">FAQ</a></li>
-                    <li><a class="dropdown-item text-blu" href="{{route('privacy')}}">Privacy</a></li>
-                    <li><a class="dropdown-item text-blu" href="{{route('terms')}}">Termini e condizioni</a></li>
+                    <li><a class="dropdown-item " href="{{route('faq')}}">FAQ</a></li>
+                    <li><a class="dropdown-item " href="{{route('privacy')}}">Privacy</a></li>
+                    <li><a class="dropdown-item " href="{{route('terms')}}">Termini e condizioni</a></li>
                     </ul>
                 </li>
                 {{-- contatti --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-blu scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-white scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-envelope-fill me-2"></i> {{__('navbar.contacts')}}
                     </a>
                     <ul class="dropdown-menu">
                     <li>
-                      <a class="dropdown-item text-blu" href="{{route('lavoraConNoi')}}">
+                      <a class="dropdown-item " href="{{route('lavoraConNoi')}}">
                         {{__('navbar.workWithUs')}}
                       </a>
                     </li>
-                    <li><a class="dropdown-item text-blu" href="#">Chat</a></li>
+                    <li><a class="dropdown-item " href="#">Chat</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-blu" href="#">{{__('navbar.whereWeAre')}}</a></li>
+                    <li><a class="dropdown-item " href="#">{{__('navbar.whereWeAre')}}</a></li>
                     </ul>
                 </li>
                 {{-- aggiungi articolo --}}
                 <li class="nav-item">
-                    <a class="nav-link text-blu scalebig " href="{{route('products.create')}}" >
-                        <button class="btn btn-add text-blu fs-mininav">
+                    <a class="nav-link text-white scalebig " href="{{route('products.create')}}" >
+                        <button class="btn btn-add text-white fs-mininav">
                             <span>{{__('navbar.addArticle')}} <i class="bi bi-plus-lg"></i></span>
                         </button>
                     </a>

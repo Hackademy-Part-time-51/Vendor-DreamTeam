@@ -78,7 +78,7 @@
                 <div class="col-12 text-center">
                     <h3 class="text-blu noto-sans">Non hai trovato la risposta?</h3>
                     <p class="fs-5 text-muted montserrat mb-4">Il nostro team di supporto è pronto ad aiutarti.</p>
-                    <a href="#" class="btn btn-baseblu btn-lg py-3 px-5 scalebig">
+                    <a href="#" class="btn btn-base btn-lg py-3 px-5 scalebig">
                         <i class="bi bi-headset me-2"></i>Contatta il Supporto
                     </a>
                 </div>

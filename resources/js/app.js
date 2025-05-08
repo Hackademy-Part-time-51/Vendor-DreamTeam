@@ -5,8 +5,8 @@ const NAVBAR = document.querySelector(".navbar");
 
 const url ='/comuni-json';
 
-let fecth = await fetch(url)
-let comuniJson = await fecth.json();
+// let fecth = await fetch(url)
+// let comuniJson = await fecth.json();
 // console.log(comuniJson);
 
 
