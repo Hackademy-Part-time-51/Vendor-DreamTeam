@@ -18,6 +18,9 @@ Route::controller(PageController::class)->group(function () {
     Route::post('/products','store')->name('products.store')->middleware('verified');
     Route::put('/products/{product}','update')->name('products.update')->middleware('verified');
     Route::delete('/products/{product}','destroy')->name('products.destroy')->middleware('verified');
+    Route::get('/FAQ','faq')->name('faq');
+    Route::get('/privacy','privacy')->name('privacy');
+    Route::get('/terms','terms')->name('terms');
 });
 
 Route::controller(UserController::class)->group(function () {
