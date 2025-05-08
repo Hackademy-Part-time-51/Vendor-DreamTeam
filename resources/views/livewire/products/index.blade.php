@@ -31,7 +31,7 @@
                         <div class="mb-4">
                             <label class="form-label small text-muted fw-semibold">{{ __('ui.searchLocation') }}</label>
                             <input type="text" id="myInput" class="form-control mb-2" placeholder="{{ __('ui.city') }}">
-        
+                            <input type="hidden" wire:model.live="myCity" id="idCity">
                             @if ($myCity)
                             <label class="form-label fw-semibold" id="labelRaggio">
                                 <span wire:loading.remove wire:target="myRadius">

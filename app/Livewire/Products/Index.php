@@ -174,14 +174,6 @@ class Index extends Component
 
                 if ($distance >= $this->myRadius) return false;
             }
-            //(6371 * acos(
-                //                     cos(radians(?)) *
-                //                     cos(radians(latitudine)) *
-                //                     cos(radians(longitudine) - radians(?)) +
-                //                     sin(radians(?)) *
-                //                     sin(radians(latitudine))
-                //                 )) < ?
-                //             ", [$lat, $lon, $lat, $radius]);
             return true;
         });
 
@@ -199,43 +191,6 @@ class Index extends Component
 
         // Riassegna a proprietà
             $this->products = $products->values();
-
-        //         ->where('is_accepted', 1)
-        //         ->when(!empty($this->category), function ($product) {
-        //             $product->where('category_id', $this->category);
-        //         })
-        //         ->when(!empty($this->minPrice), function ($product) {
-        //             $product->where('price', '>', $this->minPrice);
-        //         })
-        //         ->when(!empty($this->maxPrice), function ($product) {
-        //             $product->where('price', '<=', $this->maxPrice);
-        //         })
-        //         ->when(!empty($this->myCity) && !empty($this->myRadius), function ($product) {
-        //             $lat = $this->comuni[$this->myCity]->lat;
-        //             $lon = $this->comuni[$this->myCity]->lon;
-        //             $radius = $this->myRadius;
-
-        //             $product->whereRaw("
-        //                 (6371 * acos(
-        //                     cos(radians(?)) *
-        //                     cos(radians(latitudine)) *
-        //                     cos(radians(longitudine) - radians(?)) +
-        //                     sin(radians(?)) *
-        //                     sin(radians(latitudine))
-        //                 )) < ?
-        //             ", [$lat, $lon, $lat, $radius]);
-        //         });
-
-        //     if ($this->orderbydate !== '') {
-        //         $query->orderBy('created_at', $this->orderbydate ? 'asc' : 'desc');
-        //     }
-
-        //     if ($this->orderbyaz !== '') {
-        //         $query->orderBy('title', $this->orderbyaz ? 'asc' : 'desc');
-        //     }
-
-        //     $this->products = $query->get();
-        // }
 
         $this->count = count($products);
         $products = $products->take($this->scroll );
