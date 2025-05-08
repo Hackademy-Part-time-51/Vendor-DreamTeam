@@ -23,7 +23,7 @@
                                 <option value="">{{ __('ui.allCategory') }}</option>
                                 @foreach ($categories as $cat)
                                 <option value="{{ $cat->id }}" @selected($cat->id == $category)>
-                                    {{ $cat->name }}
+                                    {{__("category.$cat->name")  }}
                                 </option>
                                 @endforeach
                             </select>
