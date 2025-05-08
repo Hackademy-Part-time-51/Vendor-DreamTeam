@@ -41,10 +41,7 @@ Route::controller(RevisorController::class)->group(function(){
 
 Route::get('/comuni-json', function () {
     $json = Storage::disk('public')->get('comuni.json');
-
     $comuni=json_decode($json);
-
-  
     return $comuni;
 });
 

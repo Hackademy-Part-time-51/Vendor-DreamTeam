@@ -12,7 +12,7 @@
         </div>
         <div class="row g-2">
             <div class="col-12 col-lg-7">
-                <div class="card border-0 shadow-sm">
+                <div class="border-0 shadow-sm">
                     <div class="card-header bg-transparent border-0 d-none d-lg-block">
                         <div class="text-center">
                             <h1 class="display-6 text-blu text-capitalize mb-3">{{ $product->title }}</h1>
@@ -31,7 +31,7 @@
 
                         </div>
                     </div>
-                    <div class="card-body p-0">
+                    <div class="card-body p-2">
                         <div id="productImageCarousel" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 @for ($i = 0; $i < 3; $i++)
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-5">
-                <div class="card border-0 shadow-sm h-100">
+                <div class="d-flex border-0 shadow-sm h-100">
                     <div class="card-body d-flex flex-column justify-content-center p-4">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             @if (!is_null($product->price))

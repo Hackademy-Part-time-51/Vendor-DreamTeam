@@ -123,7 +123,7 @@
                         <div class="accordion" id="openPositions">
                             <div class="accordion-item bg-blu text-white border-secondary">
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button bg-blu text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#position1">
+                                    <button class="accordion-button bg-blu text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#position1" aria-expanded="false">
                                         {{__('auth.reviewer')}}
                                     </button>
                                 </h3>

@@ -22,7 +22,7 @@
         </div>
         <div class="card-body p-3 d-flex flex-column">
             <h5 class="card-title fw-bold mb-2 text-truncate">{{ Str::limit($product->title, 20) }}</h5>
-            <p class="card-text text-muted small mb-3">{{ Str::limit($product->description, 25) }}</p>
+            {{-- <p class="card-text text-muted small mb-3">{{ Str::limit($product->description, 20) }}</p> --}}
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="fw-bold fs-5 text-blu">€ {{ number_format($product->price, 2, ',', '.') }}</span>
                 <span class="text-muted small"><i class="bi bi-geo-alt me-1"></i>{{Str::limit($product->city, 8)}}</span>

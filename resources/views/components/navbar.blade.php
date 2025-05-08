@@ -36,9 +36,7 @@
       <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     
-    <!-- Corpo offcanvas -->
     <div class="offcanvas-body d-flex flex-column justify-content-between p-0">
-      <!-- Menu principale -->
       <div class="list-group list-group-flush flex-grow-1">
         <button type="button" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-2 border-0" 
                 data-bs-toggle="modal" data-bs-target="#productsModal">
