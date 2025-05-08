@@ -74,10 +74,9 @@
                     <i class="bi bi-question-circle-fill me-2"></i> {{__('navbar.assistance')}}
                     </a>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item text-blu" href="#">FAQ</a></li>
-                    <li><a class="dropdown-item text-blu" href="#">{{__('navbar.support')}}</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-blu" href="#">{{__('navbar.technicalAssistance')}}</a></li>
+                    <li><a class="dropdown-item text-blu" href="{{route('faq')}}">FAQ</a></li>
+                    <li><a class="dropdown-item text-blu" href="{{route('privacy')}}">Privacy</a></li>
+                    <li><a class="dropdown-item text-blu" href="{{route('terms')}}">Termini e condizioni</a></li>
                     </ul>
                 </li>
                 {{-- contatti --}}

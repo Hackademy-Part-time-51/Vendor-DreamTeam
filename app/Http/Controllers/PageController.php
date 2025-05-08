@@ -98,6 +98,15 @@ class PageController extends Controller
         
     }
 
+    public function faq() {
+        return view('faq');
+    }
+    public function privacy() {
+        return view('privacy');
+    }
+    public function terms() {
+        return view('terms');
+    }
 
     // lingua sito
 
