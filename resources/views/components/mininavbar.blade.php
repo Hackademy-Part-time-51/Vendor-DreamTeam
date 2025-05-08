@@ -76,7 +76,7 @@
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item text-blu" href="{{route('faq')}}">FAQ</a></li>
                     <li><a class="dropdown-item text-blu" href="{{route('privacy')}}">Privacy</a></li>
-                    <li><a class="dropdown-item text-blu" href="{{route('terms')}}">Termini e condizioni</a></li>
+                    <li><a class="dropdown-item text-blu" href="{{route('terms')}}">{{__('navbar.termsAndConditions')}}</a></li>
                     </ul>
                 </li>
                 {{-- contatti --}}

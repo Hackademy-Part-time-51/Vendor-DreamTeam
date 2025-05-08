@@ -137,7 +137,7 @@
               <i class="bi bi-life-preserver fs-2 me-3"></i>Privacy
             </a>
             <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
-              <i class="bi bi-wrench-adjustable-circle-fill fs-2 me-3"></i>Termini e condizioni
+              <i class="bi bi-wrench-adjustable-circle-fill fs-2 me-3"></i>{{__('navbar.termsAndConditions')}}
             </a>
           </div>
         </div>
