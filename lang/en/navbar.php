@@ -39,7 +39,8 @@ return[
     'goOut'=> 'Do you want to go out?',
     'wantLogout'=>'Are you sure you want to log out?',
     'cancel'=>'Cancel',
-    'confirmLogout'=>'Confirm Logout'
+    'confirmLogout'=>'Confirm Logout',
+    'termsAndConditions'=>'Terms and conditions'
 
 
 

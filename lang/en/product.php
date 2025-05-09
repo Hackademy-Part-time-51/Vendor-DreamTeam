@@ -34,7 +34,9 @@ return[
     'noProductDisplay'=>'No products to display at the moment.',
     'viewAllProducts'=>'View all products',
     
-    'search'=>'Search'
+    'search'=>'Search',
+    'newArticle'=>'New Article'
+    
 
 
 ];

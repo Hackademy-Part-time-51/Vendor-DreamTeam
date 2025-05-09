@@ -1,4 +1,3 @@
-
 <div class="col-12">
     <div class="card h-100 border-0 shadow-sm">
         <div class="position-relative">
@@ -17,13 +16,13 @@
             </div>
             <div class="position-absolute top-0 start-0 m-2 z-1">
                 <span class="badge rounded-pill bg-warning text-dark px-3 py-2">
-                    <i class="bi bi-tags-fill me-1"></i>{{ $product->category->name }}
+                    <i class="bi bi-tags-fill me-1"></i>{{__("category.". $product->category->name)}}
                 </span>
             </div>
         </div>
         <div class="card-body p-3 d-flex flex-column">
             <h5 class="card-title fw-bold mb-2 text-truncate">{{ Str::limit($product->title, 20) }}</h5>
-            <p class="card-text text-muted small mb-3">{{ Str::limit($product->description, 36) }}</p>
+            {{-- <p class="card-text text-muted small mb-3">{{ Str::limit($product->description, 20) }}</p> --}}
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="fw-bold fs-5 text-blu">€ {{ number_format($product->price, 2, ',', '.') }}</span>
                 <span class="text-muted small"><i class="bi bi-geo-alt me-1"></i>{{Str::limit($product->city, 8)}}</span>

@@ -25,5 +25,24 @@ return[
     'sendLink'=>'Invia nuovo link',
     'problemsVerification'=>'Problemi con la verifica?',
     'contactSupport'=>'Contatta il supporto',
+
+    'surname'=>'Cognome (facoltativo)',
+    'reviewer'=>'Revisore',
+    'positionInterest'=>'Posizione di interesse',
+    'tellUs'=>'Raccontaci di te',
+    'sendApplication'=>'Invia Candidatura',
+    'openPositions'=>'Posizioni Aperte',
+    'editAndDelete'=>'Modificare ed eliminare gli articoli',
+    'reviewingPosts'=>'Revisione di post e accettazioni di post nel sito',
+
+    'currentPassword'=>'Password attuale',
+    'enterCurrentPassword'=>'Inserisci la password attuale',
+    'newPassword'=>'Nuova password',
+    'enterNewPassword'=>'Inserisci la nuova password',
+    'confirmPassword'=>'Conferma password',
+    'confirmNewPassword'=>'Conferma la nuova password',
+    'updatePassword'=>'Aggiorna Password',
+
+
     
 ];

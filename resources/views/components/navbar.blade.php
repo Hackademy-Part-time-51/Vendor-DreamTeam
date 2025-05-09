@@ -36,9 +36,7 @@
       <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     
-    <!-- Corpo offcanvas -->
     <div class="offcanvas-body d-flex flex-column justify-content-between p-0">
-      <!-- Menu principale -->
       <div class="list-group list-group-flush flex-grow-1">
         <button type="button" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-2 border-0" 
                 data-bs-toggle="modal" data-bs-target="#productsModal">
@@ -130,14 +128,14 @@
         </div>
         <div class="modal-body py-4">
           <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
+            <a href="{{route('faq')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
               <i class="bi bi-info-circle-fill fs-2 me-3"></i>FAQ
             </a>
-            <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
-              <i class="bi bi-life-preserver fs-2 me-3"></i>{{ __('navbar.support') }}
+            <a href="{{route('privacy')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
+              <i class="bi bi-life-preserver fs-2 me-3"></i>Privacy
             </a>
             <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
-              <i class="bi bi-wrench-adjustable-circle-fill fs-2 me-3"></i>{{ __('navbar.technicalAssistance') }}
+              <i class="bi bi-wrench-adjustable-circle-fill fs-2 me-3"></i>{{__('navbar.termsAndConditions')}}
             </a>
           </div>
         </div>

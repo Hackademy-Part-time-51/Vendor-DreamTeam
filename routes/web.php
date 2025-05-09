@@ -18,11 +18,15 @@ Route::controller(PageController::class)->group(function () {
     Route::post('/products','store')->name('products.store')->middleware('verified');
     Route::put('/products/{product}','update')->name('products.update')->middleware('verified');
     Route::delete('/products/{product}','destroy')->name('products.destroy')->middleware('verified');
+    Route::get('/FAQ','faq')->name('faq');
+    Route::get('/privacy','privacy')->name('privacy');
+    Route::get('/terms','terms')->name('terms');
 });
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('verified');
     Route::get('/lavoraConNoi', 'lavoraConNoi')->name('lavoraConNoi')->middleware('auth');
+    Route::get('/messaggi', 'messaggi')->name('messaggi')->middleware('auth');
 });
 
 Route::controller(RevisorController::class)->group(function(){
@@ -38,10 +42,7 @@ Route::controller(RevisorController::class)->group(function(){
 
 Route::get('/comuni-json', function () {
     $json = Storage::disk('public')->get('comuni.json');
-
     $comuni=json_decode($json);
-
-  
     return $comuni;
 });
 

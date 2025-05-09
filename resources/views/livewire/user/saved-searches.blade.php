@@ -17,7 +17,12 @@
             <div class="col-12 col-md-6 col-lg-4 p-2">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $search->search }}</h5>
+                        <h5 class="card-title"><strong>Ricerca</strong>:
+                            @if ($search->search)
+                            {{ $search->search }}
+                            @else
+                            Nessuna ricerca
+                            @endif</h5>
                         <p class="card-text text-muted">{{ $search->created_at->format('d/m/Y H:i') }}</p>
                         @if ($search->category)
                         <p class="card-text"><strong>{{__('ui.category')}}:</strong> {{ $search->category->name }}</p>

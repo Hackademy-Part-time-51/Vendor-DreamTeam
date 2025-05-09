@@ -19,7 +19,26 @@ return[
     'savedSearches'=>'Ricerche Salvate',
     'noSaved'=>'Non hai ancora ricerche salvate',
     'searchEasly'=>'Inizia una ricerca e salvala per trovarla facilmente in futuro',
-    'startSearch'=>'Avvia una ricerca'
+    'startSearch'=>'Avvia una ricerca',
+    'articles'=>'Articoli',
+    'articleManagement'=>'Gestione Articoli',
+
+    'whyworkWithUs'=>'Perché lavorare con noi?',
+    'remoteWorking'=>'Flessibilità lavorativa e possibilità di lavoro da remoto',
+    'professionalGrowth'=>'Crescita Professionale',
+    'continuousTraining'=>'Formazione continua e opportunità di carriera',
+    'dynamicTeam'=>'Team Dinamico',
+    'dynamicTeam'=>'Ambiente giovane e stimolante',
+    'workWithUs'=>'Lavora con Noi',
+    'joinOurTeam'=>'Entra a far parte del nostro team e aiutaci a contribuire al nostro progetto.',
+    'candidates'=>'Candidati',
+
+    'user'=>'Utente',
+    'quickActions'=> 'Azioni Rapide',
+    'editProfile'=>'Modifica Profilo',
+    'articleList'=>'Lista articoli',
+    'info'=>'Informazioni',
+    'updateInfo'=>'Aggiorna Informazioni'
 
     
     

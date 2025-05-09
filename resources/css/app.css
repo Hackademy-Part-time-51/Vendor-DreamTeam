@@ -3,7 +3,11 @@
 @import 'bootstrap-icons';
 
 body {
-    background: whitesmoke;
+    background-image: url('../IMAGES/sfondo.jpg');
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -13,9 +17,12 @@ body {
 
 /* #region NAVBAR */
 
+.sidebar-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 nav {
-    background: whitesmoke;
-    box-shadow: 0 6px 8px rgba(254, 254, 254, 0.1);
     top: 0;
     z-index: 999;
 }
@@ -79,6 +86,9 @@ nav {
 
 .bg-rosso {
     background-color: #C62E2E;
+}
+.bg-arancio{
+    background-color: #F67034;
 }
 
 /* #endregion */

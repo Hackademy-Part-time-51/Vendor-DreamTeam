@@ -12,19 +12,19 @@
             <div class="col-12 col-lg-3 mt-3 d-flex flex-column align-self-center">
                 <div class="card border-0  shadow-sm position-sticky top-0">
                     <div class="card-body text-center py-4">
-                        <h2 class="display-6 text-blu mb-0">Articoli</h2>
+                        <h2 class="display-6 text-blu mb-0">{{__('user.articles')}}</h2>
                     </div>
                     <div class="list-group list-group-flush">
                         <div class="list-group-item d-flex justify-content-between align-items-center">
-                            <span class="text-blu">Da revisionare</span>
+                            <span class="text-blu">{{__('revisor.toReviewed')}}</span>
                             <span class="badge bg-blu rounded-pill">{{ \App\Models\Product::toBeRevisedCount() }}</span>
                         </div>
                         <div class="list-group-item d-flex justify-content-between align-items-center">
-                            <span class="text-blu">Accettati</span>
+                            <span class="text-blu">{{__('revisor.accepted')}}</span>
                             <span class="badge bg-verde rounded-pill">{{ \App\Models\Product::acceptedCount() }}</span>
                         </div>
                         <div class="list-group-item d-flex justify-content-between align-items-center">
-                            <span class="text-blu">Rifiutati</span>
+                            <span class="text-blu">{{__('revisor.refused')}}</span>
                             <span class="badge bg-rosso rounded-pill">{{ \App\Models\Product::rejectedCount() }}</span>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-12">
-                                    <h2 class="display-6 text-blu mb-4">Titolo: <strong> {{ $product_to_check->title }}</strong></h2>
+                                    <h2 class="display-6 text-blu mb-4">{{__('product.title')}}: <strong> {{ $product_to_check->title }}</strong></h2>
             
                                     
                                     <div class="d-flex  align-items-center mb-4">
@@ -77,7 +77,7 @@
                                                 @csrf
                                                 @method('PATCH')
                                                 <button class="btn btn-base w-100 py-3">
-                                                    <i class="bi bi-check-lg me-2"></i>Accetta
+                                                    <i class="bi bi-check-lg me-2"></i>{{__('revisor.accept')}}
                                                 </button>
                                             </form>
                                         </div>
@@ -86,7 +86,7 @@
                                                 @csrf
                                                 @method('PATCH')
                                                 <button class="btn btn-rosso w-100 py-3">
-                                                    <i class="bi bi-x-lg me-2"></i>Rifiuta
+                                                    <i class="bi bi-x-lg me-2"></i>{{__('revisor.refuse')}}
                                                 </button>
                                             </form>
                                         </div>
@@ -107,7 +107,7 @@
                             data-bs-toggle="modal" 
                             data-bs-target="#productsRevisorModal">
                         <i class="bi bi-grid-3x3-gap fs-4 me-2"></i>
-                        <span class="fs-5">Gestione Articoli</span>
+                        <span class="fs-5">{{__('user.articleManagement')}}</span>
                     </button>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                         <div class="container-fluid px-0">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h5 class="modal-title fs-4 mb-0">Gestione Articoli</h5>
+                                    <h5 class="modal-title fs-4 mb-0">{{__('user.articleManagement')}}</h5>
                                 </div>
                                 <div class="col-auto">
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -136,7 +136,7 @@
                                         data-bs-target="#toReview">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <i class="bi bi-hourglass d-none d-sm-block me-2"></i>
-                                        <span class="d-block">Da Revisionare</span>
+                                        <span class="d-block">{{__('revisor.toReviewed')}}</span>
                                         <span class="badge bg-blu rounded-pill ms-2">
                                             {{ \App\Models\Product::toBeRevisedCount() }}
                                         </span>
@@ -149,7 +149,7 @@
                                         data-bs-target="#accepted">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <i class="bi bi-check-circle d-none d-sm-block me-2"></i>
-                                        <span class="d-block">Accettati</span>
+                                        <span class="d-block">{{__('revisor.accepted')}}</span>
                                         <span class="badge bg-success rounded-pill ms-2">
                                             {{ \App\Models\Product::acceptedCount() }}
                                         </span>
@@ -162,7 +162,7 @@
                                         data-bs-target="#refused">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <i class="bi bi-x-circle d-none d-sm-block me-2"></i>
-                                        <span class="d-block">Rifiutati</span>
+                                        <span class="d-block">{{__('revisor.refused')}}</span>
                                         <span class="badge bg-danger rounded-pill ms-2">
                                             {{ \App\Models\Product::rejectedCount() }}
                                         </span>
@@ -179,7 +179,7 @@
                                         @empty
                                             <div class="col-12 text-center py-5">
                                                 <i class="bi bi-inbox display-1 text-muted mb-3"></i>
-                                                <h4 class="text-muted">Nessun articolo da revisionare</h4>
+                                                <h4 class="text-muted">{{__('revisor.noItemReview')}}</h4>
                                             </div>
                                         @endforelse 
                                     </div>
@@ -193,7 +193,7 @@
                                         @empty
                                             <div class="col-12 text-center py-5">
                                                 <i class="bi bi-inbox display-1 text-muted mb-3"></i>
-                                                <h4 class="text-muted">Nessun articolo da revisionare</h4>
+                                                <h4 class="text-muted">{{__('revisor.noItemReview')}}</h4>
                                             </div>
                                         @endforelse 
                                     </div>
@@ -207,7 +207,7 @@
                                         @empty
                                             <div class="col-12 text-center py-5">
                                                 <i class="bi bi-inbox display-1 text-muted mb-3"></i>
-                                                <h4 class="text-muted">Nessun articolo da revisionare</h4>
+                                                <h4 class="text-muted">{{__('revisor.noItemReview')}}</h4>
                                             </div>
                                         @endforelse 
                                     </div>
@@ -219,15 +219,15 @@
                         <div class="container-fluid">
                             <div class="row row-cols-3 text-center g-3">
                                 <div class="col">
-                                    <small class="d-block text-muted">Da Revisionare</small>
+                                    <small class="d-block text-muted">{{__('revisor.toReviewed')}}</small>
                                     <span class="fw-bold text-blu">{{ \App\Models\Product::toBeRevisedCount() }}</span>
                                 </div>
                                 <div class="col">
-                                    <small class="d-block text-muted">Accettati</small>
+                                    <small class="d-block text-muted">{{__('revisor.accepted')}}</small>
                                     <span class="fw-bold text-success">{{ \App\Models\Product::acceptedCount() }}</span>
                                 </div>
                                 <div class="col">
-                                    <small class="d-block text-muted">Rifiutati</small>
+                                    <small class="d-block text-muted">{{__('revisor.refused')}}</small>
                                     <span class="fw-bold text-danger">{{ \App\Models\Product::rejectedCount() }}</span>
                                 </div>
                             </div>

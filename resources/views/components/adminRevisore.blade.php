@@ -1,11 +1,11 @@
 @auth
 @if (Auth::user()->is_revisor)
 <div class="">
-    <div class="navbar bg-blu py-2">
+    <div class="navbar border-bottom py-2">
         <div class="container-fluid">
             <ul class="navbar-nav mx-auto gap-4 align-items-center">
                 <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link text-white d-flex align-items-center gap-2 position-relative" 
+                    <a class="nav-link text-blu d-flex align-items-center gap-2 position-relative" 
                         href="{{route('revisor.index')}}">
                         <i class="bi bi-shield-check fs-5"></i>
                         <span class="fw-semibold">{{__('revisor.reviewerArea')}}</span>

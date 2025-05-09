@@ -11,4 +11,12 @@ return[
     'notAccepted'=>'Not Accepted',
     'inProgress'=>'In progress',
     'delete'=>'Delete',
+    'accessDenied'=>'Access denied!',
+    'notHavePermission'=>'You do not have permission to modify this product.',
+    'toReviewed'=>'To be revised',
+    'noItemReview'=>'No items to review',
+
+
+
+    
 ];
