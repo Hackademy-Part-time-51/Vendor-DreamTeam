@@ -19,8 +19,8 @@
                     aria-selected="{{ $i === 0 ? 'true' : 'false' }}">
                 <img src="https://picsum.photos/seed/{{$chat['user']['id'] ?? $i}}/40" alt="avatar" class="rounded-circle me-2" width="40" height="40">
                 <div>
-                    <div class="fw-bold">{{$chat['user']['name']}}</div>
-                    <small class="text-muted">Prodotto: {{$chat['product']['id']}}</small>
+                    <div class="fw-bold">{{$chat['product']['title']}}</div>
+                    <small class="">{{$chat['user']['name']}}</small>
                 </div>
             </button>
             @endif

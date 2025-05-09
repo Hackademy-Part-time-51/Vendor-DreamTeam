@@ -22,9 +22,17 @@ body {
     overflow-x: hidden;
 }
 
+#bigNavbar{
+    background-image: url('../IMAGES/sfondo.jpg');
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+}
 nav {
     top: 0;
     z-index: 999;
+
 }
 
 .nav-link {

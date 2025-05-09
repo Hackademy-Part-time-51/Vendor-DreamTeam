@@ -43,8 +43,7 @@ class ChatArea extends Component
     public function render()
     {   
         
-
-
         return view('livewire.user.chat-area');
+        
     }
 }

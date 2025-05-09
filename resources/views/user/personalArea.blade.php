@@ -35,6 +35,9 @@
                           @if (Auth::id() == $user->id)
                           <h6 class="card-title mb-0">
                             <i class="bi bi-chat"></i> Messaggi <a href="{{route('messaggi', $user->id)}}" class="badge text-decoration-none bg-danger rounded-pill px-3 py-2">
+                                @if (Auth::user()->messages->count() > 0)
+                                    
+                                @endif
                                 {{ Auth::user()->messages->count() }}
                             </a>
                             </h6>
