@@ -40,7 +40,8 @@ return[
     'goOut'=> 'Vuoi Uscire?',
     'wantLogout'=>'Sei sicuro di voler effettuare il logout?',
     'cancel'=>'Annulla',
-    'confirmLogout'=>'Conferma Logout'
+    'confirmLogout'=>'Conferma Logout',
+    'termsAndConditions'=>'Termini e condizioni'
 
 
 ];

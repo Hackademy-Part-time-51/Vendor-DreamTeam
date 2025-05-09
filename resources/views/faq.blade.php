@@ -3,8 +3,8 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="display-4 fw-bold text-blu montserrat">Domande Frequenti (FAQ)</h2>
-                    <p class="fs-5 text-muted noto-sans">Trova risposte rapide alle domande più comuni.</p>
+                    <h2 class="display-4 fw-bold text-blu montserrat">{{__('assistance.frequentlyAskedQuestions')}}(FAQ)</h2>
+                    <p class="fs-5 text-muted noto-sans">{{__('assistance.commonQuestions')}}</p>
                     <hr class="w-50 mx-auto">
                 </div>
             </div>
@@ -17,12 +17,12 @@
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button collapsed text-blu fs-4 fw-semibold noto-sans bg-transparent shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                     <i class="bi bi-patch-question-fill me-3 text-verde"></i>
-                                    Come posso vendere un articolo su Vendor?
+                                    {{__('assistance.sellItem')}}
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-blu fs-5 montserrat">
-                                    Per vendere un articolo, devi prima registrarti o accedere al tuo account. Poi, clicca sul pulsante "Aggiungi Articolo", compila i dettagli richiesti (titolo, descrizione, prezzo, categoria) e carica delle foto. Una volta inviato, il tuo annuncio verrà revisionato e pubblicato se conforme alle nostre linee guida.
+                                    {{__('assistance.toSellItem')}}
                                 </div>
                             </div>
                         </div>
@@ -31,12 +31,12 @@
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed text-blu fs-4 fw-semibold noto-sans bg-transparent shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     <i class="bi bi-shield-check me-3 text-verde"></i>
-                                    È sicuro comprare e vendere su Vendor?
+                                    {{__('assistance.safeBuy')}}
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-blu fs-5 montserrat">
-                                    Vendor facilita l'incontro tra compratori e venditori. Consigliamo sempre di incontrare il venditore di persona per verificare l'articolo e completare la transazione in un luogo sicuro. Non condividere mai informazioni personali sensibili. Offriamo un sistema di messaggistica interna per comunicare in sicurezza. Leggi le nostre <a href="#" class="text-blu fw-bold">linee guida sulla sicurezza</a> per maggiori dettagli.
+                                   {{__('assistance.meetingBetweenBuyers')}} <a href="#" class="text-blu fw-bold">{{__('assistance.safetyGuidelines')}}</a> {{__('assistance.forMoreDetails')}}
                                 </div>
                             </div>
                         </div>
@@ -45,12 +45,12 @@
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed text-blu fs-4 fw-semibold noto-sans bg-transparent shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     <i class="bi bi-chat-dots-fill me-3 text-verde"></i>
-                                    Come contatto un venditore?
+                                    {{__('assistance.contactASeller')}}
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-blu fs-5 montserrat">
-                                    Nella pagina di dettaglio di ogni prodotto, troverai un pulsante "Contatta il venditore". Cliccandolo, potrai inviare un messaggio direttamente al venditore tramite il nostro sistema di messaggistica sicuro. Riceverai una notifica quando il venditore risponderà.
+                                   {{__('assistance.sellerResponds')}}
                                 </div>
                             </div>
                         </div>
@@ -59,12 +59,12 @@
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed text-blu fs-4 fw-semibold noto-sans bg-transparent shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                     <i class="bi bi-currency-euro me-3 text-verde"></i>
-                                    Come funzionano i pagamenti?
+                                    {{__('assistance.paymentsWork')}}
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-blu fs-5 montserrat">
-                                    Vendor non gestisce direttamente i pagamenti tra utenti. Compratore e venditore devono accordarsi autonomamente sul metodo di pagamento (contanti alla consegna, bonifico, PayPal, ecc.). Raccomandiamo metodi tracciabili e sicuri, specialmente se non avviene uno scambio di persona.
+                                    {{__('assistance.managePayments')}}
                                 </div>
                             </div>
                         </div>
@@ -76,10 +76,17 @@
     
             <div class="row mt-5">
                 <div class="col-12 text-center">
+<<<<<<< HEAD
+                    <h3 class="text-blu noto-sans">{{__('assistance.findTheAnswer')}}</h3>
+                    <p class="fs-5 text-muted montserrat mb-4">{{__('assistance.supportTeam')}}</p>
+                    <a href="#" class="btn btn-baseblu btn-lg py-3 px-5 scalebig">
+                        <i class="bi bi-headset me-2"></i>{{__('assistance.contactSupport')}}
+=======
                     <h3 class="text-blu noto-sans">Non hai trovato la risposta?</h3>
                     <p class="fs-5 text-muted montserrat mb-4">Il nostro team di supporto è pronto ad aiutarti.</p>
                     <a href="#" class="btn btn-base btn-lg py-3 px-5 scalebig">
                         <i class="bi bi-headset me-2"></i>Contatta il Supporto
+>>>>>>> 6c3cbc21aa189c14b217aaf2beb2ed791b8d5a7e
                     </a>
                 </div>
             </div>
