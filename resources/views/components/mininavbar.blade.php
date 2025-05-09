@@ -68,15 +68,15 @@
                     <i class="bi bi-question-circle-fill me-2"></i> {{__('navbar.assistance')}}
                     </a>
                     <ul class="dropdown-menu">
-<<<<<<< HEAD
+
                     <li><a class="dropdown-item text-blu" href="{{route('faq')}}">FAQ</a></li>
                     <li><a class="dropdown-item text-blu" href="{{route('privacy')}}">Privacy</a></li>
                     <li><a class="dropdown-item text-blu" href="{{route('terms')}}">{{__('navbar.termsAndConditions')}}</a></li>
-=======
+
                     <li><a class="dropdown-item " href="{{route('faq')}}">FAQ</a></li>
                     <li><a class="dropdown-item " href="{{route('privacy')}}">Privacy</a></li>
                     <li><a class="dropdown-item " href="{{route('terms')}}">Termini e condizioni</a></li>
->>>>>>> 6c3cbc21aa189c14b217aaf2beb2ed791b8d5a7e
+
                     </ul>
                 </li>
                 {{-- contatti --}}
