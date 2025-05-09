@@ -41,7 +41,7 @@
             <i class="bi bi-star display-1 text-muted mb-4"></i>
             <h4 class="text-muted">{{__('user.noSaved')}}</h4>
             <p class="text-muted mb-4">{{__('user.searchEasly')}}</p>
-            <a href="{{ route('search.index') }}" class="btn btn-warning">
+            <a href="{{ route('products.index') }}" class="btn btn-warning">
                 <i class="bi bi-search me-2"></i>{{__('user.startSearch')}}
             </a>
         </div>
