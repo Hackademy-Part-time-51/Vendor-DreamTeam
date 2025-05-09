@@ -27,6 +27,7 @@ class UserController extends Controller
         $messages = Message::where('receiver_id', Auth::id() || 'sender_id', Auth::id())->get();
         $listMessages = [];
         $chats = [];
+        $products = Product::where('user_id', Auth::id())->get();
 
         foreach ($messages as $msg) {
             $otherUserId = $msg->sender_id === Auth::id() ? $msg->receiver_id : $msg->sender_id;
@@ -40,7 +41,8 @@ class UserController extends Controller
                 ];
             }
         }
-        return view('user.messaggi', compact('chats'));
+
+        return view('user.messaggi', compact('chats', 'messages', 'products'));
     }
     
 }

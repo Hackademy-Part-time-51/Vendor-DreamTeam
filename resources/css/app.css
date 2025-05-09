@@ -17,6 +17,11 @@ body {
 
 /* #region NAVBAR */
 
+.sidebar-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 nav {
     top: 0;
     z-index: 999;
