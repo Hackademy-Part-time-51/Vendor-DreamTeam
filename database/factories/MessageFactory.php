@@ -6,6 +6,7 @@ use App\Models\Message;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Message>
@@ -21,12 +22,19 @@ class MessageFactory extends Factory
     public function definition(): array
     {
 
-        
+
 
         return [
-            'sender_id' => User::inRandomOrder()->first()->id ?? User::factory(), // ID dell'utente mittente (puoi modificarlo in base alla tua logica)
-            'receiver_id' => User::inRandomOrder()->first()->id ?? User::factory(), // ID dell'utente destinatario (puoi modificarlo in base alla tua logica)
-            'product_id' => Product::inRandomOrder()->first()->id ?? Product::factory(), // ID del prodotto associato al messaggio (puoi modificarlo in base alla tua logica)
+            'sender_id' => User::inRandomOrder()->first()->id, // ID dell'utente mittente (puoi modificarlo in base alla tua logica)
+            'receiver_id' => User::inRandomOrder()->first()->id, // ID dell'utente destinatario (puoi modificarlo in base alla tua logica)
+            'product_id' => function (array $attributes) {
+                // Recuperiamo i prodotti del mittente o destinatario
+                $products = Product::whereIn('user_id', [
+                    $attributes['sender_id'],
+                    $attributes['receiver_id']
+                ])->get();
+                return $products->random()->id;
+            },
             'message' => fake()->sentence(), // Contenuto del messaggio
         ];
     }
