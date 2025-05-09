@@ -1,10 +1,8 @@
  <div class="col bg-white d-flex flex-column p-0">
      <div class="tab-content h-100" id="v-pills-tabContent">
-         @if (!$messages->isEmpty())
+         @if ($messages)
 
-             <!-- Chat Messages -->
-             {{-- <div class="flex-grow-1 overflow-auto p-3 d-flex flex-column"
-                 style="background: #f8f9fa; min-height:0; height:calc(100vh - 56px - 72px);"> --}}
+            
 
                  @foreach ($messages as $message)
                      <div
