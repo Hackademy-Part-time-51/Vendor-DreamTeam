@@ -25,13 +25,24 @@ class ChatArea extends Component
         ->where(function ($query) use ($user_id) {
             $authId = Auth::id();
             $query->where(function ($q) use ($authId, $user_id) {
-                $q->where('sender_id', $authId)->orWhere('receiver_id', $user_id);
+                $q->where('sender_id', $authId)->where('receiver_id', $user_id);
             })->orWhere(function ($q) use ($authId, $user_id) {
-                $q->where('sender_id', $user_id)->orWhere('receiver_id', $authId);
+                $q->where('sender_id', $user_id)->where('receiver_id', $authId);
             });
         })
         ->orderBy('created_at', 'asc')
         ->get();
+    
+    foreach ($this->messages as $msg) {
+        $msg->sender_id=$msg->sender_id;
+        $msg->receiver_id=$msg->receiver_id;
+        $msg->product_id=$msg->product_id;
+        $msg->message=$msg->message;
+        $msg->is_read=1;
+        $msg->save();
+    }
+
+    $this->dispatch('updatelist');
 }
 
 
