@@ -97,7 +97,9 @@
 
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-base">
-                                    {{__('auth.register')}}
+                                    <span>
+                                        {{__('auth.register')}}
+                                    </span>
                                 </button>
                             </div>
 

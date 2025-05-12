@@ -14,6 +14,10 @@
         <p class="alert alert-info">{{__('product.noProductDisplay')}}</p>
     @endif
     <div class="d-flex justify-content-center mt-4">
-        <a href="{{ route('products.index') }}" class="btn btn-base">{{__('product.viewAllProducts')}}</a>
+        <a href="{{ route('products.index') }}" class="btn btn-base">
+            <span>
+            {{__('product.viewAllProducts')}}
+            </span>
+        </a>
     </div>
 </div>

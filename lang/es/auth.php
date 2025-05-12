@@ -1,0 +1,48 @@
+<?php
+return[
+    'welcomeTO' => 'Bienvenido a',
+    'loginOrRegister' => 'Inicia sesión o regístrate para comenzar',
+    'register' => 'Registrarse',
+    'dontHaveAccount' => "¿No tienes una cuenta?",
+    'rememberMe' => 'Recuérdame',
+    'name' => 'Nombre',
+    'telephoneNumber' => 'Número de teléfono',
+    'sex' => 'Sexo',
+    'male' => 'Masculino',
+    'woman' => 'Femenino',
+    'other' => 'Otro',
+    'profilePhoto' => 'Foto de perfil (opcional)',
+    'confirmPassword' => 'Confirmar contraseña',
+    'login' => 'Iniciar sesión',
+    'verifyEmail' => 'Verifica tu correo electrónico',
+    'completeRegister' => 'Un último paso para completar el registro',
+    'verifyEmailAddress' => '¡Hemos enviado un nuevo enlace de verificación a tu dirección de correo electrónico!',
+    'checkEmail' => 'Revisa tu bandeja de entrada',
+    'sentVerification' => 'Hemos enviado un correo de verificación a:',
+    'openEmail' => 'Abre tu bandeja de entrada',
+    'searchEmail' => 'Busca el correo de Vendor.it',
+    'clickLink' => 'Haz clic en el enlace de verificación',
+    'sendLink' => 'Enviar nuevo enlace',
+    'problemsVerification' => '¿Problemas con la verificación?',
+    'contactSupport' => 'Contactar soporte',
+
+    'surname' => 'Apellido (opcional)',
+    'reviewer' => 'Revisor',
+    'positionInterest' => 'Posición de interés',
+    'tellUs' => 'Cuéntanos sobre ti',
+    'sendApplication' => 'Enviar candidatura',
+    'openPositions' => 'Posiciones abiertas',
+    'editAndDelete' => 'Modificar y eliminar artículos',
+    'reviewingPosts' => 'Revisión de publicaciones y aceptación de publicaciones en el sitio',
+
+    'currentPassword' => 'Contraseña actual',
+    'enterCurrentPassword' => 'Introduce la contraseña actual',
+    'newPassword' => 'Nueva contraseña',
+    'enterNewPassword' => 'Introduce la nueva contraseña',
+    'confirmPassword' => 'Confirmar contraseña',
+    'confirmNewPassword' => 'Confirmar nueva contraseña',
+    'updatePassword' => 'Actualizar contraseña',
+
+
+    
+];

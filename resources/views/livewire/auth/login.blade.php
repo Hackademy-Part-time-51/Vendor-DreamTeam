@@ -44,7 +44,9 @@
     </div>
     <div class="d-flex justify-content-center">
         <button type="submit" class="btn btn-base">
-            Login
+            <span>
+                Login
+            </span>
         </button>
     </div>
         

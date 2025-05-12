@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       @foreach (Category::all() as $category )
-                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{$category->name}}</a></li>
+                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{__("category.$category->name")}}</a></li>
                       @endforeach
                         {{-- foreach di categorie --}}
                         {{-- @foreach ($categories as $category)
@@ -33,7 +33,7 @@
                 </li>
                 {{-- area personale --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-white scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link scalebig text-white fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="bi bi-person-circle me-2"></i> {{__('navbar.personalArea')}}
                     </a>
                     
@@ -56,6 +56,9 @@
                         <a class="dropdown-item text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
                       </li>
                       <li>
+                        <a class="dropdown-item text-blu" href="{{route('messaggi', Auth::user()->id)}}"><i class="bi bi-chat"></i> Messaggi ({{Auth::user()->messages->count()}})
+                        </a>
+                      </li>
                         <a class="dropdown-item text-blu" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> {{__('navbar.logout')}}</a>
                       </li>
                     </ul>
@@ -68,15 +71,9 @@
                     <i class="bi bi-question-circle-fill me-2"></i> {{__('navbar.assistance')}}
                     </a>
                     <ul class="dropdown-menu">
-<<<<<<< HEAD
-                    <li><a class="dropdown-item text-blu" href="{{route('faq')}}">FAQ</a></li>
-                    <li><a class="dropdown-item text-blu" href="{{route('privacy')}}">Privacy</a></li>
-                    <li><a class="dropdown-item text-blu" href="{{route('terms')}}">{{__('navbar.termsAndConditions')}}</a></li>
-=======
                     <li><a class="dropdown-item " href="{{route('faq')}}">FAQ</a></li>
                     <li><a class="dropdown-item " href="{{route('privacy')}}">Privacy</a></li>
                     <li><a class="dropdown-item " href="{{route('terms')}}">Termini e condizioni</a></li>
->>>>>>> 6c3cbc21aa189c14b217aaf2beb2ed791b8d5a7e
                     </ul>
                 </li>
                 {{-- contatti --}}

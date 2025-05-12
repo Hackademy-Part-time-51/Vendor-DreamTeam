@@ -6,6 +6,8 @@
         <x-_locale lang="it"/>
         <x-_locale lang="en"/>
         <x-_locale lang="fr"/>
+        <x-_locale lang="es"/>
+
     </div>
 </div>
 

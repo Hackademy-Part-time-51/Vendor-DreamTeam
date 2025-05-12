@@ -23,10 +23,10 @@ class UserController extends Controller
         return view('user.lavoraConNoi');
     }
 
-    public function messaggi(){
+    public function messaggi($id = null){
         
-
-        return view('user.messaggi');
+        $product = $id;
+        return view('user.messaggi', compact('product'));
     }
     
 }

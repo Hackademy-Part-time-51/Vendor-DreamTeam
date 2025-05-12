@@ -13,7 +13,7 @@ class MessageSeeder extends Seeder
      */
     public function run(): void
     {
-        $numberOfMessages = 1000;
+        $numberOfMessages = 50;
         Message::factory()->count($numberOfMessages)->create();
         $this->command->info("Tabella Messaggi popolata con {$numberOfMessages} record usando la Factory!");
 

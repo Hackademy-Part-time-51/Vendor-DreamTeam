@@ -35,7 +35,7 @@
 
                 <div class="mb-4">
                     <h4 class="text-blu"><i class="bi bi-person-lock me-2"></i>{{__('assistance.dataProtection')}}</h4>
-                    <p>{{__('assistance.protectUsers')}}</p>
+                    <p>{{__('assistance.advancedSecurity')}}</p>
                 </div>
 
                 <div class="mb-4">
@@ -49,12 +49,6 @@
                 </div>
 
                 <hr class="bg-blu">
-
-                <div class="text-center mt-4">
-                    <button class="btn btn-rosso px-4 py-2">
-                        <i class="bi bi-trash-fill me-2"></i>{{__('assistance.requestDeletion')}}
-                    </button>
-                </div>
             </div>
         </div>
     </div>

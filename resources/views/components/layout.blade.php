@@ -13,7 +13,7 @@
 
     
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <x-navbar/>
     <x-mininavbar/>
     <x-adminRevisore/> 

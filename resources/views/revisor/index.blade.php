@@ -77,7 +77,9 @@
                                                 @csrf
                                                 @method('PATCH')
                                                 <button class="btn btn-base w-100 py-3">
-                                                    <i class="bi bi-check-lg me-2"></i>{{__('revisor.accept')}}
+                                                    <span>
+                                                        <i class="bi bi-check-lg me-2"></i>{{__('revisor.accept')}}
+                                                    </span>
                                                 </button>
                                             </form>
                                         </div>
@@ -106,8 +108,8 @@
                     <button class="btn btn-baseblu btn-lg w-100 py-3 d-flex align-items-center justify-content-center" 
                             data-bs-toggle="modal" 
                             data-bs-target="#productsRevisorModal">
-                        <i class="bi bi-grid-3x3-gap fs-4 me-2"></i>
-                        <span class="fs-5">{{__('user.articleManagement')}}</span>
+
+                        <span class="fs-5"><i class="bi bi-grid-3x3-gap fs-4 me-2"></i> {{__('user.articleManagement')}}</span>
                     </button>
                 </div>
             </div>

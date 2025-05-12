@@ -25,10 +25,10 @@ class MessageFactory extends Factory
 
 
         return [
-            'sender_id' => User::inRandomOrder()->first()->id, // ID dell'utente mittente (puoi modificarlo in base alla tua logica)
-            'receiver_id' => User::inRandomOrder()->first()->id, // ID dell'utente destinatario (puoi modificarlo in base alla tua logica)
+            'sender_id' => User::inRandomOrder()->first()->id, 
+            'receiver_id' => 26, 
             'product_id' => function (array $attributes) {
-                // Recuperiamo i prodotti del mittente o destinatario
+                
                 $products = Product::whereIn('user_id', [
                     $attributes['sender_id'],
                     $attributes['receiver_id']

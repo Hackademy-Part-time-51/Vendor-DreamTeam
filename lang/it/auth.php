@@ -3,7 +3,7 @@ return[
     'welcomeTO'=> 'Benvenuto su',
     'loginOrRegister'=>'Accedi o registrati per iniziare',
     'register'=> 'Registrati',
-    'dontHaveAccount'=> "Non hai un account?",
+    'dontHaveAccount'=> "Non hai un account? ",
     'rememberMe'=>'Ricordami',
     'name'=> 'Nome',
     'telephoneNumber'=>'Numero di telefono',

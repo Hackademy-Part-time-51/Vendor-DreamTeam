@@ -1,9 +1,9 @@
 <div class="card mb-4">
     <div class="card-header bg-white">
       @if ($showAll)
-      <h5 class="card-title mb-0 text-center">{{__('user.allPost')}}</h5>
+      <h5 class="card-title mb-0 fs-4 text-center">{{__('user.allPost')}}</h5>
       @else
-      <h5 class="card-title mb-0 text-center">{{__('user.lastPost')}}</h5>
+      <h5 class="card-title mb-0 fs-4 text-center">{{__('user.lastPost')}}</h5>
       @endif
     </div>
     <div class="col-12">
@@ -44,7 +44,11 @@
                     </li>
                     @endif
                         <div class="card-body d-flex justify-content-center gap-1 align-items-center">
-                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base"><i class="bi bi-pen"></i></a>
+                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base">
+                                <span>
+                                    <i class="bi bi-pen"></i>
+                                </span>
+                            </a>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modalDeleteProduct"
                                 class="btn btn-rosso">
                                 <i class="bi bi-trash"></i>
@@ -63,7 +67,9 @@
                                         </div>
                                         <div class="modal-footer justify-content-start">
                                             <button type="button" class="btn btn-base" data-bs-dismiss="modal">
-                                                {{__('user.goBack')}}
+                                                <span>
+                                                    {{__('user.goBack')}}
+                                                </span>
                                             </button>
                                             <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                                                 @csrf
@@ -128,15 +134,19 @@
             </div>
             @endif
             @endforeach
-            @if ($showAll)
-            {{$products->links()}}
-                
-            @endif
             <div class="d-flex justify-content-center pb-3">
                 @if ($showAll)
-                <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">{{__('user.lastThree')}}</button> 
+                <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">
+                    <span>
+                        {{__('user.lastThree')}}
+                    </span>
+                </button> 
                 @else
-                <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">{{__('user.showAll')}}</button>
+                <button class="btn btn-base btn-lg w-75" wire:click ="showAllFunction">
+                    <span>
+                        {{__('user.showAll')}}
+                    </span>
+                </button>
                 @endif
             </div>
             @endif

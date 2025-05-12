@@ -95,13 +95,15 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="card bg-light border-0 mb-4">
+                        <div class="card bg-light border-0 ">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h5 class="card-title text-blu mb-0">{{__('product.description')}}</h5>
                                     <button wire:click="translate" class="btn btn-base btn-sm">
+                                        <span>
                                         <i class="bi bi-translate me-2"></i>
                                         {{ $setTranslate ? 'Originale' : 'Traduci' }}
+                                        </span>
                                     </button>
                                 </div>
                                 <p class="card-text">
@@ -109,10 +111,32 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="text-center">
+                            <p class="text-muted small">
+                                <i class="bi bi-calendar-event me-2"></i>
+                                {{__('product.publishedOn')}} {{ $product->created_at->translatedFormat('d F Y') }}
+                                <br>
+                                <small>({{ $product->created_at->diffForHumans() }})</small>
+                            </p>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a href="{{route('messaggi', $product->id)}}" class="btn btn-base py-3 scalebig">
+                                <span>
+                                    <i class="bi bi-chat-dots me-2"></i>{{__('product.contactSeller')}}
+                                </span>
+                            </a >
+                            <a href="{{ route('products.index') }}" 
+                               class="btn btn-base py-3 scalebig">
+                               <span>
+                                   <i class="bi bi-arrow-left me-2"></i>{{__('product.returnProducts')}}
+                               </span>
+                            </a>
+                        </div>
                         @if (Auth::user()->is_revisor === 1 )
-                        <div class="row g-2">
+
+                        <div class="row g-2 mt-1">
                             @if ($product->is_accepted === 1)
-                                <div class="col-12 mb-2">
+                                <div class="col-12 my-1">
                                     <span class="badge bg-success w-100 fs-3 text-center">{{__('revisor.accepted')}}</span>
                                 </div>
                             @elseif ($product->is_accepted === 0)
@@ -130,8 +154,7 @@
                                     @csrf
                                     @method('PATCH')
                                     <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-check-lg me-2"></i>
-                                        <span class="d-none d-sm-inline">{{__('revisor.accept')}}</span>
+                                        <span class="d-none d-sm-inline"><i class="bi bi-check-lg me-2"></i> {{__('revisor.accept')}}</span>
                                     </button>
                                 </form>
                             </div>
@@ -166,33 +189,12 @@
                             @else
                             @endif
                             <a href="{{route('revisor.index')}}" class="text-decoration-none">
-                                <button class="btn btn-baseblu  w-100  d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-grid-3x3-gap  me-2"></i>
-                                    <span class="fs-5">{{__('product.returnArticle')}}</span>
+                                <button class="btn btn-baseblu  w-100  d-flex align-items-center justify-content-center">                                    
+                                    <span class="fs-5"><i class="bi bi-grid-3x3-gap  me-2"></i>{{__('product.returnArticle')}}</span>
                                 </button>
                             </a>
                         </div>
                         @endif
-                        @if (Auth::user()->is_revisor === 0 )
-                        <div class="text-center mb-4">
-                            <p class="text-muted small">
-                                <i class="bi bi-calendar-event me-2"></i>
-                                {{__('product.publishedOn')}} {{ $product->created_at->translatedFormat('d F Y') }}
-                                <br>
-                                <small>({{ $product->created_at->diffForHumans() }})</small>
-                            </p>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-base py-3 scalebig">
-                                <i class="bi bi-chat-dots me-2"></i>{{__('product.contactSeller')}}
-                            </button>
-                            <a href="{{ route('products.index') }}" 
-                               class="btn btn-base py-3 scalebig">
-                                <i class="bi bi-arrow-left me-2"></i>{{__('product.returnProducts')}}
-                            </a>
-                        </div> 
-                        @endif
-
                     </div>
                 </div>
             </div>
