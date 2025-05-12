@@ -15,7 +15,8 @@ class ListChat extends Component
     public $products = [];
 
     public function mount(){
-        $this->messages = Message::where('receiver_id', Auth::id() || 'sender_id', Auth::id())->get();
+        $this->messages = Message::where('receiver_id', Auth::id() )
+        ->orWhere('sender_id', Auth::id())->get();
         
         
         $this->products = Product::where('user_id', Auth::id())->get();

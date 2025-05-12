@@ -26,7 +26,7 @@ class MessageFactory extends Factory
 
         return [
             'sender_id' => User::inRandomOrder()->first()->id, 
-            'receiver_id' => User::inRandomOrder()->first()->id, 
+            'receiver_id' => 26, 
             'product_id' => function (array $attributes) {
                 
                 $products = Product::whereIn('user_id', [
