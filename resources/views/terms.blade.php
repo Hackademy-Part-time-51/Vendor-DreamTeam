@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container py-5">
+    <div class="container py-1">
         <div class="card shadow-lg border-0">
             <div class="card-header bg-blu text-white text-center py-4">
                 <h2 class="card-title mb-0 noto-sans">
@@ -44,17 +44,6 @@
                 </div>
 
                 <hr class="bg-blu">
-
-                <div class="text-center mt-4">
-
-                    @auth
-                    <form action="">
-                    <button class="btn btn-rosso px-4 py-2">
-                        <i class="bi bi-person-x-fill me-2"></i>{{__('assistance.deactivateAccount')}}
-                    </button>
-                    </form>
-                    @endauth
-                </div>
             </div>
         </div>
     </div>

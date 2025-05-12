@@ -15,8 +15,8 @@
 
         <div class="row g-4">
             <div class="col-12 col-lg-5">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body p-5">
+                <div class=" border-0">
+                    <div class="card-body p-1">
                         <fieldset
                             class="upload_dropZone text-center bg-light rounded-3 p-5 @error('images') border border-danger @enderror">
                             <i
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-7">
-                <div class="card border-0 shadow-sm h-100">
+                <div class=" border-0  h-100">
                     <div class="card-body p-4">
                         <div class="mb-4">
                             <label class="form-label h4 d-flex justify-content-between">

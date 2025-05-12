@@ -49,12 +49,6 @@
                 </div>
 
                 <hr class="bg-blu">
-
-                <div class="text-center mt-4">
-                    <button class="btn btn-rosso px-4 py-2">
-                        <i class="bi bi-trash-fill me-2"></i>{{__('assistance.requestDeletion')}}
-                    </button>
-                </div>
             </div>
         </div>
     </div>
