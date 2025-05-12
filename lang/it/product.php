@@ -35,7 +35,10 @@ return[
     'viewAllProducts'=>'Visualizza tutti i prodotti',
 
     'search'=>'Ricerca',
-    'newArticle'=>'Nuovo Articolo'
+    'newArticle'=>'Nuovo Articolo',
+    'translate'=>'Traduci',
+    'original'=>'Originale',
+    'noResearch'=>'nessuna ricerca'
 
 
 ];

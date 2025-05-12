@@ -35,7 +35,7 @@
 
                 <div class="mb-4">
                     <h4 class="text-blu"><i class="bi bi-person-lock me-2"></i>{{__('assistance.dataProtection')}}</h4>
-                    <p>{{__('assistance.protectUsers')}}</p>
+                    <p>{{__('assistance.advancedSecurity')}}</p>
                 </div>
 
                 <div class="mb-4">

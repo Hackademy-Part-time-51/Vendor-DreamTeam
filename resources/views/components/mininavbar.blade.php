@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       @foreach (Category::all() as $category )
-                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{$category->name}}</a></li>
+                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{__("category.$category->name")}}</a></li>
                       @endforeach
                         {{-- foreach di categorie --}}
                         {{-- @foreach ($categories as $category)
@@ -33,7 +33,7 @@
                 </li>
                 {{-- area personale --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-white scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link scalebig text-white fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="bi bi-person-circle me-2"></i> {{__('navbar.personalArea')}}
                     </a>
                     
