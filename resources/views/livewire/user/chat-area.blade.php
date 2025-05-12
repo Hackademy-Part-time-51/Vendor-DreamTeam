@@ -1,24 +1,24 @@
-<div class="col-12 col-md-8 d-flex flex-column p-0 bg-white">
+<div class="col-12 d-flex flex-column min-vh-100 px-3">
     @if ($messages)
         <!-- Header chat -->
-        <div class="d-flex align-items-center gap-3 border-bottom bg-white px-3 py-2" style="min-height:56px;">
+        <div class="d-flex align-items-center gap-3 border-bottom  px-3 py-2" >
             @if (isset($messages[0]))
                 <img src="https://ui-avatars.com/api/?name={{ urlencode($messages[0]->sender_id == Auth::id() ? ($messages[0]->receiver->name ?? 'Utente') : ($messages[0]->sender->name ?? 'Utente')) }}&size=40&background=random"
                     alt="avatar"
                     class="rounded-circle border shadow-sm"
                     width="40" height="40">
                 <div>
-                    <div class="fw-bold mb-0">
+                    <div class="fw-bold mb-0 text-center">
                         {{ $messages[0]->sender_id == Auth::id() ? ($messages[0]->receiver->name ?? 'Utente') : ($messages[0]->sender->name ?? 'Utente') }}
                     </div>
-                    <small class="text-muted">
+                    <small class="text-muted text-center">
                         Prodotto: #{{ $messages[0]->product_id ?? '' }}
                     </small>
                 </div>
             @endif
         </div>
         <!-- Messaggi -->
-        <div class="flex-grow-1 overflow-auto px-2 px-md-4 py-3" style="background: #f8f9fa; min-height:0;">
+        <div class="flex-grow-1 overflow-auto px-2 px-md-4 py-3" >
             @foreach ($messages as $message)
                 <div class="mb-2 d-flex @if ($message->sender_id == Auth::id()) justify-content-end @else justify-content-start @endif">
                     <div class="d-inline-block px-3 py-2 rounded-4 shadow-sm
@@ -50,9 +50,9 @@
         </form>
     @else
         <div class="flex-grow-1 d-flex flex-column align-items-center justify-content-center text-muted">
-            <i class="bi bi-chat-dots fs-1 mb-2"></i>
-            <h3 class="fw-bold fs-2">Nessun messaggio ancora.</h3>
-            <p class="fs-5">Inizia una conversazione selezionando una chat.</p>
+            <i class="bi bi-chat-dots fs-1 mb-2 text-center"></i>
+            <h3 class="fw-bold fs-2 text-center">Nessun messaggio ancora.</h3>
+            <p class="fs-5 text-center">Inizia una conversazione selezionando una chat.</p>
         </div>
     @endif
 </div>
