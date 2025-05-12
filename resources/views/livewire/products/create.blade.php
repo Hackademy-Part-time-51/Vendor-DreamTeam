@@ -28,8 +28,10 @@
                                 class="position-absolute invisible" accept="image/jpeg, image/png, image/svg+xml"
                                 data-post-name="image_background" data-post-url="/upload" wire:model="images">
 
-                            <label class="btn btn-outline-primary btn-lg mb-3" for="upload_image_background">
+                            <label class="btn btn-base btn-lg mb-3" for="upload_image_background">
+                                <span>
                                 <i class="bi bi-image me-2"></i>{{__('product.selectImages')}}
+                                </span>
                             </label>
 
                             <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
