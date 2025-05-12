@@ -3,6 +3,26 @@
         <div class="position-relative">
             <div id="productImageCarouselCollapse{{ $product->id }}" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner rounded-top">
+                @if ($product->images()->count() == 0)
+                        @for ($i = 0; $i < 3; $i++) <!-- Mostro 3 immagini casuali -->
+                            <div class="carousel-item @if ($i == 0) active @endif" data-bs-interval="5000">
+                                <img src="https://picsum.photos/1080/1080?random={{ random_int(1, 1000) }}"
+                                    class="img-fluid d-block w-100 object-fit-cover"
+                                    alt="Immagine Placeholder {{ $i + 1 }}"
+                                    loading="lazy"
+                                    width="300" height="300">
+                            </div>
+                        @endfor
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarouselCollapse{{ $product->id }}" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productImageCarouselCollapse{{ $product->id }}" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                @else
                     @foreach ($product->images as $key => $image)
                         <div class="carousel-item @if ($key == 0) active @endif" data-bs-interval="5000">
                             <img src="{{ Storage::url($image->path) }}"
@@ -13,7 +33,6 @@
                         </div>
                     @endforeach
                 </div>
-
                 <div class="carousel-indicators">
                     @foreach ($product->images as $key => $image)
                         <button type="button" data-bs-target="#productImageCarouselCollapse{{ $product->id }}" 
@@ -23,7 +42,6 @@
                                 aria-label="Slide {{ $key + 1 }}"></button>
                     @endforeach
                 </div>
-
                 <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarouselCollapse{{ $product->id }}" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -32,6 +50,8 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
+                @endif
+
             </div>
 
             <div class="position-absolute top-0 start-0 m-2 z-1">
