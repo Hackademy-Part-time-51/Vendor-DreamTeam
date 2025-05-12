@@ -95,7 +95,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="card bg-light border-0 mb-4">
+                        <div class="card bg-light border-0 ">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h5 class="card-title text-blu mb-0">{{__('product.description')}}</h5>
@@ -109,10 +109,28 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="text-center">
+                            <p class="text-muted small">
+                                <i class="bi bi-calendar-event me-2"></i>
+                                {{__('product.publishedOn')}} {{ $product->created_at->translatedFormat('d F Y') }}
+                                <br>
+                                <small>({{ $product->created_at->diffForHumans() }})</small>
+                            </p>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-base py-3 scalebig">
+                                <i class="bi bi-chat-dots me-2"></i>{{__('product.contactSeller')}}
+                            </button>
+                            <a href="{{ route('products.index') }}" 
+                               class="btn btn-base py-3 scalebig">
+                                <i class="bi bi-arrow-left me-2"></i>{{__('product.returnProducts')}}
+                            </a>
+                        </div>
                         @if (Auth::user()->is_revisor === 1 )
-                        <div class="row g-2">
+
+                        <div class="row g-2 mt-1">
                             @if ($product->is_accepted === 1)
-                                <div class="col-12 mb-2">
+                                <div class="col-12 my-1">
                                     <span class="badge bg-success w-100 fs-3 text-center">{{__('revisor.accepted')}}</span>
                                 </div>
                             @elseif ($product->is_accepted === 0)
@@ -173,26 +191,6 @@
                             </a>
                         </div>
                         @endif
-                        @if (Auth::user()->is_revisor === 0 )
-                        <div class="text-center mb-4">
-                            <p class="text-muted small">
-                                <i class="bi bi-calendar-event me-2"></i>
-                                {{__('product.publishedOn')}} {{ $product->created_at->translatedFormat('d F Y') }}
-                                <br>
-                                <small>({{ $product->created_at->diffForHumans() }})</small>
-                            </p>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-base py-3 scalebig">
-                                <i class="bi bi-chat-dots me-2"></i>{{__('product.contactSeller')}}
-                            </button>
-                            <a href="{{ route('products.index') }}" 
-                               class="btn btn-base py-3 scalebig">
-                                <i class="bi bi-arrow-left me-2"></i>{{__('product.returnProducts')}}
-                            </a>
-                        </div> 
-                        @endif
-
                     </div>
                 </div>
             </div>
