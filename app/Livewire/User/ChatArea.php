@@ -30,7 +30,19 @@ class ChatArea extends Component
                 $q->where('sender_id', $user_id)->where('receiver_id', $authId);
             });
         })
-        ->orderBy('created_at', 'asc')->get();
+        ->orderBy('created_at', 'asc')
+        ->get();
+    
+    foreach ($this->messages as $msg) {
+        $msg->sender_id=$msg->sender_id;
+        $msg->receiver_id=$msg->receiver_id;
+        $msg->product_id=$msg->product_id;
+        $msg->message=$msg->message;
+        $msg->is_read=1;
+        $msg->save();
+    }
+
+    $this->dispatch('updatelist');
 }
 
 
