@@ -50,6 +50,16 @@ class PageController extends Controller
 
         $product = Auth::user()->products->create($validated);
 
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $path = $file->store('product_images', 'public'); 
+        
+                $product->images()->create([
+                    'path' => $path,
+                ]);
+            } // Fine del ciclo foreach per ogni file
+        }
+
         return redirect()->route('products.show', $product)
             ->with('success', 'Prodotto creato con successo.');
     }

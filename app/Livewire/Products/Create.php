@@ -7,9 +7,14 @@ use Livewire\Attributes\Validate;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Livewire\WithFileUploads;
+
 
 class Create extends Component
 {
+
+    use WithFileUploads;
+
     public $categories;
     #[Validate('required|string|max:50')]
     public $title;
@@ -20,6 +25,13 @@ class Create extends Component
     #[Validate('required|exists:categories,id')]
     public $category_id;
 
+
+    #[Validate('required|array|min:1', message: 'Devi caricare almeno un\'immagine.')]
+
+    #[Validate(['images.*' => 'image|max:2048'], message: ['images.*.image' => 'Il file caricato non è un\'immagine valida.', 'images.*.max' => 'L\'immagine supera la dimensione massima di 2MB.'])]
+
+    public $images = [];
+
     public $user_id;
     public $myCity;
     public $city;
@@ -29,6 +41,7 @@ class Create extends Component
     public function create()
     {
         $this->validate();
+
         $json = Storage::disk('public')->get('comuni.json');
         $comuni = json_decode($json);
         $this->city = $comuni[$this->myCity]->denominazione_ita;
@@ -36,16 +49,27 @@ class Create extends Component
         $this->longitudine = $comuni[$this->myCity]->lon;
         $this->user_id = Auth::id();
 
-
-        Product::create(
+        $createdProduct = Product::create(
             $this->only('title', 'description', 'price', 'category_id', 'user_id', 'city', 'latitudine', 'longitudine')
         );
+
+        if ($createdProduct && $this->images) {
+            foreach ($this->images as $imageFile) {
+                $directory = "products/{$createdProduct->id}"; 
+                $path = $imageFile->store($directory, 'public');
+
+                $createdProduct->images()->create([
+                    'path' => $path
+                ]);
+            }
+        }
+
         session()->flash('status', 'Annuncio creato correttamente, in attesa di approvazione');
         return $this->redirect('/products/index');
     }
+
     public function render()
     {
-
         return view('livewire.products.create');
     }
 }

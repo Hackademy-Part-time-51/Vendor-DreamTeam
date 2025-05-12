@@ -67,6 +67,10 @@ class Product extends Model
         return Product::where('is_accepted', 0)->count();    
     }
 
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
+
     public function toSearchableArray()
     {
         return[
