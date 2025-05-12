@@ -54,7 +54,9 @@
                     {{ __('ui.workWithUs') }}
                 </h2>
                 <a href="{{ route('lavoraConNoi') }}" class="btn btn-lg btn-baseblu mt-4">
-                    {{ __('ui.clickContact') }}
+                    <span>
+                        {{ __('ui.clickContact') }}
+                    </span>
                 </a>
             </div>
         </section>
