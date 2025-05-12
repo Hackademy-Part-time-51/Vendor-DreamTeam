@@ -79,8 +79,9 @@
                     <h3 class="text-blu noto-sans">{{__('assistance.findTheAnswer')}}</h3>
                     <p class="fs-5 text-muted montserrat mb-4">{{__('assistance.supportTeam')}}</p>
                     <a href="#" class="btn btn-baseblu btn-lg py-3 px-5 scalebig">
-                        <i class="bi bi-headset me-2"></i>{{__('assistance.contactSupport')}}
-
+                        <span>
+                            <i class="bi bi-headset me-2"></i>{{__('assistance.contactSupport')}}
+                        </span>
                     </a>
                 </div>
             </div>

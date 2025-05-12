@@ -130,36 +130,75 @@ nav {
 .btn {
     border: none
 }
-
 .btn-add {
     font-weight: 500;
 }
 
 .btn-base {
+    position: relative;
     border: #003255 3px solid;
+    background-color: transparent;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+}
+.btn-base::after {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #003255;
+    opacity: 0;
+    transition: bottom .3s ease-in-out, opacity .3s ease-in-out, transform .3s ease-in-out;
+}
+.btn-base:hover::after {
+    bottom: 0;
+    opacity: 1;
+}
+.btn-base:hover span {
+    color: white; 
+}
+.btn-base span {
+    position: relative;
+    z-index: 2;
     color: #003255;
+    transition: color .3s ease-in-out;
 }
 
 .btn-baseblu {
+    position: relative;
     border: #003255 3px solid;
-    color: white;
     background-color: #003255;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+}
+.btn-baseblu::after {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: #003255 3px solid;
+    background-color: #F8F8F8;
+    opacity: 100;
+    transition: bottom .3s ease-in-out, opacity .0s ease-in-out, transform .3s ease-in-out;
+}
+.btn-baseblu:hover::after {
+    bottom: 0;
+    opacity: 1;
+}
+.btn-baseblu:hover span {
+    color: #003255; 
+}
+.btn-baseblu span {
+    position: relative;
+    z-index: 2;
+    color: white;
+    transition: color .3s ease-in-out;
 }
 
-.btn-baseblu:hover {
-    border: #003255 3px solid;
-    color: white;
-    background-color: #003255;
-    transition: all 0.2s linear;
-    transform: scale(0.98);
-}
-
-.btn-base:hover {
-    border: #003255 3px solid;
-    color: #003255;
-    transition: all 0.2s linear;
-    transform: scale(0.98);
-}
 
 .btn-rosso {
     border: #003255 3px solid;

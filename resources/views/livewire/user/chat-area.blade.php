@@ -48,8 +48,10 @@
                 maxlength="500"
                 required
             >
-            <button class="btn btn-primary rounded-pill px-4 shadow-sm" type="submit" @if(!$text) disabled @endif>
-                <i class="bi bi-send"></i>
+            <button class="btn btn-base rounded-pill px-4 shadow-sm" type="submit" @if(!$text) disabled @endif>
+                <span>
+                    <i class="bi bi-send"></i>
+                </span>
             </button>
         </form>
     @else

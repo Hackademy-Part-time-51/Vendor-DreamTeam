@@ -60,7 +60,8 @@
             </div>
         </div>
         <hr>
-            <h5 class="card-title display-3 mb-0 text-center py-2">
+        @if (Auth::id() == $user->id )
+                        <h5 class="card-title display-3 mb-0 text-center py-2">
                 <i class="bi bi-house-fill "></i> {{__('user.quickActions')}} <i class="bi bi-house-fill "></i>
             </h5>
         {{-- azioni rapide --}}
@@ -70,34 +71,40 @@
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="d-grid">
-                            <button class="btn btn-base">
-                                <a href="{{route('products.create')}}" class="text-blu text-decoration-none">
-                                  <i class="bi bi-plus-circle me-2"></i>{{__('product.newArticle')}}
-                                </a>
-                            </button>
+                            <a href="{{route('products.create')}}" class="btn btn-base">
+                                <span>
+                                    <i class="bi bi-plus-circle me-2"></i>{{__('product.newArticle')}}                                    
+                                </span>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="d-grid"> 
                             <button class="btn btn-baseblu" data-bs-toggle="modal" data-bs-target="#editProfile">
-                                <i class="bi bi-pencil-square me-2"></i>{{__('user.editProfile')}}
+                                <span>
+                                    <i class="bi bi-pencil-square me-2"></i>{{__('user.editProfile')}}
+                                </span>
+
                             </button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="d-grid">
                               <a href="{{route('lavoraConNoi')}}" class=" btn btn-baseblu text-decoration-none">
-                                <i class="bi bi-briefcase me-2"></i>{{__('user.workWithUs')}}
+                                <span>
+                                    <i class="bi bi-briefcase me-2"></i>{{__('user.workWithUs')}}
+                                </span>
+
                               </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="d-grid">
-                            <button class="btn btn-base ">
-                                <a href="{{route('products.index')}}" class="text-blu text-decoration-none">
-                                  <i class="bi bi-list-ul me-2"></i>{{__('user.articleList')}}
-                                </a>
-                            </button>
+                            <a href="{{route('products.index')}}" class="btn btn-base">
+                                <span>
+                                    <i class="bi bi-list-ul me-2"></i>{{__('user.articleList')}}
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -139,7 +146,7 @@
                     <div class="modal-body p-4">
                         <ul class="nav nav-tabs nav-fill mb-4" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active fs-4" 
+                                <button class="nav-link text-blu active fs-4" 
                                         data-bs-toggle="tab" 
                                         data-bs-target="#info-tab" 
                                         type="button" 
@@ -148,7 +155,7 @@
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link fs-4" 
+                                <button class="nav-link text-blu fs-4" 
                                         data-bs-toggle="tab" 
                                         data-bs-target="#password-tab" 
                                         type="button" 
@@ -163,7 +170,7 @@
                                     @csrf
                                     @method('PUT')
                                     <div class="mb-4">
-                                        <label class="form-label fs-3" for="name">{{__('auth.name')}}</label>
+                                        <label class="form-label text-center w-100 fs-3" for="name">{{__('auth.name')}}</label>
                                         <input type="text" 
                                                 name="name" 
                                                 class="form-control form-control-lg" 
@@ -173,7 +180,7 @@
                                         @enderror
                                     </div>
                                     <div class="mb-4">
-                                        <label class="form-label fs-3" for="email">Email</label>
+                                        <label class="form-label text-center w-100 fs-3" for="email">Email</label>
                                         <input type="email" 
                                                 name="email" 
                                                 class="form-control form-control-lg" 
@@ -194,7 +201,7 @@
                                     @csrf
                                     @method('PUT')     
                                     <div class="mb-4">
-                                        <label class="form-label fs-3" for="current_password">{{__('auth.currentPassword')}}</label>
+                                        <label class="form-label text-center w-100 fs-3" for="current_password">{{__('auth.currentPassword')}}</label>
                                         <div class="input-group input-group-lg">
                                             <input type="password" 
                                                     name="current_password" 
@@ -209,7 +216,7 @@
                                         @enderror
                                     </div>     
                                     <div class="mb-4">
-                                        <label class="form-label fs-3" for="password">{{__('auth.newPassword')}}</label>
+                                        <label class="form-label text-center w-100 fs-3" for="password">{{__('auth.newPassword')}}</label>
                                         <div class="input-group input-group-lg">
                                             <input type="password" 
                                                     name="password" 
@@ -224,7 +231,7 @@
                                         @enderror
                                     </div>
                                     <div class="mb-4">
-                                        <label class="form-label fs-3" for="password_confirmation">{{__('auth.confirmPassword')}}</label>
+                                        <label class="form-label text-center w-100 fs-3" for="password_confirmation">{{__('auth.confirmPassword')}}</label>
                                         <div class="input-group input-group-lg">
                                             <input type="password" 
                                                     name="password_confirmation" 
@@ -261,5 +268,7 @@
                 }
             </script>
         </div>
+        @endif
+
     </div>
 </x-layout>
