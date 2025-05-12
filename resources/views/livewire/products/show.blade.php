@@ -101,7 +101,7 @@
                                     <h5 class="card-title text-blu mb-0">{{__('product.description')}}</h5>
                                     <button wire:click="translate" class="btn btn-base btn-sm">
                                         <i class="bi bi-translate me-2"></i>
-                                        {{ $setTranslate ? 'Originale' : 'Traduci' }}
+                                        {{ $setTranslate ? __('product.original') : __('product.translate') }}
                                     </button>
                                 </div>
                                 <p class="card-text">

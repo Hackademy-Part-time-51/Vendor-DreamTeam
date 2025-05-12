@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       @foreach (Category::all() as $category )
-                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{$category->name}}</a></li>
+                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{__("category.$category->name")}}</a></li>
                       @endforeach
                         {{-- foreach di categorie --}}
                         {{-- @foreach ($categories as $category)
@@ -33,7 +33,7 @@
                 </li>
                 {{-- area personale --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-white scalebig  fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link scalebig text-white fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="bi bi-person-circle me-2"></i> {{__('navbar.personalArea')}}
                     </a>
                     
@@ -53,10 +53,10 @@
                     @auth
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item text-white" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
+                        <a class="dropdown-item " href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
                       </li>
                       <li>
-                        <a class="dropdown-item text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> {{__('navbar.logout')}}</a>
+                        <a class="dropdown-item " data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> {{__('navbar.logout')}}</a>
                       </li>
                     </ul>
                     @endauth
@@ -72,10 +72,6 @@
                     <li><a class="dropdown-item text-blu" href="{{route('faq')}}">FAQ</a></li>
                     <li><a class="dropdown-item text-blu" href="{{route('privacy')}}">Privacy</a></li>
                     <li><a class="dropdown-item text-blu" href="{{route('terms')}}">{{__('navbar.termsAndConditions')}}</a></li>
-
-                    <li><a class="dropdown-item " href="{{route('faq')}}">FAQ</a></li>
-                    <li><a class="dropdown-item " href="{{route('privacy')}}">Privacy</a></li>
-                    <li><a class="dropdown-item " href="{{route('terms')}}">Termini e condizioni</a></li>
 
                     </ul>
                 </li>

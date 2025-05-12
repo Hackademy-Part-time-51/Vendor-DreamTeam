@@ -35,7 +35,11 @@ return[
     'viewAllProducts'=>'View all products',
     
     'search'=>'Search',
-    'newArticle'=>'New Article'
+    'newArticle'=>'New Article',
+    'translate'=>'Translate',
+    'original'=>'Original',
+     'noResearch'=>'no research'
+    
     
 
 

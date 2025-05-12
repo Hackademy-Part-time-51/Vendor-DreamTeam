@@ -36,6 +36,9 @@ return[
 
     'search' => 'Buscar',
     'newArticle' => 'Nuevo Artículo',
+    'translate'=>'Traducir',
+    'original'=>'Original',
+    'noResearch'=>'ninguna investigación'
 
 
 

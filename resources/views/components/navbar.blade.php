@@ -109,7 +109,7 @@
             @foreach (Category::all() as $category)
               <a href="{{ route('products.index', ['category' => $category->id]) }}"
                  class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
-                <i class="bi bi-folder-fill fs-2 me-3"></i>{{ $category->name }}
+                <i class="bi bi-folder-fill fs-2 me-3"></i>{{__("category.$category->name" ) }}
               </a>
             @endforeach
           </div>

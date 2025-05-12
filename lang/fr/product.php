@@ -36,6 +36,11 @@ return[
 
     'search' => 'Rechercher',
     'newArticle' => 'Nouvel article',
+    'translate'=>'Traduire',
+    'original'=>'Original',
+    'noResearch'=>'pas de recherche'
+
+
 
 
 ];
