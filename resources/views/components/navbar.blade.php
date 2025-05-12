@@ -2,7 +2,7 @@
 @php
     use App\Models\Category;
 @endphp
-<nav class="navbar py-0">
+<nav class="navbar py-0" id="bigNavbar">
     <div class="container-fluid  d-flex justify-content-center d-none d-lg-flex navbar">
       <a href="/">
         <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="100rem">

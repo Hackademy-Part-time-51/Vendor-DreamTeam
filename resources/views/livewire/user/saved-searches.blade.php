@@ -1,15 +1,4 @@
 <div class="card mt-4">
-    <div class="card-header bg-white">
-        <div class="d-flex justify-content-between align-items-center">
-            <h5 class="card-title mb-0">
-                <i class="bi bi-star-fill text-warning me-2"></i>{{__('user.savedSearches')}}
-            </h5>
-            <span class="badge bg-warning rounded-pill px-3 py-2">
-                {{ Auth::user()->searches->count() }}
-            </span>
-        </div>
-    </div>
-
     <div class="card-body">
         @if(Auth::user()->searches->count() > 0)
         <div class="row g-4">

@@ -1,5 +1,5 @@
 
-<footer class="  mt-auto pt-5 pb-4 ">
+<footer class=" border-top border-3 mt-auto pt-5 pb-4 ">
     <div class="container-fluid">
         <div class="row mb-2 text-center">
             <div class="col-12">

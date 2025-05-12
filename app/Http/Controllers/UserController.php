@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Message;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -20,4 +22,11 @@ class UserController extends Controller
     public function lavoraConNoi(){
         return view('user.lavoraConNoi');
     }
+
+    public function messaggi($id = null){
+        
+        $product = $id;
+        return view('user.messaggi', compact('product'));
+    }
+    
 }

@@ -53,10 +53,13 @@
                     @auth
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item " href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
+                        <a class="dropdown-item text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
                       </li>
                       <li>
-                        <a class="dropdown-item " data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> {{__('navbar.logout')}}</a>
+                        <a class="dropdown-item text-blu" href="{{route('messaggi', Auth::user()->id)}}"><i class="bi bi-chat"></i> Messaggi ({{Auth::user()->messages->count()}})
+                        </a>
+                      </li>
+                        <a class="dropdown-item text-blu" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> {{__('navbar.logout')}}</a>
                       </li>
                     </ul>
                     @endauth
@@ -68,11 +71,9 @@
                     <i class="bi bi-question-circle-fill me-2"></i> {{__('navbar.assistance')}}
                     </a>
                     <ul class="dropdown-menu">
-
-                    <li><a class="dropdown-item text-blu" href="{{route('faq')}}">FAQ</a></li>
-                    <li><a class="dropdown-item text-blu" href="{{route('privacy')}}">Privacy</a></li>
-                    <li><a class="dropdown-item text-blu" href="{{route('terms')}}">{{__('navbar.termsAndConditions')}}</a></li>
-
+                    <li><a class="dropdown-item " href="{{route('faq')}}">FAQ</a></li>
+                    <li><a class="dropdown-item " href="{{route('privacy')}}">Privacy</a></li>
+                    <li><a class="dropdown-item " href="{{route('terms')}}">Termini e condizioni</a></li>
                     </ul>
                 </li>
                 {{-- contatti --}}

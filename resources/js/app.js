@@ -16,13 +16,10 @@ comuniJson.forEach(element => {
 });
 let idCity = document.getElementById("idCity");
 setTimeout(() => {
-    if (idCity.value!=='') {
+    if (idCity!== null && idCity.value!=='') {
         document.getElementById("myInput").value = comuni[idCity.value];
-        console.log(comuni[idCity.value]);
-        console.log(idCity.value);
-        
-    }
-}, 100);
+            
+    }}, 100);
     
 
 

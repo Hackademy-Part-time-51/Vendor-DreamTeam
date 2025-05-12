@@ -26,6 +26,7 @@ Route::controller(PageController::class)->group(function () {
 Route::controller(UserController::class)->group(function () {
     Route::get('/areapersonale/{id}', 'personalArea')->name('personalArea')->middleware('verified');
     Route::get('/lavoraConNoi', 'lavoraConNoi')->name('lavoraConNoi')->middleware('auth');
+    Route::get('/messaggi/{id?}', 'messaggi')->name('messaggi')->middleware('auth');
 });
 
 Route::controller(RevisorController::class)->group(function(){

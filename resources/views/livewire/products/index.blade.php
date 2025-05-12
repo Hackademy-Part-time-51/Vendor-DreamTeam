@@ -30,6 +30,7 @@
                         </div>
                         <div class="mb-4">
                             <label class="form-label small text-muted fw-semibold">{{ __('ui.searchLocation') }}</label>
+                            
                             <input type="text" id="myInput" class="form-control mb-2" placeholder="{{ __('ui.city') }}">
                             <input type="hidden" id="idCity" wire:model.live="myCity">
                             @if ($myCity)
@@ -117,9 +118,16 @@
         <section class="col-12 col-lg-9 d-flex flex-wrap justify-content-around gx-1 gy-1 pb-3">
             @if (count($products) == 0)
                 <div
-                    class="alert alert-warning text-center w-100 d-flex justify-content-center align-items-center fs-3">
+                    class="alert  text-center w-100 d-flex justify-content-center align-items-center flex-column fs-3">
                     <i class="bi bi-exclamation-triangle-fill me-2"></i>
                     <strong>{{__('ui.noArticleFound')}}</strong>
+                    @auth
+                    <button wire:click="saveFilter"
+                        class="btn btn-base  mt-1 d-flex align-items-center justify-content-center save-btn">
+                        <i class="bi bi-bookmark-check me-2"></i>
+                        {{ __('ui.saveFilter') }}
+                    </button>
+                    @endauth
                 </div>
             @endif
             
