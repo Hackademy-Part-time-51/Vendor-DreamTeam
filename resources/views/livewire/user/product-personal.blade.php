@@ -1,9 +1,9 @@
 <div class="card mb-4">
     <div class="card-header bg-white">
       @if ($showAll)
-      <h5 class="card-title mb-0 text-center">{{__('user.allPost')}}</h5>
+      <h5 class="card-title mb-0 fs-4 text-center">{{__('user.allPost')}}</h5>
       @else
-      <h5 class="card-title mb-0 text-center">{{__('user.lastPost')}}</h5>
+      <h5 class="card-title mb-0 fs-4 text-center">{{__('user.lastPost')}}</h5>
       @endif
     </div>
     <div class="col-12">

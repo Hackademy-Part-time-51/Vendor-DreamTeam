@@ -142,43 +142,23 @@ nav {
 
 .btn-baseblu {
     border: #003255 3px solid;
-    color: #003255;
-    background-color: transparent;
-    position: relative;
-    overflow: hidden;
-    transition: all .35s ease-in-out;
-}
-
-.btn-baseblu::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
+    color: white;
     background-color: #003255;
-    transition: all .35s ease-in-out;
 }
 
 .btn-baseblu:hover {
+    border: #003255 3px solid;
     color: white;
-}
-
-.btn-baseblu:hover::after {
-    width: 100%;
-    color: white !important;
-}
-
-.btn-baseblu span {
-    position: relative;
-    z-index: 2;
+    background-color: #003255;
+    transition: all 0.2s linear;
+    transform: scale(0.98);
 }
 
 .btn-base:hover {
     border: #003255 3px solid;
     color: #003255;
     transition: all 0.2s linear;
-    transform: scale(0.99);
+    transform: scale(0.98);
 }
 
 .btn-rosso {

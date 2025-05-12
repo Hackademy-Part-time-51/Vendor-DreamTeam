@@ -8,41 +8,45 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       @endif
+        <h1 class="card-title display-2 text-center text-capitalize  mb-1">Benvenuto {{$user->name}}</h1>
         <div class="row mt-3">
           {{-- card user --}}
             <div class="col-12 col-lg-5 p-1 ">
               {{-- card user --}}
               <section class="card-user animated__backInLeft ">
-                    <div class="card z-1 d-flex justify-content-center ">
+                    <div class=" z-1 d-flex flex-column justify-content-center ">
                         <div class="p-1 d-flex justify-content-center">
                             @if ($user->profile_image == null)
                               <img src="/IMAGES/LOGO-SENZA-SFONDO.png" class="card-img-top" id="foto-user-card">
                             @else
-                            <img src="{{asset('storage/'.$user->profile_image) }}" class="card-img-top" id="foto-user-card">
+                            <img src="{{asset('storage/'.$user->profile_image) }}" class="card-img-top rounded" id="foto-user-card">
                             @endif
                         </div>
-                        <div class="card-body d-flex flex-column justify-content-center text-center text-blu">
-                          <h2 class="card-title text-capitalize fw-bold">{{$user->name}}</h2>  
-                        @if (Auth::id() == $user->id)
-                          <h6 class="card-title mb-0">
-                             <a href="{{route('messaggi', $user->id)}}" class="badge text-decoration-none bg-danger rounded-pill px-3 py-2">
-                                <i class="bi bi-chat"></i>     
-                                {{ Auth::user()->messages->count() }}
-                            </a>
-                            </h6>
-                          @endif                        
-                          <hr>
-                          <p class="text-capitalize">
-                            @if ($user->is_revisor == 1)
-                              <span class="badge bg-success">{{__('auth.reviewer')}}</span>
-                            @else
-                              <span class="badge bg-danger">{{__('user.user')}} nÂ°{{$user->id}}</span>
-                            @endif
-                          </p>
-                          <p class="">{{$user->email}}</p>
-                          <p class="">{{$user->phone}}</p>
-                        </div>
-                      </div>
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center text-blu mt-3">
+            @if (Auth::id() == $user->id)
+                       <hr class="w-50 my-2">
+                <h6 class="mb-0">
+                    <a href="{{route('messaggi', $user->id)}}" class="badge text-decoration-none bg-danger rounded-pill px-2 py-1 fs-6">
+                        <i class="bi bi-chat me-1"></i> Tutti i messaggi
+                        ({{ Auth::user()->messages->count() }})
+                    </a>
+                </h6>
+            @endif
+
+            <hr class="w-50 my-2">
+
+            <p class="text-capitalize mb-1 small">
+                @if ($user->is_revisor == 1)
+                    <span class="badge bg-success fs-6">Ruolo: {{__('auth.reviewer')}}</span>
+                @else
+                    <span class="badge bg-secondary fs-6">Ruolo: {{__('user.user')}} n°{{$user->id}}</span>
+                @endif
+            </p>
+
+            <p class="mb-1 fs-5">Email: {{$user->email}} <i class="bi bi-envelope-at-fill me-1 fs-4"></i></p>
+            <p class="mb-0 fs-5">Telefono: {{$user->phone}} <i class="bi bi-telephone-fill me-1"></i></p>
+        </div>
+                    </div>
               </section>
             </div>
             {{-- dashboard --}}
@@ -56,12 +60,12 @@
             </div>
         </div>
         <hr>
+            <h5 class="card-title display-3 mb-0 text-center py-2">
+                <i class="bi bi-house-fill "></i> {{__('user.quickActions')}} <i class="bi bi-house-fill "></i>
+            </h5>
         {{-- azioni rapide --}}
         @if (Auth::id() == $user->id )
-        <div class="card">
-            <div class="card-header bg-white">
-                <h5 class="card-title mb-0 text-center">{{__('user.quickActions')}}</h5>
-            </div>
+        <div class="mt-4">
             <div class="card-body">
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -102,10 +106,24 @@
         @endif
         <hr>
         {{-- articoli preferiti --}}
+        <hr>
+        <h5 class="card-title  display-3 mb-0 text-center py-2">
+            <i class="bi bi-heart-fill text-danger me-2"></i>{{__('user.favoriteArticles')}}             
+            <span class="badge bg-danger rounded-pill px-3 py-2">
+            {{ Auth::user()->favorites->count() }}
+            </span>
+        </h5>
         @livewire('user.favoritesProducts')
+        <hr>
         {{-- ricerche salvate --}}
+        <h5 class="card-title mb-0 display-3 mb-0 text-center py-2">
+            <i class="bi bi-star-fill text-warning me-2"></i>{{__('user.savedSearches')}}
+            <span class="badge bg-warning rounded-pill px-3 py-2">
+            {{ Auth::user()->searches->count() }}
+            </span>
+        </h5>
         @livewire('user.savedSearches')
-
+        <hr>
 
 
             {{-- modal modifica info --}}
