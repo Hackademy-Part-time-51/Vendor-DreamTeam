@@ -6,63 +6,77 @@ use Livewire\Component;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
+use App\Models\Product;
+
 class ChatArea extends Component
-{   public $messages='';
+{
+    public $messages = '';
     public $reicever_id;
     public $sender_id;
     public $product_id;
-    public $text='';
+    public $text = '';
     public $user_id;
-   
-    
+    public $product;
+
+    public function mount()
+    {
+        if ($this->product) {
+            $prodotto = Product::find($this->product);
+            $this->selectChat($prodotto->id, $prodotto->user_id);
+        }
+    }
     #[On('selectChat')]
     public function selectChat($product_id, $user_id)
-{
-    $this->user_id = $user_id;
-    $this->product_id = $product_id;
+    {
 
-    $this->messages = Message::where('product_id', $product_id)
-        ->where(function ($query) use ($user_id) {
-            $authId = Auth::id();
-            $query->where(function ($q) use ($authId, $user_id) {
-                $q->where('sender_id', $authId)->where('receiver_id', $user_id);
-            })->orWhere(function ($q) use ($authId, $user_id) {
-                $q->where('sender_id', $user_id)->where('receiver_id', $authId);
-            });
-        })
-        ->orderBy('created_at', 'asc')
-        ->get();
-    
-    foreach ($this->messages as $msg) {
-        $msg->sender_id=$msg->sender_id;
-        $msg->receiver_id=$msg->receiver_id;
-        $msg->product_id=$msg->product_id;
-        $msg->message=$msg->message;
-        $msg->is_read=1;
-        $msg->save();
+
+
+        $this->user_id = $user_id;
+        $this->product_id = $product_id;
+
+        $this->messages = Message::where('product_id', $product_id)
+            ->where(function ($query) use ($user_id) {
+                $authId = Auth::id();
+                $query->where(function ($q) use ($authId, $user_id) {
+                    $q->where('sender_id', $authId)->where('receiver_id', $user_id);
+                })->orWhere(function ($q) use ($authId, $user_id) {
+                    $q->where('sender_id', $user_id)->where('receiver_id', $authId);
+                });
+            })
+            ->orderBy('created_at', 'asc')
+            ->get();
+        // dd($this->messages);
+       
+
+        foreach ($this->messages as $msg) {
+            $msg->sender_id = $msg->sender_id;
+            $msg->receiver_id = $msg->receiver_id;
+            $msg->product_id = $msg->product_id;
+            $msg->message = $msg->message;
+            $msg->is_read = 1;
+            $msg->save();
+        }
+
+        
+        $this->dispatch('updatelist', product: $this->product_id);
     }
 
-    $this->dispatch('updatelist');
-}
 
-
-    public function sendMessage(){
+    public function sendMessage()
+    {
         Message::create([
             'sender_id' => Auth::id(),
             'receiver_id' => $this->user_id,
             'product_id' => $this->product_id,
             'message' => $this->text,
-            
+
         ]);
-        $this->text='';
+        $this->text = '';
         $this->dispatch('selectChat', $this->product_id, $this->user_id);
     }
-
+    #[On('refresh')]
     public function render()
-    {   
-        
-
-
+    {
         return view('livewire.user.chat-area');
     }
 }

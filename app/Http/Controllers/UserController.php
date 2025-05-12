@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function messaggi($id = null){
         
-        $product = Product::find($id);
+        $product = $id;
         return view('user.messaggi', compact('product'));
     }
     

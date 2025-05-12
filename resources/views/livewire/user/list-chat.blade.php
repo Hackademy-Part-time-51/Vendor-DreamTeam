@@ -25,5 +25,5 @@
             @endforeach
         </div>
     </div>
-    @livewire('user.chat-area')
+    @livewire('user.chat-area', compact('product'))
 </div>

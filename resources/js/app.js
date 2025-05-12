@@ -16,7 +16,7 @@ comuniJson.forEach(element => {
 });
 let idCity = document.getElementById("idCity");
 setTimeout(() => {
-    if (idCity!= null && idCity.value!=='') {
+    if (idCity!== null && idCity.value!=='') {
         document.getElementById("myInput").value = comuni[idCity.value];
             
     }}, 100);

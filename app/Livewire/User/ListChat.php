@@ -14,29 +14,33 @@ class ListChat extends Component
     public $chats = [];
     public $messages = [];
     public $products = [];
-    #[On('updatelist')]
     public function mount()
-    {   
+    {
+
         $this->chats = [];
         $this->messages = [];
-        
-        // if ($this->product){
 
-        //     $this->product
 
-        // }
+
+        $this->updatelist();
+    }
+    #[On('updatelist')]
+    public function updatelist()
+    {
+
 
         $this->messages = Message::where('receiver_id', Auth::id())
             ->orWhere('sender_id', Auth::id())->get();
 
-
-        $this->products = Product::where('user_id', Auth::id())->get();
+       $this->products = Product::where('user_id', Auth::id())->get();
 
         foreach ($this->messages as $msg) {
             $otherUserId = $msg->sender_id === Auth::id() ? $msg->receiver_id : $msg->sender_id;
             $key = $msg->product_id . '-' . $otherUserId;
 
             // if($msg->is_read==0){$msg->is_read=1;}
+
+
             if (!isset($this->chats[$key])) {
                 $this->chats[$key] = [
                     'product' => $msg->product,
@@ -50,10 +54,11 @@ class ListChat extends Component
         }
     }
 
-    
+
 
     public function selectChat($product, $user)
     {
+
         $this->dispatch('selectChat', product_id: $product, user_id: $user);
     }
 
