@@ -118,9 +118,9 @@
                             </p>
                         </div>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-base py-3 scalebig">
+                            <a href="{{route('messaggi', $product->id)}}" class="btn btn-base py-3 scalebig">
                                 <i class="bi bi-chat-dots me-2"></i>{{__('product.contactSeller')}}
-                            </button>
+                            </a >
                             <a href="{{ route('products.index') }}" 
                                class="btn btn-base py-3 scalebig">
                                 <i class="bi bi-arrow-left me-2"></i>{{__('product.returnProducts')}}

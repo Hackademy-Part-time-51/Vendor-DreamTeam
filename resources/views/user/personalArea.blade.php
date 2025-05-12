@@ -1,3 +1,4 @@
+
 <x-layout>
   {{-- prima sezione --}}
     <div class="container-fluid">
@@ -21,30 +22,25 @@
                             @endif
                         </div>
                         <div class="card-body d-flex flex-column justify-content-center text-center text-blu">
-                          <h2 class="card-title text-capitalize fw-bold">{{$user->name}}                           
-                            <h6 class="card-title mb-0">
-                            <a href="{{route('messaggi', $user->id)}}" class="badge text-decoration-none bg-danger rounded-pill px-3 py-2"><i class="bi bi-chat"></i>
-                                @if (Auth::user()->messages->count() > 0)
-                                    
-                                @endif
+                          <h2 class="card-title text-capitalize fw-bold">{{$user->name}}</h2>  
+                        @if (Auth::id() == $user->id)
+                          <h6 class="card-title mb-0">
+                             <a href="{{route('messaggi', $user->id)}}" class="badge text-decoration-none bg-danger rounded-pill px-3 py-2">
+                                <i class="bi bi-chat"></i>     
                                 {{ Auth::user()->messages->count() }}
                             </a>
                             </h6>
-                          @else
-                          {{-- <i class="bi bi-chat"></i> Invia un messaggio //todo// --}}
-                          @endif</h2>                          
+                          @endif                        
                           <hr>
                           <p class="text-capitalize">
                             @if ($user->is_revisor == 1)
                               <span class="badge bg-success">{{__('auth.reviewer')}}</span>
                             @else
-                              <span class="badge bg-danger">{{__('user.user')}} n°{{$user->id}}</span>
+                              <span class="badge bg-danger">{{__('user.user')}} nÂ°{{$user->id}}</span>
                             @endif
                           </p>
-                          <p class=""><i class="bi bi-envelope-at-fill"></i> {{$user->email}}</p>
-                          <p class=""><i class="bi bi-telephone"></i> {{$user->phone}}</p>
-                          @if (Auth::id() == $user->id)
-
+                          <p class="">{{$user->email}}</p>
+                          <p class="">{{$user->phone}}</p>
                         </div>
                       </div>
               </section>

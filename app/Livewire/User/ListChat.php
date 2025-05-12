@@ -10,6 +10,7 @@ use Livewire\Attributes\On;
 
 class ListChat extends Component
 {
+    public $product;
     public $chats = [];
     public $messages = [];
     public $products = [];
@@ -18,6 +19,12 @@ class ListChat extends Component
     {   
         $this->chats = [];
         $this->messages = [];
+        
+        // if ($this->product){
+
+        //     $this->product
+
+        // }
 
         $this->messages = Message::where('receiver_id', Auth::id())
             ->orWhere('sender_id', Auth::id())->get();
@@ -49,11 +56,10 @@ class ListChat extends Component
     {
         $this->dispatch('selectChat', product_id: $product, user_id: $user);
     }
+
     // #[On('selectChat')]
     public function render()
     {
-        
-
         return view('livewire.user.list-chat');
     }
 }
