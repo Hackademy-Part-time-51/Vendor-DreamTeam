@@ -1,4 +1,4 @@
-<div class="card mt-4">
+<div class=" mt-4">
     <div class="card-body">
         @if(Auth::user()->searches->count() > 0)
         <div class="row g-4">

@@ -84,12 +84,7 @@
                 </div>
 
             </div>
-            <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
-                <a href="{{ route('products.show', ['product' => $product->id]) }}" class="btn btn-base flex-grow-1">
-                    <span>
-                    <i class="bi bi-eye"></i>
-                    </span>
-                </a>
+            <div class="mt-auto d-flex justify-content-center align-items-center gap-2">
                 <button class="btn btn-base" type="button" data-bs-toggle="collapse"
                     data-bs-target="#userInfoCollapse{{ $product->id }}" aria-expanded="false"
                     aria-controls="userInfoCollapse{{ $product->id }}">
@@ -97,6 +92,11 @@
                     <i class="bi bi-person-fill"></i>
                     </span>
                 </button>
+                <a href="{{ route('products.show', ['product' => $product->id]) }}" class="btn btn-base">
+                    <span>
+                    <i class="bi bi-eye"></i>
+                    </span>
+                </a>
                 @auth
                     <div wire:key="heart-collapse-{{ $product->id }}">
                         <button class="btn btn-base" wire:click="toggleFavorite({{ $product->id }})">

@@ -7,12 +7,13 @@
     @endif
 
     <div class="container text-blu mb-3">
+        <h1 class="card-title display-3 my-3 text-center">{{__('user.whyworkWithUs')}}</h1>
         <hr>
         <div class="row mb-5">
             <div class="col-12">
                 <div class="card bg-blu text-white border-0 shadow-sm">
                     <div class="card-body p-5">
-                        <h1 class="card-title mb-4 text-center">{{__('user.whyworkWithUs')}}</h1>
+
                         <div class="row g-4">
                             <div class="col-md-4">
                                 <div class="d-flex align-items-start">
@@ -49,8 +50,8 @@
         <hr>
         <div class="row my-3">
             <div class="col-12 text-center">
-                <h1 class="mb-3">{{__('user.workWithUs')}}</h1>
-                <p class="fs-4">{{__('user.joinOurTeam')}}</p>
+                <h1 class="mb-3 display-4">{{__('user.workWithUs')}}</h1>
+                <p class="fs-3">{{__('user.joinOurTeam')}}</p>
             </div>
         </div>
         <div class="row">
@@ -123,7 +124,7 @@
                         <div class="accordion" id="openPositions">
                             <div class="accordion-item bg-blu text-white border-secondary">
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button bg-blu text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#position1" aria-expanded="false">
+                                    <button class="accordion-button bg-blu text-white fw-bold z-1" type="button" data-bs-toggle="collapse" data-bs-target="#position1" aria-expanded="false">
                                         {{__('auth.reviewer')}}
                                     </button>
                                 </h3>

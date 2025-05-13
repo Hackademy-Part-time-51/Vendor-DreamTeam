@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       @foreach (Category::all() as $category )
-                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{__("category.$category->name")}}</a></li>
+                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{__($category->name)}}</a></li>
                       @endforeach
                         {{-- foreach di categorie --}}
                         {{-- @foreach ($categories as $category)
@@ -34,7 +34,7 @@
                 {{-- area personale --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link scalebig text-white fs-mininav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="bi bi-person-circle me-2"></i> {{__('navbar.personalArea')}}
+                      <i class="bi bi-person-circle me-2"></i> {{__('navbar.personalArea')}} <br> 
                     </a>
                     
                     @guest
@@ -56,7 +56,8 @@
                         <a class="dropdown-item text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
                       </li>
                       <li>
-                        <a class="dropdown-item text-blu" href="{{route('messaggi', Auth::user()->id)}}"><i class="bi bi-chat"></i> Messaggi ({{Auth::user()->messages->count()}})
+                        <a class="dropdown-item" href="{{route('messaggi', Auth::user()->id)}}"><i class="bi bi-chat"></i> Messaggi <span class="@if (Auth::user()->messages->count() > 0)
+                          text-danger fw-bold @endif"> ({{Auth::user()->messages->count()}}) </span>
                         </a>
                       </li>
                         <a class="dropdown-item text-blu" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="bi bi-box-arrow-left"></i> {{__('navbar.logout')}}</a>
