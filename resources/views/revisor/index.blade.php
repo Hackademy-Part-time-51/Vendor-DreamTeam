@@ -7,6 +7,14 @@
         </div>
     @endif
     <h1 class="text-center py-3 display-2">Area Revisore <br> Utente: <span class="text-verde">{{Auth::user()->name}}</span></h1>
+    @if (!$product_to_check)
+    <hr>
+    <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
+        <h3 class="text-center display-4">Nessun articolo da revisionare</h3>
+        <h3 class="text-center display-6">Complimenti, lavoro finito.</h3>
+    </div>
+    <hr>
+    @else
     <div class="container-fluid py-4">
         <div class="row g-4 mb-5">
             <div class="col-12 col-lg-3 mt-3 d-flex flex-column align-self-center">
@@ -36,6 +44,18 @@
                         <div class="container-fluid py-3">
                             
                             <div class="row justify-content-center mb-2">
+                                @if ($product_to_check->images())
+                                @foreach ($product_to_check->images as $key => $image)
+                                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                                        <div class="position-relative">
+                                            <img src="{{ Storage::url($image->path) }}"
+                                                 class="img-fluid rounded shadow-sm w-100"
+                                                 style="aspect-ratio: 16/9; object-fit: cover;"
+                                                 alt="Product image">
+                                        </div>
+                                    </div>
+                                @endforeach 
+                                @endif
                                 @for ($i = 0; $i < 3; $i++)
                                     <div class="col-12 col-sm-6 col-md-4 mb-4">
                                         <div class="position-relative">
@@ -240,4 +260,6 @@
         </div>
         
     </div>
+    @endif
+
 </x-layout>
