@@ -191,7 +191,9 @@
                                     </div>     
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-base fs-3 py-2">
-                                            <i class="bi bi-check-lg me-2"></i>{{__('user.updateInfo')}}
+                                            <span>
+                                                <i class="bi bi-check-lg me-2"></i>{{__('user.updateInfo')}}
+                                            </span>
                                         </button>
                                     </div>
                                 </form>
@@ -244,7 +246,9 @@
                                     </div>
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-base fs-3 py-2">
-                                            <i class="bi bi-check-lg me-2"></i>{{__('auth.updatePassword')}}
+                                            <span>
+                                                <i class="bi bi-check-lg me-2"></i>{{__('auth.updatePassword')}}
+                                            </span>
                                         </button>
                                     </div>
                                 </form>

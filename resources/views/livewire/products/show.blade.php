@@ -21,7 +21,7 @@
                                 <span class="badge bg-warning px-3 py-2 rounded-pill">
                                     <a href="{{ route('products.index', ['category' => $product->category->id]) }}" 
                                     class="text-decoration-none text-blu">
-                                        <i class="bi bi-tag-fill me-2"></i>{{__("category.".$product->category->name)}}
+                                        <i class="bi bi-tag-fill me-2"></i>{{__($product->category->name)}}
                                     </a>
                                 </span>
                             @endif
@@ -50,7 +50,7 @@
                                     <div class="carousel-item @if($key == 0) active @endif">
                                         <img src="{{ Storage::url($image->path) }}"
                                             class="d-block w-100"
-                                            style="aspect-ratio: 16/9; object-fit: cover;"
+                                            style="aspect-ratio: 16/9; object-fit: contain;"
                                             alt="Immagine prodotto {{ $key + 1 }}">
                                     </div>
                                 @endforeach
@@ -59,7 +59,7 @@
                                     <div class="carousel-item @if($i == 0) active @endif">
                                         <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/2160"
                                             class="d-block w-100"
-                                            style="aspect-ratio: 16/9; object-fit: cover;"
+                                            style="aspect-ratio: 16/9; object-fit: contain;"
                                             alt="Immagine placeholder {{ $i + 1 }}">
                                     </div>
                                 @endfor
@@ -82,7 +82,7 @@
                                 <div class="col-4">
                                     <img src="{{ Storage::url($image->path) }}"
                                         class="img-fluid rounded cursor-pointer"
-                                        style="aspect-ratio: 16/9; object-fit: cover;"
+                                        style="aspect-ratio: 16/9; object-fit: contain;"
                                         data-bs-target="#productImageCarousel{{ $product->id }}"
                                         data-bs-slide-to="{{ $key }}"
                                         alt="Thumbnail {{ $key + 1 }}">
@@ -93,7 +93,7 @@
                                 <div class="col-4">
                                     <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/2160"
                                         class="img-fluid rounded cursor-pointer"
-                                        style="aspect-ratio: 16/9; object-fit: cover;"
+                                        style="aspect-ratio: 16/9; object-fit: contain;"
                                         data-bs-target="#productImageCarousel{{ $product->id }}"
                                         data-bs-slide-to="{{ $i }}"
                                         alt="Thumbnail {{ $i + 1 }}">
@@ -147,11 +147,13 @@
                             </p>
                         </div>
                         <div class="d-grid gap-2">
+                            @if ($product->user_id ==! Auth::id())
                             <a href="{{route('messaggi', $product->id)}}" class="btn btn-base py-3 scalebig">
                                 <span>
                                     <i class="bi bi-chat-dots me-2"></i>{{__('product.contactSeller')}}
                                 </span>
-                            </a >
+                            </a >                                
+                            @endif
                             <a href="{{ route('products.index') }}" 
                                class="btn btn-base py-3 scalebig">
                                <span>
@@ -200,8 +202,9 @@
                                 @csrf
                                 @method('PATCH')
                                 <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-check-lg me-2"></i>
-                                    <span class="d-none d-sm-inline">{{__('revisor.accept')}}</span>
+                                    <span class="d-none d-sm-inline">
+                                        <i class="bi bi-check-lg me-2"></i>{{__('revisor.accept')}}
+                                    </span>
                                 </button>
                             </form>
                             @elseif ($product->is_accepted === 1)
@@ -238,7 +241,9 @@
                         </p>
                         <a href="{{ route('products.index') }}" 
                            class="btn btn-base py-3 px-4 scalebig">
-                            <i class="bi bi-arrow-left me-2"></i>{{__('product.returnProducts')}}
+                           <span>
+                               <i class="bi bi-arrow-left me-2"></i>{{__('product.returnProducts')}}
+                           </span>
                         </a>
                     </div>
                 </div>

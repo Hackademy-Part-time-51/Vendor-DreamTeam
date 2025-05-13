@@ -113,7 +113,11 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-footer justify-content-start">
-            <button type="button" class="btn btn-base " data-bs-dismiss="modal">{{__('navbar.cancel')}}</button>
+            <button type="button" class="btn btn-base " data-bs-dismiss="modal">
+              <span>
+                {{__('navbar.cancel')}}
+              </span>
+            </button>
             <form action="{{route('logout')}}" method="POST">
               @csrf
               <button class="btn btn-rosso text-white" data-bs-dismiss="modal">{{__('navbar.confirmLogout')}}</button>

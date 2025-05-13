@@ -20,7 +20,11 @@
             <i class="bi bi-person-fill"></i>
           @endguest
           @auth
-            <img src="{{asset('storage/'.Auth::user()->profile_image) }}" alt="" class="rounded-circle" height="55" width="50">
+          @if (Auth::user()->profile_image === null)
+            <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="rounded-circle" height="55" width="50">
+          @else
+          <img src="{{asset('storage/'.Auth::user()->profile_image) }}" alt="" class="rounded-circle" height="55" width="50">
+          @endif
           @endauth
         </button>
     </div>

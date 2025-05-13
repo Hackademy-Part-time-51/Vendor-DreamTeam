@@ -58,7 +58,9 @@
                 <div class="d-grid mb-2">
                     <a href="{{ route('products.show', $product) }}"
                     class="btn btn-baseblu">
+                    <span>
                         <i class="bi bi-eye me-2"></i>{{__('revisor.details')}}
+                    </span>
                     </a>
                 </div>
                 <div class="row g-2">
@@ -80,9 +82,10 @@
                         <form action="{{ route('accept', $product) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
-                                <i class="bi bi-check-lg me-2"></i>
-                                <span class="d-none d-sm-inline">{{__('revisor.accept')}}</span>
+                            <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">   
+                                <span class="d-none d-sm-inline">
+                                    <i class="bi bi-check-lg me-2"></i>{{__('revisor.accept')}}
+                                </span>
                             </button>
                         </form>
                     </div>
@@ -101,8 +104,9 @@
                         @csrf
                         @method('PATCH')
                         <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
-                            <i class="bi bi-check-lg me-2"></i>
-                            <span class="d-none d-sm-inline">{{__('revisor.accept')}}</span>
+                            <span class="d-none d-sm-inline">
+                                <i class="bi bi-check-lg me-2"></i>{{__('revisor.accept')}}
+                            </span>
                         </button>
                     </form>
                     @elseif ($product->is_accepted === 1)

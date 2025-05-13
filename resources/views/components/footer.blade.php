@@ -3,9 +3,9 @@
     <div class="container-fluid">
         <div class="row mb-2 text-center">
             <div class="col-12">
-                <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="Logo" height="80" class="mb-3">
-                <p class="fs-2 text-muted mb-0">Vendor.it</p>
-                <p class="fs-5 text-muted">{{__('navbar.footer')}}</p>
+                <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="Logo" height="100" class="mb-3">
+                <p class="display-2 text-muted mb-0">Vendor.it</p>
+                <p class="display-4 text-muted">{{__('navbar.footer')}}</p>
             </div>
         </div>
         <div class="row mt-2">
