@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use App\Events\MessageEvent;
 use Livewire\Component;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
@@ -17,20 +18,21 @@ class ChatArea extends Component
     public $text = '';
     public $user_id;
     public $product;
-
+    public $loginId;
     public function mount()
-    {
+    {   
+        $this->loginId = Auth::id();
+
         if ($this->product) {
             $prodotto = Product::find($this->product);
             $this->selectChat($prodotto->id, $prodotto->user_id);
         }
     }
+
+
     #[On('selectChat')]
     public function selectChat($product_id, $user_id)
     {
-
-
-
         $this->user_id = $user_id;
         $this->product_id = $product_id;
 
@@ -64,16 +66,34 @@ class ChatArea extends Component
 
     public function sendMessage()
     {
-        Message::create([
+       $message= Message::create([
             'sender_id' => Auth::id(),
             'receiver_id' => $this->user_id,
             'product_id' => $this->product_id,
             'message' => $this->text,
-
         ]);
         $this->text = '';
+        // MessageEvent::dispatch($this->product_id, $this->user_id);
+        broadcast(new MessageEvent($message));
+
         $this->dispatch('selectChat', $this->product_id, $this->user_id);
     }
+
+public function getListeners(){
+    return [
+        "echo-private:chat.{$this->loginId},MessageEvent" => 'newmessage',
+    ];
+}
+
+    public function newmessage($message){
+        if($message['user_id']==$this->user_id){
+            
+            $this->dispatch('selectChat', $message['product_id'], $message['user_id']);
+        }
+
+    }
+    
+
     #[On('refresh')]
     public function render()
     {
