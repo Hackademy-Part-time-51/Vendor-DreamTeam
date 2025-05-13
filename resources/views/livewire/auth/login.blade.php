@@ -49,6 +49,7 @@
             </span>
         </button>
     </div>
+
+        <x-google></x-google>
         
-    </div>
 </form>

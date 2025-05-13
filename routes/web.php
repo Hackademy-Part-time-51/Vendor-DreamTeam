@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RevisorController;
 use Illuminate\Support\Facades\Route;
@@ -49,5 +49,12 @@ Route::get('/comuni-json', function () {
 // rotta per cambio lingua
 
 Route::post('/lingua/{lang}',[PageController::class, 'setLanguage'])->name('setLocale');
+
+
+
+
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
 
 
