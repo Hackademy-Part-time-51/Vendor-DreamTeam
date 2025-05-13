@@ -6,7 +6,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-
+    <h1 class="text-center py-3 display-2">Area Revisore <br> Utente: <span class="text-verde">{{Auth::user()->name}}</span></h1>
     <div class="container-fluid py-4">
         <div class="row g-4 mb-5">
             <div class="col-12 col-lg-3 mt-3 d-flex flex-column align-self-center">

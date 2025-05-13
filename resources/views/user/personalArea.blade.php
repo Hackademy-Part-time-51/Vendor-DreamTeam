@@ -60,51 +60,53 @@
             </div>
         </div>
         <hr>
+        <div class="py-3">
         @if (Auth::id() == $user->id )
-                        <h5 class="card-title display-3 mb-0 text-center py-2">
+            <h5 class="card-title  display-5 mb-0 text-center">
                 <i class="bi bi-house-fill "></i> {{__('user.quickActions')}} <i class="bi bi-house-fill "></i>
             </h5>
         {{-- azioni rapide --}}
-        @if (Auth::id() == $user->id )
-        <div class="mt-4">
-            <div class="card-body">
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <div class="d-grid">
-                            <a href="{{route('products.create')}}" class="btn btn-base">
-                                <span>
-                                    <i class="bi bi-plus-circle me-2"></i>{{__('product.newArticle')}}                                    
-                                </span>
-                            </a>
+            @if (Auth::id() == $user->id )
+            <div class="mt-4">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="d-grid">
+                                <a href="{{route('products.create')}}" class="btn btn-base">
+                                    <span>
+                                        <i class="bi bi-plus-circle me-2"></i>{{__('product.newArticle')}}                                    
+                                    </span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="d-grid"> 
-                            <button class="btn btn-baseblu" data-bs-toggle="modal" data-bs-target="#editProfile">
-                                <span>
-                                    <i class="bi bi-pencil-square me-2"></i>{{__('user.editProfile')}}
-                                </span>
+                        <div class="col-md-6">
+                            <div class="d-grid"> 
+                                <button class="btn btn-baseblu" data-bs-toggle="modal" data-bs-target="#editProfile">
+                                    <span>
+                                        <i class="bi bi-pencil-square me-2"></i>{{__('user.editProfile')}}
+                                    </span>
 
-                            </button>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="d-grid">
-                              <a href="{{route('lavoraConNoi')}}" class=" btn btn-baseblu text-decoration-none">
-                                <span>
-                                    <i class="bi bi-briefcase me-2"></i>{{__('user.workWithUs')}}
-                                </span>
+                        <div class="col-md-6">
+                            <div class="d-grid">
+                                <a href="{{route('lavoraConNoi')}}" class=" btn btn-baseblu text-decoration-none">
+                                    <span>
+                                        <i class="bi bi-briefcase me-2"></i>{{__('user.workWithUs')}}
+                                    </span>
 
-                              </a>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="d-grid">
-                            <a href="{{route('products.index')}}" class="btn btn-base">
-                                <span>
-                                    <i class="bi bi-list-ul me-2"></i>{{__('user.articleList')}}
-                                </span>
-                            </a>
+                        <div class="col-md-6">
+                            <div class="d-grid">
+                                <a href="{{route('products.index')}}" class="btn btn-base">
+                                    <span>
+                                        <i class="bi bi-list-ul me-2"></i>{{__('user.articleList')}}
+                                    </span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,22 +116,26 @@
         <hr>
         {{-- articoli preferiti --}}
         <hr>
-        <h5 class="card-title  display-3 mb-0 text-center py-2">
-            <i class="bi bi-heart-fill text-danger me-2"></i>{{__('user.favoriteArticles')}}             
-            <span class="badge bg-danger rounded-pill px-3 py-2">
-            {{ Auth::user()->favorites->count() }}
-            </span>
-        </h5>
-        @livewire('user.favoritesProducts')
+        <div class="py-3">
+            <h5 class="card-title  display-5 mb-0 text-center ">
+                <i class="bi bi-heart-fill text-danger me-2"></i>{{__('user.favoriteArticles')}}             
+                <span class="badge bg-danger rounded-pill px-3 py-2">
+                {{ Auth::user()->favorites->count() }}
+                </span>
+            </h5>
+            @livewire('user.favoritesProducts')
+        </div>
         <hr>
         {{-- ricerche salvate --}}
-        <h5 class="card-title mb-0 display-3 mb-0 text-center py-2">
-            <i class="bi bi-star-fill text-warning me-2"></i>{{__('user.savedSearches')}}
-            <span class="badge bg-warning rounded-pill px-3 py-2">
-            {{ Auth::user()->searches->count() }}
-            </span>
-        </h5>
-        @livewire('user.savedSearches')
+        <div class="py-3">
+            <h5 class="card-title mb-0 display-5 mb-0 text-center ">
+                <i class="bi bi-star-fill text-warning me-2"></i>{{__('user.savedSearches')}}
+                <span class="badge bg-warning rounded-pill px-3 py-2">
+                {{ Auth::user()->searches->count() }}
+                </span>
+            </h5>
+            @livewire('user.savedSearches')
+        </div>
         <hr>
 
 
@@ -191,7 +197,9 @@
                                     </div>     
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-base fs-3 py-2">
-                                            <i class="bi bi-check-lg me-2"></i>{{__('user.updateInfo')}}
+                                            <span>
+                                                <i class="bi bi-check-lg me-2"></i>{{__('user.updateInfo')}}
+                                            </span>
                                         </button>
                                     </div>
                                 </form>
@@ -244,7 +252,9 @@
                                     </div>
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-base fs-3 py-2">
-                                            <i class="bi bi-check-lg me-2"></i>{{__('auth.updatePassword')}}
+                                            <span>
+                                                <i class="bi bi-check-lg me-2"></i>{{__('auth.updatePassword')}}
+                                            </span>
                                         </button>
                                     </div>
                                 </form>

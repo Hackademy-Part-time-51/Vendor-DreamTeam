@@ -28,10 +28,10 @@ body {
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
     background-position: center !important;
+    z-index: 100;
 }
 nav {
     top: 0;
-    z-index: 999;
 
 }
 
@@ -283,22 +283,9 @@ nav {
     right: 1rem;
 }
 
-.torna-su button {
-    background-color: #003255;
-    color: white;
-}
-
-.torna-su button:hover {
-    background-color: #003255;
-    color: white;
-    transition: all 0.2s linear;
-    transform: scale(1.02);
-}
-.torna-su button:active {
-    background-color: #003255;
-    color: white;
-    transition: all 0.2s linear;
-    transform: scale(1.02);
+.torna-su:hover {
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.1);
 }
 
 /* #endregion */

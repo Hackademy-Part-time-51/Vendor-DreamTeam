@@ -62,8 +62,10 @@
                                 <form method="POST" action="{{ route('verification.send') }}">
                                     @csrf
                                     <button type="submit" class="btn btn-baseblu btn-lg w-100">
-                                        <i class="bi bi-envelope-paper me-2"></i>
-                                        {{__('auth.sendLink')}}
+                                        <span>
+                                            <i class="bi bi-envelope-paper me-2"></i>
+                                            {{__('auth.sendLink')}}
+                                        </span>
                                     </button>
                                 </form>
 

@@ -1,4 +1,4 @@
-<div class="card mt-4">
+<div class=" mt-4">
     <div class="card-body">
         @if(Auth::user()->searches->count() > 0)
         <div class="row g-4">
@@ -19,7 +19,9 @@
                         <p class="card-text"><strong>{{__('product.price')}}:</strong> {{ $search->min_price ?? 0 }} - {{ $search->max_price ?? 9999 }} €</p>
                         <div class="d-flex justify-content-start gap-1">
                             <button class="btn btn-baseblu" wire:click="search({{ $search->id }})">
-                                <i class="bi bi-search"></i> {{__('product.search')}}
+                                <span>
+                                    <i class="bi bi-search"></i> {{__('product.search')}}
+                                </span>
                             </button>
                             <button class="btn btn-rosso" wire:click="deleteSearch({{ $search->id }})">
                                 <i class="bi bi-trash"></i> {{__('revisor.delete')}}

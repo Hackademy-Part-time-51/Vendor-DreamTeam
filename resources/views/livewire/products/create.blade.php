@@ -1,6 +1,6 @@
 <div class="container-fluid py-4">
     <div class="text-center">
-        <h1 class="display-6 mb-3">{{__('product.newProduct')}}</h1>
+        <h1 class="display-3 mb-3">{{__('product.newProduct')}}</h1>
     </div>
     <form wire:submit="create">
         @if ($errors->any())
@@ -28,8 +28,10 @@
                                 class="position-absolute invisible" accept="image/jpeg, image/png, image/svg+xml"
                                 data-post-name="image_background" data-post-url="/upload" wire:model="images">
 
-                            <label class="btn btn-outline-primary btn-lg mb-3" for="upload_image_background">
+                            <label class="btn btn-base btn-lg mb-3" for="upload_image_background">
+                                <span>
                                 <i class="bi bi-image me-2"></i>{{__('product.selectImages')}}
+                                </span>
                             </label>
 
                             <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
@@ -58,7 +60,7 @@
                                 @enderror
                             </label>
                             <div class="input-group input-group-lg has-validation">
-                                <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                <input type="text" class="form-control z-1 @error('title') is-invalid @enderror"
                                     wire:model="title" placeholder="{{__('product.enterProductTitle')}}"
                                     value="{{ old('title') }}">
                             </div>
@@ -83,7 +85,7 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label h4 d-flex justify-content-between">
+                            <label class="form-label z-1 h4 d-flex justify-content-between">
                                 {{__('product.description')}}
                                 @error('description')
                                     <span class="text-danger small">
@@ -106,13 +108,13 @@
                         </div>
                         <div class="input-group input-group-lg">
                             <span class="input-group-text">€</span>
-                            <input type="number" wire:model="price" step="0.01" class="form-control @error('price') is-invalid @enderror" placeholder="0.00" value="{{ old('price') }}">
+                            <input type="number" wire:model="price" step="0.01" class="form-control z-1 @error('price') is-invalid @enderror" placeholder="0.00" value="{{ old('price') }}">
                         </div>
                         <div class="my-4">
                             <label for="myInput" class="form-label h4 d-flex justify-content-between">{{__('product.chooseCity')}}
                             </label>
                             <div class="input-group input-group-lg">
-                                <input id="myInput" type="text" class="form-control @error('city') is-invalid @enderror" placeholder="{{__('ui.city')}}" value="{{ old('city') }}">
+                                <input id="myInput" type="text" class="form-control z-1 @error('city') is-invalid @enderror" placeholder="{{__('ui.city')}}" value="{{ old('city') }}">
                                 <input type="hidden" wire:model="myCity" id="idCity">
                             </div>
                         </div>

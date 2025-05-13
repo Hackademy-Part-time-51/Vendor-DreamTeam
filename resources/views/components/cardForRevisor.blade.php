@@ -49,8 +49,11 @@
             </div>
             <div class="mt-auto">
                 <div class="d-grid mb-2">
-                    <a href="{{ route('products.show', $product) }}" class="btn btn-baseblu">
-                        <i class="bi bi-eye me-2"></i>{{ __('revisor.details') }}
+                    <a href="{{ route('products.show', $product) }}"
+                    class="btn btn-baseblu">
+                    <span>
+                        <i class="bi bi-eye me-2"></i>{{__('revisor.details')}}
+                    </span>
                     </a>
                 </div>
                 <div class="row g-2">
@@ -68,35 +71,37 @@
                         </div>
                     @endif
                     @if ($product->is_accepted === null)
-                        <div class="col-6">
-                            <form action="{{ route('accept', $product) }}" method="POST">
-                                @csrf
-                                @method('PATCH')
-                                <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-check-lg me-2"></i>
-                                    <span class="d-none d-sm-inline">{{ __('revisor.accept') }}</span>
-                                </button>
-                            </form>
-                        </div>
-                        <div class="col-6">
-                            <form action="{{ route('reject', $product) }}" method="POST">
-                                @csrf
-                                @method('PATCH')
-                                <button class="btn btn-rosso w-100 d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-x-lg me-2"></i>
-                                    <span class="d-none d-sm-inline">{{ __('revisor.refuse') }}</span>
-                                </button>
-                            </form>
-                        </div>
-                    @elseif ($product->is_accepted === 0)
+                    <div class="col-6">
                         <form action="{{ route('accept', $product) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
-                                <i class="bi bi-check-lg me-2"></i>
-                                <span class="d-none d-sm-inline">{{ __('revisor.accept') }}</span>
+                            <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">   
+                                <span class="d-none d-sm-inline">
+                                    <i class="bi bi-check-lg me-2"></i>{{__('revisor.accept')}}
+                                </span>
                             </button>
                         </form>
+                    </div>
+                    <div class="col-6">
+                        <form action="{{ route('reject', $product) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button class="btn btn-rosso w-100 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-x-lg me-2"></i>
+                                <span class="d-none d-sm-inline">{{__('revisor.refuse')}}</span>
+                            </button>
+                        </form>
+                    </div>
+                    @elseif ($product->is_accepted === 0)
+                    <form action="{{ route('accept', $product) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
+                            <span class="d-none d-sm-inline">
+                                <i class="bi bi-check-lg me-2"></i>{{__('revisor.accept')}}
+                            </span>
+                        </button>
+                    </form>
                     @elseif ($product->is_accepted === 1)
                         <form action="{{ route('reject', $product) }}" method="POST">
                             @csrf

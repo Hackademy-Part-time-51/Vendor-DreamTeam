@@ -126,7 +126,9 @@
                         </div>
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-baseblu btn-lg py-3">
-                                <i class="bi bi-check-lg me-2"></i>{{__('product.saveModification')}}
+                                <span>
+                                    <i class="bi bi-check-lg me-2"></i>{{__('product.saveModification')}}
+                                </span>
                             </button>
                             <a href="{{ route('products.show', $product) }}" 
                                class="btn btn-rosso btn-lg py-3">

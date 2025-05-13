@@ -1,4 +1,4 @@
-<div class="card mt-4">
+<div class=" mt-4">
 
     <div class="card-body">
         @if(Auth::user()->favorites->count() > 0)

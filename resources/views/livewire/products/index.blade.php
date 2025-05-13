@@ -133,8 +133,10 @@
                     @auth
                     <button wire:click="saveFilter"
                         class="btn btn-base  mt-1 d-flex align-items-center justify-content-center save-btn">
-                        <i class="bi bi-bookmark-check me-2"></i>
-                        {{ __('ui.saveFilter') }}
+                        <span>
+                            <i class="bi bi-bookmark-check me-2"></i>
+                            {{ __('ui.saveFilter') }}
+                        </span>
                     </button>
                     @endauth
                 </div>
