@@ -147,7 +147,7 @@
                             </p>
                         </div>
                         <div class="d-grid gap-2">
-                            @if ($product->user_id ==! Auth::id())
+                            @if ($product->user_id === Auth::id())
                             <a href="{{route('messaggi', $product->id)}}" class="btn btn-base py-3 scalebig">
                                 <span>
                                     <i class="bi bi-chat-dots me-2"></i>{{__('product.contactSeller')}}

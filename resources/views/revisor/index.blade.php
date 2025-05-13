@@ -10,8 +10,8 @@
     @if (!$product_to_check)
     <hr>
     <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
-        <h3 class="text-center display-4">Nessun articolo da revisionare</h3>
-        <h3 class="text-center display-6">Complimenti, lavoro finito.</h3>
+        <h3 class="text-center display-4" id="BigWelcome"></h3>
+        <h3 class="text-center display-6" id="SmallWelcome"> Complimenti, lavoro finito.</h3>
     </div>
     <hr>
     @else
@@ -261,5 +261,26 @@
         
     </div>
     @endif
-
+    <script>
+    let animWelcomeBig = document.getElementById('BigWelcome');
+    let animWelcomeSmall = document.getElementById('SmallWelcome');
+    function animazioneWelcomeBig() {
+        const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                    var typed = new Typed('#element', {
+                        strings: ['Nessun articolo da revisionare'],
+                        typeSpeed: 50,
+                    });
+            animWelcomeBig.classList.add('on');
+            observer.unobserve(animWelcomeBig); // Smette di osservare l'elemento dopo l'intersezione
+            }
+        });
+        });
+    
+        observer.observe(element);
+    }
+    
+    logElementInViewport(provaanimazione);
+    </script>
 </x-layout>
