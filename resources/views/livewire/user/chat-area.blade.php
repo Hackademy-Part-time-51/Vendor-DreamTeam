@@ -1,4 +1,4 @@
-<div class="col-12 d-flex flex-column min-vh-50 px-3 py-5">
+<div class="col-12 d-flex flex-column min-vh-50 px-3 py-2 vh-100 overflow-scroll">
     @if ($messages)
         <div class="d-flex align-items-center gap-3 border-bottom  px-3 py-2">
             @if (isset($messages[0]))
@@ -14,7 +14,7 @@
                 </div>
             @endif
         </div>
-        <div class="flex-grow-1 overflow-auto px-2 px-md-4 py-3 align-content-end">
+        <div class="flex-grow-1 overflow-y-auto px-2 px-md-4 py-3 align-content-end">
             @foreach ($messages as $message)
                 <div class="mb-2 d-flex 
                 @if ($message->sender_id == Auth::id()) justify-content-end 
