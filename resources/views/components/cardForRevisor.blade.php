@@ -68,13 +68,17 @@
                     @if ($product->is_accepted === 1)
                         <div class="col-12 mb-2">
                             <span class="badge bg-success w-100 text-center">{{ __('revisor.accepted') }}</span>
+                            <span class="badge bg-success w-100 text-center">{{ __('revisor.accepted') }}</span>
                         </div>
                     @elseif ($product->is_accepted === 0)
                         <div class="col-12 mb-2">
                             <span class="badge bg-danger w-100 text-center">{{ __('revisor.refused') }}</span>
+                            <span class="badge bg-danger w-100 text-center">{{ __('revisor.refused') }}</span>
                         </div>
                     @else
                         <div class="col-12 mb-2">
+                            <span class="badge bg-warning w-100 text-center">{{ __('revisor.awaitingReview') }}</span>
+                        </div>
                             <span class="badge bg-warning w-100 text-center">{{ __('revisor.awaitingReview') }}</span>
                         </div>
                     @endif
@@ -125,3 +129,4 @@
         </div>
     </div>
 </div>
+
