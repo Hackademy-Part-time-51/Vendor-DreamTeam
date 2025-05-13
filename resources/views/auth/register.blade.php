@@ -102,7 +102,7 @@
                                     </span>
                                 </button>
                             </div>
-
+                            <x-google></x-google>
                             <div class="d-flex justify-content-between align-items-center mt-4 fs-5">
                                 <p>
                                     <span class="text-muted">{{__('auth.dontHaveAccount')}}</span>
