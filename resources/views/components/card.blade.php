@@ -16,11 +16,8 @@
 
         <img src="{{ Storage::url($image->path) }}"
              class="img-fluid w-100 object-fit-cover"
-             {{-- Testo Alt migliorato --}}
              alt="{{ $product->name ?? 'Immagine Prodotto' }} {{ $key + 1 }}"
-             {{-- Aggiungi lazy loading per performance migliori --}}
              loading="lazy"
-             {{-- Opzionale: Aggiungi width/height se noti, aiuta a prevenire il "layout shift" --}}
              width="300" height="300"
              >
 
