@@ -28,6 +28,7 @@ body {
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
     background-position: center !important;
+    z-index: 100;
 }
 nav {
     top: 0;
