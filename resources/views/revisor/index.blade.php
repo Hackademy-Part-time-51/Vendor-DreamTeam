@@ -122,6 +122,10 @@
             
         </div>
         <hr>
+
+        
+    </div>
+    @endif
         <div class="container-fluid py-4">
             <div class="row justify-content-center mb-4">
                 <div class="col-12 text-center">
@@ -196,7 +200,7 @@
                             <div class="tab-pane fade show active" id="toReview">
                                 <div class="container-fluid p-4">
                                     <div class="row g-4">
-                                         @forelse($allProductsToCheck as $product)
+                                         @forelse($allProductsToCheck->where('is_accepted', null) as $product)
                                         <x-cardForRevisor :product="$product"/>
                                         @empty
                                             <div class="col-12 text-center py-5">
@@ -258,12 +262,10 @@
                 </div>
             </div>
         </div>
-        
-    </div>
-    @endif
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
     <script>
-        
+
         function animazioneWelcomeBig() {
             const animWelcomeBig = document.getElementById('BigWelcome');
             const observer = new IntersectionObserver(entries => {
@@ -299,8 +301,8 @@
             observer.observe(animWelcomeSmall);
         }
 
-
         document.addEventListener('DOMContentLoaded', animazioneWelcomeBig);
-                document.addEventListener('DOMContentLoaded', animazioneWelcomeSmall);
+        document.addEventListener('DOMContentLoaded', animazioneWelcomeSmall);
+
     </script>
 </x-layout>
