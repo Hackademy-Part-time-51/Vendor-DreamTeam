@@ -10,8 +10,8 @@
     @if (!$product_to_check)
     <hr>
     <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
-        <h3 class="text-center display-4" id="BigWelcome"></h3>
-        <h3 class="text-center display-6" id="SmallWelcome"> Complimenti, lavoro finito.</h3>
+        <h3 class="text-center display-3" id="BigWelcome"></h3>
+        <h3 class="text-center display-6" id="SmallWelcome"></h3>
     </div>
     <hr>
     @else
@@ -261,26 +261,46 @@
         
     </div>
     @endif
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-    let animWelcomeBig = document.getElementById('BigWelcome');
-    let animWelcomeSmall = document.getElementById('SmallWelcome');
-    function animazioneWelcomeBig() {
-        const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                    var typed = new Typed('#element', {
-                        strings: ['Nessun articolo da revisionare'],
-                        typeSpeed: 50,
-                    });
-            animWelcomeBig.classList.add('on');
-            observer.unobserve(animWelcomeBig); // Smette di osservare l'elemento dopo l'intersezione
-            }
-        });
-        });
-    
-        observer.observe(element);
-    }
-    
-    logElementInViewport(provaanimazione);
+        
+        function animazioneWelcomeBig() {
+            const animWelcomeBig = document.getElementById('BigWelcome');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        new Typed('#BigWelcome', {
+                            strings: ['Nessun articolo da revisionare!'],
+                            typeSpeed: 20,
+                        });
+                        animWelcomeBig.classList.add('on');
+                        observer.unobserve(animWelcomeBig); // Smette di osservare
+                    }
+                });
+            });
+
+            observer.observe(animWelcomeBig);
+        }
+
+        function animazioneWelcomeSmall() {
+            const animWelcomeSmall = document.getElementById('SmallWelcome');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        new Typed('#SmallWelcome', {
+                            strings: ['Complimenti, lavoro finito.'],
+                            typeSpeed: 20,
+                        });
+                        observer.unobserve(animWelcomeSmall); // Smette di osservare
+                    }
+                });
+            });
+
+            observer.observe(animWelcomeSmall);
+        }
+
+
+        document.addEventListener('DOMContentLoaded', animazioneWelcomeBig);
+                document.addEventListener('DOMContentLoaded', animazioneWelcomeSmall);
     </script>
 </x-layout>
