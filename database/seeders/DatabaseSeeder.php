@@ -21,15 +21,10 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-<<<<<<< HEAD
-            // UserSeeder::class,
-            CategorySeeder::class,
-=======
             //  UserSeeder::class,
             //  CategorySeeder::class,
->>>>>>> 3613d210c8320796c36ca753479d33c76a69df94
-            // ProductSeeder::class,
-            // MessageSeeder::class,
+             ProductSeeder::class,
+             MessageSeeder::class,
         ]);
     }
 }
