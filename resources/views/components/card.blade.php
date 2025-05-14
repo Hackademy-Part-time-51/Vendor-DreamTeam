@@ -28,7 +28,7 @@
             @else
                 @foreach ($product->images as $key => $image)
                     <div class="carousel-item @if ($key == 0) active @endif" data-bs-interval="5000">
-                        <img src="{{ Storage::url($image->path) }}" class="img-fluid d-block w-100 object-fit-cover"
+                        <img src="{{$product->images->isNotEmpty() ? $product->images->first()->getUrl(300,300) : 'https://picsum.photos/300'}}" class="img-fluid d-block w-100 object-fit-cover"
                             alt="{{ $product->name ?? 'Immagine Prodotto' }} {{ $key + 1 }}" loading="lazy"
                             width="300" height="300">
                     </div>
