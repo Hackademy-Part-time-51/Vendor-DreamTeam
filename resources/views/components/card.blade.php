@@ -29,7 +29,7 @@
                                 class="img-fluid d-block w-100 object-fit-cover"
                                 alt="{{ $product->name ?? 'Immagine Prodotto' }} {{ $key + 1 }}"
                                 loading="lazy"
-                                width="300" height="300">
+                                max-width="300" max-height="300">
                         </div>
                     @endforeach
                 </div>
