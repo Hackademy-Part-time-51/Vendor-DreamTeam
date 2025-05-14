@@ -88,13 +88,13 @@
                                 <div class="col-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">€</span>
-                                        <input type="number" class="form-control" wire:model.live="minPrice" placeholder="Min">
+                                        <input type="number" min="0" class="form-control" wire:model.live="minPrice" placeholder="Min">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">€</span>
-                                        <input type="number" class="form-control" wire:model.live="maxPrice" placeholder="Max">
+                                        <input type="number" min="0" class="form-control" wire:model.live="maxPrice" placeholder="Max">
                                     </div>
                                 </div>
                             </div>
