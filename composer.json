@@ -15,6 +15,7 @@
         "laravel/jetstream": "^5.3",
         "laravel/reverb": "^1.5",
         "laravel/scout": "^10.14",
+        "laravel/socialite": "^5.20",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6",
         "outhebox/blade-flags": "^1.5",

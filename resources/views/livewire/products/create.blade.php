@@ -34,9 +34,17 @@
                                 </span>
                             </label>
 
-                            <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
+                            {{-- <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
                                 {{-- anteprima delle foto --}}
-                            </div>
+                            {{-- </div> --}}
+                            {{--!Aggiunta visualizzazione anteprima per le foto con pulsante(non ancora funzionante per eliminarle)  --}}
+                            <div class="mt-3 d-flex flex-wrap justify-content-center gap-2">
+                                @foreach ($images as $key => $image)
+                                    <div class="position-relative">
+                                        <img src="{{ $image->temporaryUrl() }}" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;" alt="Anteprima immagine {{ $key + 1 }}">
+                                        <button type="button" wire:click="removeImage({{ $key }})" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1">X</button>
+                                    </div>
+                                @endforeach
 
                             @error('images')
                                 <div class="text-danger mt-2">

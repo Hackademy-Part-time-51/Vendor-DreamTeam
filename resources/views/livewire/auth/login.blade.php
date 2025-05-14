@@ -1,13 +1,15 @@
 <form method="POST" action="{{ route('login') }}">
     @csrf
+    @if ($errors->any())
+        <div class="alert alert-danger text-center mt-2 py-2">
+            Ci dispiace, email e password non corrispondono a nessun utente
+        </div>
+    @endif
     <div class="mb-4">
         <label for="email" class="block mb-2 font-medium">Email</label>
         <input id="email" type="email" name="email" value="{{ old('email') }}" 
                class="w-100 px-3 py-2 border rounded @error('email') @enderror" 
                required autofocus value="{{ old('email') }}">
-        @error('email')
-            <p class=" text-sm mt-1">{{ $message }}</p>
-        @enderror
     </div>
 
     <div class="mb-4">
@@ -49,6 +51,7 @@
             </span>
         </button>
     </div>
+
+        <x-google></x-google>
         
-    </div>
 </form>
