@@ -2,6 +2,9 @@
 
 namespace App\Livewire\Products;
 
+use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionSafeSearch;
+use App\Jobs\ResizeImage;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use App\Models\Product;
@@ -56,16 +59,32 @@ class Create extends Component
         if ($createdProduct && $this->images) {
             foreach ($this->images as $imageFile) {
                 $directory = "products/{$createdProduct->id}"; 
-                $path = $imageFile->store($directory, 'public');
-
-                $createdProduct->images()->create([
-                    'path' => $path
-                ]);
+                $newImage= $createdProduct->images()->create(['path'=>$imageFile->store($directory, 'public')]);
+                dispatch(new ResizeImage($newImage,300,300));
+                dispatch(new GoogleVisionSafeSearch($newImage->id)); 
+                dispatch(new GoogleVisionLabelImage($newImage->id));   
             }
+
         }
 
         session()->flash('status', 'Annuncio creato correttamente, in attesa di approvazione');
         return $this->redirect('/products/index');
+    }
+
+
+    public function removeImage($key){
+        if(in_array($key, array_keys($this->images))){
+            unset($this->images[$key]);
+        }
+    }
+
+
+    public function updateTemporaryImages(){
+        if ($this->validate(['temporary_images.*' => 'image|max:1024','temporary_images.*' => 'max:6'])) {
+           foreach ($this->temporary_images as $image) {
+                $this->images[] = $image;
+            }
+        }
     }
 
     public function render()

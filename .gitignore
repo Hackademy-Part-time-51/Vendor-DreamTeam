@@ -1,5 +1,6 @@
 /storage/*.index
 /.phpunit.cache
+/google-credential.json
 /node_modules
 /public/build
 /public/hot
