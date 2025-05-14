@@ -146,121 +146,112 @@
             </div>
         </div>
     </div>
-
-
-<!-- Modal Revisore -->
-<div class="modal fade" id="productsRevisorModal" tabindex="-1" aria-labelledby="productsRevisorModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen m-0">
-        <div class="modal-content">
-
-            <!-- Header -->
-            <div class="modal-header bg-light border-bottom-0 py-3">
-                <h5 class="modal-title fs-4" id="productsRevisorModalLabel">{{ __('user.articleManagement') }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <!-- Body -->
-            <div class="modal-body p-0">
-                <!-- Tabs Nav -->
-                <ul class="nav nav-tabs nav-fill border-0" id="revisorTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active py-3" id="toReview-tab" data-bs-toggle="tab" data-bs-target="#toReview" type="button" role="tab" aria-controls="toReview" aria-selected="true">
-                            <i class="bi bi-hourglass me-2 d-none d-sm-inline"></i>
-                            {{ __('revisor.toReviewed') }}
-                            <span class="badge bg-blu ms-2">{{ \App\Models\Product::toBeRevisedCount() }}</span>
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link py-3" id="accepted-tab" data-bs-toggle="tab" data-bs-target="#accepted" type="button" role="tab" aria-controls="accepted" aria-selected="false">
-                            <i class="bi bi-check-circle me-2 d-none d-sm-inline"></i>
-                            {{ __('revisor.accepted') }}
-                            <span class="badge bg-success ms-2">{{ \App\Models\Product::acceptedCount() }}</span>
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link py-3" id="refused-tab" data-bs-toggle="tab" data-bs-target="#refused" type="button" role="tab" aria-controls="refused" aria-selected="false">
-                            <i class="bi bi-x-circle me-2 d-none d-sm-inline"></i>
-                            {{ __('revisor.refused') }}
-                            <span class="badge bg-danger ms-2">{{ \App\Models\Product::rejectedCount() }}</span>
-                        </button>
-                    </li>
-                </ul>
-
-                <!-- Tabs Content -->
-                <div class="tab-content">
-                    <!-- To Review -->
-                    <div class="tab-pane fade show active" id="toReview" role="tabpanel" aria-labelledby="toReview-tab">
-                        <div class="container-fluid p-4">
-                            <div class="row g-4">
-                                @forelse ($allProductsToCheck as $product)
-                                    <x-cardForRevisor :product="$product" />
-                                @empty
-                                    <div class="col-12 text-center py-5">
-                                        <i class="bi bi-inbox display-1 text-muted mb-3"></i>
-                                        <h4 class="text-muted">{{ __('revisor.noItemReview') }}</h4>
-                                    </div>
-                                @endforelse
+    <div class="modal fade" id="productsRevisorModal" tabindex="-1" aria-labelledby="productsRevisorModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen m-0">
+            <div class="modal-content">
+                <div class="modal-header bg-light border-bottom-0 py-3">
+                    <h5 class="modal-title fs-4" id="productsRevisorModalLabel">{{ __('user.articleManagement') }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <ul class="nav nav-tabs nav-fill border-0" id="revisorTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active py-3" id="toReview-tab" data-bs-toggle="tab"
+                                data-bs-target="#toReview" type="button" role="tab" aria-controls="toReview"
+                                aria-selected="true">
+                                <i class="bi bi-hourglass me-2 d-none d-sm-inline"></i>
+                                {{ __('revisor.toReviewed') }}
+                                <span class="badge bg-blu ms-2">{{ \App\Models\Product::toBeRevisedCount() }}</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link py-3" id="accepted-tab" data-bs-toggle="tab"
+                                data-bs-target="#accepted" type="button" role="tab" aria-controls="accepted"
+                                aria-selected="false">
+                                <i class="bi bi-check-circle me-2 d-none d-sm-inline"></i>
+                                {{ __('revisor.accepted') }}
+                                <span class="badge bg-success ms-2">{{ \App\Models\Product::acceptedCount() }}</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link py-3" id="refused-tab" data-bs-toggle="tab"
+                                data-bs-target="#refused" type="button" role="tab" aria-controls="refused"
+                                aria-selected="false">
+                                <i class="bi bi-x-circle me-2 d-none d-sm-inline"></i>
+                                {{ __('revisor.refused') }}
+                                <span class="badge bg-danger ms-2">{{ \App\Models\Product::rejectedCount() }}</span>
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="toReview" role="tabpanel"
+                            aria-labelledby="toReview-tab">
+                            <div class="container-fluid p-4">
+                                <div class="row g-4">
+                                    @forelse ($allProductsToCheck as $product)
+                                        <x-cardForRevisor :product="$product" />
+                                    @empty
+                                        <div class="col-12 text-center py-5">
+                                            <i class="bi bi-inbox display-1 text-muted mb-3"></i>
+                                            <h4 class="text-muted">{{ __('revisor.noItemReview') }}</h4>
+                                        </div>
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Accepted -->
-                    <div class="tab-pane fade" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
-                        <div class="container-fluid p-4">
-                            <div class="row g-4">
-                                @forelse ($acceptedProducts as $product)
-                                    <x-cardForRevisor :product="$product" />
-                                @empty
-                                    <div class="col-12 text-center py-5">
-                                        <i class="bi bi-inbox display-1 text-muted mb-3"></i>
-                                        <h4 class="text-muted">{{ __('revisor.noItemReview') }}</h4>
-                                    </div>
-                                @endforelse
+                        <div class="tab-pane fade" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
+                            <div class="container-fluid p-4">
+                                <div class="row g-4">
+                                    @forelse ($acceptedProducts as $product)
+                                        <x-cardForRevisor :product="$product" />
+                                    @empty
+                                        <div class="col-12 text-center py-5">
+                                            <i class="bi bi-inbox display-1 text-muted mb-3"></i>
+                                            <h4 class="text-muted">{{ __('revisor.noItemReview') }}</h4>
+                                        </div>
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Refused -->
-                    <div class="tab-pane fade" id="refused" role="tabpanel" aria-labelledby="refused-tab">
-                        <div class="container-fluid p-4">
-                            <div class="row g-4">
-                                @forelse ($refusedProducts as $product)
-                                    <x-cardForRevisor :product="$product" />
-                                @empty
-                                    <div class="col-12 text-center py-5">
-                                        <i class="bi bi-inbox display-1 text-muted mb-3"></i>
-                                        <h4 class="text-muted">{{ __('revisor.noItemReview') }}</h4>
-                                    </div>
-                                @endforelse
+                        <div class="tab-pane fade" id="refused" role="tabpanel" aria-labelledby="refused-tab">
+                            <div class="container-fluid p-4">
+                                <div class="row g-4">
+                                    @forelse ($refusedProducts as $product)
+                                        <x-cardForRevisor :product="$product" />
+                                    @empty
+                                        <div class="col-12 text-center py-5">
+                                            <i class="bi bi-inbox display-1 text-muted mb-3"></i>
+                                            <h4 class="text-muted">{{ __('revisor.noItemReview') }}</h4>
+                                        </div>
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Footer -->
-            <div class="modal-footer bg-light border-top py-3">
-                <div class="container-fluid">
-                    <div class="row row-cols-3 text-center g-3">
-                        <div class="col">
-                            <small class="d-block text-muted">{{ __('revisor.toReviewed') }}</small>
-                            <span class="fw-bold text-blu">{{ \App\Models\Product::toBeRevisedCount() }}</span>
-                        </div>
-                        <div class="col">
-                            <small class="d-block text-muted">{{ __('revisor.accepted') }}</small>
-                            <span class="fw-bold text-success">{{ \App\Models\Product::acceptedCount() }}</span>
-                        </div>
-                        <div class="col">
-                            <small class="d-block text-muted">{{ __('revisor.refused') }}</small>
-                            <span class="fw-bold text-danger">{{ \App\Models\Product::rejectedCount() }}</span>
+                <div class="modal-footer bg-light border-top py-3">
+                    <div class="container-fluid">
+                        <div class="row row-cols-3 text-center g-3">
+                            <div class="col">
+                                <small class="d-block text-muted">{{ __('revisor.toReviewed') }}</small>
+                                <span class="fw-bold text-blu">{{ \App\Models\Product::toBeRevisedCount() }}</span>
+                            </div>
+                            <div class="col">
+                                <small class="d-block text-muted">{{ __('revisor.accepted') }}</small>
+                                <span class="fw-bold text-success">{{ \App\Models\Product::acceptedCount() }}</span>
+                            </div>
+                            <div class="col">
+                                <small class="d-block text-muted">{{ __('revisor.refused') }}</small>
+                                <span class="fw-bold text-danger">{{ \App\Models\Product::rejectedCount() }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
 
 
 
