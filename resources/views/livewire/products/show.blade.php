@@ -48,6 +48,7 @@
                             @if ($product->images()->count() > 0)
                                 @foreach ($product->images as $key => $image)
                                     <div class="carousel-item @if($key == 0) active @endif">
+                                        
                                         <img src="{{ Storage::url($image->path) }}"
                                             class="d-block w-100"
                                             style="aspect-ratio: 16/9; object-fit: contain;"

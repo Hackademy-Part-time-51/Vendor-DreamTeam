@@ -49,7 +49,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-12">
-                                    <h2 class="display-6 text-blu mb-4">{{__('product.title')}}: <strong> {{ $product_to_check->title }}</strong></h2>
+                                    <h2 class="display-6 text-blu mb-4">{{__('product.title')}}: <strong> {{ $product_to_check->title??  }}</strong></h2>
             
                                     
                                     <div class="d-flex  align-items-center mb-4">

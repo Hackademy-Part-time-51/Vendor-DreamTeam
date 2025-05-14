@@ -68,6 +68,22 @@ class Create extends Component
         return $this->redirect('/products/index');
     }
 
+
+    public function removeImage($key){
+        if(in_array($key, array_keys($this->images))){
+            unset($this->images[$key]);
+        }
+    }
+
+
+    public function updateTemporaryImages(){
+        if ($this->validate(['temporary_images.*' => 'image|max:1024','temporary_images.*' => 'max:6'])) {
+           foreach ($this->temporary_images as $image) {
+                $this->images[] = $image;
+            }
+        }
+    }
+
     public function render()
     {
         return view('livewire.products.create');
