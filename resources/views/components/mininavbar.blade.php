@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       @foreach (Category::all() as $category )
-                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{__($category->name)}}</a></li>
+                      <li><a class="dropdown-item" href="{{ route('products.index', ['category' => $category->id]) }}">{{__('category.' .$category->name)}}</a></li>
                       @endforeach
                         {{-- foreach di categorie --}}
                         {{-- @foreach ($categories as $category)

@@ -87,7 +87,7 @@
                                             <h3 class="display-6 text-blu mb-3 ">{{ $product_to_check->price }}€</h3>
                                             <span class="badge rounded-pill bg-warning px-4 py-2">
                                                 <i class="bi bi-tags-fill me-2"></i>
-                                                {{ $product_to_check->category->name }}
+                                                {{ __('category.' . $product_to_check->category->name) }}
                                             </span>
                                         </div>
 

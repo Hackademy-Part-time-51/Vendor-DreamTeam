@@ -32,7 +32,7 @@
 
             <div class="position-absolute top-0 start-0 m-3">
                 <span class="badge bg-warning px-3 py-2 rounded-pill">
-                    <i class="bi bi-tag-fill me-1"></i>{{ $product->category->name }}
+                    <i class="bi bi-tag-fill me-1"></i>{{__("category.". $product->category->name)}}
                 </span>
             </div>
         </div>
