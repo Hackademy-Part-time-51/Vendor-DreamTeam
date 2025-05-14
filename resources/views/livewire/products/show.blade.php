@@ -21,7 +21,7 @@
                                 <span class="badge bg-warning px-3 py-2 rounded-pill">
                                     <a href="{{ route('products.index', ['category' => $product->category->id]) }}" 
                                     class="text-decoration-none text-blu">
-                                        <i class="bi bi-tag-fill me-2"></i>{{__($product->category->name)}}
+                                        <i class="bi bi-tag-fill me-2"></i>{{__('product.' . $product->category->name)}}
                                     </a>
                                 </span>
                             @endif
