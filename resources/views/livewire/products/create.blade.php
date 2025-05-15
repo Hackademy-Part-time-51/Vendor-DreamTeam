@@ -39,6 +39,9 @@
                             {{-- </div> --}}
                             {{--!Aggiunta visualizzazione anteprima per le foto con pulsante(non ancora funzionante per eliminarle)  --}}
                             <div class="mt-3 d-flex flex-wrap justify-content-center gap-2">
+                                <div wire:loading wire:target="images" class="text-muted">
+                                    <span class="spinner-border spinner-border-sm me-2  fw-light" role="status"></span> Caricando le immagini...
+                                </div>
                                 @foreach ($images as $key => $image)
                                     <div class="position-relative">
                                         <img src="{{ $image->temporaryUrl() }}" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;" alt="Anteprima immagine {{ $key + 1 }}">

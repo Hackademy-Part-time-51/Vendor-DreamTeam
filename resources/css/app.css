@@ -22,7 +22,7 @@ body {
     overflow-x: hidden;
 }
 
-#bigNavbar{
+#bigNavbar {
     background-image: url('../IMAGES/sfondo.jpg');
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -30,6 +30,7 @@ body {
     background-position: center !important;
     z-index: 100;
 }
+
 nav {
     top: 0;
 
@@ -95,7 +96,8 @@ nav {
 .bg-rosso {
     background-color: #C62E2E;
 }
-.bg-arancio{
+
+.bg-arancio {
     background-color: #F67034;
 }
 
@@ -139,15 +141,18 @@ nav {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .google-btn:hover {
     background-color: #357ae8;
 }
+
 .google-btn img {
     width: 20px;
     height: 20px;
     margin-right: 10px;
     border-radius: 50%;
 }
+
 .google-btn span {
     display: inline-block;
 }
@@ -155,6 +160,7 @@ nav {
 .btn {
     border: none
 }
+
 .btn-add {
     font-weight: 500;
 }
@@ -166,6 +172,7 @@ nav {
     overflow: hidden;
     transition: all .3s ease-in-out;
 }
+
 .btn-base::after {
     content: "";
     position: absolute;
@@ -177,13 +184,16 @@ nav {
     opacity: 0;
     transition: bottom .3s ease-in-out, opacity .3s ease-in-out, transform .3s ease-in-out;
 }
+
 .btn-base:hover::after {
     bottom: 0;
     opacity: 1;
 }
+
 .btn-base:hover span {
-    color: white; 
+    color: white;
 }
+
 .btn-base span {
     position: relative;
     z-index: 2;
@@ -198,6 +208,7 @@ nav {
     overflow: hidden;
     transition: all .3s ease-in-out;
 }
+
 .btn-baseblu::after {
     content: "";
     position: absolute;
@@ -210,13 +221,16 @@ nav {
     opacity: 100;
     transition: bottom .3s ease-in-out, opacity .0s ease-in-out, transform .3s ease-in-out;
 }
+
 .btn-baseblu:hover::after {
     bottom: 0;
     opacity: 1;
 }
+
 .btn-baseblu:hover span {
-    color: #003255; 
+    color: #003255;
 }
+
 .btn-baseblu span {
     position: relative;
     z-index: 2;
@@ -381,6 +395,54 @@ nav {
 
 /* #endregion */
 
+
+/* #region LOADING */
+.loader {
+    display: inline-grid;
+    width: 100px;
+    aspect-ratio: 1;
+    animation: l5-0 8s steps(10) infinite;
+}
+
+.loader:before,
+.loader:after {
+    content: "";
+    grid-area: 1/1;
+}
+
+.loader:before {
+    clip-path: polygon(100% 50%, 90.45% 79.39%, 65.45% 97.55%, 34.55% 97.55%, 9.55% 79.39%, 0% 50%, 9.55% 20.61%, 34.55% 2.45%, 65.45% 2.45%, 90.45% 20.61%, 100% 50%, 85.6% 24.14%, 63.6% 8.15%, 36.4% 8.15%, 14.4% 24.14%, 6% 50%, 14.4% 75.86%, 36.4% 91.85%, 63.6% 91.85%, 85.6% 75.86%, 94% 50%, 85.6% 24.14%);
+    background: #574951;
+}
+
+.loader:after {
+    background: #83988E;
+    clip-path: polygon(100% 50%, 65.45% 97.55%, 9.55% 79.39%, 9.55% 20.61%, 65.45% 2.45%);
+    margin: 23%;
+    translate: -143% 0;
+    transform-origin: right;
+    animation: l5-1 .8s linear infinite;
+}
+
+@keyframes l5-0 {
+    to {
+        rotate: 1turn
+    }
+}
+
+@keyframes l5-1 {
+    0% {
+        rotate: -54deg
+    }
+
+    to {
+        rotate: 54deg
+    }
+}
+
+/* #endregion */
+
+
 @media (max-width: 769px) {
     .navbar {
         position: sticky;
@@ -452,4 +514,3 @@ nav {
     background-color: #fff;
     border-bottom: 1px solid #d4d4d4;
 }
-
