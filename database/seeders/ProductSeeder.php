@@ -13,7 +13,7 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        $numberOfProducts = 50;
+        $numberOfProducts = 80;
         
         // Get all users or create a default one if none exists
         $users = User::all();

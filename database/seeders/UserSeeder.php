@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         //     'email' => 'test@example.com', 
         // ]);
 
-        $numberOfUsers = 25; 
+        $numberOfUsers = 50; 
         // 25 utenti test
         User::factory()->count($numberOfUsers)->create();
         // 4 utenti admin e revisori

@@ -17,6 +17,7 @@ canvas {
 /* ---- particles.js container ---- */
 #particles-js {
     position: fixed;
+    z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
@@ -51,7 +52,6 @@ body {
 }
 
 #bigNavbar {
-    background-image: url('../IMAGES/sfondo.jpg');
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;

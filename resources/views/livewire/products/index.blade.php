@@ -6,7 +6,7 @@
         {{-- sezione filtri a sinistra lg/xl schermo intero sm/md --}}
         <section class="col-12 col-lg-3">
             <div id="sezione-filtri">
-                <div class="card border-0 shadow-sm rounded">
+                <div class="border-0 rounded">
                     <div class="card-body p-4">
                         <hr>
                         <div class="mb-3">
