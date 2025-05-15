@@ -32,24 +32,21 @@ class ListChat extends Component
         $this->messages = Message::where('receiver_id', Auth::id())
             ->orWhere('sender_id', Auth::id())->get();
 
-       $this->products = Product::where('user_id', Auth::id())->get();
-
+        $this->products = Product::where('user_id', Auth::id())->get();
+        $this->chats = [];
         foreach ($this->messages as $msg) {
             $otherUserId = $msg->sender_id === Auth::id() ? $msg->receiver_id : $msg->sender_id;
             $key = $msg->product_id . '-' . $otherUserId;
-
-            // if($msg->is_read==0){$msg->is_read=1;}
-
 
             if (!isset($this->chats[$key])) {
                 $this->chats[$key] = [
                     'product' => $msg->product,
                     'user' => $msg->sender_id === Auth::id() ? $msg->receiver : $msg->sender,
                     'last_message' => $msg,
-                    'msgNotRead' => $msg->is_read == false ? 1 : 0
+                    'msgNotRead' => $msg->is_read == 0 ? 1 : 0
                 ];
             } else {
-                $this->chats[$key]['msgNotRead'] += $msg->is_read == false ? 1 : 0;
+                $this->chats[$key]['msgNotRead'] += $msg->is_read == 0 ? 1 : 0;
             }
         }
     }
@@ -62,7 +59,7 @@ class ListChat extends Component
         $this->dispatch('selectChat', product_id: $product, user_id: $user);
     }
 
-    
+
     public function render()
     {
         return view('livewire.user.list-chat');
