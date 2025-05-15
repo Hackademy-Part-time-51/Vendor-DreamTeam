@@ -138,7 +138,7 @@
           <a href="{{route('privacy')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
             <i class="bi bi-life-preserver fs-3 me-3"></i>Privacy
           </a>
-          <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
+          <a href="{{route('terms')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
             <i class="bi bi-wrench-adjustable-circle-fill fs-3 me-3"></i>{{__('navbar.termsAndConditions')}}
           </a>
         </nav>
@@ -159,7 +159,7 @@
       </div>
       <div class="modal-body py-4">
         <nav class="list-group list-group-flush">
-          <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
+          <a href="{{route('lavoraConNoi')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
             <i class="bi bi-laptop me-3"></i>{{ __('navbar.workWithUs') }}
           </a>
           <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">

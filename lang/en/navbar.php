@@ -40,8 +40,10 @@ return[
     'wantLogout'=>'Are you sure you want to log out?',
     'cancel'=>'Cancel',
     'confirmLogout'=>'Confirm Logout',
-    'termsAndConditions'=>'Terms and conditions'
+    'termsAndConditions'=>'Terms and conditions',
 
-
+    'contactUs'=>'Contact us',
+    'followUs'=>'Follow us',
+    'digitalNomads'=>'Digital Nomads',
 
 ];

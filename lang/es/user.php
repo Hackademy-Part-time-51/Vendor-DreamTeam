@@ -38,7 +38,14 @@ return[
     'editProfile' => 'Editar Perfil',
     'articleList' => 'Lista de artículos',
     'info' => 'Información',
-    'updateInfo' => 'Actualizar Información'
+    'updateInfo' => 'Actualizar Información',
+
+    'messages' => 'Todos los mensajes',
+    'role' => 'Rol',
+    'phone' => 'Teléfono',
+    'itemsHold' => 'Artículos en espera',
+    'noArticlesReview' => 'No hay artículos para revisar.',
+    'message' => 'Mensaje',
 
     
     

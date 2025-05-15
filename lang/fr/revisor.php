@@ -15,6 +15,7 @@ return[
     'notHavePermission' => 'Vous n\'avez pas les permissions pour modifier ce produit.',
     'toReviewed' => 'À réviser',
     'noItemReview' => 'Aucun article à réviser',
+    'user' => 'Utilisateur',
 
 
 

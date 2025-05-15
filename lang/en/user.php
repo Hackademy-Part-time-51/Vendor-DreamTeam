@@ -38,7 +38,14 @@ return[
     'editProfile'=>'Edit Profile',
     'articleList'=>'Article list',
     'info'=>'Information',
-    'updateInfo'=>'Update Info'
+    'updateInfo'=>'Update Info',
+
+    'messages'=>'All messages',
+    'role'=>'Role',
+    'phone'=>'Phone',
+    'itemsHold'=>'Items on hold',
+    'noArticlesReview'=>'There are no articles to review.',
+    'message'=>'Message',
     
 
 

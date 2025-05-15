@@ -6,7 +6,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <h1 class="text-center py-3 display-2">Area Revisore <br> Utente: <span
+    <h1 class="text-center py-3 display-2">{{__('revisor.reviewerArea')}} <br> {{__('revisor.user')}}: <span
             class="text-verde">{{ Auth::user()->name }}</span></h1>
     @if (!$product_to_check)
         <hr>

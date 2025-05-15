@@ -38,7 +38,14 @@ return[
     'editProfile'=>'Modifica Profilo',
     'articleList'=>'Lista articoli',
     'info'=>'Informazioni',
-    'updateInfo'=>'Aggiorna Informazioni'
+    'updateInfo'=>'Aggiorna Informazioni',
+
+    'messages'=>'Tutti i messaggi',
+    'role'=>'Ruolo',
+    'phone'=>'Telefono',
+    'itemsHold'=>'Articoli in attesa',
+    'noArticlesReview'=>'Non ci sono articoli da revisionare.',
+    'message'=>'Messaggio',
 
     
     

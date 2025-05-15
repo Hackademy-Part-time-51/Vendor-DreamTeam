@@ -7,11 +7,11 @@ return[
     'booksMagazines' => 'Libros y Revistas',
     'homeKitchen' => 'Hogar y Cocina',
     'sportsFreeTime' => 'Deportes y Ocio',
-    'BeautyPersonalCare' => 'Belleza y Cuidado Personal',
+    // 'BeautyPersonalCare' => 'Belleza y Cuidado Personal',
     'jewelryWatches' => 'Joyería y Relojes',
     'doItYourselfGardening' => 'Hazlo Tú Mismo y Jardinería',
     'informatics' => 'Informática',
-    'gamesToys' => 'Juegos y Juguetes',
+    // 'gamesToys' => 'Juegos y Juguetes',
     'carsMotorcycles' => 'Coches y Motos',
 
 

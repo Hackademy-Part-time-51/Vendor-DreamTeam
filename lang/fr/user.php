@@ -40,6 +40,13 @@ return[
     'info' => 'Informations',
     'updateInfo' => 'Mettre à jour les informations',
 
+    'messages' =>'Tous les messages',
+    'role' => 'Rôle',
+    'phone' => 'Téléphone',
+    'itemsHold' => 'Articles en attente',
+    'noArticlesReview' => 'Il n\'y a pas d\'articles à examiner.',
+    'message' => 'Message',
+
     
     
 ];

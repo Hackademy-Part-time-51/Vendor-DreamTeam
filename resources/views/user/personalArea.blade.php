@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <h1 class="card-title display-2 text-center text-capitalize  mb-1">Benvenuto {{ $user->name }}</h1>
+        <h1 class="card-title display-2 text-center text-capitalize  mb-1">{{__('ui.welcome')}} {{ $user->name }}</h1>
         <div class="row mt-3">
             {{-- card user --}}
             <div class="col-12 col-lg-5 p-1 ">
@@ -29,7 +29,7 @@
                                 <h6 class="mb-0">
                                     <a href="{{ route('messaggi') }}"
                                         class="badge text-decoration-none bg-danger rounded-pill px-2 py-1 fs-6">
-                                        <i class="bi bi-chat me-1"></i> Tutti i messaggi
+                                        <i class="bi bi-chat me-1"></i> {{ __('user.messages') }}
                                         ({{ Auth::user()->messages->count() }})
                                     </a>
                                 </h6>
@@ -39,16 +39,16 @@
 
                             <p class="text-capitalize mb-1 small">
                                 @if ($user->is_revisor == 1)
-                                    <span class="badge bg-success fs-6">Ruolo: {{ __('auth.reviewer') }}</span>
+                                    <span class="badge bg-success fs-6">{{__('user.role')}}: {{ __('auth.reviewer') }}</span>
                                 @else
-                                    <span class="badge bg-secondary fs-6">Ruolo: {{ __('user.user') }}
+                                    <span class="badge bg-secondary fs-6">{{__('user.role')}}: {{ __('user.user') }}
                                         n°{{ $user->id }}</span>
                                 @endif
                             </p>
 
                             <p class="mb-1 fs-5">Email: {{ $user->email }} <i
                                     class="bi bi-envelope-at-fill me-1 fs-4"></i></p>
-                            <p class="mb-0 fs-5">Telefono: {{ $user->phone }} <i class="bi bi-telephone-fill me-1"></i>
+                            <p class="mb-0 fs-5">{{__('user.phone')}}: {{ $user->phone }} <i class="bi bi-telephone-fill me-1"></i>
                             </p>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
         <hr>
         <div class="py-3">
             <h5 class="card-title  display-5 mb-0 text-center ">
-                <i class="bi bi-hourglass-top text-primary-emphasis"></i> Articoli in attesa
+                <i class="bi bi-hourglass-top text-primary-emphasis"></i> {{__('user.itemsHold')}}
                 <span class="badge bg-blu rounded-pill px-3 py-2">
                     {{ Auth::user()->favorites->count() }}
                 </span>
@@ -156,7 +156,7 @@
             @if ($loadingProducts->isEmpty())
                 <div class="text-center py-5">
                     <i class="bi bi-hourglass-top display-1 text-muted mb-4"></i>
-                    <h4 class="text-muted">Non ci sono articoli da revisionare.</h4>
+                    <h4 class="text-muted">{{__('user.noArticlesReview')}}</h4>
                     <a href="{{ route('products.create') }}" class="btn btn-base my-3">
                         <span>{{ __('navbar.addArticle') }} <i class="bi bi-plus-lg"></i></span>
                     </a>

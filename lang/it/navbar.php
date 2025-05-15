@@ -41,7 +41,11 @@ return[
     'wantLogout'=>'Sei sicuro di voler effettuare il logout?',
     'cancel'=>'Annulla',
     'confirmLogout'=>'Conferma Logout',
-    'termsAndConditions'=>'Termini e condizioni'
+    'termsAndConditions'=>'Termini e condizioni',
+
+    'contactUs'=>'Contattaci',
+    'followUs'=>'Seguici',
+    'digitalNomads'=>'Nomadi Digitali',
 
 
 ];
