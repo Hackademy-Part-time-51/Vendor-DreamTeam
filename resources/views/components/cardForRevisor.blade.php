@@ -6,7 +6,7 @@
                     @forelse ($product->images as $key => $image)
                         <div class="carousel-item @if ($key == 0) active @endif" data-bs-interval="5000">
                             <div class="ratio ratio-4x3">
-                                <img src="{{$image->getUrl(300,300)}}" class="img-fluid w-100 object-fit-cover rounded-top" alt="{{ $product->title }} - {{ $key + 1 }}" loading="lazy">
+                                <img src="{{Storage::url($image->path)}}" class="img-fluid w-100 object-fit-cover rounded-top" alt="{{ $product->title }} - {{ $key + 1 }}" loading="lazy">
                             </div>
                         </div>
                     @empty

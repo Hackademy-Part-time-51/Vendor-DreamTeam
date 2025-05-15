@@ -55,7 +55,7 @@
                                                 <div class="card mb-3">
                                                     <div class="row g-0">
                                                         <div class="col-md-4">
-                                                            <img src="{{ $image->getUrl(300, 300) }}"
+                                                            <img src="{{Storage::url($image->path)}}"
                                                                 class="img-fluid rounded-start"
                                                                 alt="Immagine {{ $key + 1 }} dell’articolo '{{ $product_to_check->title }}'">
                                                         </div>
