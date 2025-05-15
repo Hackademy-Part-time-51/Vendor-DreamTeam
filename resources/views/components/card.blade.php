@@ -28,11 +28,13 @@
             @else
                 @foreach ($product->images as $key => $image)
                     <div class="carousel-item @if ($key == 0) active @endif" data-bs-interval="5000">
+                        {{-- @dd($image->path) --}}
                         <img src="{{ Storage::url($image->path) }}" class="img-fluid d-block w-100 object-fit-cover"
                             alt="{{ $product->name ?? 'Immagine Prodotto' }} {{ $key + 1 }}" loading="lazy"
                             width="300" height="300">
                     </div>
                 @endforeach
+               
             </div>
             <div class="carousel-indicators">
                 @foreach ($product->images as $key => $image)
