@@ -27,7 +27,7 @@
                             @if (Auth::id() == $user->id)
                                 <hr class="w-50 my-2">
                                 <h6 class="mb-0">
-                                    <a href="{{ route('messaggi', $user->id) }}"
+                                    <a href="{{ route('messaggi') }}"
                                         class="badge text-decoration-none bg-danger rounded-pill px-2 py-1 fs-6">
                                         <i class="bi bi-chat me-1"></i> Tutti i messaggi
                                         ({{ Auth::user()->messages->count() }})
