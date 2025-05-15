@@ -15,8 +15,10 @@ class UserController extends Controller
         $user = User::find($id); 
         $products= Product::all();
         $favoriteProducts = $user->favorites()->paginate(12);
+         $loadingProducts = Auth::user()->products()->where('is_accepted', null)->get();
+        // dd($loadingProducts);
         // dd($favoriteProducts);
-        return view('user.personalArea', compact('user', 'products', 'favoriteProducts'));
+        return view('user.personalArea', compact('user', 'products', 'favoriteProducts', 'loadingProducts'));
     }
 
     public function lavoraConNoi(){

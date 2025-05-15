@@ -397,6 +397,8 @@ nav {
 
 
 /* #region LOADING */
+
+/* #region loader per filtri */
 .loader {
     display: inline-grid;
     width: 100px;
@@ -412,16 +414,52 @@ nav {
 
 .loader:before {
     clip-path: polygon(100% 50%, 90.45% 79.39%, 65.45% 97.55%, 34.55% 97.55%, 9.55% 79.39%, 0% 50%, 9.55% 20.61%, 34.55% 2.45%, 65.45% 2.45%, 90.45% 20.61%, 100% 50%, 85.6% 24.14%, 63.6% 8.15%, 36.4% 8.15%, 14.4% 24.14%, 6% 50%, 14.4% 75.86%, 36.4% 91.85%, 63.6% 91.85%, 85.6% 75.86%, 94% 50%, 85.6% 24.14%);
-    background: #574951;
+    background: #003255;
 }
 
 .loader:after {
-    background: #83988E;
+    background: #00C13E;
     clip-path: polygon(100% 50%, 65.45% 97.55%, 9.55% 79.39%, 9.55% 20.61%, 65.45% 2.45%);
     margin: 23%;
     translate: -143% 0;
     transform-origin: right;
     animation: l5-1 .8s linear infinite;
+}
+
+/* #endregion */
+
+/* #region loader per immagini */
+.loader2 {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+}
+
+.loader2::before,
+.loader2::after {
+    content: "";
+    grid-area: 1/1;
+    --c: no-repeat radial-gradient(farthest-side, #003255 92%, #0000);
+    background:
+        var(--c) 50% 0,
+        var(--c) 50% 100%,
+        var(--c) 100% 50%,
+        var(--c) 0 50%;
+    background-size: 12px 12px;
+    animation: l12 1s infinite;
+}
+
+.loader2::before {
+    margin: 4px;
+    filter: hue-rotate(45deg);
+    background-size: 8px 8px;
+    animation-timing-function: linear
+}
+
+@keyframes l12 {
+    100% {
+        transform: rotate(.5turn)
+    }
 }
 
 @keyframes l5-0 {
@@ -439,6 +477,8 @@ nav {
         rotate: 54deg
     }
 }
+
+/* #endregion */
 
 /* #endregion */
 

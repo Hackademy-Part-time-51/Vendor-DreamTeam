@@ -40,7 +40,7 @@
                             {{--!Aggiunta visualizzazione anteprima per le foto con pulsante(non ancora funzionante per eliminarle)  --}}
                             <div class="mt-3 d-flex flex-wrap justify-content-center gap-2">
                                 <div wire:loading wire:target="images" class="text-muted">
-                                    <span class="spinner-border spinner-border-sm me-2  fw-light" role="status"></span> Caricando le immagini...
+                                    <div class="loader2"></div>
                                 </div>
                                 @foreach ($images as $key => $image)
                                     <div class="position-relative">
@@ -141,8 +141,8 @@
                         <span wire:loading.remove wire:target="create">
                             <i class="bi bi-plus-lg me-2"></i>{{__('product.createProduct')}}
                         </span>
-                        <span wire:loading wire:target="create">
-                            <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                        <span wire:loading wire:target="create" class="text-dark">
+                            <span class="spinner-border text-dark spinner-border-sm me-2" role="status"></span>
                             {{__('product.creationProgress')}}...
                         </span>
                     </button>

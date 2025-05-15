@@ -144,7 +144,33 @@
             @livewire('user.savedSearches')
         </div>
         <hr>
-
+        {{-- articoli da revisionare --}}
+        <hr>
+        <div class="py-3">
+            <h5 class="card-title  display-5 mb-0 text-center ">
+                <i class="bi bi-hourglass-top text-primary-emphasis"></i> Articoli in attesa
+                <span class="badge bg-blu rounded-pill px-3 py-2">
+                    {{ Auth::user()->favorites->count() }}
+                </span>
+            </h5>
+            @if ($loadingProducts->isEmpty())
+                <div class="text-center py-5">
+                    <i class="bi bi-hourglass-top display-1 text-muted mb-4"></i>
+                    <h4 class="text-muted">Non ci sono articoli da revisionare.</h4>
+                    <a href="{{ route('products.create') }}" class="btn btn-base my-3">
+                        <span>{{ __('navbar.addArticle') }} <i class="bi bi-plus-lg"></i></span>
+                    </a>
+                </div>
+            @endif
+            <div class="row">
+                @foreach ($loadingProducts as $product)
+                    <div class="col-12 col-md-6 col-lg-4 p-2 scalebig" wire:key="{{ $product->id }}">
+                        <x-card :product="$product"></x-card>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <hr>
 
         {{-- modal modifica info --}}
         <div class="modal fade" id="editProfile" data-bs-backdrop="static" tabindex="-1">

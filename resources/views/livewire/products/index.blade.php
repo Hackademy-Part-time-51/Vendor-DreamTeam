@@ -23,9 +23,9 @@
                             <select wire:model.live="category" class="form-select">
                                 <option value="">{{ __('ui.allCategory') }}</option>
                                 @foreach ($categories as $cat)
-                                <option value="{{ $cat->id }}" @selected($cat->id == $category)>
-                                    {{__('category.' . $cat->name)}}
-                                </option>
+                                    <option value="{{ $cat->id }}" @selected($cat->id == $category)>
+                                        {{ __('category.' . $cat->name) }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -94,13 +94,15 @@
                                 <div class="col-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">€</span>
-                                        <input type="number" min="0" class="form-control" wire:model.live="minPrice" placeholder="Min">
+                                        <input type="number" min="0" class="form-control"
+                                            wire:model.live="minPrice" placeholder="Min">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">€</span>
-                                        <input type="number" min="0" class="form-control" wire:model.live="maxPrice" placeholder="Max">
+                                        <input type="number" min="0" class="form-control"
+                                            wire:model.live="maxPrice" placeholder="Max">
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +134,8 @@
         {{-- sezione articoli --}}
         <section class="col-12 col-lg-9 d-flex flex-wrap justify-content-around gx-1 gy-1 pb-3">
             @if (count($products) == 0)
-                <div class="alert  text-center w-100 d-flex justify-content-center align-items-center flex-column fs-3" wire:loading.attr="disabled" wire:loading.class="d-none">
+                <div class="alert  text-center w-100 d-flex justify-content-center align-items-center flex-column fs-3"
+                    wire:loading.attr="disabled" wire:loading.class="d-none">
                     <i class="bi bi-exclamation-triangle-fill me-2"></i>
                     <strong>{{ __('ui.noArticleFound') }}</strong>
                     @auth
@@ -148,11 +151,12 @@
             @endif
 
             <div wire:loading wire:key= "products">
-                <div class="d-flex h-100 justify-content-center align-items-center">
+                <div class="d-flex h-100 justify-content-center align-items-center my-5">
                     <div class="loader "></div>
                 </div>
             </div>
-            <div wire:loading.remove wire:key= "products" class="d-flex flex-wrap" wire:loading.attr="disabled" wire:loading.class="d-none">
+            <div wire:loading.remove wire:key= "products" class="d-flex flex-wrap" wire:loading.attr="disabled"
+                wire:loading.class="d-none">
                 @foreach ($products as $product)
                     <div class="col-12 col-md-6 col-lg-4 p-2 scalebig" wire:key="{{ $product->id }}">
                         <x-card :product="$product"></x-card>
@@ -164,11 +168,14 @@
 
 
             @if ($scroll < $count - 1)
-                <button wire:click="scrollFunction" class="btn btn-baseblu w-50 mt-3">
-                    <span>
-                        {{ __('ui.seeOthers') }}...
-                    </span>
-                </button>
+                <span wire:loading.remove wire:key="products" wire:loading.attr="disabled"
+                    wire:loading.class="d-none">
+                    <button class="btn btn-baseblu  mt-3" wire:click="scrollFunction">
+                        <span>
+                            {{ __('ui.seeOthers') }}...
+                        </span>
+                    </button>
+                </span>
             @endif
             <div class="position-fixed torna-su">
                 <a href="#" aria-label="Torna su" data-bs-toggle="backtotop" class="back-to-top"
