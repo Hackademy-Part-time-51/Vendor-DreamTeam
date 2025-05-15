@@ -6,7 +6,7 @@
                     @forelse ($product->images as $key => $image)
                         <div class="carousel-item @if ($key == 0) active @endif" data-bs-interval="5000">
                             <div class="ratio ratio-4x3">
-                                <img src="{{$image->getUrl(300,300)}}" class="img-fluid w-100 object-fit-cover rounded-top" alt="{{ $product->title }} - {{ $key + 1 }}" loading="lazy">
+                                <img src="{{Storage::url($image->path)}}" class="img-fluid w-100 object-fit-cover rounded-top" alt="{{ $product->title }} - {{ $key + 1 }}" loading="lazy">
                             </div>
                         </div>
                     @empty
@@ -91,9 +91,9 @@
                             <form action="{{ route('accept', $product) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <button class="btn btn-base w-100 d-flex align-items-center justify-content-center">
+                                <button class="btn btn-base w-100 btn-sm d-flex align-items-center justify-content-center">
                                     <span>
-                                        <i class="bi bi-check-lg me-2"></i>{{ __('revisor.accept') }}
+                                        <i class="bi bi-check-lg me-1"></i>{{ __('revisor.accept') }}
                                     </span>
                                 </button>
                             </form>
@@ -102,7 +102,7 @@
                             <form action="{{ route('reject', $product) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <button class="btn btn-rosso w-100 d-flex align-items-center justify-content-center">
+                                <button class="btn btn-rosso btn-sm w-100  d-flex align-items-center justify-content-center">
                                     <i class="bi bi-x-lg me-2"></i>{{ __('revisor.refuse') }}
                                 </button>
                             </form>

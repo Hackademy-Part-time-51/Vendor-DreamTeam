@@ -48,6 +48,8 @@ return[
     'confirmLogout' => 'Confirmer la déconnexion',
     'termsAndConditions' => 'Termes et conditions',
 
-
+    'contactUs' => 'Contactez-nous',
+    'followUs' => 'Suivez-nous',
+    'digitalNomads' => 'Nomades numériques',
 
 ];

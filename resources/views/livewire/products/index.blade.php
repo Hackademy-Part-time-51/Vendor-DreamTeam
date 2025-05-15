@@ -34,9 +34,10 @@
                         <hr>
                         <div class="mb-3">
                             <label class="form-label small text-center w-100 fs-5 fw-light">{{ __('ui.searchLocation') }}</label>
-
-                            <input type="text" id="myInput" class="form-control mb-2"
+                            <div>
+                                <input type="text" id="myInput" class="form-control mb-2"
                                 placeholder="{{ __('ui.city') }}">
+                            </div>
                             <input type="hidden" id="idCity" wire:model.live="myCity">
                             @if ($myCity)
                                 <label class="form-label fs-5 fw-light" id="labelRaggio">

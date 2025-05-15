@@ -15,6 +15,7 @@ return[
     'notHavePermission'=>'You do not have permission to modify this product.',
     'toReviewed'=>'To be revised',
     'noItemReview'=>'No items to review',
+    'user'=>'User',
 
 
 

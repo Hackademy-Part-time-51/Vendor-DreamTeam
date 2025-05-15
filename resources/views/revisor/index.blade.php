@@ -6,7 +6,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <h1 class="text-center py-3 display-2">Area Revisore <br> Utente: <span
+    <h1 class="text-center py-3 display-2">{{__('revisor.reviewerArea')}} <br> {{__('revisor.user')}}: <span
             class="text-verde">{{ Auth::user()->name }}</span></h1>
     @if (!$product_to_check)
         <hr>
@@ -55,7 +55,7 @@
                                                 <div class="card mb-3">
                                                     <div class="row g-0">
                                                         <div class="col-md-4">
-                                                            <img src="{{ $image->getUrl(300, 300) }}"
+                                                            <img src="{{Storage::url($image->path)}}"
                                                                 class="img-fluid rounded-start"
                                                                 alt="Immagine {{ $key + 1 }} dell’articolo '{{ $product_to_check->title }}'">
                                                         </div>

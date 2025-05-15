@@ -42,6 +42,8 @@ return[
     'confirmLogout' => 'Confirmar cierre de sesión',
     'termsAndConditions' => 'Términos y condiciones',
 
-
+    'contactUs' => 'Contáctanos',
+    'followUs' => 'Síguenos',
+    'digitalNomads' => 'Nómadas digitales',
 
 ];
