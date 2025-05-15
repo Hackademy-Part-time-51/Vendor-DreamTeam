@@ -52,6 +52,6 @@
         </button>
     </div>
 
-        <x-google></x-google>
+
         
 </form>

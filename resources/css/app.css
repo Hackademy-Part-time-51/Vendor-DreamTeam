@@ -2,17 +2,45 @@
 @import 'animate.css';
 @import 'bootstrap-icons';
 
+/* ---- reset ---- */
 body {
-    background-image: url('../IMAGES/sfondo.jpg');
+    margin: 0;
+    font: normal 75% Arial, Helvetica, sans-serif;
+}
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+    z-index: 0.5;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+
+body {
+    /* background-image: url('../IMAGES/sfondo.jpg');
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
-    background-position: center !important;
+    background-position: center !important; */
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     color: #003255;
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="%23FFF" stroke="%23000" stroke-width="2" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>') 10 10, auto;
 }
 
 /* #region NAVBAR */
