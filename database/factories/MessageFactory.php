@@ -23,15 +23,16 @@ class MessageFactory extends Factory
     {
         return [
             'sender_id' => User::inRandomOrder()->first()->id, 
-            'receiver_id' => 26, 
-            'product_id' => function (array $attributes) {
+            'receiver_id' => 51, 
+            'product_id' => 81,
+            // function (array $attributes) {
                 
-                $products = Product::whereIn('user_id', [
-                    $attributes['sender_id'],
-                    $attributes['receiver_id']
-                ])->get();
-                return $products->random()->id;
-            },
+            //     $products = Product::whereIn('user_id', [
+            //         $attributes['sender_id'],
+            //         $attributes['receiver_id']
+            //     ])->get();
+            //     return $products->random()->id;
+            // },
             'message' => fake()->sentence(), // Contenuto del messaggio
         ];
     }

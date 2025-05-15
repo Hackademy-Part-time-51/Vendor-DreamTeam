@@ -12,7 +12,8 @@
         @if ($chat['product']['user_id'] === Auth::user()->id || $chat['product']['user_id'] === $chat['user']['id'])
             <button 
                 wire:click="selectChat({{ $chat['product']['id'] }},{{ $chat['user']['id'] }})"
-                class="nav-link position-relative text-start d-flex flex-column align-items-center justify-content-between p-2 border-0 bg-white shadow-sm {{ $i === 0 ? 'active' : '' }}"
+                class="nav-link position-relative text-start d-flex flex-column align-items-center justify-content-between p-2 border-0 
+                    bg-white shadow-sm {{ $i === 0 ? 'active' : '' }}"
                 id="v-pills-{{ $chat['product']['id'] }}-tab" data-bs-toggle="pill"
                 data-bs-target="#v-pills-{{ $chat['product']['id'] }}" type="button" role="tab"
                 aria-controls="v-pills-{{ $chat['product']['id'] }}"
@@ -23,7 +24,7 @@
                 <div class="position-relative mb-2">
                     <img src="https://picsum.photos/seed/{{ $chat['user']['id'] ?? $i }}/48"
                          alt="avatar"
-                         class="rounded-circle border border-2 border-primary shadow-sm"
+                         class="rounded-circle border  border-primary shadow-sm"
                          width="48" height="48">
                     @if ($chat['msgNotRead'] > 0)
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-6">
@@ -59,6 +60,5 @@
 
     </div>
     <hr>
-    <h2 class="text-center display-6">Messaggia in tempo reale</h2>
     @livewire('user.chat-area', compact('product'))
 </div>

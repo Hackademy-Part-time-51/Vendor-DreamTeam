@@ -32,8 +32,8 @@ class ListChat extends Component
         $this->messages = Message::where('receiver_id', Auth::id())
             ->orWhere('sender_id', Auth::id())->get();
 
-       $this->products = Product::where('user_id', Auth::id())->get();
-
+        $this->products = Product::where('user_id', Auth::id())->get();
+        $this->chats = [];
         foreach ($this->messages as $msg) {
             $otherUserId = $msg->sender_id === Auth::id() ? $msg->receiver_id : $msg->sender_id;
             $key = $msg->product_id . '-' . $otherUserId;
@@ -62,7 +62,7 @@ class ListChat extends Component
         $this->dispatch('selectChat', product_id: $product, user_id: $user);
     }
 
-    
+
     public function render()
     {
         return view('livewire.user.list-chat');

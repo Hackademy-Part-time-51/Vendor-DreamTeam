@@ -191,10 +191,14 @@
       </div>
       <div class="d-flex flex-column gap-3 w-100">
         <a href="{{ route('login') }}" class="btn btn-baseblu btn-lg fs-3 py-3 w-100">
-          <i class="bi bi-box-arrow-in-right me-2"></i>Login
+          <span>
+            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+          </span>
         </a>
         <a href="{{ route('register') }}" class="btn btn-outline-primary btn-lg fs-3 py-3 w-100">
-          <i class="bi bi-person-plus me-2"></i>{{ __('auth.register') }}
+          <span>
+            <i class="bi bi-person-plus me-2"></i>{{ __('auth.register') }}
+          </span>
         </a>
       </div>
     </div>

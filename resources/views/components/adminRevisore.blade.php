@@ -7,10 +7,10 @@
                 <li class="nav-item d-flex align-items-center">
                     <a class="nav-link text-blu d-flex align-items-center gap-2 position-relative" 
                         href="{{route('revisor.index')}}">
-                        <i class="bi bi-shield-check fs-5"></i>
-                        <span class="fw-semibold">{{__('revisor.reviewerArea')}}</span>
+                        <i class="bi bi-shield-check fs-2"></i>
+                        <span class=" fs-2">{{__('revisor.reviewerArea')}}</span>
                         @if(\App\Models\Product::toBeRevisedCount() > 0)
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        <span class="position-absolute fs-6 top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {{ \App\Models\Product::toBeRevisedCount() }}
                         <span class="visually-hidden">{{__('revisor.articlesReview')}}</span>
                         </span>
