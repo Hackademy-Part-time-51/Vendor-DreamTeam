@@ -89,6 +89,8 @@ public function getListeners(){
         if($message['user_id']==$this->user_id){
             
             $this->dispatch('selectChat', $message['product_id'], $message['user_id']);
+        }else{
+            $this->dispatch('updatelist');
         }
 
     }

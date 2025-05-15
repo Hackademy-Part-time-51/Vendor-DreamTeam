@@ -62,7 +62,7 @@ class ListChat extends Component
         $this->dispatch('selectChat', product_id: $product, user_id: $user);
     }
 
-    // #[On('selectChat')]
+    
     public function render()
     {
         return view('livewire.user.list-chat');

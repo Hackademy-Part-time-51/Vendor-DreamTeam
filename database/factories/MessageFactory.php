@@ -21,9 +21,6 @@ class MessageFactory extends Factory
     protected $model = Message::class;
     public function definition(): array
     {
-
-
-
         return [
             'sender_id' => User::inRandomOrder()->first()->id, 
             'receiver_id' => 26, 

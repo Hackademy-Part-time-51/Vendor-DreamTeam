@@ -21,7 +21,7 @@
                                 <span class="badge bg-warning px-3 py-2 rounded-pill">
                                     <a href="{{ route('products.index', ['category' => $product->category->id]) }}" 
                                     class="text-decoration-none text-blu">
-                                        <i class="bi bi-tag-fill me-2"></i>{{__($product->category->name)}}
+                                        <i class="bi bi-tag-fill me-2"></i>{{__('product.' . $product->category->name)}}
                                     </a>
                                 </span>
                             @endif
@@ -47,8 +47,9 @@
                         <div class="carousel-inner rounded-3">
                             @if ($product->images()->count() > 0)
                                 @foreach ($product->images as $key => $image)
-                                    <div class="carousel-item @if($key == 0) active @endif">
-                                        <img src="{{ Storage::url($image->path) }}"
+                                    <div class="carousel-item @if($loop->first) active @endif">
+                                        
+                                        <img src="{{$image->getUrl(300,300)}}"
                                             class="d-block w-100"
                                             style="aspect-ratio: 16/9; object-fit: contain;"
                                             alt="Immagine prodotto {{ $key + 1 }}">
@@ -80,7 +81,7 @@
                         @if ($product->images()->count() > 0)
                             @foreach ($product->images as $key => $image)
                                 <div class="col-4">
-                                    <img src="{{ Storage::url($image->path) }}"
+                                    <img src="{{$image->getUrl(300,300)}}"
                                         class="img-fluid rounded cursor-pointer"
                                         style="aspect-ratio: 16/9; object-fit: contain;"
                                         data-bs-target="#productImageCarousel{{ $product->id }}"

@@ -23,9 +23,9 @@
                             <select wire:model.live="category" class="form-select">
                                 <option value="">{{ __('ui.allCategory') }}</option>
                                 @foreach ($categories as $cat)
-                                    <option value="{{ $cat->id }}" @selected($cat->id == $category)>
-                                        {{ __($cat->name) }}
-                                    </option>
+                                <option value="{{ $cat->id }}" @selected($cat->id == $category)>
+                                    {{__('category.' . $cat->name)}}
+                                </option>
                                 @endforeach
                             </select>
                         </div>
@@ -94,15 +94,13 @@
                                 <div class="col-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">€</span>
-                                        <input type="number" class="form-control" wire:model.live="minPrice"
-                                            placeholder="Min">
+                                        <input type="number" min="0" class="form-control" wire:model.live="minPrice" placeholder="Min">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">€</span>
-                                        <input type="number" class="form-control" wire:model.live="maxPrice"
-                                            placeholder="Max">
+                                        <input type="number" min="0" class="form-control" wire:model.live="maxPrice" placeholder="Max">
                                     </div>
                                 </div>
                             </div>

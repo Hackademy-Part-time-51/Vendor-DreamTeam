@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\On;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
+use Livewire\Attributes\Validate;
 
 class Index extends Component
 {
@@ -22,7 +22,9 @@ class Index extends Component
     public $search = '';
     public $category;
     protected $scroll = 18;
+    #[Validate('min:0')]
     public $minPrice;
+    #[Validate('min:0')]
     public $maxPrice;
     public $myCity;
     public $myRadius = 0;
