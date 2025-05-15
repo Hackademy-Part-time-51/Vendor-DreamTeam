@@ -14,9 +14,14 @@ class ImageSeeder extends Seeder
      */
     public function run(): void
     {
-        $products=Product::all();
+       $products = Product::all();
+
         foreach ($products as $product) {
-            Image::factory()->count(3)->create(['product_id'=>$product->id]);
+            Image::factory()
+                ->count(3)
+                ->create([
+                    'product_id' => $product->id,
+                ]);
         }
     }
 }

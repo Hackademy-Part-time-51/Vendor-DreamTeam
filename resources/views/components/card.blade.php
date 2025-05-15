@@ -33,6 +33,7 @@
                             width="300" height="300">
                     </div>
                 @endforeach
+               
             </div>
             <div class="carousel-indicators">
                 @foreach ($product->images as $key => $image)
