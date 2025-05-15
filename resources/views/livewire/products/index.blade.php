@@ -8,8 +8,9 @@
             <div id="sezione-filtri">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body p-4">
+                        <hr>
                         <div class="mb-3">
-                            <label class="form-label small text-center w-100 fs-5">{{ __('ui.searchProduct') }}</label>
+                            <label class="form-label small text-center w-100 fs-5 fw-light">{{ __('ui.searchProduct') }}</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-transparent border-end-0">
                                     <i class="bi bi-search"></i>
@@ -18,8 +19,9 @@
                                     placeholder="{{ __('ui.allArticles') }}">
                             </div>
                         </div>
+                        <hr>
                         <div class="mb-3">
-                            <label class="form-label small text-center w-100 fs-5">{{ __('ui.category') }}</label>
+                            <label class="form-label small text-center w-100 fs-5 fw-light">{{ __('ui.category') }}</label>
                             <select wire:model.live="category" class="form-select">
                                 <option value="">{{ __('ui.allCategory') }}</option>
                                 @foreach ($categories as $cat)
@@ -29,14 +31,15 @@
                                 @endforeach
                             </select>
                         </div>
+                        <hr>
                         <div class="mb-3">
-                            <label class="form-label small text-center w-100 fs-5">{{ __('ui.searchLocation') }}</label>
+                            <label class="form-label small text-center w-100 fs-5 fw-light">{{ __('ui.searchLocation') }}</label>
 
                             <input type="text" id="myInput" class="form-control mb-2"
                                 placeholder="{{ __('ui.city') }}">
                             <input type="hidden" id="idCity" wire:model.live="myCity">
                             @if ($myCity)
-                                <label class="form-label fs-5" id="labelRaggio">
+                                <label class="form-label fs-5 fw-light" id="labelRaggio">
                                     <span wire:loading.remove wire:target="myRadius">
                                         {{ __('ui.searchLocation') }}: {{ $myRadius }}km
                                     </span>
@@ -50,13 +53,14 @@
                                     class="form-range" min="25" max="250" step="25"
                                     wire:loading.attr="disabled" wire:loading.class="opacity-50">
                             @else
-                                <label class="form-label text-center fs-5">{{ __('ui.searchRadiusAll') }}</label>
+                                <label class="form-label text-center fs-5 fw-light">{{ __('ui.searchRadiusAll') }}</label>
                                 <input type="range" name="myRadius" id="raggioLocale" wire:model.live="myRadius"
                                     class="form-range" min="25" max="250" step="25" disabled>
                             @endif
                         </div>
+                        <hr>
                         <div class="mb-3">
-                            <label class="form-label small text-center w-100 fs-5">{{ __('ui.sortBy') }}</label>
+                            <label class="form-label small text-center w-100 fs-5 fw-light">{{ __('ui.sortBy') }}</label>
                             <div class="d-flex gap-2">
                                 <button
                                     class="btn btn-base flex-grow-1 d-flex align-items-center justify-content-center sort-btn"
@@ -88,8 +92,9 @@
                                 </button>
                             </div>
                         </div>
+                        <hr>
                         <div class="mb-3">
-                            <label class="form-label small fs-5 text-center w-100">{{ __('ui.priceRange') }}</label>
+                            <label class="form-label small fs-5 fw-light text-center w-100">{{ __('ui.priceRange') }}</label>
                             <div class="row g-2">
                                 <div class="col-6">
                                     <div class="input-group">
@@ -107,6 +112,7 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
                         <button wire:click="resetFilter"
                             class="btn btn-base w-100 d-flex align-items-center justify-content-center reset-btn">
                             <span>
@@ -114,7 +120,7 @@
                                 {{ __('ui.resetFilter') }}
                             </span>
                         </button>
-
+                        <hr>
                         @auth
                             <button wire:click="saveFilter"
                                 class="btn btn-base w-100 mt-1 d-flex align-items-center justify-content-center save-btn">
