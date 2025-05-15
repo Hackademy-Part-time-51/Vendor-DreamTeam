@@ -1,11 +1,11 @@
 <div class="row">
-    <div class="col-12  bg-light border-bottom d-flex flex-column px-3" >
+    <div class="col-12  border-bottom d-flex flex-column px-3" >
         <div class="d-flex justify-content-between align-items-center p-3 border-bottom flex-shrink-0">
             <h5 class="mb-0 display-4 text-center w-100">Lista chat 
                 {{-- <span>{{$messages->where('is_read',false)->where('receiver_id',Auth::user()->id or 'sender_id',Auth::user()->id)->count() }}</span> --}}
              </h5>
         </div>
-        <div class="nav nav-pills flex-row overflow-auto flex-nowrap px-2 py-2 bg-light rounded shadow-sm" 
+        <div class="nav nav-pills flex-row overflow-auto flex-nowrap px-2 py-2 rounded" 
         id="v-pills-tab" role="tablist" aria-orientation="horizontal" style="gap: 1rem;">
 
     @foreach ($chats as $i => $chat)
@@ -13,7 +13,7 @@
             <button 
                 wire:click="selectChat({{ $chat['product']['id'] }},{{ $chat['user']['id'] }})"
                 class="nav-link position-relative text-start d-flex flex-column align-items-center justify-content-between p-2 border-0 
-                    bg-white shadow-sm {{ $i === 0 ? 'active' : '' }}"
+                      {{ $i === 0 ? 'active' : '' }}"
                 id="v-pills-{{ $chat['product']['id'] }}-tab" data-bs-toggle="pill"
                 data-bs-target="#v-pills-{{ $chat['product']['id'] }}" type="button" role="tab"
                 aria-controls="v-pills-{{ $chat['product']['id'] }}"
