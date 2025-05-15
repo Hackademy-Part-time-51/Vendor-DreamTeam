@@ -1,19 +1,19 @@
-<div class="col-12 d-flex flex-column  px-3 py-2 vh-100 overflow-scroll">
-    @if ($messages)
-        <div class="d-flex align-items-center gap-3 border-bottom  px-3 py-2">
-            @if (isset($messages[0]))
-                <img src="https://ui-avatars.com/api/?name={{ urlencode($messages[0]->sender_id == Auth::id() ? $messages[0]->receiver->name ?? 'Utente' : $messages[0]->sender->name ?? 'Utente') }}&size=40&background=random"
-                    alt="avatar" class="rounded-circle border shadow-sm" width="40" height="40">
-                <div>
-                    <div class="fw-bold mb-0 text-center">
-                        {{ $messages[0]->sender_id == Auth::id() ? $messages[0]->receiver->name ?? 'Utente' : $messages[0]->sender->name ?? 'Utente' }}
-                    </div>
-                    <small class="text-muted text-center">
-                        Prodotto: #{{ $messages[0]->product_id ?? '' }}
-                    </small>
-                </div>
-            @endif
+<div class="col-12 d-flex flex-column min-vh-50 px-3 py-2 vh-100 overflow-scroll">
+    <div class="d-flex align-items-center gap-3 border-bottom  px-3 py-2">
+        @if ($user_id && $product_id)
+        <img src="https://ui-avatars.com/api/?name={{ urlencode($userSelected->name) }}&size=40&background=random"
+        alt="avatar" class="rounded-circle border shadow-sm" width="40" height="40">
+        <div>
+            <div class="fw-bold mb-0 text-center">
+                {{$userSelected->name }}
+            </div>
+            <small class="text-muted text-center">
+                Prodotto: #{{$product_id}} 
+            </small>
         </div>
+        @endif
+    </div>
+    @if ($messages)
         <div class="flex-grow-1 overflow-y-auto px-2 px-md-4 py-3 align-content-end">
             @foreach ($messages as $message)
                 <div class="mb-2 d-flex 

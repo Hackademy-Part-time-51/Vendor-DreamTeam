@@ -56,7 +56,7 @@
                         <a class="dropdown-item text-blu" href="{{route('personalArea', Auth::user()->id)}}"><i class="bi bi-person-lines-fill"></i> {{__('navbar.profile')}}</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="{{route('messaggi', Auth::user()->id)}}"><i class="bi bi-chat"></i> Messaggi <span class="@if (Auth::user()->messages->count() > 0)
+                        <a class="dropdown-item" href="{{route('messaggi')}}"><i class="bi bi-chat"></i> Messaggi <span class="@if (Auth::user()->messages->count() > 0)
                           text-danger fw-bold @endif"> ({{Auth::user()->messages->count()}}) </span>
                         </a>
                       </li>

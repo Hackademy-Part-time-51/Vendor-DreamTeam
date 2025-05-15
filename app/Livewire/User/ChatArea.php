@@ -8,6 +8,7 @@ use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use App\Models\Product;
+use App\Models\User;
 
 class ChatArea extends Component
 {
@@ -19,6 +20,8 @@ class ChatArea extends Component
     public $user_id;
     public $product;
     public $loginId;
+    public $userSelected;
+    
     public function mount()
     {   
         $this->loginId = Auth::id();
@@ -31,10 +34,12 @@ class ChatArea extends Component
 
 
     #[On('selectChat')]
-    public function selectChat($product_id, $user_id)
+    public function selectChat($product_id=null, $user_id=null)
     {
         $this->user_id = $user_id;
         $this->product_id = $product_id;
+        
+        $this->userSelected = User::find($user_id);
 
         $this->messages = Message::where('product_id', $product_id)
             ->where(function ($query) use ($user_id) {
