@@ -1,4 +1,4 @@
-<div class="col-12 d-flex flex-column min-vh-50 px-3 py-2 vh-100 overflow-scroll">
+<div class="col-12 d-flex flex-column  px-3 py-2 vh-100 overflow-scroll">
     @if ($messages)
         <div class="d-flex align-items-center gap-3 border-bottom  px-3 py-2">
             @if (isset($messages[0]))
