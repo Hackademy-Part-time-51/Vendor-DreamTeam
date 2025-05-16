@@ -26,4 +26,8 @@ return[
     'clickContact'=> 'click here to contact us',
     'saveFilter'=> 'Save search',
 
+    'exploreRage' => "Explore our wide range of items and find what you're looking for.",
+    'appreciatedSellers' => 'Discover the most reliable and appreciated sellers in our community.',
+    'favoriteItems' => 'Save your favorite items or add them to your cart with one click.'
+
 ];

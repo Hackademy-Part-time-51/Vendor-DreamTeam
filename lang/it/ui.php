@@ -26,5 +26,10 @@ return[
     'clickContact'=> 'Clicca qui per contattarci',
     'saveFilter'=> 'Salva ricerca',
 
+    'exploreRage'=> 'Esplora la nostra vasta gamma di articoli e trova ciò che cerchi.',
+    'appreciatedSellers'=>'Scopri i venditori più affidabili e apprezzati della nostra community.',
+    'favoriteItems'=>'Salva i tuoi articoli preferiti o aggiungili al carrello con un click.'
+
+
 
 ];

@@ -25,7 +25,7 @@
                     {{ __('ui.browseItems') }}
                 </h2>
                 <p class="lead text-muted">
-                    Esplora la nostra vasta gamma di articoli e trova ciò che cerchi.
+                    {{__('ui.exploreRage')}}
                 </p>
             </div>
         </section>
@@ -35,7 +35,7 @@
                     {{ __('ui.popularSellers') }}
                 </h2>
                 <p class="lead text-muted">
-                    Scopri i venditori più affidabili e apprezzati della nostra community.
+                    {{__('ui.appreciatedSellers')}}
                 </p>
             </div>
         </section>
@@ -45,7 +45,7 @@
                     {{ __('ui.addTofavourites') }}
                 </h2>
                 <p class="lead text-muted">
-                    Salva i tuoi articoli preferiti o aggiungili al carrello con un click.
+                    {{__('ui.favoriteItems')}}
                 </p>
             </div>
         </section>
