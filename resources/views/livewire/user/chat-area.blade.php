@@ -1,5 +1,5 @@
-<div class="col-12 d-flex flex-column min-vh-50 px-3 py-5 overflow-scroll">
-    <div class="d-flex align-items-center gap-3   px-3 py-5">
+<div class="col-12 d-flex flex-column min-vh-50 px-3 py-2 overflow-scroll">
+    <div class="d-flex align-items-center gap-3   px-3 ">
         @if ($user_id && $product_id)
             <img src="https://ui-avatars.com/api/?name={{ urlencode($userSelected->name) }}&size=40&background=random"
                 alt="avatar" class="rounded-circle border shadow-sm" width="40" height="40">

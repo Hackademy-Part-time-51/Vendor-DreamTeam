@@ -124,8 +124,8 @@
                         <div class="my-4">
                             <label for="myInput" class="form-label h4 d-flex justify-content-between">{{__('product.chooseCity')}}
                             </label>
-                            <div class="input-group input-group-lg">
-                                <input id="myInput" type="text" class="form-control z-1 @error('city') is-invalid @enderror" placeholder="{{__('ui.city')}}" value="{{ old('city') }}">
+                            <div class="input-group d-flex flex-column input-group-lg">
+                                <input id="myInput" type="text" class="form-control w-100 z-1 @error('city') is-invalid @enderror" placeholder="{{__('ui.city')}}" value="{{ old('city') }}">
                                 <input type="hidden" wire:model="myCity" id="idCity">
                             </div>
                         </div>

@@ -13,50 +13,50 @@ class ProductFactory extends Factory
     {
         $json = Storage::disk('public')->get('comuni.json');
         $comuni = json_decode($json);
-        $i = fake()->numberBetween(0, count($comuni)-1);
+        $i = fake()->numberBetween(0, count($comuni) - 1);
 
         $products = [
-            'abbigliamento' => [
+            'Clothing' => [
                 ['Maglione in lana', 'Maglione caldo in lana merino, taglia M'],
                 ['Pantaloni cargo', 'Pantaloni cargo resistenti in cotone']
             ],
-            'scarpe' => [
+            'Shoes' => [
                 ['Scarpe da ginnastica', 'Scarpe sportive con ammortizzazione'],
                 ['Sandali estivi', 'Sandali comodi per la spiaggia']
             ],
-            'borseAccessori' => [
+            'Bags Accessories' => [
                 ['Borsa da viaggio', 'Borsa capiente con ruote'],
                 ['Cintura in pelle', 'Cintura elegante per abiti formali']
             ],
-            'elettronica' => [
+            'Electronics' => [
                 ['Smartphone ricondizionato', 'Smartphone in ottime condizioni con garanzia'],
                 ['Monitor 24"', 'Monitor Full HD per ufficio']
             ],
-            'libriRiviste' => [
+            'Books Magazines' => [
                 ['Enciclopedia medica', 'Edizione aggiornata 2024'],
                 ['Guida viaggi Europa', 'Mappa dettagliata con itinerari']
             ],
-            'casaCucina' => [
+            'Home Kitchen' => [
                 ['Set di coltelli', '6 pezzi in acciaio inox'],
                 ['Macchina per caffè', 'Caffè espresso professionale']
             ],
-            'sportTempoLibero' => [
+            'Sports Free Time' => [
                 ['Set pesi 20kg', 'Manubri regolabili in ghisa'],
                 ['Zaino da trekking', 'Zaino ergonomico 40L']
             ],
-            'gioielliOrologi' => [
+            'Jewelry Watches' => [
                 ['Orecchini d\'argento', 'Purezza 925 con pietre'],
                 ['Bracciale rigido', 'Bracciale in acciaio chirurgico']
             ],
-            'faiDaTeGiardinaggio' => [
+            'DoItYourself Gardening' => [
                 ['Tosaerba elettrico', 'Potenza 1500W, leggero'],
                 ['Sega a batteria', 'Kit completo con batteria']
             ],
-            'informatica' => [
+            'Informatics' => [
                 ['Webcam HD', 'Risoluzione 1080p con microfono'],
                 ['HDD Esterno 1TB', 'USB 3.0, compatibile con PC e Mac']
             ],
-            'autoMotocicli' => [
+            'Cars Motorcycles' => [
                 ['Kit pulizia auto', 'Cera e prodotti professionali'],
                 ['Navigatore satellitare', 'Aggiornamenti mappe gratuiti']
             ]
@@ -64,6 +64,7 @@ class ProductFactory extends Factory
 
         $category = Category::inRandomOrder()->first() ?? Category::factory()->create();
         $categoryProducts = $products[$category->name] ?? [['Prodotto generico', 'Descrizione generica']];
+
         $randomProduct = $this->faker->randomElement($categoryProducts);
 
         return [
@@ -79,4 +80,3 @@ class ProductFactory extends Factory
         ];
     }
 }
-

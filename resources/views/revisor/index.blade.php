@@ -6,7 +6,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <h1 class="text-center py-3 display-2">{{__('revisor.reviewerArea')}} <br> {{__('revisor.user')}}: <span
+    <h1 class="text-center py-3 display-2">{{ __('revisor.user') }}: <span
             class="text-verde">{{ Auth::user()->name }}</span></h1>
     @if (!$product_to_check)
         <hr>
@@ -51,83 +51,50 @@
                                 <div class="row justify-content-center mb-2">
                                     @if ($product_to_check->images())
                                         @foreach ($product_to_check->images as $key => $image)
-                                            <div class="col-6">
-                                                <div class="card mb-3">
-                                                    <div class="row g-0">
-                                                        <div class="col-md-4">
-                                                            <img src="{{Storage::url($image->path)}}"
-                                                                class="img-fluid rounded-start"
-                                                                alt="Immagine {{ $key + 1 }} dell’articolo '{{ $product_to_check->title }}'">
-                                                        </div>
-                                                        <div class="col-md-5 ps-3">
-                                                            <div class="card-body">
-                                                                <h5>Labels</h5>
-                                                                @if ($image->labels)
-                                                                    @foreach ($image->labels as $label)
-                                                                        {{ $label }},
-                                                                    @endforeach
-                                                                @else
-                                                                    <p class="fst-italic">No labels</p>
-                                                                @endif
+                                            @if ($image->labels)
+                                                <div class="col-6">
+                                                    <div class="card mb-3">
+                                                        <div class="row g-0">
+                                                            <div class="col-md-4">
+                                                                <img src="{{ Storage::url($image->path) }}"
+                                                                    class="img-fluid rounded-start"
+                                                                    alt="Immagine {{ $key + 1 }} dell’articolo '{{ $product_to_check->title }}'">
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <div class="card-body">
-                                                                <h5>Ratings</h5>
-                                                                <div class="row justify-content-center">
-                                                                    <div class="col-2">
-                                                                        <div
-                                                                            class="text-center mx-auto {{ $image->adult }}">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-10">adult</div>
-                                                                </div>
-                                                                <div class="row justify-content-center">
-                                                                    <div class="col-2">
-                                                                        <div
-                                                                            class="text-center mx-auto {{ $image->violence }}">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-10">violence</div>
-                                                                </div>
-                                                                <div class="row justify-content-center">
-                                                                    <div class="col-2">
-                                                                        <div
-                                                                            class="text-center mx-auto {{ $image->spoof }}">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-10">spoof</div>
-                                                                </div>
-                                                                <div class="row justify-content-center">
-                                                                    <div class="col-2">
-                                                                        <div
-                                                                            class="text-center mx-auto {{ $image->racy }}">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-10">racy</div>
-                                                                </div>
-                                                                <div class="row justify-content-center">
-                                                                    <div class="col-2">
-                                                                        <div
-                                                                            class="text-center mx-auto {{ $image->medical }}">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-10">medical</div>
+                                                            <div class="col-md-5 ps-3">
+                                                                <div class="card-body">
+                                                                    @if ($image->labels)
+                                                                        <h5>Labels</h5>
+                                                                        @foreach ($image->labels as $label)
+                                                                            {{ $label }},
+                                                                        @endforeach
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @else
+                                                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                                                    <div class="position-relative">
+                                                        <img src="{{ Storage::url($image->path) }}"
+                                                            class="img-fluid rounded shadow-sm w-100"
+                                                            style="aspect-ratio: 16/9; object-fit: contain;"
+                                                            alt="Product image">
+                                                    </div>
+                                                </div>
+                                            @endif
                                         @endforeach
                                     @else
                                         @for ($i = 0; $i < 3; $i++)
-                                            <div class="col-12 col-sm-6 col-md-4 mb-4">
-                                                <div class="position-relative">
-                                                    <img src="https://picsum.photos/1080/720?random={{ $i }}"
-                                                        class="img-fluid rounded shadow-sm w-100"
-                                                        style="aspect-ratio: 16/9; object-fit: cover;"
-                                                        alt="Product image">
+                                            <div class="col-12 col-md-4 ">
+                                                <div class="card mb-3">
+                                                    <div class="row g-0">
+                                                        <div class="">
+                                                            <img src="https://picsum.photos/seed/{{ random_int(1, 1000) }}/600/400"
+                                                                class="img-fluid rounded-start"
+                                                                alt="Immagine placeholder {{ $i + 1 }}">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         @endfor

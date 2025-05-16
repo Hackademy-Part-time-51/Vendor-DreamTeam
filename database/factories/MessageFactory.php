@@ -20,20 +20,24 @@ class MessageFactory extends Factory
      */
     protected $model = Message::class;
     public function definition(): array
-    {
-        return [
-            'sender_id' => User::inRandomOrder()->first()->id, 
-            'receiver_id' => 51, 
-            'product_id' => 81,
-            // function (array $attributes) {
-                
-            //     $products = Product::whereIn('user_id', [
-            //         $attributes['sender_id'],
-            //         $attributes['receiver_id']
-            //     ])->get();
-            //     return $products->random()->id;
-            // },
-            'message' => fake()->sentence(), // Contenuto del messaggio
-        ];
-    }
+{
+    // Seleziona due utenti distinti casuali
+    $sender = User::inRandomOrder()->first();
+    $receiver = User::where('id', '!=', $sender->id)->inRandomOrder()->first();
+
+    return [
+        'sender_id' => $sender->id,
+        'receiver_id' => $receiver->id,
+        'product_id' => function (array $attributes) {
+            $products = Product::where('user_id', $attributes['sender_id'])
+                ->orWhere('user_id', $attributes['receiver_id'])
+                ->inRandomOrder()
+                ->first();
+
+            return $products?->id ?? Product::factory()->create()->id;
+        },
+        'message' => fake()->sentence(),
+    ];
+}
+
 }

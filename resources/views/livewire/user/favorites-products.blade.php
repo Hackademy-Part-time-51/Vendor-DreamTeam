@@ -17,7 +17,9 @@
                 <h4 class="text-muted">{{__('user.dontHaveFavorite')}}</h4>
                 <p class="text-muted mb-4">{{__('user.exploreCatalog')}}</p>
                 <a href="{{ route('products.index') }}" class="btn btn-base">
-                    <i class="bi bi-search me-2"></i>{{__('user.exploreArticles')}}
+                    <span>
+                        <i class="bi bi-search me-2"></i>{{__('user.exploreArticles')}}
+                    </span>
                 </a>
             </div>
         @endif

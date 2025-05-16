@@ -2,6 +2,7 @@
 @import 'animate.css';
 @import 'bootstrap-icons';
 
+/* #region PARTICLES */
 /* ---- reset ---- */
 body {
     margin: 0;
@@ -27,9 +28,6 @@ canvas {
     background-attachment: fixed;
 }
 
-
-
-
 body {
     /* background-image: url('../IMAGES/sfondo.jpg');
     background-size: cover !important;
@@ -44,6 +42,14 @@ body {
     cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="%23FFF" stroke="%23000" stroke-width="2" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>') 10 10, auto;
 }
 
+/* #endregion */
+
+/* #region SETTINGS */
+.min-vh-50 {
+    min-height: 50vh !important;
+}
+
+/* #endregion */
 /* #region NAVBAR */
 
 .sidebar-scroll {
@@ -196,7 +202,7 @@ nav {
 .btn-base {
     position: relative;
     border: #003255 3px solid;
-    background-color: transparent;
+    background-color: white;
     overflow: hidden;
     transition: all .3s ease-in-out;
 }
@@ -423,7 +429,6 @@ nav {
 
 /* #endregion */
 
-
 /* #region LOADING */
 
 /* #region loader per filtri */
@@ -510,7 +515,6 @@ nav {
 
 /* #endregion */
 
-
 @media (max-width: 769px) {
     .navbar {
         position: sticky;
@@ -558,12 +562,7 @@ nav {
 /* #endregion */
 
 
-
-
-/* automplete input css */
-
-
-
+/* #region AUTOCOMPLETE */
 .autocomplete-items {
     position: relative;
     border: 1px solid #d4d4d4;
@@ -571,10 +570,7 @@ nav {
     border-top: none;
     z-index: 999;
     /*position the autocomplete items to be the same width as the container:*/
-    
     left: 20px;
-    
-   
 }
 
 .autocomplete-items div {
@@ -583,3 +579,5 @@ nav {
     background-color: #fff;
     border-bottom: 1px solid #d4d4d4;
 }
+
+/* #endregion */
