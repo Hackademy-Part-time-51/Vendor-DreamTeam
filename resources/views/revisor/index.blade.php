@@ -26,19 +26,19 @@
                         </div>
                         <div class="list-group list-group-flush">
                             <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="text-blu">{{ __('revisor.toReviewed') }}</span>
+                                <span class="text-blu fs-5 fw-light">{{ __('revisor.toReviewed') }}</span>
                                 <span
-                                    class="badge bg-blu rounded-pill">{{ \App\Models\Product::toBeRevisedCount() }}</span>
+                                    class="badge bg-blu fs-6 fw-light rounded-pill">{{ \App\Models\Product::toBeRevisedCount() }}</span>
                             </div>
                             <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="text-blu">{{ __('revisor.accepted') }}</span>
+                                <span class="text-blu fs-5 fw-light">{{ __('revisor.accepted') }}</span>
                                 <span
-                                    class="badge bg-verde rounded-pill">{{ \App\Models\Product::acceptedCount() }}</span>
+                                    class="badge bg-verde fs-6 fw-light rounded-pill">{{ \App\Models\Product::acceptedCount() }}</span>
                             </div>
                             <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="text-blu">{{ __('revisor.refused') }}</span>
+                                <span class="text-blu fs-5 fw-light">{{ __('revisor.refused') }}</span>
                                 <span
-                                    class="badge bg-rosso rounded-pill">{{ \App\Models\Product::rejectedCount() }}</span>
+                                    class="badge bg-rosso fs-6 fw-light rounded-pill">{{ \App\Models\Product::rejectedCount() }}</span>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                             <div class="container-fluid py-3">
 
                                 <div class="row justify-content-center mb-2">
-                                    @if ($product_to_check->images())
+                                    @if ($product_to_check->images()->count() > 0)
                                         @foreach ($product_to_check->images as $key => $image)
                                             @if ($image->labels)
                                                 <div class="col-6">

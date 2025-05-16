@@ -1,7 +1,7 @@
 @auth
 @if (Auth::user()->is_revisor)
 <div class="">
-    <div class="navbar bg-white border-bottom py-2">
+    <div class="navbar bg-white border-bottom py-3">
         <div class="container-fluid">
             <ul class="navbar-nav mx-auto gap-4 align-items-center">
                 <li class="nav-item d-flex align-items-center">
