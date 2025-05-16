@@ -130,7 +130,7 @@
                                     <button wire:click="translate" class="btn btn-base btn-sm">
                                         <span>
                                         <i class="bi bi-translate me-2"></i>
-                                        {{ $setTranslate ? 'Originale' : 'Traduci' }}
+                                        {{ $setTranslate ? __('product.original') : __('product.translate') }}
                                         </span>
                                     </button>
                                 </div>
