@@ -59,7 +59,7 @@
 
         <div class="position-absolute top-0 start-0 m-2 z-1">
             <span class="badge rounded-pill bg-warning text-dark px-3 py-2">
-                <i class="bi bi-tags-fill me-1"></i>{{__("category.". $product->category->name)}}
+                <i class="bi bi-tags-fill me-1"></i>{{__("category." . $product->category->name)}}
             </span>
         </div>
     </div>

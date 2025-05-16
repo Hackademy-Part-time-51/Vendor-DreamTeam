@@ -5,7 +5,7 @@
                 <h1 class="display-6 text-blu text-capitalize mb-3">{{ $product->title }}</h1>
                 @if ($product->category)
                     <span class="badge bg-warning px-3 py-2 rounded-pill">
-                        <i class="bi bi-tag-fill me-2"></i>{{__("category.". $product->category->name)}}
+                        <i class="bi bi-tag-fill me-2"></i>{{__("category." . $product->category-> name )}}
                     </span>
                 @endif
             </div>
@@ -21,7 +21,7 @@
                                 <span class="badge bg-warning px-3 py-2 rounded-pill">
                                     <a href="{{ route('products.index', ['category' => $product->category->id]) }}" 
                                     class="text-decoration-none text-blu">
-                                        <i class="bi bi-tag-fill me-2"></i>{{__('product.' . $product->category->name)}}
+                                        <i class="bi bi-tag-fill me-2"></i>{{__("category.". $product->category->name)}}
                                     </a>
                                 </span>
                             @endif
