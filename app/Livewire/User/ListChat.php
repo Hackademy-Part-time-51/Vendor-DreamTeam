@@ -14,12 +14,13 @@ class ListChat extends Component
     public $chats = [];
     public $messages = [];
     public $products = [];
+    public $user;
     public function mount()
     {
 
         $this->chats = [];
         $this->messages = [];
-
+        
 
 
         $this->updatelist();

@@ -7,7 +7,7 @@ use Cron\CronExpression;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Spatie\Image\Enums\CropPosition;
-
+// 
 class ResizeImage implements ShouldQueue
 {
     use Queueable;

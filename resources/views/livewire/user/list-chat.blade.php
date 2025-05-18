@@ -60,5 +60,5 @@
 
     </div>
     <hr>
-    @livewire('user.chat-area', compact('product'))
+    @livewire('user.chat-area', compact('product', 'user'))
 </div>

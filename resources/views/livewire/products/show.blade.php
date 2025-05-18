@@ -49,7 +49,7 @@
                                 @foreach ($product->images as $key => $image)
                                     <div class="carousel-item @if($loop->first) active @endif">
                                         
-                                        <img src="{{Storage::url($image->path)}}"
+                                        <img src="{{$image->getUrl(300, 300)}}"
                                             class="d-block w-100"
                                             style="aspect-ratio: 16/9; object-fit: contain;"
                                             alt="Immagine prodotto {{ $key + 1 }}">
