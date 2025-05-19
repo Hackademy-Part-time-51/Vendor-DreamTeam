@@ -10,8 +10,8 @@
                                 data-bs-interval="5000">
                                 <img src="https://picsum.photos/500/500?random={{ random_int(1, 1000) }}"
                                     class="img-fluid d-block w-100 object-fit-cover"
-                                    alt="Immagine Placeholder {{ $i + 1 }}" loading="lazy" width="300"
-                                    height="300">
+                                    alt="Immagine Placeholder {{ $i + 1 }}" loading="lazy" width="500"
+                                    height="500">
                             </div>
                         @endfor
                     </div>
@@ -34,7 +34,7 @@
                             <img src="{{ $product->images->isNotEmpty() ? Storage::url($image->path) : 'https://picsum.photos/500' }}"
                                 class="img-fluid d-block w-100 object-fit-cover"
                                 alt="{{ $product->name ?? 'Immagine Prodotto' }} {{ $key + 1 }}" loading="lazy"
-                                width="300" height="300">
+                                width="500" height="500">
                         </div>
                     @endforeach
 
