@@ -52,7 +52,7 @@
                                         <div class="card mb-3">
                                             <div class="row g-0">
                                                 <div class="col-12">
-                                                    <img src="{{ $image->getUrl(300,300) }}"
+                                                    <img src="{{ $image->getUrl(500,500) }}"
                                                         class=" rounded-start"
                                                         alt="Immagine {{ $key + 1 }} dell'articolo '{{ $product_to_check->title }}'">
                                                 </div>
@@ -109,7 +109,7 @@
                                         <div class="card mb-3">
                                             <div class="row g-0">
                                                 <div class="col-md-4">
-                                                    <img src="https://picsum.photos/seed/{{ random_int(1, 1000) }}/600/400"
+                                                    <img src="https://picsum.photos/seed/{{ random_int(1, 1000) }}/500/500"
                                                         class="img-fluid rounded-start"
                                                         alt="Immagine placeholder {{ $i + 1 }}">
                                                 </div>

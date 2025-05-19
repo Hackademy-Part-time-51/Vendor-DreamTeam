@@ -37,7 +37,7 @@
                                 @for ($i = 0; $i < 3; $i++)
                                     <div class="carousel-item @if($i == 0) active @endif">
                                         <div class="ratio ratio-16x9">
-                                            <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/1080"
+                                            <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/500"
                                                  class="img-fluid object-fit-cover"
                                                  alt="Preview {{ $i + 1 }}">
                                         </div>
@@ -57,7 +57,7 @@
                             @for ($i = 0; $i < 3; $i++)
                                 <div class="col-4">
                                     <div class="ratio ratio-16x9">
-                                        <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/1080"
+                                        <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/500"
                                              class="img-fluid rounded cursor-pointer object-fit-cover"
                                              data-bs-target="#productImageCarousel"
                                              data-bs-slide-to="{{ $i }}"

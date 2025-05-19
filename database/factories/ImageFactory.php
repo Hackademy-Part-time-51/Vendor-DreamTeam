@@ -23,7 +23,7 @@ class ImageFactory extends Factory
         $storagePath = 'public/products/' . $filename;
 
         // Scarica l'immagine da Lorem Picsum
-        $response = Http::get('https://picsum.photos/300/300');
+        $response = Http::get('https://picsum.photos/500/500');
 
         // Verifica che la richiesta abbia avuto successo
         if ($response->successful()) {

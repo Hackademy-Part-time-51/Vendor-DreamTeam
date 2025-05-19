@@ -8,7 +8,7 @@
                             <!-- Mostro 3 immagini casuali -->
                             <div class="carousel-item @if ($i == 0) active @endif"
                                 data-bs-interval="5000">
-                                <img src="https://picsum.photos/1080/1080?random={{ random_int(1, 1000) }}"
+                                <img src="https://picsum.photos/500/500?random={{ random_int(1, 1000) }}"
                                     class="img-fluid d-block w-100 object-fit-cover"
                                     alt="Immagine Placeholder {{ $i + 1 }}" loading="lazy" width="300"
                                     height="300">
@@ -31,7 +31,7 @@
                     @foreach ($product->images as $key => $image)
                         <div class="carousel-item @if ($loop->first) active @endif"
                             data-bs-interval="5000">
-                            <img src="{{ $product->images->isNotEmpty() ? Storage::url($image->path) : 'https://picsum.photos/300' }}"
+                            <img src="{{ $product->images->isNotEmpty() ? Storage::url($image->path) : 'https://picsum.photos/500' }}"
                                 class="img-fluid d-block w-100 object-fit-cover"
                                 alt="{{ $product->name ?? 'Immagine Prodotto' }} {{ $key + 1 }}" loading="lazy"
                                 width="300" height="300">
@@ -81,7 +81,7 @@
                     <img src="{{ asset('storage/' . $product->user->profile_image) }}" class="rounded-circle mb-2"
                         width="60" height="60" alt="User Avatar">
                 @else
-                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/480" class="rounded-circle mb-2"
+                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/500" class="rounded-circle mb-2"
                         width="60" height="60" alt="User Avatar">
                 @endif
 
