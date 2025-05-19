@@ -35,6 +35,10 @@ class Notify extends Component
         $this->dispatch('showNotification');
     }
 
+    public function hideNotification(){
+        $this->dispatch('hideNotification');
+    }
+
 
     public function render()
     {
