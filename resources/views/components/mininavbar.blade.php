@@ -2,9 +2,10 @@
   @php
       use App\Models\Category;
   @endphp
+@if (!Route::is('messaggi'))
 
     @livewire('user.notify')
-
+@endif
   <div class="secondary-navbar-sticky d-none bg-blu text-white d-lg-block z-3">
       <nav class="navbar navbar-expand-lg  p-2">
           <div class="container-fluid ">
