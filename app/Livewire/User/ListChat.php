@@ -40,14 +40,26 @@ class ListChat extends Component
             $key = $msg->product_id . '-' . $otherUserId;
 
             if (!isset($this->chats[$key])) {
-                $this->chats[$key] = [
-                    'product' => $msg->product,
-                    'user' => $msg->sender_id === Auth::id() ? $msg->receiver : $msg->sender,
-                    'last_message' => $msg,
-                    'msgNotRead' => $msg->is_read == 0 ? 1 : 0
-                ];
+                if($msg->sender_id !== Auth::id()){
+                    
+                    $this->chats[$key] = [
+                        'product' => $msg->product,
+                        'user' => $msg->sender_id === Auth::id() ? $msg->receiver : $msg->sender,
+                        'last_message' => $msg,
+                        'msgNotRead' => $msg->is_read == 0 ? 1 : 0
+                    ];
+                }else{
+                    $this->chats[$key] = [
+                        'product' => $msg->product,
+                        'user' => $msg->sender_id === Auth::id() ? $msg->receiver : $msg->sender,
+                        'last_message' => $msg,
+                        'msgNotRead' => $msg->is_read =0
+                    ];
+                }
+                
             } else {
-                $this->chats[$key]['msgNotRead'] += $msg->is_read == 0 ? 1 : 0;
+                if($msg->sender_id !== Auth::id()){
+                $this->chats[$key]['msgNotRead'] += $msg->is_read == 0 ? 1 : 0;}
             }
         }
     }
