@@ -104,7 +104,9 @@
                                     <div class="mt-auto d-flex justify-content-center align-items-center gap-2">
                                         @if (Auth::id() == $product->user_id || Auth::user()->is_revisor == 1)
                                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-base">
-                                                <i class="bi bi-pen"></i>
+                                                <span>
+                                                    <i class="bi bi-pen"></i>
+                                                </span>
                                             </a>
                                             <button type="button" data-bs-toggle="modal"
                                                 data-bs-target="#modalDeleteProduct{{ $product->id }}"

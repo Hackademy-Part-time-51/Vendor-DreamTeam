@@ -162,6 +162,8 @@ nav {
 /* #endregion */
 
 /* #region BUTTONS */
+
+/* #region google-btn */
 .google-btn {
     display: inline-flex;
     align-items: center;
@@ -191,6 +193,9 @@ nav {
     display: inline-block;
 }
 
+/* #endregion */
+
+/* #region btn generali */
 .btn {
     border: none
 }
@@ -199,6 +204,9 @@ nav {
     font-weight: 500;
 }
 
+/* #endregion */
+
+/* #region btn-base */
 .btn-base {
     position: relative;
     border: #003255 3px solid;
@@ -235,6 +243,9 @@ nav {
     transition: color .3s ease-in-out;
 }
 
+/* #endregion */
+
+/* #region btn-baseblu */
 .btn-baseblu {
     position: relative;
     border: #003255 3px solid;
@@ -272,7 +283,9 @@ nav {
     transition: color .3s ease-in-out;
 }
 
+/* #endregion */
 
+/* #region btn-rosso */
 .btn-rosso {
     border: #003255 3px solid;
     color: white;
@@ -287,6 +300,9 @@ nav {
     transform: scale(0.98);
 }
 
+/* #endregion */
+
+/* #region btn-lang */
 .btn-lang {
     width: min-content;
 }
@@ -294,6 +310,18 @@ nav {
 .btn-lang:hover {
     transition: all 0.2s linear;
     transform: scale(1.1);
+}
+
+/* #endregion */
+
+.bounceright:hover{
+    transform: scale(0.98) rotate(3deg);
+}
+.bounceleft:hover{
+    transform: scale(0.98) rotate(-3deg);
+}
+.bouncetop:hover{
+    transform: scale(0.98) translateY(-3px);
 }
 
 /* #endregion */
