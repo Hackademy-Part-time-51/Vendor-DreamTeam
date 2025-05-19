@@ -114,14 +114,6 @@
                                     </a>
                                 </p>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center mt-1 fs-5">
-                                <p>
-                                    <span class="text-muted">Hai dimenticato la tua password? Clicca </span>
-                                    <a href="{{ route('password.request') }}" class="text-decoration-none">
-                                        <span class="text-base">qui</span>
-                                    </a>
-                                </p>
-                            </div>
                         </form>
 
                     </div>
