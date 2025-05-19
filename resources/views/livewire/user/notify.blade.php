@@ -11,8 +11,8 @@
         
     <button type="button" class="btn-close" wire:click="hideNotification" aria-label="Close"></button>
          
-     Hai un nuovo messaggio da {{ $user->name ?? 'un utente'}} per il prodotto {{ $product->title ?? 'un prodotto'}}
-     <a href="{{ route('messaggi',["id" => $product->id ??'', "user"=>$user->id ??'']) }}">Apri chat</a>
+     {{__('user.newMessage')}} {{ $user->name ?? 'un utente'}} {{__('user.forTheproduct')}} {{ $product->title ?? 'un prodotto'}}
+     <a href="{{ route('messaggi',["id" => $product->id ??'', "user"=>$user->id ??'']) }}">{{__('user.openChat')}}</a>
      
 </div>
 
