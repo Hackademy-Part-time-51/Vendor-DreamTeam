@@ -22,17 +22,17 @@ class ChatArea extends Component
     public $loginId;
     public $userSelected;
     public $user;
-    
+
     public function mount()
-    {   
+    {
 
         $this->loginId = Auth::id();
 
-        if($this->product && $this->user){
-           
+        if ($this->product && $this->user) {
+
             $this->selectChat($this->product, $this->user);
-        }elseif($this->product){
-                  
+        } elseif ($this->product) {
+
             $prodotto = Product::find($this->product);
             $this->selectChat($prodotto->id, $prodotto->user_id);
         }
@@ -40,11 +40,11 @@ class ChatArea extends Component
 
 
     #[On('selectChat')]
-    public function selectChat($product_id=null, $user_id=null)
+    public function selectChat($product_id = null, $user_id = null)
     {
         $this->user_id = $user_id;
         $this->product_id = $product_id;
-        
+
         $this->userSelected = User::find($user_id);
 
         $this->messages = Message::where('product_id', $product_id)
@@ -59,25 +59,27 @@ class ChatArea extends Component
             ->orderBy('created_at', 'asc')
             ->get();
         // dd($this->messages);
-       
+
 
         foreach ($this->messages as $msg) {
-            $msg->sender_id = $msg->sender_id;
-            $msg->receiver_id = $msg->receiver_id;
-            $msg->product_id = $msg->product_id;
-            $msg->message = $msg->message;
-            $msg->is_read = 1;
-            $msg->save();
+            if ($msg->receiver_id == Auth::id()) {
+                $msg->sender_id = $msg->sender_id;
+                $msg->receiver_id = $msg->receiver_id;
+                $msg->product_id = $msg->product_id;
+                $msg->message = $msg->message;
+                $msg->is_read = 1;
+                $msg->save();
+            }
         }
 
-        
+
         $this->dispatch('updatelist', product: $this->product_id);
     }
 
 
     public function sendMessage()
     {
-       $message= Message::create([
+        $message = Message::create([
             'sender_id' => Auth::id(),
             'receiver_id' => $this->user_id,
             'product_id' => $this->product_id,
@@ -90,22 +92,23 @@ class ChatArea extends Component
         $this->dispatch('selectChat', $this->product_id, $this->user_id);
     }
 
-public function getListeners(){
-    return [
-        "echo-private:chat.{$this->loginId},MessageEvent" => 'newmessage',
-    ];
-}
+    public function getListeners()
+    {
+        return [
+            "echo-private:chat.{$this->loginId},MessageEvent" => 'newmessage',
+        ];
+    }
 
-    public function newmessage($message){
-        if($message['user_id']==$this->user_id){
-            
+    public function newmessage($message)
+    {
+        if ($message['user_id'] == $this->user_id) {
+
             $this->dispatch('selectChat', $message['product_id'], $message['user_id']);
-        }else{
+        } else {
             $this->dispatch('updatelist');
         }
-
     }
-    
+
 
     #[On('refresh')]
     public function render()
