@@ -18,12 +18,12 @@ Route::controller(PageController::class)->group(function () {
     Route::post('/products','store')->name('products.store')->middleware('verified');
     Route::put('/products/{product}','update')->name('products.update')->middleware('verified');
     Route::delete('/products/{product}','destroy')->name('products.destroy')->middleware('verified');
-    Route::get('/FAQ','faq')->name('faq');
-    Route::get('/privacy','privacy')->name('privacy');
-    Route::get('/terms','terms')->name('terms');
-    Route::get('/aboutUs','aboutUs')->name('aboutUs');
-    Route::get('/contact','contact')->name('contact');
-    Route::post('/sendemail','sendemail')->name('sendemail');
+    Route::get('/FAQ','faq')->name('faq')->middleware('auth');;
+    Route::get('/privacy','privacy')->name('privacy')->middleware('auth');;
+    Route::get('/terms','terms')->name('terms')->middleware('auth');;
+    Route::get('/aboutUs','aboutUs')->name('aboutUs')->middleware('auth');;
+    Route::get('/contact','contact')->name('contact')->middleware('auth');;
+    Route::post('/sendemail','sendemail')->name('sendemail')->middleware('auth');;
 });
 
 Route::controller(UserController::class)->group(function () {

@@ -15,7 +15,7 @@
                                 <span class="input-group-text bg-transparent border-end-0">
                                     <i class="bi bi-search"></i>
                                 </span>
-                                <input type="text" wire:model.live="search" class="form-control border-start-0 ps-0"
+                                <input type="text" wire:model.live="search" class="form-control z-1 border-start-0 ps-0"
                                     placeholder="{{ __('ui.allArticles') }}">
                             </div>
                         </div>

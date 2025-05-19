@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('searches', function (Blueprint $table) {
-            $table->id(); 
+            $table->id();
 
             $table->foreignId('user_id')
-                  ->constrained(); 
+                ->constrained();
 
-            $table->decimal('min_price', 8, 2)->nullable(); 
+            $table->decimal('min_price', 8, 2)->nullable();
             $table->decimal('max_price', 8, 2)->nullable();
-            $table->string('search')->nullable();       
-            $table->integer('city')->nullable();       
-            $table->integer('range')->nullable();      
+            $table->string('search')->nullable();
+            $table->integer('city')->nullable();
+            $table->integer('range')->nullable();
             $table->foreignId('category_id')
-                  ->constrained();
+                ->constrained();
             $table->timestamps();
         });
     }
