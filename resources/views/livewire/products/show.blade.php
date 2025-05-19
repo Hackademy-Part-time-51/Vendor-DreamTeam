@@ -81,7 +81,7 @@
                         @if ($product->images()->count() > 0)
                             @foreach ($product->images as $key => $image)
                                 <div class="col-4">
-                                    <img src="{{Storage::url($image->path)}}"
+                                    <img src="{{$image->getUrl(300, 300)}}"
                                         class="img-fluid rounded cursor-pointer"
                                         style="aspect-ratio: 16/9; object-fit: contain;"
                                         data-bs-target="#productImageCarousel{{ $product->id }}"

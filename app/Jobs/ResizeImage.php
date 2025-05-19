@@ -18,7 +18,7 @@ class ResizeImage implements ShouldQueue
      * Create a new job instance.
      */
     private $w ,$h, $fileName, $path;
-    public function __construct($w, $h, $filePath)
+    public function __construct($filePath, $w, $h)
     {
         $this->path = dirname($filePath) ;
         $this->fileName = basename($filePath);
