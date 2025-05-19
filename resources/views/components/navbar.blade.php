@@ -3,6 +3,8 @@
     use App\Models\Category;
 @endphp
 <nav class="navbar py-0" id="bigNavbar">
+    
+  
     <div class="container-fluid  d-flex justify-content-center d-none d-lg-flex navbar">
       <a href="/">
         <img src="/IMAGES/LOGO-SENZA-SFONDO.png" alt="" class="" height="100rem">
@@ -111,7 +113,7 @@
           @foreach (Category::all() as $category)
             <a href="{{ route('products.index', ['category' => $category->id]) }}"
               class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
-              {{__('category.' .$category->name)}}
+              {{__('category.' . $category->name)}}
             </a>
           @endforeach
         </nav>

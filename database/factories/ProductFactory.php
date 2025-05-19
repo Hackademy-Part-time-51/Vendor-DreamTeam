@@ -16,47 +16,47 @@ class ProductFactory extends Factory
         $i = fake()->numberBetween(0, count($comuni) - 1);
 
         $products = [
-            'Clothing' => [
+            'clothing' => [
                 ['Maglione in lana', 'Maglione caldo in lana merino, taglia M'],
                 ['Pantaloni cargo', 'Pantaloni cargo resistenti in cotone']
             ],
-            'Shoes' => [
+            'shoes' => [
                 ['Scarpe da ginnastica', 'Scarpe sportive con ammortizzazione'],
                 ['Sandali estivi', 'Sandali comodi per la spiaggia']
             ],
-            'Bags Accessories' => [
+            'bagsAccessories' => [
                 ['Borsa da viaggio', 'Borsa capiente con ruote'],
                 ['Cintura in pelle', 'Cintura elegante per abiti formali']
             ],
-            'Electronics' => [
+            'electronics' => [
                 ['Smartphone ricondizionato', 'Smartphone in ottime condizioni con garanzia'],
                 ['Monitor 24"', 'Monitor Full HD per ufficio']
             ],
-            'Books Magazines' => [
+            'booksMagazines' => [
                 ['Enciclopedia medica', 'Edizione aggiornata 2024'],
                 ['Guida viaggi Europa', 'Mappa dettagliata con itinerari']
             ],
-            'Home Kitchen' => [
+            'homeKitchen' => [
                 ['Set di coltelli', '6 pezzi in acciaio inox'],
                 ['Macchina per caffè', 'Caffè espresso professionale']
             ],
-            'Sports Free Time' => [
+            'sportsFreeTime' => [
                 ['Set pesi 20kg', 'Manubri regolabili in ghisa'],
                 ['Zaino da trekking', 'Zaino ergonomico 40L']
             ],
-            'Jewelry Watches' => [
+            'jewelryWatches' => [
                 ['Orecchini d\'argento', 'Purezza 925 con pietre'],
                 ['Bracciale rigido', 'Bracciale in acciaio chirurgico']
             ],
-            'DoItYourself Gardening' => [
+            'doItYourselfGardening' => [
                 ['Tosaerba elettrico', 'Potenza 1500W, leggero'],
                 ['Sega a batteria', 'Kit completo con batteria']
             ],
-            'Informatics' => [
+            'informatics' => [
                 ['Webcam HD', 'Risoluzione 1080p con microfono'],
                 ['HDD Esterno 1TB', 'USB 3.0, compatibile con PC e Mac']
             ],
-            'Cars Motorcycles' => [
+            'carsMotorcycles' => [
                 ['Kit pulizia auto', 'Cera e prodotti professionali'],
                 ['Navigatore satellitare', 'Aggiornamenti mappe gratuiti']
             ]

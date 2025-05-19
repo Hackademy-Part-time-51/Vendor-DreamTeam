@@ -21,12 +21,18 @@ class ChatArea extends Component
     public $product;
     public $loginId;
     public $userSelected;
+    public $user;
     
     public function mount()
     {   
+
         $this->loginId = Auth::id();
 
-        if ($this->product) {
+        if($this->product && $this->user){
+           
+            $this->selectChat($this->product, $this->user);
+        }elseif($this->product){
+                  
             $prodotto = Product::find($this->product);
             $this->selectChat($prodotto->id, $prodotto->user_id);
         }
