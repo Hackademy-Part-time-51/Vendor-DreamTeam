@@ -21,6 +21,9 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/FAQ','faq')->name('faq');
     Route::get('/privacy','privacy')->name('privacy');
     Route::get('/terms','terms')->name('terms');
+    Route::get('/aboutUs','aboutUs')->name('aboutUs');
+    Route::get('/contact','contact')->name('contact');
+    Route::post('/sendemail','sendemail')->name('sendemail');
 });
 
 Route::controller(UserController::class)->group(function () {
@@ -39,7 +42,6 @@ Route::controller(RevisorController::class)->group(function(){
     Route::get('/make/revisor/{user}',  'makeRevisor')->name('make.revisor');
 });
 
-
 Route::get('/comuni-json', function () {
     $json = Storage::disk('public')->get('comuni.json');
     $comuni=json_decode($json);
@@ -49,10 +51,6 @@ Route::get('/comuni-json', function () {
 // rotta per cambio lingua
 
 Route::post('/lingua/{lang}',[PageController::class, 'setLanguage'])->name('setLocale');
-
-
-
-
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 

@@ -3,37 +3,14 @@
 @import 'bootstrap-icons';
 
 /* #region PARTICLES */
-/* ---- reset ---- */
-body {
-    margin: 0;
-    font: normal 75% Arial, Helvetica, sans-serif;
-}
 
-canvas {
-    display: block;
-    vertical-align: bottom;
-    z-index: 0.5;
-}
-
-/* ---- particles.js container ---- */
-#particles-js {
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 
 body {
-    /* background-image: url('../IMAGES/sfondo.jpg');
+     background-image: url('../IMAGES/sfondo.jpg');
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
-    background-position: center !important; */
+    background-position: center !important; 
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;

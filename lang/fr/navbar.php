@@ -28,7 +28,7 @@ return[
 
     'contacts' => 'Contacts',
     'workWithUs' => 'Travaillez avec nous',
-    'whereWeAre' => 'Où nous trouver',
+    'whoWeAre' => 'Où nous sommes?',
 
 
     'personalArea' => 'Espace Personnel',

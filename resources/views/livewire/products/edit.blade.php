@@ -96,7 +96,7 @@
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" 
                                             @selected($product->category_id == $category->id)>
-                                        {{ $category->name }}
+                                        {{__('category.' . $category->name) }}
                                     </option>
                                 @endforeach
                             </select>
@@ -124,19 +124,19 @@
                                 <input type="hidden" wire:model="myCity" id="idCity">
                             </div>
                         </div>
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-baseblu btn-lg py-3">
-                                <span>
-                                    <i class="bi bi-check-lg me-2"></i>{{__('product.saveModification')}}
-                                </span>
-                            </button>
-                            <a href="{{ route('products.show', $product) }}" 
-                               class="btn btn-rosso btn-lg py-3">
-                                <i class="bi bi-x-lg me-2"></i>{{__('navbar.cancel')}}
-                            </a>
-                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-baseblu btn-lg py-3">
+                    <span>
+                        <i class="bi bi-check-lg me-2"></i>{{__('product.saveModification')}}
+                    </span>
+                </button>
+                <a href="{{ route('products.show', $product) }}" 
+                   class="btn btn-rosso btn-lg py-3">
+                    <i class="bi bi-x-lg me-2"></i>{{__('navbar.cancel')}}
+                </a>
             </div>
         </div>
     </form>

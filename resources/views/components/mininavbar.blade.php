@@ -101,11 +101,9 @@
                               {{ __('navbar.workWithUs') }}
                           </a>
                       </li>
-                      <li><a class="dropdown-item " href="#">Chat</a></li>
-                      <li>
-                          <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item " href="#">{{ __('navbar.whereWeAre') }}</a></li>
+                       <li><a class="dropdown-item " href="{{route('contact')}}">Contattaci</a></li> 
+                      
+                      <li><a class="dropdown-item " href="{{route('aboutUs')}}">{{ __('navbar.whoWeAre') }}</a></li>
                   </ul>
               </li>
               {{-- aggiungi articolo --}}

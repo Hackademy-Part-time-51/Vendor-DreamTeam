@@ -24,7 +24,7 @@ return[
 
     'contacts'=> 'Contacts',
     'workWithUs'=> 'Work with us',
-    'whereWeAre'=> 'Where we are',
+    'whoWeAre'=> 'Who we are?',
 
     'personalArea'=> 'Personal Area',
     'profile'=> 'Profile',

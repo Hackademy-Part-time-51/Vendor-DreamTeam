@@ -80,6 +80,13 @@
                                                             class="img-fluid rounded shadow-sm w-100"
                                                             style="aspect-ratio: 16/9; object-fit: contain;"
                                                             alt="Product image">
+                                                            @if ($image->labels)
+                                                                    @foreach ($image->labels as $label)
+                                                                        {{ $label }},
+                                                                    @endforeach
+                                                                @else
+                                                                    <p class=" text-center">No labels</p>
+                                                                @endif
                                                     </div>
                                                 </div>
                                             @endif

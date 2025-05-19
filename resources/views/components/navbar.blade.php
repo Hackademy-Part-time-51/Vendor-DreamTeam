@@ -164,11 +164,11 @@
           <a href="{{route('lavoraConNoi')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
             <i class="bi bi-laptop me-3"></i>{{ __('navbar.workWithUs') }}
           </a>
-          <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
-            <i class="bi bi-chat-dots-fill fs-3 me-3"></i>Chat
-          </a>
-          <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
-            <i class="bi bi-geo-alt-fill fs-3 me-3"></i>{{ __('navbar.whereWeAre') }}
+           <a href="{{route('contact')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
+            <i class="bi bi-chat-dots-fill fs-3 me-3"></i>Contattaci
+          </a> 
+          <a href="{{route('aboutUs')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
+            <i class="bi bi-geo-alt-fill fs-3 me-3"></i>{{ __('navbar.whoWeAre') }}
           </a>
         </nav>
       </div>

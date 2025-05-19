@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
@@ -117,11 +119,35 @@ class PageController extends Controller
     public function terms() {
         return view('terms');
     }
+    public function contact() {
+        return view('contact');
+    }
+    public function aboutUs(){
+        return view("aboutUs");
+    }
 
-    // lingua sito
+    public function sendemail(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
+
+        $mail = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message
+        ];
+
+        Mail::to($mail['email'])->send(new ContactMail($mail));
+        return redirect()->route('contact')->with('success', 'Email inviata con successo!');
+        
+    }
 
     public function setLanguage($lang){
         session()->put('locale',$lang);
         return redirect()->back();
     }
+
 }

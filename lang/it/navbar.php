@@ -25,7 +25,7 @@ return[
 
     'contacts'=> 'Contatti',
     'workWithUs'=> 'Lavora con noi',
-    'whereWeAre'=> 'Dove Siamo',
+    'whoWeAre'=> 'Chi siamo?',
 
     'personalArea'=> 'Area Personale',
     'profile'=> 'Profilo',
