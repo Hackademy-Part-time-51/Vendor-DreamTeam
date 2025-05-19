@@ -58,7 +58,7 @@
                             @else
                                 @for ($i = 0; $i < 3; $i++)
                                     <div class="carousel-item @if($i == 0) active @endif">
-                                        <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/2160"
+                                        <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/500"
                                             class="d-block w-100"
                                             style="aspect-ratio: 16/9; object-fit: contain;"
                                             alt="Immagine placeholder {{ $i + 1 }}">
@@ -92,7 +92,7 @@
                         @else
                             @for ($i = 0; $i < 3; $i++)
                                 <div class="col-4">
-                                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/2160"
+                                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/500"
                                         class="img-fluid rounded cursor-pointer"
                                         style="aspect-ratio: 16/9; object-fit: contain;"
                                         data-bs-target="#productImageCarousel{{ $product->id }}"

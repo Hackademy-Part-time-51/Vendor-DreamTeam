@@ -13,7 +13,7 @@
                         @for ($i = 0; $i < 3; $i++)
                             <div class="carousel-item @if ($i == 0) active @endif" data-bs-interval="5000">
                                 <div class="ratio ratio-4x3">
-                                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/1080" class="img-fluid w-100 object-fit-cover rounded-top" alt="Placeholder {{ $i + 1 }}" loading="lazy">
+                                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/500" class="img-fluid w-100 object-fit-cover rounded-top" alt="Placeholder {{ $i + 1 }}" loading="lazy">
                                 </div>
                             </div>
                         @endfor
