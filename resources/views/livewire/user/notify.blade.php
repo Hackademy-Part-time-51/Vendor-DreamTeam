@@ -5,7 +5,7 @@
     >
    
         
-    Hai un nuovo messaggio da {{ $user->name ?? 'un utente'}} per il prodotto {{ $product->title ?? 'un prodotto'}}
-    <a href="{{ route('messaggi',["id" => $product->id ??'', "user"=>$user->id ??'']) }}">Apri chat</a>
+    {{__('user.newMessage')}} {{ $user->name ?? 'un utente'}} {{__('user.forTheProduct')}}{{ $product->title ?? 'un prodotto'}}
+    <a href="{{ route('messaggi',["id" => $product->id ??'', "user"=>$user->id ??'']) }}">{{__('user.openChat')}}</a>
     
 </div>

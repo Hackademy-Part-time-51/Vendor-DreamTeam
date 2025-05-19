@@ -47,6 +47,26 @@ return[
     'noArticlesReview'=>'Non ci sono articoli da revisionare.',
     'message'=>'Messaggio',
 
-    
-    
+    'webStudents'=>'4 studenti di sviluppo web uniti dalla passione per la tecnologia e il mondo di internet.',
+    'ourMission'=>'La Nostra Missione',
+    'collectiveOfCreative'=>' Siamo un collettivo di sviluppatori web creativi e orientati ai risultati, spinti dalla passione per la tecnologia e l n\'innovazione. La nostra missione è creare una piattaforma di vendita che connetta privati e aziende in un ambiente sicuro e affidabile, dove ogni articolo viene controllato da un team di revisori esperti.',
+    'believeInCollaboration'=>' Crediamo nella collaborazione, nella trasparenza e nell n\'apprendimento continuo per offrire una soluzione intuitiva e performante. La nostra piattaforma favorisce un dialogo diretto tra venditori e acquirenti grazie a una chat in tempo reale, garantendo un n\'esperienza fluida e sicura per tutti.',
+    'meetTheTeam'=>'Incontra il Team',
+    'creativeMinds'=>'Le menti creative dietro Vendor.',
+    'mirko'=>'Ho progettato e ottimizzato la gestione dei dati con MySQL, garantendo prestazioni elevate, sicurezza e scalabilità per un n\'infrastruttura solida ed efficiente.',
+    'simone'=>'Ho sviluppato la logica backend con PHP e Livewire, creando un sistema reattivo e performante che gestisce in modo fluido le operazioni e l n\'interazione utente.',
+    'jader'=>'Ho progettato la grafica e ottimizzato l n\'interfaccia per un n\'esperienza fluida e performante, integrando Livewire, JavaScript e Bootstrap peruna struttura dinamica e reattiva con tempi di caricamento ridotti.',
+    'filippo'=>'Ho implementato il sistema di autenticazione con Fortify, assicurando sicurezza e accessibilità, oltre a gestire le traduzioni per un n\'esperienza multilingua intuitiva.',
+    'ourSkills'=>'Le Nostre Skills',
+    'createdProgect'=>'Con la quale abbiamo creato il progetto ',
+    'Innovation'=>'Innovazione',
+    'lookingNewTechnologies'=>'Siamo costantemente alla ricerca di nuove tecnologie e approcci per offrire soluzioni all n\'avanguardia.',
+    'quality'=>'Qualità',
+    'attentionToDetail'=>'Poniamo la massima attenzione ai dettagli per garantire prodotti software robusti, sicuri e performanti.',
+    'Collaboration'=>'Collaborazione',
+    'fundamentalPartners'=>'Lavoriamo a stretto contatto con i nostri clienti, considerandoli partner fondamentali nel processo creativo.',
+
+    'newMessage'=>'Hai un nuovo messaggio da',
+    'forTheproduct'=>'per il prodotto',
+    'openChat'=>'Apri chat',
 ];

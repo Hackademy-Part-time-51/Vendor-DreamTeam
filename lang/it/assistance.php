@@ -51,5 +51,13 @@ return[
     'accessPersonalData'=>'Accedere ai propri dati personali.',
     'requestModification'=>'Chiedere la modifica o cancellazione dei dati.',
     'objectProcessing'=>'Opporsi al trattamento dei dati per finalità di marketing.',
-    'requestDeletion'=>'Richiedi cancellazione dati'
+    'requestDeletion'=>'Richiedi cancellazione dati',
+    
+
+    'haveQuestion'=>'Hai domande o hai bisogno di assistenza? Siamo qui per aiutarti!',
+    'sendMessage'=>'Invia un Messaggio',
+    'yourName'=>'Il tuo Nome',
+    'messageHere'=>'Scrivi qui il tuo messaggio',
+    'yourMessage'=>'Il tuo Messaggio',
+    'send'=>'Invia Messaggio'
 ];

@@ -1,6 +1,6 @@
 <?php
-return[
-   'favoriteArticles' => 'Articles préférés',
+return [
+    'favoriteArticles' => 'Articles préférés',
     'dontHaveFavorite' => "Vous n'avez pas encore d'articles préférés",
     'exploreCatalog' => 'Explorez le catalogue et ajoutez les articles que vous aimez aux favoris',
     'exploreArticles' => 'Explorer les articles',
@@ -40,13 +40,36 @@ return[
     'info' => 'Informations',
     'updateInfo' => 'Mettre à jour les informations',
 
-    'messages' =>'Tous les messages',
+    'messages' => 'Tous les messages',
     'role' => 'Rôle',
     'phone' => 'Téléphone',
     'itemsHold' => 'Articles en attente',
     'noArticlesReview' => 'Il n\'y a pas d\'articles à examiner.',
     'message' => 'Message',
 
-    
-    
+    'webStudents' => '4 étudiants en développement web unis par la passion pour la technologie et le monde d\'Internet.',
+    'ourMission' => 'Notre Mission',
+    'collectiveOfCreative' => 'Nous sommes un collectif de développeurs web créatifs et orientés vers les résultats, animés par la passion pour la technologie et l\'innovation. Notre mission est de créer une plateforme de vente qui connecte particuliers et entreprises dans un environnement sûr et fiable, où chaque article est contrôlé par une équipe de réviseurs experts.',
+    'believeInCollaboration' => 'Nous croyons en la collaboration, en la transparence et en l\'apprentissage continu pour offrir une solution intuitive et performante. Notre plateforme favorise un dialogue direct entre vendeurs et acheteurs grâce à un chat en temps réel, garantissant une expérience fluide et sécurisée pour tous.',
+    'meetTheTeam' => 'Rencontrez l\'équipe',
+    'creativeMinds' => 'Les esprits créatifs derrière Vendor.',
+    'mirko' => 'J\'ai conçu et optimisé la gestion des données avec MySQL, garantissant des performances élevées, la sécurité et l\'évolutivité pour une infrastructure solide et efficace.',
+    'simone' => 'J\'ai développé la logique backend avec PHP et Livewire, créant un système réactif et performant qui gère de manière fluide les opérations et l\'interaction utilisateur.',
+    'jader' => 'J\'ai conçu le graphisme et optimisé l\'interface pour une expérience fluide et performante, en intégrant Livewire, JavaScript et Bootstrap pour une structure dynamique et réactive avec des temps de chargement réduits.',
+    'filippo' => 'J\'ai mis en place le système d\'authentification avec Fortify, assurant la sécurité et l\'accessibilité, en plus de gérer les traductions pour une expérience multilingue intuitive.',
+    'ourSkills' => 'Nos Compétences',
+    'createdProgect' => 'Avec lesquelles nous avons créé le projet',
+    'Innovation' => 'Innovation',
+    'lookingNewTechnologies' => 'Nous recherchons constamment de nouvelles technologies et approches pour offrir des solutions à la pointe.',
+    'quality' => 'Qualité',
+    'attentionToDetail' => 'Nous accordons une attention maximale aux détails pour garantir des produits logiciels robustes, sûrs et performants.',
+    'Collaboration' => 'Collaboration',
+    'fundamentalPartners' => 'Nous travaillons en étroite collaboration avec nos clients, que nous considérons comme des partenaires fondamentaux dans le processus créatif.',
+
+    'newMessage' => 'Vous avez un nouveau message de',
+    'forTheproduct' => 'pour le produit',
+    'openChat' => 'Ouvrir le chat',
+
+
+
 ];

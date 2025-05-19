@@ -1,5 +1,5 @@
 <?php
-return[
+return [
     'welcomeTO' => 'Bienvenido a',
     'loginOrRegister' => 'Inicia sesión o regístrate para comenzar',
     'register' => 'Registrarse',
@@ -43,6 +43,19 @@ return[
     'confirmNewPassword' => 'Confirmar nueva contraseña',
     'updatePassword' => 'Actualizar contraseña',
 
+    'setNewPassword' => 'Establecer nueva contraseña',
+    'newSecurePassword' => 'Crea una nueva contraseña segura para tu cuenta.',
+    'createNewPassword' => 'Crea tu Nueva Contraseña',
+    'yourEmail' => 'Tu correo electrónico',
+    'emailAddress' => 'Dirección de correo electrónico',
+    'newPassword' => 'Nueva contraseña',
+    'confirmNewPassword' => 'Confirmar nueva contraseña',
+    'resetPassword' => 'Restablecer Contraseña',
 
-    
+    'emailSent' => 'Correo enviado',
+    'forgotYourPassword' => '¿Olvidaste tu contraseña? No hay problema. Ingresa tu correo electrónico y te enviaremos un enlace para restablecerla.',
+    'requestLink' => 'Solicitar enlace de restablecimiento',
+    'resetPasswordLink' => 'Enviar enlace para restablecer la contraseña',
+
+
 ];

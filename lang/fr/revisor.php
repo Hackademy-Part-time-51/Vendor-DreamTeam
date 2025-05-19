@@ -1,5 +1,5 @@
 <?php
-return[
+return [
     'reviewerArea' => 'Zone de Réviseur',
     'articlesReview' => 'Articles à réviser',
     'details' => 'Détails',
@@ -18,6 +18,19 @@ return[
     'user' => 'Utilisateur',
 
 
+    'celebrate' => 'Célébrer',
+    'safety' => 'Sécurité',
+    'forAdults' => 'Pour adultes',
+    'violence' => 'Violence',
+    'spoof' => 'Falsification',
+    'racism' => 'Racisme',
+    'medicines' => 'Médicaments',
+    'labels' => 'Étiquettes',
+    'noLabels' => 'Aucune étiquette',
+    'ratings' => 'Évaluations',
 
-    
+    'noItemsReview' => 'Aucun article à réviser !',
+    'jobDone' => 'Félicitations, travail terminé.',
+
+
 ];

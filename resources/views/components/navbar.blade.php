@@ -165,7 +165,7 @@
             <i class="bi bi-laptop me-3"></i>{{ __('navbar.workWithUs') }}
           </a>
            <a href="{{route('contact')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
-            <i class="bi bi-chat-dots-fill fs-3 me-3"></i>Contattaci
+            <i class="bi bi-chat-dots-fill fs-3 me-3"></i>{{__('navbar.contactUs')}}
           </a> 
           <a href="{{route('aboutUs')}}" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-4">
             <i class="bi bi-geo-alt-fill fs-3 me-3"></i>{{ __('navbar.whoWeAre') }}

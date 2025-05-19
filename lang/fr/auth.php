@@ -1,6 +1,6 @@
 <?php
-return[
-   'welcomeTO' => 'Bienvenue sur',
+return [
+    'welcomeTO' => 'Bienvenue sur',
     'loginOrRegister' => 'Connectez-vous ou inscrivez-vous pour commencer',
     'register' => 'S’inscrire',
     'dontHaveAccount' => "Vous n’avez pas de compte ?",
@@ -27,7 +27,7 @@ return[
     'contactSupport' => 'Contacter le support',
 
 
-   'surname' => 'Nom de famille (facultatif)',
+    'surname' => 'Nom de famille (facultatif)',
     'reviewer' => 'Réviseur',
     'positionInterest' => 'Poste souhaité',
     'tellUs' => 'Parlez-nous de vous',
@@ -37,7 +37,7 @@ return[
     'reviewingPosts' => 'Relecture et validation des publications sur le site',
 
 
-   'currentPassword' => 'Mot de passe actuel',
+    'currentPassword' => 'Mot de passe actuel',
     'enterCurrentPassword' => 'Entrez le mot de passe actuel',
     'newPassword' => 'Nouveau mot de passe',
     'enterNewPassword' => 'Entrez le nouveau mot de passe',
@@ -45,7 +45,19 @@ return[
     'confirmNewPassword' => 'Confirmez le nouveau mot de passe',
     'updatePassword' => 'Mettre à jour le mot de passe',
 
+    'setNewPassword' => 'Définir un nouveau mot de passe',
+    'newSecurePassword' => 'Créez un nouveau mot de passe sécurisé pour votre compte.',
+    'createNewPassword' => 'Créez votre nouveau mot de passe',
+    'yourEmail' => 'Votre e-mail',
+    'emailAddress' => 'Adresse e-mail',
+    'newPassword' => 'Nouveau mot de passe',
+    'confirmNewPassword' => 'Confirmer le nouveau mot de passe',
+    'resetPassword' => 'Réinitialiser le mot de passe',
+
+    'emailSent' => 'E-mail envoyée',
+    'forgotYourPassword' => 'Vous avez oublié votre mot de passe ? Pas de problème. Saisissez votre e-mail et nous vous enverrons un lien pour le réinitialiser.',
+    'requestLink' => 'Demander le lien de réinitialisation',
+    'resetPasswordLink' => 'Envoyer le lien de réinitialisation du mot de passe',
 
 
-    
 ];

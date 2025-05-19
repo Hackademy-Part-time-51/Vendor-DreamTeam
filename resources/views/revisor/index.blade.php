@@ -13,189 +13,217 @@
         <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
             <h3 class="text-center display-3" id="BigWelcome"></h3>
             <h3 class="text-center display-6" id="SmallWelcome"></h3>
-            <button class="btn btn-base btn-lg" onclick="launchFuoco()"><span>Festeggia</span></button>
+            <button class="btn btn-base btn-lg"
+                onclick="launchFuoco()"><span>{{ __('revisor.celebrate') }}</span></button>
         </div>
         <hr>
     @else
         <div class="container-fluid py-3">
-    <div class="row g-4 mb-5">
-        <div class="col-12 col-lg-3 mt-3 d-flex flex-column align-self-center">
-            <div class="card border-0  shadow-sm position-sticky top-0">
-                <div class="card-body text-center py-4">
-                    <h2 class="display-6 text-blu mb-0">{{ __('user.articles') }}</h2>
-                </div>
-                <div class="list-group list-group-flush">
-                    <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="text-blu fs-5 fw-light">{{ __('revisor.toReviewed') }}</span>
-                        <span class="badge bg-blu fs-6 fw-light rounded-pill">{{ \App\Models\Product::toBeRevisedCount() }}</span>
-                    </div>
-                    <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="text-blu fs-5 fw-light">{{ __('revisor.accepted') }}</span>
-                        <span class="badge bg-verde fs-6 fw-light rounded-pill">{{ \App\Models\Product::acceptedCount() }}</span>
-                    </div>
-                    <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="text-blu fs-5 fw-light">{{ __('revisor.refused') }}</span>
-                        <span class="badge bg-rosso fs-6 fw-light rounded-pill">{{ \App\Models\Product::rejectedCount() }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-9">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body p-4">
-                    <div class="container-fluid py-3">
-
-                        <div class="row justify-content-center mb-2">
-                            @if ($product_to_check->images()->count() > 0)
-                                @foreach ($product_to_check->images as $key => $image)
-                                    <div class="col-6">
-                                        <div class="card mb-3">
-                                            <div class="row g-0">
-                                                <div class="col-12">
-                                                    <img src="{{ $image->getUrl(500,500) }}"
-                                                        class=" rounded-start"
-                                                        alt="Immagine {{ $key + 1 }} dell'articolo '{{ $product_to_check->title }}'">
-                                                </div>
-                                                <div class="col-12 ">
-                                                    <div class="card-body">
-                                                        <h5 class="">Sicurezza</h5>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="{{ $image->adult }}"></i>
-                                                            </div>
-                                                            <div class="col-10">Per adulti</div>
-                                                        </div>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="{{ $image->violence }}"></i>
-                                                            </div>
-                                                            <div class="col-10">Violenza</div>
-                                                        </div>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="{{ $image->spoof }}"></i>
-                                                            </div>
-                                                            <div class="col-10">Falso</div>
-                                                        </div>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="{{ $image->racy }}"></i>
-                                                            </div>
-                                                            <div class="col-10">Razzismo</div>
-                                                        </div>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="{{ $image->medical }}"></i>
-                                                            </div>
-                                                            <div class="col-10">Medicine</div>
-                                                        </div>
-                                                        <h5 class="mt-4">Etichette</h5>
-                                                        @if ($image->labels && count($image->labels))
-                                                            @foreach ($image->labels as $label)
-                                                                <span class="badge bg-success me-1 mb-1">{{ $label }}</span>
-                                                            @endforeach
-                                                        @else
-                                                            <span class="badge bg-secondary">Nessuna label</span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @else
-                                @for ($i = 0; $i < 3; $i++)
-                                    <div class="col-12 col-md-4">
-                                        <div class="card mb-3">
-                                            <div class="row g-0">
-                                                <div class="col-md-4">
-                                                    <img src="https://picsum.photos/seed/{{ random_int(1, 1000) }}/500/500"
-                                                        class="img-fluid rounded-start"
-                                                        alt="Immagine placeholder {{ $i + 1 }}">
-                                                </div>
-                                                <div class="col-md-8 ps-3">
-                                                    <div class="card-body">
-                                                        <h5 class="">Ratings</h5>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="bi bi-question-circle text-secondary"></i>
-                                                            </div>
-                                                            <div class="col-10">Per adulti</div>
-                                                        </div>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="bi bi-question-circle text-secondary"></i>
-                                                            </div>
-                                                            <div class="col-10">Violenza</div>
-                                                        </div>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="bi bi-question-circle text-secondary"></i>
-                                                            </div>
-                                                            <div class="col-10">Falso</div>
-                                                        </div>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="bi bi-question-circle text-secondary"></i>
-                                                            </div>
-                                                            <div class="col-10">Razzismo</div>
-                                                        </div>
-                                                        <div class="row align-items-center mb-2">
-                                                            <div class="col-2 text-center">
-                                                                <i class="bi bi-question-circle text-secondary"></i>
-                                                            </div>
-                                                            <div class="col-10">Medicine</div>
-                                                        </div>
-                                                        <h5 class="mt-4">Labels</h5>
-                                                        <span class="badge bg-secondary me-1 mb-1">Placeholder</span>
-                                                        <span class="badge bg-secondary me-1 mb-1">Demo</span>
-                                                        <span class="badge bg-secondary me-1 mb-1">Sample</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endfor
-                            @endif
+            <div class="row g-4 mb-5">
+                <div class="col-12 col-lg-3 mt-3 d-flex flex-column align-self-center">
+                    <div class="card border-0  shadow-sm position-sticky top-0">
+                        <div class="card-body text-center py-4">
+                            <h2 class="display-6 text-blu mb-0">{{ __('user.articles') }}</h2>
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="col-12">
-                                <h2 class="display-6 text-blu mb-4">{{ __('product.title') }}: <strong>{{ $product_to_check->title }}</strong></h2>
-                                <div class="d-flex align-items-center mb-4">
-                                    <div class="text-center">
-                                        <h3 class="mb-1 text-blu">{{ $product_to_check->user->name }}</h3>
-                                    </div>
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="text-blu fs-5 fw-light">{{ __('revisor.toReviewed') }}</span>
+                                <span
+                                    class="badge bg-blu fs-6 fw-light rounded-pill">{{ \App\Models\Product::toBeRevisedCount() }}</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="text-blu fs-5 fw-light">{{ __('revisor.accepted') }}</span>
+                                <span
+                                    class="badge bg-verde fs-6 fw-light rounded-pill">{{ \App\Models\Product::acceptedCount() }}</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="text-blu fs-5 fw-light">{{ __('revisor.refused') }}</span>
+                                <span
+                                    class="badge bg-rosso fs-6 fw-light rounded-pill">{{ \App\Models\Product::rejectedCount() }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="container-fluid py-3">
+
+                                <div class="row justify-content-center mb-2">
+                                    @if ($product_to_check->images()->count() > 0)
+                                        @foreach ($product_to_check->images as $key => $image)
+                                            <div class="col-6">
+                                                <div class="card mb-3">
+                                                    <div class="row g-0">
+                                                        <div class="col-12">
+                                                            <img src="{{ $image->getUrl(500, 500) }}"
+                                                                class=" rounded-start"
+                                                                alt="Immagine {{ $key + 1 }} dell'articolo '{{ $product_to_check->title }}'">
+                                                        </div>
+                                                        <div class="col-12 ">
+                                                            <div class="card-body">
+                                                                <h5 class="">{{ __('revisor.safety') }}</h5>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i class="{{ $image->adult }}"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.forAdults') }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i class="{{ $image->violence }}"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.violence') }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i class="{{ $image->spoof }}"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.spoof') }}</div>
+                                                                </div>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i class="{{ $image->racy }}"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.racism') }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i class="{{ $image->medical }}"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.medicines') }}
+                                                                    </div>
+                                                                </div>
+                                                                <h5 class="mt-4">{{ __('revisor.labels') }}</h5>
+                                                                @if ($image->labels && count($image->labels))
+                                                                    @foreach ($image->labels as $label)
+                                                                        <span
+                                                                            class="badge bg-success me-1 mb-1">{{ $label }}</span>
+                                                                    @endforeach
+                                                                @else
+                                                                    <span
+                                                                        class="badge bg-secondary">{{ __('revisor.noLabels') }}</span>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        @for ($i = 0; $i < 3; $i++)
+                                            <div class="col-12 col-md-4">
+                                                <div class="card mb-3">
+                                                    <div class="row g-0">
+                                                        <div class="col-md-4">
+                                                            <img src="https://picsum.photos/seed/{{ random_int(1, 1000) }}/500/500"
+                                                                class="img-fluid rounded-start"
+                                                                alt="Immagine placeholder {{ $i + 1 }}">
+                                                        </div>
+                                                        <div class="col-md-8 ps-3">
+                                                            <div class="card-body">
+                                                                <h5 class="">{{ __('revisor.ratings') }}</h5>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i
+                                                                            class="bi bi-question-circle text-secondary"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.forAdults') }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i
+                                                                            class="bi bi-question-circle text-secondary"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.violence') }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i
+                                                                            class="bi bi-question-circle text-secondary"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.spoof') }}</div>
+                                                                </div>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i
+                                                                            class="bi bi-question-circle text-secondary"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.racism') }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-2 text-center">
+                                                                        <i
+                                                                            class="bi bi-question-circle text-secondary"></i>
+                                                                    </div>
+                                                                    <div class="col-10">{{ __('revisor.medicines') }}
+                                                                    </div>
+                                                                </div>
+                                                                <h5 class="mt-4">{{ __('revisor.labels') }}</h5>
+                                                                <span
+                                                                    class="badge bg-secondary me-1 mb-1">Placeholder</span>
+                                                                <span class="badge bg-secondary me-1 mb-1">Demo</span>
+                                                                <span
+                                                                    class="badge bg-secondary me-1 mb-1">Sample</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endfor
+                                    @endif
                                 </div>
-                                <div class="mb-4">
-                                    <h3 class="display-6 text-blu mb-3 ">{{ $product_to_check->price }}€</h3>
-                                    <span class="badge rounded-pill bg-warning px-4 py-2">
-                                        <i class="bi bi-tags-fill me-2"></i>
-                                        {{ __('category.' . $product_to_check->category->name) }}
-                                    </span>
-                                </div>
-                                <div class="mb-2">
-                                    <p class="lead text-muted">{{ $product_to_check->description }}</p>
-                                </div>
-                                <div class="row justify-content-center gx-4">
-                                    <div class="col-12 col-sm-6 mb-3">
-                                        <form action="{{ route('accept', ['product' => $product_to_check]) }}" method="POST">
-                                            @csrf
-                                            @method('PATCH')
-                                            <button class="btn btn-base w-100 py-3">
-                                                <span>
-                                                    <i class="bi bi-check-lg me-2"></i>{{ __('revisor.accept') }}
-                                                </span>
-                                            </button>
-                                        </form>
-                                    </div>
-                                    <div class="col-12 col-sm-6 mb-3">
-                                        <form action="{{ route('reject', ['product' => $product_to_check]) }}" method="POST">
-                                            @csrf
-                                            @method('PATCH')
-                                            <button class="btn btn-rosso w-100 py-3">
-                                                <i class="bi bi-x-lg me-2"></i>{{ __('revisor.refuse') }}
-                                            </button>
-                                        </form>
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <h2 class="display-6 text-blu mb-4">{{ __('product.title') }}:
+                                            <strong>{{ $product_to_check->title }}</strong>
+                                        </h2>
+                                        <div class="d-flex align-items-center mb-4">
+                                            <div class="text-center">
+                                                <h3 class="mb-1 text-blu">{{ $product_to_check->user->name }}</h3>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <h3 class="display-6 text-blu mb-3 ">{{ $product_to_check->price }}€</h3>
+                                            <span class="badge rounded-pill bg-warning px-4 py-2">
+                                                <i class="bi bi-tags-fill me-2"></i>
+                                                {{ __('category.' . $product_to_check->category->name) }}
+                                            </span>
+                                        </div>
+                                        <div class="mb-2">
+                                            <p class="lead text-muted">{{ $product_to_check->description }}</p>
+                                        </div>
+                                        <div class="row justify-content-center gx-4">
+                                            <div class="col-12 col-sm-6 mb-3">
+                                                <form action="{{ route('accept', ['product' => $product_to_check]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <button class="btn btn-base w-100 py-3">
+                                                        <span>
+                                                            <i
+                                                                class="bi bi-check-lg me-2"></i>{{ __('revisor.accept') }}
+                                                        </span>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div class="col-12 col-sm-6 mb-3">
+                                                <form action="{{ route('reject', ['product' => $product_to_check]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <button class="btn btn-rosso w-100 py-3">
+                                                        <i class="bi bi-x-lg me-2"></i>{{ __('revisor.refuse') }}
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -203,10 +231,8 @@
                     </div>
                 </div>
             </div>
+            <hr>
         </div>
-    </div>
-    <hr>
-</div>
 
     @endif
     <div class="container-fluid py-4">
@@ -344,7 +370,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         new Typed('#BigWelcome', {
-                            strings: ['Nessun articolo da revisionare!'],
+                            strings: ['{{__('revisor.noItemsReview')}}'],
                             typeSpeed: 20,
                         });
                         animWelcomeBig.classList.add('on');
@@ -362,7 +388,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         new Typed('#SmallWelcome', {
-                            strings: ['Complimenti, lavoro finito.'],
+                            strings: ['{{__('revisor.jobDone')}}'],
                             typeSpeed: 20,
                         });
                         observer.unobserve(animWelcomeSmall); // Smette di osservare
