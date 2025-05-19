@@ -4,6 +4,7 @@ namespace App\Livewire\Products;
 
 use App\Jobs\GoogleVisionLabelImage;
 use App\Jobs\GoogleVisionSafeSearch;
+use App\Jobs\RemoveFaces;
 use App\Jobs\ResizeImage;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
@@ -61,9 +62,11 @@ class Create extends Component
             foreach ($this->images as $imageFile) {
                 $directory = "products/{$createdProduct->id}"; 
                 $newImage= $createdProduct->images()->create(['path'=>$imageFile->store($directory, 'public')]);
-                dispatch(new ResizeImage(300,300,$newImage->path));
-                dispatch(new GoogleVisionSafeSearch($newImage->id)); 
-                dispatch(new GoogleVisionLabelImage($newImage->id));   
+                RemoveFaces::withChain([
+                    new ResizeImage($newImage->path, 300, 300),
+                    new GoogleVisionSafeSearch($newImage->id),
+                    new GoogleVisionLabelImage($newImage->id),
+                ])->dispatch($newImage->id);   
 
             }
         }
