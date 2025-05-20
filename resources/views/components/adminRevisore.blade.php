@@ -10,7 +10,7 @@
                         <i class="bi bi-shield-check fs-4"></i>
                         <span class=" fs-4">{{__('revisor.reviewerArea')}}</span>
                         @if(\App\Models\Product::toBeRevisedCount() > 0)
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        <span class="position-absolute top-0 start-100 fw-light translate-middle badge rounded-pill bg-danger">
                         {{ \App\Models\Product::toBeRevisedCount() }}
                         <span class="visually-hidden">{{__('revisor.articlesReview')}}</span>
                         </span>

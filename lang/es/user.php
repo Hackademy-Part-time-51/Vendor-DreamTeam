@@ -1,5 +1,5 @@
 <?php
-return[
+return [
     'favoriteArticles' => 'Artículos Favoritos',
     'dontHaveFavorite' => 'Aún no tienes artículos favoritos',
     'exploreCatalog' => 'Explora el catálogo y agrega los artículos que te gusten a favoritos',
@@ -47,6 +47,29 @@ return[
     'noArticlesReview' => 'No hay artículos para revisar.',
     'message' => 'Mensaje',
 
-    
-    
+    'webStudents' => '4 estudiantes de desarrollo web unidos por la pasión por la tecnología y el mundo de Internet.',
+    'ourMission' => 'Nuestra Misión',
+    'collectiveOfCreative' => 'Somos un colectivo de desarrolladores web creativos y orientados a resultados, impulsados por la pasión por la tecnología y la innovación. Nuestra misión es crear una plataforma de venta que conecte a particulares y empresas en un entorno seguro y confiable, donde cada artículo sea revisado por un equipo de expertos.',
+    'believeInCollaboration' => 'Creemos en la colaboración, la transparencia y el aprendizaje continuo para ofrecer una solución intuitiva y de alto rendimiento. Nuestra plataforma promueve un diálogo directo entre vendedores y compradores gracias a un chat en tiempo real, garantizando una experiencia fluida y segura para todos.',
+    'meetTheTeam' => 'Conoce al Equipo',
+    'creativeMinds' => 'Las mentes creativas detrás de Vendor.',
+    'mirko' => 'Diseñé y optimicé la gestión de datos con MySQL, garantizando alto rendimiento, seguridad y escalabilidad para una infraestructura sólida y eficiente.',
+    'simone' => 'Desarrollé la lógica del backend con PHP y Livewire, creando un sistema reactivo y eficiente que gestiona sin problemas las operaciones y la interacción del usuario.',
+    'jader' => 'Diseñé el diseño gráfico y optimicé la interfaz para una experiencia fluida y de alto rendimiento, integrando Livewire, JavaScript y Bootstrap para una estructura dinámica y reactiva con tiempos de carga reducidos.',
+    'filippo' => 'Implementé el sistema de autenticación con Fortify, asegurando seguridad y accesibilidad, además de gestionar las traducciones para una experiencia multilingüe intuitiva.',
+    'ourSkills' => 'Nuestras Habilidades',
+    'createdProgect' => 'Con las que creamos el proyecto',
+    'Innovation' => 'Innovación',
+    'lookingNewTechnologies' => 'Buscamos constantemente nuevas tecnologías y enfoques para ofrecer soluciones de vanguardia.',
+    'quality' => 'Calidad',
+    'attentionToDetail' => 'Prestamos máxima atención a los detalles para garantizar productos de software robustos, seguros y eficientes.',
+    'Collaboration' => 'Colaboración',
+    'fundamentalPartners' => 'Trabajamos en estrecha colaboración con nuestros clientes, considerándolos socios fundamentales en el proceso creativo.',
+
+    'newMessage' => 'Tienes un nuevo mensaje de',
+    'forTheproduct' => 'por el producto',
+    'openChat' => 'Nuevo mensaje!',
+
+
+
 ];

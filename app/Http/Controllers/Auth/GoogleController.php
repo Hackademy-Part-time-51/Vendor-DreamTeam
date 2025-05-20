@@ -48,7 +48,7 @@ class GoogleController extends Controller
 
             return redirect()->intended('/products/index');
         } catch (\Exception $e) {
-            return redirect()->route('login')->withErrors(['google' => 'Errore nel login con Google.']);
+            return redirect()->route('login')->withErrors(['google' => __('message.googleLoginError')]);
         }
     }
 }

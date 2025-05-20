@@ -44,5 +44,20 @@ return[
     'updatePassword'=>'Aggiorna Password',
 
 
+    'setNewPassword'=>'Imposta nuova password',
+    'newSecurePassword'=>'Crea una nuova password sicura per il tuo account.',
+    'createNewPassword'=>'Crea la tua Nuova Password',
+    'yourEmail'=>'La tua email',
+    'emailAddress'=>'Indirizzo email',
+    'newPassword'=>'Nuova password',
+    'confirmNewPassword'=>'Conferma nuova password',
+    'resetPassword'=>'Reimposta Password',
+
+    'emailSent'=>'Email inviata',
+    'forgotYourPassword'=>'Hai dimenticato la password? Nessun problema. Inserisci la tua email e ti invieremo un link per resettarla.',
+    'requestLink'=>'Richiedi Link di Reset',
+    'resetPasswordLink'=>'Invia Link di Reset Password'
+
+
     
 ];

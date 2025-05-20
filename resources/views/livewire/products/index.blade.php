@@ -165,9 +165,10 @@
             <div wire:loading.remove wire:key= "products" class="d-flex flex-wrap" wire:loading.attr="disabled"
                 wire:loading.class="d-none">
                 @foreach ($products as $product)
-                    <div class="col-12 col-md-6 col-lg-4 p-2 scalebig" wire:key="{{ $product->id }}">
-                        <x-card :product="$product"></x-card>
-                    </div>
+            <div class="col-12 col-md-6 col-lg-4 p-2 scalebig " wire:key="{{ $product->id }}">
+                <x-card :product="$product"></x-card>
+        
+            </div>
                 @endforeach
             </div>
 

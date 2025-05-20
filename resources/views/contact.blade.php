@@ -7,8 +7,8 @@
     @endif
 
     <div class="container text-blu mb-3">
-        <h1 class="card-title display-3 my-3 text-center">Contattaci</h1>
-        <p class="fs-4 text-center text-muted mb-5">Hai domande o hai bisogno di assistenza? Siamo qui per aiutarti!</p>
+        <h1 class="card-title display-3 my-3 text-center">{{ __('navbar.contactUs') }}</h1>
+        <p class="fs-4 text-center text-muted mb-5">{{ __('assistance.haveQuestion') }}</p>
         <hr>
         <div class="row justify-content-center my-5">
             <div class="col-lg-8">
@@ -21,9 +21,9 @@
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                            id="name" name="name" placeholder="Il tuo nome" required
-                                            value=" {{ Auth::user()->name }}">
-                                        <label for="name">Nome</label>
+                                            id="name" name="name" placeholder="{{ __('assistance.yourName') }}"
+                                            required value=" {{ Auth::user()->name }}">
+                                        <label for="name">{{ __('auth.name') }}</label>
                                         @error('name')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -32,7 +32,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
                                         <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                            id="email" name="email" placeholder="La tua email" required
+                                            id="email" name="email" placeholder="{{__('auth.yourEmail')}}" required
                                             value="{{ Auth::user()->email }}">
                                         <label for="email">Email</label>
                                         @error('email')
@@ -43,8 +43,8 @@
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
                                         <textarea class="form-control text-blu @error('message') is-invalid @enderror" id="message" name="message"
-                                            style="height: 150px" placeholder="Scrivi qui il tuo messaggio">{{ old('message') }}</textarea>
-                                        <label for="message" class="text-blu fs-6">Il tuo messaggio...</label>
+                                            style="height: 150px" placeholder="{{__('assistance.messageHere')}}">{{ old('message') }}</textarea>
+                                        <label for="message" class="text-blu fs-6">{{__('assistance.yourMessage')}}...</label>
                                         @if ($errors->any())
                                             @foreach ($errors->all() as $error)
                                                 {{ $error }}
@@ -55,7 +55,7 @@
                                 <div class="col-12">
                                     <button type="submit"
                                         class="btn btn-add text-white border scalebig btn-lg w-100 py-3">
-                                        <i class="bi bi-send-fill me-2"></i>Invia Messaggio
+                                        <i class="bi bi-send-fill me-2"></i>{{__('assistance.send')}}
                                     </button>
                                 </div>
                             </div>

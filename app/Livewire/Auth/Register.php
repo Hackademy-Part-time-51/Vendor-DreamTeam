@@ -9,7 +9,7 @@ use Livewire\WithFileUploads;
 class Register extends Component
 {   
     use WithFileUploads;
-    #[Validate('required|max:255', message: 'Il nome è obbligatorio')]
+    #[Validate('required|max:255', message: 'Il nome è obbligatorio')]
     public $name='';
     #[Validate('required|email|min:2',message: 'Email non valida')]
     public $email='';

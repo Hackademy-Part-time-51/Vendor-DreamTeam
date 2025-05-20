@@ -63,7 +63,7 @@ class PageController extends Controller
         }
 
         return redirect()->route('products.show', $product)
-            ->with('success', 'Prodotto creato con successo.');
+            ->with('success', __('message.productSuccessfully'));
     }
 
     /**
@@ -96,7 +96,7 @@ class PageController extends Controller
         $product->update($validated);
 
         return redirect()->route('products.show', $product)
-            ->with('success', 'Prodotto aggiornato con successo!');
+            ->with('success', __('message.productUpdated'));
     }
 
     /**
@@ -107,7 +107,7 @@ class PageController extends Controller
         $product = Product::findOrFail($product);
        $product->users()->detach();
         $product->delete();
-        return back()->with('success', 'Prodotto eliminato con successo!');
+        return back()->with('success', __('message.productDeleted'));
         
     }
 
@@ -142,7 +142,7 @@ class PageController extends Controller
         ];
 
         Mail::to($mail['email'])->send(new ContactMail($mail));
-        return redirect()->route('contact')->with('success', 'Email inviata con successo!');
+        return redirect()->route('contact')->with('success', __('message.emailSent'));
         
     }
 

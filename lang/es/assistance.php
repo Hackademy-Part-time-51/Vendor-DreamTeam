@@ -1,5 +1,5 @@
 <?php
-return[
+return [
     'termsAndConditions' => "Términos  y Condiciones de Uso",
     'readTermsConditions' => "Lee cuidadosamente los Términos y Condiciones para entender las reglas que rigen el uso de nuestro sitio de compraventa entre particulares.",
     'acceptanceTheTerms' => 'Aceptación de los Términos',
@@ -52,5 +52,14 @@ return[
     'requestModification' => 'Solicitar la modificación o eliminación de los datos.',
     'objectProcessing' => 'Oponerse al tratamiento de datos para fines de marketing.',
     'requestDeletion' => 'Solicitar eliminación de datos',
+
+
+    'haveQuestion' => '¿Tienes preguntas o necesitas ayuda? ¡Estamos aquí para ayudarte!',
+    'sendMessage' => 'Enviar un mensaje',
+    'yourName' => 'Tu nombre',
+    'messageHere' => 'Escribe tu mensaje aquí',
+    'yourMessage' => 'Tu mensaje',
+    'send' => 'Enviar mensaje',
+
 
 ];

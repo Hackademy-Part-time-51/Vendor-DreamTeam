@@ -1,6 +1,6 @@
 <div class="col-12">
     <div class="card h-100 border-0">
-        <div class="position-relative">
+        <div class="card-header position-relative">
             @if ($product->images()->count() == 0)
                 <div id="productImageCarouselCollapse{{ $product->id }}" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner rounded-top">
@@ -8,10 +8,10 @@
                             <!-- Mostro 3 immagini casuali -->
                             <div class="carousel-item @if ($i == 0) active @endif"
                                 data-bs-interval="5000">
-                                <img src="https://picsum.photos/500/500?random={{ random_int(1, 1000) }}"
+                                <img src="https://picsum.photos/1000/1000?random={{ random_int(1, 1000) }}"
                                     class="img-fluid d-block w-100 object-fit-cover"
-                                    alt="Immagine Placeholder {{ $i + 1 }}" loading="lazy" width="300"
-                                    height="300">
+                                    alt="Immagine Placeholder {{ $i + 1 }}" loading="lazy" 
+                                     style="object-fit: contain">
                             </div>
                         @endfor
                     </div>
@@ -31,10 +31,10 @@
                     @foreach ($product->images as $key => $image)
                         <div class="carousel-item @if ($loop->first) active @endif"
                             data-bs-interval="5000">
-                            <img src="{{ $product->images->isNotEmpty() ? Storage::url($image->path) : 'https://picsum.photos/500' }}"
+                            <img src="{{ $product->images->isNotEmpty() ? $image->getUrl(1000,1000) : 'https://picsum.photos/1000/1000' }}"
                                 class="img-fluid d-block w-100 object-fit-cover"
                                 alt="{{ $product->name ?? 'Immagine Prodotto' }} {{ $key + 1 }}" loading="lazy"
-                                width="300" height="300">
+                                 style="object-fit: contain">
                         </div>
                     @endforeach
 
@@ -81,7 +81,7 @@
                     <img src="{{ asset('storage/' . $product->user->profile_image) }}" class="rounded-circle mb-2"
                         width="60" height="60" alt="User Avatar">
                 @else
-                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/500" class="rounded-circle mb-2"
+                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/1000" class="rounded-circle mb-2"
                         width="60" height="60" alt="User Avatar">
                 @endif
 

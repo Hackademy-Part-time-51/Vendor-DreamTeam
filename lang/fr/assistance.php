@@ -1,6 +1,6 @@
 <?php
-return[
-   'termsAndConditions' => "Termes et Conditions d'Utilisation",
+return [
+    'termsAndConditions' => "Termes et Conditions d'Utilisation",
     'readTermsConditions' => "Veuillez lire attentivement les Termes et Conditions pour comprendre les règles qui régissent l'utilisation de notre site de vente entre particuliers.",
     'acceptanceTheTerms' => 'Acceptation des Conditions',
     'agreeTheTerms' => "En utilisant notre site, l'utilisateur accepte de respecter les conditions énoncées. Toute violation peut entraîner la suspension ou le blocage du compte.",
@@ -53,5 +53,13 @@ return[
     'requestModification' => 'Demander la modification ou la suppression des données.',
     'objectProcessing' => 'S’opposer au traitement des données à des fins de marketing.',
     'requestDeletion' => 'Demander la suppression des données',
+
+    'haveQuestion' => 'Vous avez des questions ou besoin d\'aide ? Nous sommes là pour vous aider !',
+    'sendMessage' => 'Envoyer un message',
+    'yourName' => 'Votre nom',
+    'messageHere' => 'Écrivez votre message ici',
+    'yourMessage' => 'Votre message',
+    'send' => 'Envoyer le message',
+
 
 ];
