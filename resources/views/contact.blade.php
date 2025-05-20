@@ -14,7 +14,7 @@
             <div class="col-lg-8">
                 <div class="card bg-blu text-white border-0 shadow-sm">
                     <div class="card-body p-5">
-                        <h2 class="card-title text-center mb-5">Invia un Messaggio</h2>
+                        <h2 class="card-title text-center mb-5">{{__('assistance.sendMessage')}}</h2>
                         <form action="/sendemail" method="POST">
                             @csrf
                             <div class="row g-4">
