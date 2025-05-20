@@ -69,4 +69,9 @@ return[
     'newMessage'=>'Hai un nuovo messaggio da',
     'forTheproduct'=>'per il prodotto',
     'openChat'=>'Nuovo messaggio!',
+
+    'you'=>'Tu',
+    'writeMessage' =>'Scrivi un messaggio',
+    'StartConversation'=>'Inizia una conversazione selezionando una chat.',
+    'chatList'=>'Lista chat',
 ];

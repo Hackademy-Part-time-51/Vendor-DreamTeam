@@ -70,6 +70,10 @@ return [
     'forTheproduct' => 'por el producto',
     'openChat' => 'Nuevo mensaje!',
 
+    'you' => 'Tú',
+    'writeMessage' => 'Escribe un mensaje',
+    'StartConversation' => 'Comienza una conversación seleccionando un chat.',
+    'chatList' => 'Lista de chats',
 
 
 ];
