@@ -41,7 +41,7 @@
                     <div class=" border-0 text-center flex-fill">
                         <div class="card-body p-4">
                             <img src="{{ asset('IMAGES/Mirko.jpg') }}"
-                                class="rounded-circle img-thumbnail team-member-img mb-3" alt="Mirko Allocca">
+                                class="rounded-pill img-fluid team-member-img mb-3" alt="Mirko Allocca">
                             <h4 class="card-title fw-bold mb-1">Mirko Allocca</h4>
                             <p class=" mb-2">Backend Developer</p>
                             <p class="card-text text-muted small">{{__('user.mirko')}}</p>
@@ -62,7 +62,7 @@
                     <div class=" border-0 text-center flex-fill">
                         <div class="card-body p-4">
                             <img src="{{ asset('IMAGES/Simo.jpg') }}"
-                                class="rounded-circle img-thumbnail team-member-img mb-3" alt="Simone D'Amico">
+                                class="rounded-pill img-fluid team-member-img mb-3" alt="Simone D'Amico">
                             <h4 class="card-title fw-bold mb-1">Simone D'Amico</h4>
                             <p class=" mb-2">Backend Developer</p>
                             <p class="card-text text-muted small">{{__('user.simone')}}</p>
@@ -83,7 +83,7 @@
                     <div class=" border-0 text-center flex-fill">
                         <div class="card-body p-4">
                             <img src="{{ asset('IMAGES/Jader.jpg') }}"
-                                class="rounded-circle img-thumbnail team-member-img mb-3" alt="Jader Daniotti">
+                                class="rounded-pill img-fluid team-member-img mb-3" alt="Jader Daniotti">
                             <h4 class="card-title fw-bold mb-1">Jader Daniotti</h4>
                             <p class=" mb-2">Frontend Developer</p>
                             <p class="card-text text-muted small">{{__('user.jader')}}</p>
@@ -104,7 +104,7 @@
                     <div class=" border-0 text-center flex-fill">
                         <div class="card-body p-4">
                             <img src="{{ asset('IMAGES/Filippo.jpg') }}"
-                                class="rounded-circle img-thumbnail team-member-img mb-3" alt="Filippo ferrari">
+                                class="rounded-pill img-fluid team-member-img mb-3" alt="Filippo ferrari">
                             <h4 class="card-title fw-bold mb-1">Filippo Ferrari</h4>
                             <p class=" mb-2">Backend Developer</p>
                             <p class="card-text text-muted small">{{__('user.filippo')}}</p>

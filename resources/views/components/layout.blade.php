@@ -17,11 +17,14 @@
 
 </head>
 
-<body class="d-flex flex-column min-vh-100"  >
+<body class="d-flex flex-column min-vh-100">
     <x-navbar />
     <x-mininavbar />
+    @if (!Route::is('messaggi'))
+        @livewire('user.notify')
+    @endif
     <x-adminRevisore />
-    <div class="container-fluid px-0 pt-1 pb-3" >
+    <div class="container-fluid px-0 pt-1 pb-3">
         {{ $slot }}
     </div>
     {{-- footer da fare --}}

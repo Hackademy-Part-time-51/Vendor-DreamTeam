@@ -1,6 +1,6 @@
 <div class="col-12">
     <div class="card h-100 border-0">
-        <div class="position-relative">
+        <div class="card-header position-relative">
             @if ($product->images()->count() == 0)
                 <div id="productImageCarouselCollapse{{ $product->id }}" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner rounded-top">

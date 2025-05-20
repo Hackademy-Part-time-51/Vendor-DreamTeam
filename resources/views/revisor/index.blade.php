@@ -52,12 +52,12 @@
                                 <div class="row justify-content-center mb-2">
                                     @if ($product_to_check->images()->count() > 0)
                                         @foreach ($product_to_check->images as $key => $image)
-                                            <div class="col-6">
+                                            <div class="col-12 col-md-4">
                                                 <div class="card mb-3">
                                                     <div class="row g-0">
                                                         <div class="col-12">
-                                                            <img src="{{ $image->getUrl(500, 500) }}"
-                                                                class=" rounded-start"
+                                                            <img src="{{ Storage::url($image->path) }}"
+                                                                class="img-fluid rounded-start"
                                                                 alt="Immagine {{ $key + 1 }} dell'articolo '{{ $product_to_check->title }}'">
                                                         </div>
                                                         <div class="col-12 ">
@@ -118,12 +118,12 @@
                                             <div class="col-12 col-md-4">
                                                 <div class="card mb-3">
                                                     <div class="row g-0">
-                                                        <div class="col-md-4">
+                                                        <div class="col-12">
                                                             <img src="https://picsum.photos/seed/{{ random_int(1, 1000) }}/500/500"
                                                                 class="img-fluid rounded-start"
                                                                 alt="Immagine placeholder {{ $i + 1 }}">
                                                         </div>
-                                                        <div class="col-md-8 ps-3">
+                                                        <div class=" ps-3">
                                                             <div class="card-body">
                                                                 <h5 class="">{{ __('revisor.ratings') }}</h5>
                                                                 <div class="row align-items-center mb-2">

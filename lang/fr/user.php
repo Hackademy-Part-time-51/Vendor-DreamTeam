@@ -68,7 +68,7 @@ return [
 
     'newMessage' => 'Vous avez un nouveau message de',
     'forTheproduct' => 'pour le produit',
-    'openChat' => 'Ouvrir le chat',
+    'openChat' => 'Nouveaux message!',
 
 
 

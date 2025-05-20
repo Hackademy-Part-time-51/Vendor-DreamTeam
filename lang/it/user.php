@@ -68,5 +68,5 @@ return[
 
     'newMessage'=>'Hai un nuovo messaggio da',
     'forTheproduct'=>'per il prodotto',
-    'openChat'=>'Apri chat',
+    'openChat'=>'Nuovo messaggio!',
 ];
