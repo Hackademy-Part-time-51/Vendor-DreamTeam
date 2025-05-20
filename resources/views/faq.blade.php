@@ -28,20 +28,6 @@
                         </div>
     
                         <div class="accordion-item border-bottom mb-3">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed text-blu fs-4 fw-semibold noto-sans bg-transparent shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <i class="bi bi-shield-check me-3 text-verde"></i>
-                                    {{__('assistance.safeBuy')}}
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-blu fs-5 montserrat">
-                                   {{__('assistance.meetingBetweenBuyers')}} <a href="#" class="text-blu fw-bold">{{__('assistance.safetyGuidelines')}}</a> {{__('assistance.forMoreDetails')}}
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="accordion-item border-bottom mb-3">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed text-blu fs-4 fw-semibold noto-sans bg-transparent shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     <i class="bi bi-chat-dots-fill me-3 text-verde"></i>
@@ -78,7 +64,7 @@
                 <div class="col-12 text-center">
                     <h3 class="text-blu noto-sans">{{__('assistance.findTheAnswer')}}</h3>
                     <p class="fs-5 text-muted montserrat mb-4">{{__('assistance.supportTeam')}}</p>
-                    <a href="#" class="btn btn-baseblu btn-lg py-3 px-5 scalebig">
+                    <a href="{{ route('contact') }}" class="btn btn-baseblu btn-lg py-3 px-5 scalebig">
                         <span>
                             <i class="bi bi-headset me-2"></i>{{__('assistance.contactSupport')}}
                         </span>

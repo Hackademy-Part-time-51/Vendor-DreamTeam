@@ -105,17 +105,19 @@
                 </span>
             </a>
             @auth
-                <div wire:key="heart-collapse-{{ $product->id }}">
-                    <button class="btn btn-base bounceright" wire:click="toggleFavorite({{ $product->id }})">
-                        <span>
-                            @if (Auth::user()->favorites->contains($product->id))
-                                <i class="bi bi-heart-fill text-danger"></i>
-                            @else
-                                <i class="bi bi-heart"></i>
-                            @endif
-                        </span>
-                    </button>
-                </div>
+            @if (!Route::is('home'))
+            <div wire:key="heart-collapse-{{ $product->id }}">
+                <button class="btn btn-base bounceright" wire:click="toggleFavorite({{ $product->id }})">
+                    <span>
+                        @if (Auth::user()->favorites->contains($product->id))
+                            <i class="bi bi-heart-fill text-danger"></i>
+                        @else
+                            <i class="bi bi-heart"></i>
+                        @endif
+                    </span>
+                </button>
+            </div>                
+            @endif
             @endauth
         </div>
     </div>

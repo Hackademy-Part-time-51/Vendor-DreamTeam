@@ -7,6 +7,7 @@ return[
     'category'=>'Categoria',
     'allCategory'=> 'Tutte le Categorie',
     'searchLocation'=> 'Cerca per Localita ',
+    'searchDistance'=> 'Cerca per Distanza',
     'city'=>'Città',
     'searchRadiusAll'=> 'Raggio di Ricerca: Tutta italia',
     'searchRadius'=> 'Raggio di Ricerca',

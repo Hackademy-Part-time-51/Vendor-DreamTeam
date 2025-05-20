@@ -40,9 +40,9 @@
                             </div>
                             <input type="hidden" id="idCity" wire:model.live="myCity">
                             @if ($myCity)
-                                <label class="form-label fs-5 fw-light" id="labelRaggio">
+                                <label class="form-label fs-5 text-center fw-light" id="labelRaggio">
                                     <span wire:loading.remove wire:target="myRadius">
-                                        {{ __('ui.searchLocation') }}: {{ $myRadius }}km
+                                        {{ __('ui.searchDistance') }}: {{ $myRadius }}km
                                     </span>
                                     <span wire:loading wire:target="myRadius">
                                         <span class="spinner-border spinner-border-sm me-2" role="status"></span>

@@ -7,6 +7,7 @@ return[
     'category'=>'Category',
     'allCategory'=> 'All Category',
     'searchLocation'=> 'Search by Location',
+    'searchDistance'=> 'Search by Distance',
     'city'=>'City',
     'searchRadiusAll'=> 'Search Radius: All of Italy',
     'searchRadius'=> 'Search Radius',

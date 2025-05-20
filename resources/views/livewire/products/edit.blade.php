@@ -46,11 +46,11 @@
                                 @endfor
                             @endif
                         </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
+                            <button class="carousel-control-prev bg-blu" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon"></span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
+                            <button class="carousel-control-next bg-blu" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon "></span>
                             </button>
                         </div>
                     </div>
@@ -129,12 +129,11 @@
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label for="myInput" class="form-label h4 d-flex justify-content-between">{{__('product.chooseCity')}}
+                            <label for="myInput" class="form-label h4 d-flex flex-column justify-content-between">{{__('product.chooseCity')}}
                             </label>
-                            <div class="input-group input-group-lg">
-                                <input id="myInput" type="text" class="form-control" placeholder="Città"
+                            <div class="input-group d-flex flex-column input-group-lg ">
+                                <input id="myInput" type="text" class="form-control w-100" placeholder="Città"
                                     value="{{ $product->city }}">
-
                                 <input type="hidden" wire:model="myCity" id="idCity">
                             </div>
                         </div>

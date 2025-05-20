@@ -23,8 +23,8 @@
                     <h4 class="text-blu"><i class="bi bi-cart-check me-2"></i>{{__('assistance.useService')}}</h4>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">{{__('assistance.userBuyProducts')}}</li>
-                        <li class="list-group-item">{{__('assistance.deceptivePurposes.')}}</li>
-                        <li class="list-group-item">{{__('assistance.provideTruthfulInformation ')}}</li>
+                        <li class="list-group-item">{{__('assistance.deceptivePurposes')}}</li>
+                        <li class="list-group-item">{{__('assistance.provideTruthfulInformation')}}</li>
                     </ul>
                 </div>
 

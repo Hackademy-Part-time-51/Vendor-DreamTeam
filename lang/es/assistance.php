@@ -45,7 +45,7 @@ return [
     'correctFunctioning' => 'Garantizar el correcto funcionamiento del sitio y los servicios ofrecidos.',
     'improveUserExperience' => 'Mejorar la experiencia del usuario a través de análisis y comentarios.',
     'protectUsers' => 'Proteger a los usuarios y prevenir actividades fraudulentas.',
-    'protectUsers' => 'Tomamos medidas de seguridad avanzadas para proteger la información de los usuarios y prevenir accesos no autorizados.',
+    'advancedSecurity' => 'Tomamos medidas de seguridad avanzadas para proteger la información de los usuarios y prevenir accesos no autorizados.',
     'userRights' => 'Derechos del Usuario',
     'usersHaveRight' => 'Los usuarios tienen derecho a:',
     'accessPersonalData' => 'Acceder a sus datos personales.',

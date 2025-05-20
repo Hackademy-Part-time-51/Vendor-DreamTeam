@@ -7,6 +7,7 @@ return[
     'category' => 'Categoría',
     'allCategory' => 'Todas las Categorías',
     'searchLocation' => 'Buscar por Ubicación',
+    'searchDistance' => 'Buscar por Distancia',
     'city' => 'Ciudad',
     'searchRadiusAll' => 'Radio de Búsqueda: Toda Italia',
     'searchRadius' => 'Radio de Búsqueda',

@@ -11,11 +11,15 @@ $product = Product::all()->where('id', $product_id)->first();
                 alt="avatar" class="rounded-circle border shadow-sm" width="40" height="40">
             <div>
                 <div class="fw-bold mb-0 ">
-                    {{ $userSelected->name }}
+                    <a href="{{route('personalArea', $userSelected->id)}}" class="text-decoration-none text-blu">
+                        {{ $userSelected->name }}
+                    </a>
                 </div>
 
                 <small class="text-muted text-center">
-                    {{__('navbar.product')}}: {{ $product->title }}
+                    <a href="{{route('products.show', $product->id)}}" class="text-decoration-none text-blu ">
+                        {{__('navbar.product')}}: {{ $product->title }}
+                    </a>
                 </small>
             </div>
         @endif
@@ -35,7 +39,7 @@ $product = Product::all()->where('id', $product_id)->first();
                             @if ($message->sender_id == Auth::id())
                                 {{__('user.you')}}
                             @else
-                                {{ $message->sender->name ?? '{{__('revisor.user')}}' }}
+                                {{ $message->sender->name ?? "__('revisor.user')" }}
                             @endif
                             <span
                                 class="ms-2

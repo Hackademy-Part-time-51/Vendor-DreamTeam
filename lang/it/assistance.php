@@ -15,7 +15,7 @@ return[
     'privacyPolicy'=>'Informativa sulla Privacy',
     'changesTerms'=>'Modifiche ai Termini',
     'responsiveUpdate'=>'Ci riserviamo il diritto di aggiornare i Termini e Condizioni. Gli utenti saranno informati in caso di modifiche significative.',
-    'deactivateAccount'=>'Disattiva il mio account',
+    'deactivateAccount'=>'Disattiva il mio account', 
 
 
     'frequentlyAskedQuestions'=>'Domande frequenti',
@@ -46,6 +46,7 @@ return[
     'improveUserExperience'=>"Migliorare l'esperienza dell'utente attraverso analisi e feedback.",
     'protectUsers'=>'Proteggere gli utenti e prevenire attività fraudolente.',
     'protectUsers'=>'Adottiamo misure di sicurezza avanzate per proteggere le informazioni degli utenti e prevenire accessi non autorizzati.',
+    'advancedSecurity' => 'Adottiamo misure di sicurezza avanzate per proteggere le informazioni degli utenti e prevenire accessi non autorizzati.',
     'userRights'=>"Diritti dell'Utente",
     'usersHaveRight'=>'Gli utenti hanno il diritto di:',
     'accessPersonalData'=>'Accedere ai propri dati personali.',

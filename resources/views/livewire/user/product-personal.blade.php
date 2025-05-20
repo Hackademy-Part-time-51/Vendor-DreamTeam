@@ -39,7 +39,7 @@
                                                 @foreach ($product->images as $key => $image)
                                                     <div class="carousel-item @if ($key == 0) active @endif"
                                                         data-bs-interval="5000">
-                                                        <img src="{{Storage::url($image->path)}}"
+                                                        <img src="{{$image->getUrl(1000, 1000)}}"
                                                             class="img-fluid d-block w-100 object-fit-cover"
                                                             alt="{{ $product->name ?? 'Immagine Prodotto' }} {{ $key + 1 }}"
                                                             loading="lazy" width="300" height="300">
