@@ -6,7 +6,7 @@ use Spatie\Image\Image;
 use Cron\CronExpression;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
-use Spatie\Image\Enums\CropPosition;
+use Spatie\Image\Enums\Fit;
 use Spatie\Image\Enums\Unit;
 
 // 
@@ -38,7 +38,7 @@ class ResizeImage implements ShouldQueue
         $destPath = storage_path() . '/app/public/' . $this->path . "/crop_{$w}X{$h}_". $this->fileName;
 
         Image::load($srcPath)
-        ->crop($w, $h, CropPosition::Center)
+        ->fit(Fit::Crop, $w, $h)
         ->watermark(
             base_path('resources/IMAGES/LOGO-SENZA-SFONDO.png'),
             width:200,

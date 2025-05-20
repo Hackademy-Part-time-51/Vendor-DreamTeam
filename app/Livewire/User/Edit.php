@@ -28,14 +28,14 @@ class Edit extends Component
        
         
         if ($this->profile_photo) {
-            // Cancella la vecchia immagine, se esiste
+            
             if ($this->user->profile_image) {
                 Storage::disk('public')->delete($this->user->profile_image);
             }
-            logger('Uploading file...');
-            // Salva la nuova immagine
+           
+            
             $path = $this->profile_photo->store('profile-photos', 'public');
-                logger('Saved at: ' . $path);
+              
 
             $this->user->profile_image = $path;
         }
