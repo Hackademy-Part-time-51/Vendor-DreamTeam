@@ -223,15 +223,6 @@
           class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
           <i class="bi bi-person-lines-fill fs-2 me-3"></i>{{ __('navbar.profile') }}
         </a>
-        <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
-          <i class="bi bi-cart fs-2 me-3"></i>{{ __('navbar.orders') }}
-        </a>
-        <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
-          <i class="bi bi-heart fs-2 me-3"></i>{{ __('navbar.favorites') }}
-        </a>
-        <a href="#" class="list-group-item list-group-item-action text-blu d-flex align-items-center py-4 fs-3">
-          <i class="bi bi-gear fs-2 me-3"></i>{{ __('navbar.settings') }}
-        </a>
         <button type="button"
           class="list-group-item list-group-item-action text-danger d-flex align-items-center py-4 fs-3 border-0"
           data-bs-toggle="modal" data-bs-target="#logoutModal">

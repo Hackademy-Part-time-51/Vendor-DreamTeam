@@ -46,7 +46,6 @@
                                     </span>
                                     <span wire:loading wire:target="myRadius">
                                         <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-                                        {{ __('ui.searchProgress') }}...
                                     </span>
                                 </label>
 

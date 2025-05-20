@@ -1,14 +1,21 @@
+@php
+    use App\Models\Product;
+@endphp
+<?php
+$product = Product::all()->where('id', $product_id)->first();
+?>
 <div class="col-12 d-flex flex-column min-vh-50 px-3 py-2 overflow-scroll">
     <div class="d-flex align-items-center gap-3   px-3 ">
         @if ($user_id && $product_id)
             <img src="https://ui-avatars.com/api/?name={{ urlencode($userSelected->name) }}&size=40&background=random"
                 alt="avatar" class="rounded-circle border shadow-sm" width="40" height="40">
             <div>
-                <div class="fw-bold mb-0 text-center">
+                <div class="fw-bold mb-0 ">
                     {{ $userSelected->name }}
                 </div>
+
                 <small class="text-muted text-center">
-                    Prodotto: #{{ $product_id }}
+                    Prodotto: {{ $product->title }}
                 </small>
             </div>
         @endif
@@ -47,7 +54,8 @@
             <button class="btn btn-base rounded-pill px-4 shadow-sm" type="submit"
                 @if (!$text) disabled @endif>
                 <span>
-                    <span wire:loading wire:target="sendMessage" class="spinner-border spinner-border-sm " role="status"></span>
+                    <span wire:loading wire:target="sendMessage" class="spinner-border spinner-border-sm "
+                        role="status"></span>
 
                     <i wire:loading.remove wire:target="sendMessage" class="bi bi-send"></i>
                 </span>

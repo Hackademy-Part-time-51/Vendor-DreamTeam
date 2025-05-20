@@ -24,26 +24,28 @@
                     </div>
                     <div class="card-body p-0">
                         <div id="productImageCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                @for ($i = 0; $i < 3; $i++)
-                                    <button type="button" 
-                                            data-bs-target="#productImageCarousel" 
-                                            data-bs-slide-to="{{ $i }}" 
-                                            @if($i == 0) class="active" @endif>
-                                    </button>
-                                @endfor
-                            </div>
-                            <div class="carousel-inner rounded-3">
+                        <div class="carousel-inner rounded-3">
+                            @if ($product->images()->count() > 0)
+                                @foreach ($product->images as $key => $image)
+                                    <div class="carousel-item @if($loop->first) active @endif">
+                                        
+                                        <img src="{{$image->getUrl(1000, 1000)}}"
+                                            class="d-block w-100"
+                                            style="aspect-ratio: 16/9; object-fit: contain;"
+                                            alt="Immagine prodotto {{ $key + 1 }}">
+                                    </div>
+                                @endforeach
+                            @else
                                 @for ($i = 0; $i < 3; $i++)
                                     <div class="carousel-item @if($i == 0) active @endif">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/1000"
-                                                 class="img-fluid object-fit-cover"
-                                                 alt="Preview {{ $i + 1 }}">
-                                        </div>
+                                        <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/1000"
+                                            class="d-block w-100"
+                                            style="aspect-ratio: 16/9; object-fit: contain;"
+                                            alt="Immagine placeholder {{ $i + 1 }}">
                                     </div>
                                 @endfor
-                            </div>
+                            @endif
+                        </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon"></span>
                             </button>
@@ -53,19 +55,31 @@
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-0 p-3">
-                        <div class="row g-2">
+                    <div class="row g-2">
+                        @if ($product->images()->count() > 0)
+                            @foreach ($product->images as $key => $image)
+                                <div class="col-4">
+                                    <img src="{{$image->getUrl(1000, 1000)}}"
+                                        class="img-fluid rounded cursor-pointer"
+                                        style="aspect-ratio: 16/9; object-fit: contain;"
+                                        data-bs-target="#productImageCarousel{{ $product->id }}"
+                                        data-bs-slide-to="{{ $key }}"
+                                        alt="Thumbnail {{ $key + 1 }}">
+                                </div>
+                            @endforeach
+                        @else
                             @for ($i = 0; $i < 3; $i++)
                                 <div class="col-4">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/1000"
-                                             class="img-fluid rounded cursor-pointer object-fit-cover"
-                                             data-bs-target="#productImageCarousel"
-                                             data-bs-slide-to="{{ $i }}"
-                                             alt="Thumbnail {{ $i + 1 }}">
-                                    </div>
+                                    <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/1000"
+                                        class="img-fluid rounded cursor-pointer"
+                                        style="aspect-ratio: 16/9; object-fit: contain;"
+                                        data-bs-target="#productImageCarousel{{ $product->id }}"
+                                        data-bs-slide-to="{{ $i }}"
+                                        alt="Thumbnail {{ $i + 1 }}">
                                 </div>
                             @endfor
-                        </div>
+                        @endif
+                    </div>
                     </div>
                 </div>
             </div>
