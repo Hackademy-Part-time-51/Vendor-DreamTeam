@@ -197,7 +197,7 @@
             <i class="bi bi-box-arrow-in-right me-2"></i>Login
           </span>
         </a>
-        <a href="{{ route('register') }}" class="btn btn-outline-primary btn-lg fs-3 py-3 w-100">
+        <a href="{{ route('register') }}" class="btn btn-base btn-lg fs-3 py-3 w-100">
           <span>
             <i class="bi bi-person-plus me-2"></i>{{ __('auth.register') }}
           </span>

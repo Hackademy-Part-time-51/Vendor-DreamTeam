@@ -56,15 +56,9 @@
                                                 <div class="card mb-3">
                                                     <div class="row g-0">
                                                         <div class="col-12">
-<<<<<<< HEAD
-                                                            <img src="{{ Storage::url($image->path) }}"
-                                                                class="img-fluid rounded-start"
-                                                                alt="Immagine {{ $key + 1 }} dell'articolo '{{ $product_to_check->title }}'">
-=======
                                                             <img src="{{ $image->getUrl(1000, 1000) }}"
                                                                 class=" rounded-start img-fluid"
                                                                 alt="Immagine {{ $key + 1 }} dell'articolo '{{ $product_to_check->title }}'" >
->>>>>>> 4bbc62ec48fe27d8cab266a026d2d3aa5aa21c3a
                                                         </div>
                                                         <div class="col-12 ">
                                                             <div class="card-body">
@@ -124,13 +118,8 @@
                                             <div class="col-12 col-md-4">
                                                 <div class="card mb-3">
                                                     <div class="row g-0">
-<<<<<<< HEAD
-                                                        <div class="col-12">
-                                                            <img src="https://picsum.photos/seed/{{ random_int(1, 1000) }}/500/500"
-=======
-                                                        <div class="col-md-4">
+                                                        <div class="">
                                                             <img src="https://picsum.photos/seed/{{ random_int(1, 1000) }}/1000/1000"
->>>>>>> 4bbc62ec48fe27d8cab266a026d2d3aa5aa21c3a
                                                                 class="img-fluid rounded-start"
                                                                 alt="Immagine placeholder {{ $i + 1 }}">
                                                         </div>

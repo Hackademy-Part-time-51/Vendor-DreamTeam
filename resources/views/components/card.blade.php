@@ -10,8 +10,8 @@
                                 data-bs-interval="5000">
                                 <img src="https://picsum.photos/1000/1000?random={{ random_int(1, 1000) }}"
                                     class="img-fluid d-block w-100 object-fit-cover"
-                                    alt="Immagine Placeholder {{ $i + 1 }}" loading="lazy" width="500"
-                                    height="500">
+                                    alt="Immagine Placeholder {{ $i + 1 }}" loading="lazy" 
+                                     style="object-fit: contain">
                             </div>
                         @endfor
                     </div>
@@ -31,10 +31,10 @@
                     @foreach ($product->images as $key => $image)
                         <div class="carousel-item @if ($loop->first) active @endif"
                             data-bs-interval="5000">
-                            <img src="{{ $product->images->isNotEmpty() ? Storage::url($image->path) : 'https://picsum.photos/1000' }}"
+                            <img src="{{ $product->images->isNotEmpty() ? $image->getUrl(1000,1000) : 'https://picsum.photos/1000/1000' }}"
                                 class="img-fluid d-block w-100 object-fit-cover"
                                 alt="{{ $product->name ?? 'Immagine Prodotto' }} {{ $key + 1 }}" loading="lazy"
-                                width="500" height="500">
+                                 style="object-fit: contain">
                         </div>
                     @endforeach
 
