@@ -105,6 +105,7 @@ class PageController extends Controller
     public function destroy($product)
     {
         $product = Product::findOrFail($product);
+       $product->users()->detach();
         $product->delete();
         return back()->with('success', 'Prodotto eliminato con successo!');
         
