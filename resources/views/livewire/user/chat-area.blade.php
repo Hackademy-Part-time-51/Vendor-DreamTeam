@@ -15,7 +15,7 @@ $product = Product::all()->where('id', $product_id)->first();
                 </div>
 
                 <small class="text-muted text-center">
-                    Prodotto: {{ $product->title }}
+                    {{__('navbar.product')}}: {{ $product->title }}
                 </small>
             </div>
         @endif
@@ -35,7 +35,7 @@ $product = Product::all()->where('id', $product_id)->first();
                             @if ($message->sender_id == Auth::id())
                                 {{__('user.you')}}
                             @else
-                                {{ $message->sender->name ?? 'Utente' }}
+                                {{ $message->sender->name ?? '{{__('revisor.user')}}' }}
                             @endif
                             <span
                                 class="ms-2
