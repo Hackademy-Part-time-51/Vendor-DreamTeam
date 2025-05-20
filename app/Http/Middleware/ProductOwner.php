@@ -21,6 +21,6 @@ class ProductOwner
         if (Auth::id() == $request->route('product')->user_id) {
             return $next($request);
         }
-        return redirect()->route('products.index')->with('error', 'You are not allowed to access this product');
+        return redirect()->route('products.index')->with('error', __('message.accessProduct'));
     }
 }
