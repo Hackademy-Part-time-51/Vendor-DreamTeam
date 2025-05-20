@@ -22,7 +22,7 @@
                 
                 <!-- Avatar con bordo -->
                 <div class="position-relative mb-2">
-                    <img src="https://picsum.photos/seed/{{ $chat['user']['id'] ?? $i }}/500"
+                    <img src="https://picsum.photos/seed/{{ $chat['user']['id'] ?? $i }}/1000"
                          alt="avatar"
                          class="rounded-circle border  border-primary shadow-sm"
                          width="48" height="48">

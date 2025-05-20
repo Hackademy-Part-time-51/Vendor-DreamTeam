@@ -29,7 +29,7 @@
                                                 @for ($i = 0; $i < 3; $i++)
                                                     <div class="carousel-item @if ($i == 0) active @endif"
                                                         data-bs-interval="5000">
-                                                        <img src="https://picsum.photos/500/500?random={{ random_int(1, 1000) }}"
+                                                        <img src="https://picsum.photos/1000/1000?random={{ random_int(1, 1000) }}"
                                                             class="img-fluid d-block w-100 object-fit-cover"
                                                             alt="Immagine Placeholder {{ $i + 1 }}"
                                                             loading="lazy" width="300" height="300">
@@ -93,7 +93,7 @@
                                                     class="rounded-circle mb-2" width="60" height="60"
                                                     alt="User Avatar">
                                             @else
-                                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/500"
+                                                <img src="https://picsum.photos/seed/{{ rand(1, 1000) }}/1000"
                                                     class="rounded-circle mb-2" width="60" height="60"
                                                     alt="User Avatar">
                                             @endif <a
