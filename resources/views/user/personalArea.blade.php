@@ -7,7 +7,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <h1 class="card-title display-2 text-center text-capitalize  mb-1">{{__('ui.welcome')}} {{ $user->name }}</h1>
+        <h1 class="card-title display-2 text-center text-capitalize  mb-1">{{ __('ui.welcome') }} {{ $user->name }}
+        </h1>
         <div class="row mt-3">
             {{-- card user --}}
             <div class="col-12 col-lg-5 p-1 ">
@@ -39,16 +40,18 @@
 
                             <p class="text-capitalize mb-1 small">
                                 @if ($user->is_revisor == 1)
-                                    <span class="badge bg-success fs-6">{{__('user.role')}}: {{ __('auth.reviewer') }}</span>
+                                    <span class="badge bg-success fs-6">{{ __('user.role') }}:
+                                        {{ __('auth.reviewer') }}</span>
                                 @else
-                                    <span class="badge bg-secondary fs-6">{{__('user.role')}}: {{ __('user.user') }}
+                                    <span class="badge bg-secondary fs-6">{{ __('user.role') }}: {{ __('user.user') }}
                                         n°{{ $user->id }}</span>
                                 @endif
                             </p>
 
                             <p class="mb-1 fs-5">Email: {{ $user->email }} <i
                                     class="bi bi-envelope-at-fill me-1 fs-4"></i></p>
-                            <p class="mb-0 fs-5">{{__('user.phone')}}: {{ $user->phone }} <i class="bi bi-telephone-fill me-1"></i>
+                            <p class="mb-0 fs-5">{{ __('user.phone') }}: {{ $user->phone }} <i
+                                    class="bi bi-telephone-fill me-1"></i>
                             </p>
                         </div>
                     </div>
@@ -148,7 +151,7 @@
         <hr>
         <div class="py-3">
             <h5 class="card-title  display-5 mb-0 text-center ">
-                <i class="bi bi-hourglass-top text-primary-emphasis"></i> {{__('user.itemsHold')}}
+                <i class="bi bi-hourglass-top text-primary-emphasis"></i> {{ __('user.itemsHold') }}
                 <span class="badge bg-blu rounded-pill px-3 py-2">
                     {{ Auth::user()->favorites->count() }}
                 </span>
@@ -156,7 +159,7 @@
             @if ($loadingProducts->isEmpty())
                 <div class="text-center py-5">
                     <i class="bi bi-hourglass-top display-1 text-muted mb-4"></i>
-                    <h4 class="text-muted">{{__('user.noArticlesReview')}}</h4>
+                    <h4 class="text-muted">{{ __('user.noArticlesReview') }}</h4>
                     <a href="{{ route('products.create') }}" class="btn btn-base my-3">
                         <span>{{ __('navbar.addArticle') }} <i class="bi bi-plus-lg"></i></span>
                     </a>
@@ -199,34 +202,8 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="info-tab" role="tabpanel">
-                                <form action="{{ route('user-profile-information.update') }}" method="POST">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="mb-4">
-                                        <label class="form-label text-center w-100 fs-3"
-                                            for="name">{{ __('auth.name') }}</label>
-                                        <input type="text" name="name" class="form-control form-control-lg"
-                                            value="{{ $user->name }}">
-                                        @error('name', 'updateProfileInformation')
-                                            <div class="text-danger mt-1">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-4">
-                                        <label class="form-label text-center w-100 fs-3" for="email">Email</label>
-                                        <input type="email" name="email" class="form-control form-control-lg"
-                                            value="{{ $user->email }}">
-                                        @error('email', 'updateProfileInformation')
-                                            <div class="text-danger mt-1">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="d-grid">
-                                        <button type="submit" class="btn btn-base fs-3 py-2">
-                                            <span>
-                                                <i class="bi bi-check-lg me-2"></i>{{ __('user.updateInfo') }}
-                                            </span>
-                                        </button>
-                                    </div>
-                                </form>
+                                
+                                @livewire('user.edit')
                             </div>
                             <div class="tab-pane fade" id="password-tab" role="tabpanel">
                                 <form action="{{ route('user-password.update') }}" method="POST">

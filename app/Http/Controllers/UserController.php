@@ -31,5 +31,9 @@ class UserController extends Controller
         $user = $user;
         return view('user.messaggi', compact('product', 'user'));
     }
+
+    public function userEdit(){
+        return view('user.userEdit');
+    }
     
 }

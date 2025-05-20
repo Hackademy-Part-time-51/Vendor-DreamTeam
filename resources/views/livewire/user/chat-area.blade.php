@@ -33,7 +33,7 @@ $product = Product::all()->where('id', $product_id)->first();
                         style="max-width:75vw; word-break:break-word;">
                         <div class="small fw-bold fst-italic mb-1">
                             @if ($message->sender_id == Auth::id())
-                                Tu
+                                {{__('user.you')}}
                             @else
                                 {{ $message->sender->name ?? 'Utente' }}
                             @endif
@@ -50,7 +50,7 @@ $product = Product::all()->where('id', $product_id)->first();
         </div>
         <form wire:submit="sendMessage" class="border-top rounded-pill bg-white p-2 d-flex align-items-center gap-2">
             <input type="text" wire:model.live="text" class="form-control rounded-pill shadow-sm flex-grow-1"
-                placeholder="Scrivi un messaggio..." autocomplete="off" maxlength="500" required>
+                placeholder="{{__('user.writeMessage')}}..." autocomplete="off" maxlength="500" required>
             <button class="btn btn-base rounded-pill px-4 shadow-sm" type="submit"
                 @if (!$text) disabled @endif>
                 <span>
@@ -64,7 +64,7 @@ $product = Product::all()->where('id', $product_id)->first();
     @else
         <div class="flex-grow-1 d-flex flex-column align-items-center justify-content-center text-muted">
             <i class="bi bi-chat-dots fs-1 mb-2 text-center"></i>
-            <h3 class="fw-bold fs-2 text-center">Inizia una conversazione selezionando una chat.</h3>
+            <h3 class="fw-bold fs-2 text-center">{{__('user.StartConversation')}}</h3>
             <p class="fs-5 text-center"></p>
         </div>
     @endif

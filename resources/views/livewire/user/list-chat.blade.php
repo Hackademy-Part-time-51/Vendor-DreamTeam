@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-12  border-bottom d-flex flex-column px-3" >
         <div class="d-flex justify-content-between align-items-center p-3 border-bottom flex-shrink-0">
-            <h5 class="mb-0 display-4 text-center w-100">Lista chat 
+            <h5 class="mb-0 display-4 text-center w-100">{{__('user.chatList')}} 
                 {{-- <span>{{$messages->where('is_read',false)->where('receiver_id',Auth::user()->id or 'sender_id',Auth::user()->id)->count() }}</span> --}}
              </h5>
         </div>
