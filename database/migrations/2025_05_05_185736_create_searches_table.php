@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('city')->nullable();
             $table->integer('range')->nullable();
             $table->foreignId('category_id')
-                ->constrained();
+                ->nullable();
             $table->timestamps();
         });
     }

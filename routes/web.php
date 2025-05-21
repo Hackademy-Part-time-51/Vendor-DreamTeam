@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 Route::get('/',[PageController::class,'home'] )->name('home');
 
 Route::controller(PageController::class)->group(function () {
-    Route::get('/products/index','index')->name('products.index');
+    Route::get('/products/index','index')->name('products.index')->middleware('verified');
     Route::get('/products/create','create')->name('products.create')->middleware('verified');
     Route::get('/products/{product}','show')->name('products.show')->middleware('verified');
     Route::get('/products/{product}/edit','edit')->name('products.edit')->middleware(['verified']);
