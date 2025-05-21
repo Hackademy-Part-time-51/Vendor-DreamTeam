@@ -18,10 +18,9 @@ return[
     'noArticleFound'=>'No Articles Found',
     'seeOthers' => 'See Others',
     'to'=> 'to',
-    'browseItems'=>'Browse thousands of items, new and used',
+    'browseItems'=>'Browse thousands of items.',
     'popularSellers'=>'Discover the most popular sellers',
     'addTofavourites'=> 'Add to favourites',
-    'orCart'=> 'Or to the cart',
     'shopClick'=>'And buy them with one click',
     'workWithUs'=>'Do you want to work with us?',
     'clickContact'=> 'click here to contact us',
@@ -29,6 +28,6 @@ return[
 
     'exploreRage' => "Explore our wide range of items and find what you're looking for.",
     'appreciatedSellers' => 'Discover the most reliable and appreciated sellers in our community.',
-    'favoriteItems' => 'Save your favorite items or add them to your cart with one click.'
+    'favoriteItems' => 'Save your favorite items with one click.'
 
 ];

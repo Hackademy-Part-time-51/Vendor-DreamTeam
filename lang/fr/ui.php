@@ -18,7 +18,7 @@ return [
   'noArticleFound' => 'Aucun article trouvé',
   'seeOthers' => 'Voir d\'autres',
   'to' => 'sur',
-  'browseItems' => 'Parcourez des milliers d\'articles, neufs et d\'occasion',
+  'browseItems' => 'Parcourez des milliers d\'articles.',
   'popularSellers' => 'Découvrez les vendeurs les plus populaires',
   'addTofavourites' => 'Ajouter aux favoris',
   'orCart' => 'Ou dans le panier',
@@ -30,7 +30,7 @@ return [
 
   'exploreRage' => "Explore notre large gamme d'articles et trouvez ce que vous cherchez.",
   'appreciatedSellers' => 'Découvrez les vendeurs les plus fiables et appréciés de notre communauté.',
-  'favoriteItems' => "Enregistrez vos articles préférés ou ajoutez-les à votre panier d'un simple clic."
+  'favoriteItems' => "Enregistrez vos articles préférés d'un simple clic."
 
 
 ];

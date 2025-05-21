@@ -35,10 +35,11 @@ body {
 }
 
 #bigNavbar {
+         background-image: url('../IMAGES/sfondo.jpg');
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
-    background-position: center !important;
+    background-position: center !important; 
     z-index: 100;
 }
 

@@ -125,9 +125,9 @@
                         </div>
                         <div class="card bg-light border-0 ">
                             <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex gap-3 justify-content-between align-items-center mb-3">
                                     <h5 class="card-title text-blu mb-0">{{__('product.description')}}</h5>
-                                    <button wire:click="translate" class="btn btn-base btn-sm">
+                                    <button wire:click="translate" class="btn btn-base  btn-sm">
                                         <span>
                                         <i class="bi bi-translate me-2"></i>
                                         {{ $setTranslate ? __('product.original') : __('product.translate') }}

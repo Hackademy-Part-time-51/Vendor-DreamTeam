@@ -18,7 +18,7 @@ return[
     'noArticleFound'=> 'Non sono stati trovati articoli',
     'seeOthers'=> 'Vedi Altri',
     'to'=> 'su',
-    'browseItems'=>'Sfoglia migliaia di articoli, nuovi e usati',
+    'browseItems'=>'Sfoglia migliaia di articoli.',
     'popularSellers'=>'Scopri i venditori più gettonati',
     'addTofavourites'=> 'Aggiungi ai preferiti',
     'orCart'=> 'O nell carrello',
@@ -29,7 +29,7 @@ return[
 
     'exploreRage'=> 'Esplora la nostra vasta gamma di articoli e trova ciò che cerchi.',
     'appreciatedSellers'=>'Scopri i venditori più affidabili e apprezzati della nostra community.',
-    'favoriteItems'=>'Salva i tuoi articoli preferiti o aggiungili al carrello con un click.'
+    'favoriteItems'=>'Salva i tuoi articoli preferiti con un click.'
 
 
 

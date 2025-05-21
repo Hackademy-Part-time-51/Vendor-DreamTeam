@@ -29,16 +29,6 @@
                 </p>
             </div>
         </section>
-        <section class="sellers-section d-flex align-items-center justify-content-center text-center bg-light min-vh-100">
-            <div class="container">
-                <h2 class="display-2 text-blu fw-semibold">
-                    {{ __('ui.popularSellers') }}
-                </h2>
-                <p class="lead text-muted">
-                    {{__('ui.appreciatedSellers')}}
-                </p>
-            </div>
-        </section>
         <section class="favorites-section d-flex align-items-center justify-content-center text-center bg-white min-vh-100">
             <div class="container">
                 <h2 class="display-2 text-blu fw-semibold">
