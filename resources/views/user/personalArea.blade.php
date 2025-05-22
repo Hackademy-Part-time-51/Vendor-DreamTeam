@@ -153,7 +153,7 @@
             <h5 class="card-title  display-5 mb-0 text-center ">
                 <i class="bi bi-hourglass-top text-primary-emphasis"></i> {{ __('user.itemsHold') }}
                 <span class="badge bg-blu rounded-pill px-3 py-2">
-                    {{ Auth::user()->favorites->count() }}
+                    {{ Auth::user()->products->where('is_accepted', null)->count() }}
                 </span>
             </h5>
             @if ($loadingProducts->isEmpty())

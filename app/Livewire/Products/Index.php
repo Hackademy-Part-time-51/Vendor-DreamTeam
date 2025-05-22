@@ -16,9 +16,9 @@ class Index extends Component
 {
     public $products;
     public $categories;
-    protected $favorites = '';
-    public $orderbydate = '';
-    public $orderbyaz = '';
+    protected $favorites = null;
+    public $orderbydate = null;
+    public $orderbyaz = null;
     public $search = '';
     public $category;
     protected $scroll = 18;
@@ -99,13 +99,13 @@ class Index extends Component
     public function resetFilter()
     {
         $this->search = '';
-        $this->category = '';
+        $this->category = null;
         $this->orderbydate = '';
         $this->orderbyaz = '';
-        $this->minPrice = '';
-        $this->maxPrice = '';
+        $this->minPrice =null;
+        $this->maxPrice=null ;
         $this->scroll = 18;
-        $this->myCity = '';
+        $this->myCity = null;
         $this->myRadius;
     }
 

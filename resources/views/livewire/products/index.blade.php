@@ -23,7 +23,7 @@
                         <div class="mb-3">
                             <label class="form-label small text-center w-100 fs-5 fw-light">{{ __('ui.category') }}</label>
                             <select wire:model.live="category" class="form-select">
-                                <option value="">{{ __('ui.allCategory') }}</option>
+                                <option value=''>{{ __('ui.allCategory') }}</option>
                                 @foreach ($categories as $cat)
                                     <option value="{{ $cat->id }}" @selected($cat->id == $category)>
                                         {{ __('category.' . $cat->name) }}
