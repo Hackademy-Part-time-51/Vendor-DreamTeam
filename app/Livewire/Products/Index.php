@@ -110,7 +110,11 @@ class Index extends Component
     }
 
     public function saveFilter()
-    {
+    {   
+
+        if($this->category == "") {
+            $this->category = null;
+        }
         Search::create([
             'user_id' => Auth::id(),
             'search' => $this->search,
